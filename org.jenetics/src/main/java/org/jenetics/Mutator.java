@@ -72,13 +72,6 @@ import org.jenetics.util.RandomRegistry;
 public class Mutator<G extends Gene<?, G>> extends AbstractAlterer<G> {
 
 	/**
-	 * Default constructor, with probability = 0.01.
-	 */
-	public Mutator() {
-		this(0.01);
-	}
-
-	/**
 	 * Construct a Mutation object which a given mutation probability.
 	 *
 	 * @param probability Mutation probability. The given probability is
@@ -89,6 +82,13 @@ public class Mutator<G extends Gene<?, G>> extends AbstractAlterer<G> {
 	 */
 	public Mutator(final double probability) {
 		super(probability);
+	}
+
+	/**
+	 * Default constructor, with probability = 0.01.
+	 */
+	public Mutator() {
+		this(0.01);
 	}
 
 	/**
@@ -128,7 +128,8 @@ public class Mutator<G extends Gene<?, G>> extends AbstractAlterer<G> {
 
 		final Random random = RandomRegistry.getRandom();
 		final IndexStream stream = IndexStream.Random(genotype.length(), p, random);
-		int start = stream.next();
+		final int start = stream.next();
+
 		if (start != -1) {
 			final MSeq<Chromosome<G>> chromosomes = genotype.toSeq().copy();
 
