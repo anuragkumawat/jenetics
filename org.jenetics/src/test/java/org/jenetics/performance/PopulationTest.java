@@ -67,11 +67,11 @@ public class PopulationTest {
 	};
 
 	@Test(3)
-	public TestCase sort = new TestCase("sort()", LOOPS, SIZE) {
+	public TestCase sort = new TestCase("populationSort()", LOOPS, SIZE) {
 
 		@Override
 		protected void test() {
-			_population.sort();
+			_population.populationSort();
 		}
 
 		@Override

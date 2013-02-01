@@ -54,7 +54,7 @@ public final class TruncationSelector<
 
 	/**
 	 * This method sorts the population in descending order while calculating the
-	 * selection probabilities. (The method {@link Population#sort()} is called
+	 * selection probabilities. (The method {@link Population#populationSort()} is called
 	 * by this method.)
 	 *
 	 * @throws IllegalArgumentException if the sample size is greater than the
@@ -83,7 +83,7 @@ public final class TruncationSelector<
 			));
 		}
 
-		population.sort(opt.<C>descending());
+		population.populationSort(opt.<C>descending());
 		return new Population<>(population.subList(0, count));
 	}
 

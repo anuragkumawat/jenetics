@@ -233,11 +233,11 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 	 * Sorting the phenotypes in this population according to its fitness
 	 * value in descending order.
 	 */
-	public void sort() {
-		sort(Optimize.MAXIMUM.<C>descending());
+	public void populationSort() {
+		populationSort(Optimize.MAXIMUM.<C>descending());
 	}
 
-	public void sort(final Comparator<? super C> comparator) {
+	public void populationSort(final Comparator<? super C> comparator) {
 		quicksort(0, size() - 1, comparator);
 	}
 

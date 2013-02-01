@@ -134,7 +134,7 @@ public class ArrayTest {
 	};
 
 	@Test(8)
-	public final TestCase sort = new TestCase("sort()", 50, SIZE) {
+	public final TestCase sort = new TestCase("populationSort()", 50, SIZE) {
 		private final Comparator<Integer> _comparator = new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {

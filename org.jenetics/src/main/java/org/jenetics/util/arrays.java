@@ -172,7 +172,7 @@ public final class arrays extends StaticObject {
 	}
 
 	/**
-	 * Calls the sort method on the {@link Arrays} class.
+	 * Calls the populationSort method on the {@link Arrays} class.
 	 *
 	 * @throws NullPointerException if the give array is {@code null}.
 	 * @throws UnsupportedOperationException if the array is sealed

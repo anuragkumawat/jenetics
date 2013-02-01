@@ -61,7 +61,7 @@ public class StochasticUniversalSelector<
 
 	/**
 	 * This method sorts the population in descending order while calculating the
-	 * selection probabilities. (The method {@link Population#sort()} is called
+	 * selection probabilities. (The method {@link Population#populationSort()} is called
 	 * by this method.)
 	 */
 	@Override
@@ -111,7 +111,7 @@ public class StochasticUniversalSelector<
 		final Population<G, N> population,
 		final int count
 	) {
-		population.sort();
+		population.populationSort();
 		return super.probabilities(population, count);
 	}
 
