@@ -195,8 +195,8 @@ public class accumulatorsTest {
 		final accumulators.Min<Integer> min = new accumulators.Min<>();
 		accumulators.accumulate(
 			data,
-			max.map(functions.StringToInteger),
-			min.map(functions.StringLength)
+			max.<String>map(s -> Integer.parseInt(s)),
+			min.<String>map(s -> s.length())
 		);
 		System.out.println(String.format(
 			"Max value:  %s, min length: %s.", max.getMax(), min.getMin()
