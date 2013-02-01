@@ -75,7 +75,7 @@ public class MSeqListAdapterTest {
 		assertSameElements(seq, list);
 
 		seq.fill(_factory);
-		seq.forall(object.NonNull);
+		seq.foreach(object.NonNull);
 
 		assertSameElements(seq, list);
 	}

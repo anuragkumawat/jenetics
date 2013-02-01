@@ -382,7 +382,7 @@ public final class Genotype<G extends Gene<?, G>>
 		final Chromosome<G>... chromosomes
 	) {
 		final Array<Chromosome<G>> array = new Array<>(chromosomes);
-		if (!array.forall(object.NonNull)) {
+		if (!array.forall(o -> o != null)) {
 			throw new NullPointerException("One of the given chromosomes is null.");
 		}
 
