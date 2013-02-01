@@ -67,7 +67,10 @@ public interface ISeq<T>
 	 * @param seq the sequence to cast.
 	 * @return the up-casted sequence.
 	 */
-	public <A> ISeq<A> upcast(final ISeq<? extends A> seq);
+	@SuppressWarnings("unchecked")
+	public default <A> ISeq<A> upcast(final ISeq<? extends A> seq) {
+		return (ISeq<A>)seq;
+	}
 
 	/**
 	 * Return a shallow copy of this sequence. The sequence elements are not
