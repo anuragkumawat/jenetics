@@ -22,6 +22,8 @@
  */
 package org.jenetics.util;
 
+import java.util.function.Function;
+
 import javolution.lang.Immutable;
 
 /**

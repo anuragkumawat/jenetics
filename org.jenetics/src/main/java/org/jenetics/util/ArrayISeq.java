@@ -24,6 +24,8 @@ package org.jenetics.util;
 
 import static org.jenetics.util.object.nonNull;
 
+import java.util.function.Function;
+
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0

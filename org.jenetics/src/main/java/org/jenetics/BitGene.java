@@ -22,11 +22,12 @@
  */
 package org.jenetics;
 
+import java.util.function.Function;
+
 import javolution.xml.XMLFormat;
 import javolution.xml.XMLSerializable;
 import javolution.xml.stream.XMLStreamException;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 
 /**

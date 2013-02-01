@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
+import java.util.function.Function;
 
 import javolution.xml.XMLFormat;
 import javolution.xml.XMLSerializable;
@@ -38,7 +39,6 @@ import javolution.xml.stream.XMLStreamException;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.bit;

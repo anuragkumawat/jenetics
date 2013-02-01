@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
+import java.util.function.Function;
 
 import javolution.context.ObjectFactory;
 import javolution.xml.XMLFormat;
@@ -34,7 +35,6 @@ import javolution.xml.stream.XMLStreamException;
 import org.jscience.mathematics.number.Float64;
 import org.jscience.mathematics.structure.GroupMultiplicative;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 
 /**

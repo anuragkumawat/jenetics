@@ -28,6 +28,7 @@ import static org.jenetics.util.object.hashCodeOf;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.function.Function;
 
 import javolution.text.CharArray;
 import javolution.xml.XMLFormat;
@@ -37,7 +38,6 @@ import javolution.xml.stream.XMLStreamException;
 import org.jenetics.util.Array;
 import org.jenetics.util.CharSeq;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ISeq;
 
 /**

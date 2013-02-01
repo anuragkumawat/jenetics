@@ -25,6 +25,7 @@ package org.jenetics.example;
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Integer64;
 
@@ -39,7 +40,6 @@ import org.jenetics.StochasticUniversalSelector;
 import org.jenetics.TournamentSelector;
 import org.jenetics.util.CharSeq;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

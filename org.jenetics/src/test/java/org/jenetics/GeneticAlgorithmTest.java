@@ -27,13 +27,13 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
+import java.util.function.Function;
 
 import javolution.context.ConcurrentContext;
 import javolution.context.LocalContext;
 
 import org.jenetics.util.Factory;
 import org.jenetics.util.ForkJoinContext;
-import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;

@@ -24,12 +24,11 @@ package org.jenetics;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import org.jenetics.util.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

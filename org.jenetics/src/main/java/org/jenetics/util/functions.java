@@ -26,6 +26,7 @@ import static org.jenetics.util.object.nonNull;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 import org.jscience.mathematics.number.Integer64;

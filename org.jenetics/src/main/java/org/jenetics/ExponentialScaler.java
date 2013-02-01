@@ -26,12 +26,11 @@ import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import javolution.lang.Immutable;
 
 import org.jscience.mathematics.number.Float64;
-
-import org.jenetics.util.Function;
 
 /**
  * Implements an exponential fitness scaling, whereby all fitness values are

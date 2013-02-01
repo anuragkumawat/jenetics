@@ -30,8 +30,8 @@ import static org.jenetics.util.functions.Null;
 
 import java.util.Iterator;
 import java.util.RandomAccess;
+import java.util.function.Function;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.ISeq;
 
 /**

@@ -25,11 +25,12 @@ package org.jenetics;
 import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
 
+import java.util.function.Function;
+
 import javolution.context.ObjectFactory;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.object;

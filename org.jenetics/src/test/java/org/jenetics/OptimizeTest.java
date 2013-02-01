@@ -24,11 +24,10 @@ package org.jenetics;
 
 import java.io.Serializable;
 import java.util.Comparator;
+import java.util.function.Function;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import org.jenetics.util.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

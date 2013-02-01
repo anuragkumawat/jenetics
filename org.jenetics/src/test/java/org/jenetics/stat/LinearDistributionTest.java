@@ -23,13 +23,13 @@
 package org.jenetics.stat;
 
 import java.util.Random;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ObjectTester;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Range;

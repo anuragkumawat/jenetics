@@ -27,6 +27,7 @@ import static java.lang.Math.sin;
 import static java.lang.Math.toRadians;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import javax.measure.Measure;
 import javax.measure.unit.SI;
@@ -39,7 +40,6 @@ import org.jenetics.Genotype;
 import org.jenetics.Phenotype;
 import org.jenetics.Population;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.functions;
 
 /**

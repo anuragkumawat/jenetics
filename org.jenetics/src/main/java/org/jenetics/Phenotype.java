@@ -26,6 +26,8 @@ import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
 import static org.jenetics.util.object.nonNull;
 
+import java.util.function.Function;
+
 import javolution.context.ObjectFactory;
 import javolution.lang.Immutable;
 import javolution.lang.Realtime;
@@ -34,7 +36,6 @@ import javolution.xml.XMLFormat;
 import javolution.xml.XMLSerializable;
 import javolution.xml.stream.XMLStreamException;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.Verifiable;
 import org.jenetics.util.functions;
 

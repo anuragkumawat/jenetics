@@ -24,6 +24,7 @@ package org.jenetics.util;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * Some helper methods for creating hash codes and comparing values.

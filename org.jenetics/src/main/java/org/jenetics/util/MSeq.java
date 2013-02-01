@@ -24,6 +24,7 @@ package org.jenetics.util;
 
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.function.Function;
 
 /**
  * Mutable, ordered, fixed sized sequence.

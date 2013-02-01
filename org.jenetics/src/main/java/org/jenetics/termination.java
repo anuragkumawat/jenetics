@@ -22,7 +22,8 @@
  */
 package org.jenetics;
 
-import org.jenetics.util.Function;
+import java.util.function.Function;
+
 import org.jenetics.util.StaticObject;
 
 /**

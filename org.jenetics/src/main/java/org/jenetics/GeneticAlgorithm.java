@@ -32,13 +32,13 @@ import java.util.Collection;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.Concurrency;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.Timer;
 import org.jenetics.util.functions;
 

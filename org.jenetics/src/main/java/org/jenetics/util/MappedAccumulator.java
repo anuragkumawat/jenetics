@@ -26,6 +26,8 @@ import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
 import static org.jenetics.util.object.nonNull;
 
+import java.util.function.Function;
+
 /**
  * Abstract implementation of the {@link Accumulator} interface which defines a
  * {@code samples} property which is incremented by the {@link #accumulate(Object)}

@@ -28,10 +28,10 @@ import static org.jenetics.util.object.nonNull;
 
 import java.io.Serializable;
 import java.util.Locale;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.Range;
 
 

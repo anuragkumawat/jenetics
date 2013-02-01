@@ -22,9 +22,9 @@
  */
 package org.jenetics.stat;
 
-import org.jscience.mathematics.number.Float64;
+import java.util.function.Function;
 
-import org.jenetics.util.Function;
+import org.jscience.mathematics.number.Float64;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

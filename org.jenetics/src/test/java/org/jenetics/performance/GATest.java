@@ -23,6 +23,7 @@
 package org.jenetics.performance;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 
@@ -37,7 +38,6 @@ import org.jenetics.Mutator;
 import org.jenetics.RouletteWheelSelector;
 import org.jenetics.SinglePointCrossover;
 import org.jenetics.util.Array;
-import org.jenetics.util.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

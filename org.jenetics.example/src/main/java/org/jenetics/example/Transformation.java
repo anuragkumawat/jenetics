@@ -28,6 +28,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
+import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 
@@ -39,7 +40,6 @@ import org.jenetics.Genotype;
 import org.jenetics.MeanAlterer;
 import org.jenetics.Mutator;
 import org.jenetics.RouletteWheelSelector;
-import org.jenetics.util.Function;
 import org.jenetics.util.Factory;
 
 /**
