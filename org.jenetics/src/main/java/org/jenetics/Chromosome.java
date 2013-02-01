@@ -67,7 +67,9 @@ public interface Chromosome<G extends Gene<?, G>>
 	 *
 	 * @return the first gene of this chromosome.
 	 */
-	public G getGene();
+	public default G getGene() {
+		return getGene(0);
+	}
 
 	/**
 	 * Return the gene on the specified index.
