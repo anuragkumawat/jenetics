@@ -110,30 +110,12 @@ public class TournamentSelector<
 			));
 		}
 
-		final Population<G, C> pop = new Population<>(count);
-		final Factory<Phenotype<G, C>> factory = factory(
-			population, opt, _sampleSize, RandomRegistry.getRandom()
+		final Random random = RandomRegistry.getRandom();
+		final Factory<Phenotype<G, C>> factory = () -> (
+			select(population, opt, _sampleSize, random)
 		);
 
-		return pop.fill(factory, count);
-	}
-
-	private static <
-		G extends Gene<?, G>,
-		C extends Comparable<? super C>
-	>
-	Factory<Phenotype<G, C>> factory(
-		final Population<G, C> population,
-		final Optimize opt,
-		final int sampleSize,
-		final Random random
-	) {
-		return new Factory<Phenotype<G, C>>() {
-			@Override
-			public Phenotype<G, C> newInstance() {
-				return select(population, opt, sampleSize, random);
-			}
-		};
+		return new Population<G, C>(count).fill(factory, count);
 	}
 
 	private static <
