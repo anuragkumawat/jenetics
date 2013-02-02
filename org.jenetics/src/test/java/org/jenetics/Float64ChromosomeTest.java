@@ -91,34 +91,6 @@ public class Float64ChromosomeTest
     }
 
 	@Test
-	public void firstGeneConverter() {
-		final Float64Chromosome c = getFactory().newInstance();
-
-		Assert.assertEquals(Float64Chromosome.Gene.apply(c), c.getGene(0));
-	}
-
-	@Test
-	public void geneConverter() {
-		final Float64Chromosome c = getFactory().newInstance();
-
-		for (int i = 0; i < c.length(); ++i) {
-			Assert.assertEquals(
-					Float64Chromosome.Gene(i).apply(c),
-					c.getGene(i)
-				);
-		}
-	}
-
-	@Test
-	public void genesConverter() {
-		final Float64Chromosome c = getFactory().newInstance();
-		Assert.assertEquals(
-				Float64Chromosome.Genes.apply(c),
-				c.toSeq()
-			);
-	}
-
-	@Test
 	public void objectSerializationCompatibility() throws IOException {
 		final Random random = new LCG64ShiftRandom.ThreadSafe(0);
 		LocalContext.enter();
