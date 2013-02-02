@@ -64,31 +64,6 @@ public final class Integer64Gene
 	}
 
 	/* *************************************************************************
-	 *  Property access methods.
-	 * ************************************************************************/
-
-	/**
-	 * Converter for accessing the value from a given number gene.
-	 */
-	public static final Function<Integer64Gene, Integer64> Allele = g -> g._value;
-
-	/**
-	 * Converter for accessing the allele from a given number gene.
-	 */
-	public static final Function<Integer64Gene, Integer64> Value = Allele;
-
-	/**
-	 * Converter for accessing the allowed minimum from a given number gene.
-	 */
-	public static final Function<Integer64Gene, Integer64> Min = g -> g._min;
-
-	/**
-	 * Converter for accessing the allowed minimum from a given number gene.
-	 */
-	public static final Function<Integer64Gene, Integer64> Max = g -> g._max;
-
-
-	/* *************************************************************************
 	 *  Factory methods
 	 * ************************************************************************/
 
