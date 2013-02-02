@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Block;
 import java.util.function.Function;
-
+import java.util.function.Predicate;
 
 /**
  * Static helper methods concerning arrays.
@@ -847,7 +847,7 @@ public final class arrays extends StaticObject {
 	 */
 	public static <T> int indexWhere(
 		final T[] array,
-		final Function<? super T, Boolean> predicate
+		final Predicate<? super T> predicate
 	) {
 		nonNull(array, "Array");
 		nonNull(predicate, "Predicate");
@@ -855,7 +855,7 @@ public final class arrays extends StaticObject {
 		int index = -1;
 
 		for (int i = 0; i < array.length && index == -1; ++i) {
-			if (predicate.apply(array[i])) {
+			if (predicate.test(array[i])) {
 				index = i;
 			}
 		}
@@ -868,7 +868,7 @@ public final class arrays extends StaticObject {
 	 */
 	public static <T> int indexWhere(
 		final Iterable<? extends T> values,
-		final Function<? super T, Boolean> predicate
+		final Predicate<? super T> predicate
 	) {
 		nonNull(values, "Array");
 		nonNull(predicate, "Predicate");
@@ -878,7 +878,7 @@ public final class arrays extends StaticObject {
 		for (Iterator<? extends T>
 			it = values.iterator(); it.hasNext() && index == -1; ++i)
 		{
-			if (predicate.apply(it.next())) {
+			if (predicate.test(it.next())) {
 				index = i;
 			}
 		}

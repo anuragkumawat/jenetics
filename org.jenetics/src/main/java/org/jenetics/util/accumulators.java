@@ -374,20 +374,20 @@ public final class accumulators extends StaticObject {
 	) {
 		switch (accus.length()) {
 		case 1:
-			accumulators.<T>accumulate(
+			accumulators.accumulate(
 				values,
 				accus.get(0)
 			);
 			break;
 		case 2:
-			accumulators.<T>accumulate(
+			accumulators.accumulate(
 				values,
 				accus.get(0),
 				accus.get(1)
 			);
 			break;
 		case 3:
-			accumulators.<T>accumulate(
+			accumulators.accumulate(
 				values,
 				accus.get(0),
 				accus.get(1),
@@ -395,7 +395,7 @@ public final class accumulators extends StaticObject {
 			);
 			break;
 		case 4:
-			accumulators.<T>accumulate(
+			accumulators.accumulate(
 				values,
 				accus.get(0),
 				accus.get(1),
@@ -404,7 +404,7 @@ public final class accumulators extends StaticObject {
 			);
 			break;
 		case 5:
-			accumulators.<T>accumulate(
+			accumulators.accumulate(
 				values,
 				accus.get(0),
 				accus.get(1),
@@ -494,7 +494,7 @@ public final class accumulators extends StaticObject {
 	) {
 		try (Concurrency c = Concurrency.start()) {
 			c.execute(new Acc<>(values, a1));
-			c.execute(new Acc<>(values, a2));;
+			c.execute(new Acc<>(values, a2));
 		}
 	}
 
