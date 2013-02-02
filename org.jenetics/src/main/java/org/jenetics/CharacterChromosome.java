@@ -227,23 +227,22 @@ public class CharacterChromosome
 	 * {@link Chromosome}.
 	 */
 	public static final Function<Chromosome<CharacterGene>, ISeq<CharacterGene>>
-		Genes = AbstractChromosome.genes();
+		Genes = ch -> ch.toSeq();
 
 	/**
 	 * Return a {@link Function} which returns the first {@link Gene} from this
 	 * {@link Chromosome}.
 	 */
 	public static final Function<Chromosome<CharacterGene>, CharacterGene>
-		Gene = AbstractChromosome.gene();
+		Gene = ch -> ch.getGene();
 
 	/**
 	 * Return a {@link Function} which returns the {@link Gene} with the given
 	 * {@code index} from this {@link Chromosome}.
 	 */
 	public static final Function<Chromosome<CharacterGene>, CharacterGene>
-	Gene(final int index)
-	{
-		return AbstractChromosome.gene(index);
+	Gene(final int index) {
+		return ch -> ch.getGene(index);
 	}
 
 	/* *************************************************************************

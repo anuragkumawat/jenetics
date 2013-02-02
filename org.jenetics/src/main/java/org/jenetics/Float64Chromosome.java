@@ -168,23 +168,22 @@ public class Float64Chromosome
 	 * {@link Chromosome}.
 	 */
 	public static final Function<AbstractChromosome<Float64Gene>, ISeq<Float64Gene>>
-		Genes = AbstractChromosome.genes();
+		Genes = ch -> ch.toSeq();
 
 	/**
 	 * Return a {@link Function} which returns the first {@link Gene} from this
 	 * {@link Chromosome}.
 	 */
 	public static final Function<Chromosome<Float64Gene>, Float64Gene>
-		Gene = AbstractChromosome.gene();
+		Gene = ch -> ch.getGene();
 
 	/**
 	 * Return a {@link Function} which returns the {@link Gene} with the given
 	 * {@code index} from this {@link Chromosome}.
 	 */
 	public static final Function<Chromosome<Float64Gene>, Float64Gene>
-	Gene(final int index)
-	{
-		return AbstractChromosome.gene(index);
+	Gene(final int index) {
+		return ch -> ch.getGene(index);
 	}
 
 	/* *************************************************************************

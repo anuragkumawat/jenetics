@@ -149,38 +149,6 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 		return _genes.toString();
 	}
 
-
-	/* *************************************************************************
-	 *  Property access methods
-	 * ************************************************************************/
-
-	/**
-	 * Return a {@link Function} which returns the first {@link Gene} from this
-	 * {@link Chromosome}.
-	 */
-	static <G extends Gene<?, G>, C extends Chromosome<G>>
-	Function<C, G> gene() {
-		return value -> value.getGene();
-	}
-
-	/**
-	 * Return a {@link Function} which returns the {@link Gene} with the given
-	 * {@code index} from this {@link Chromosome}.
-	 */
-	static <G extends Gene<?, G>, C extends Chromosome<G>>
-	Function<C, G> gene(final int index) {
-		return value -> value.getGene(index);
-	}
-
-	/**
-	 * Return a {@link Function} which returns the gene array from this
-	 * {@link Chromosome}.
-	 */
-	static <G extends Gene<?, G>, C extends Chromosome<G>>
-	Function<C, ISeq<G>> genes() {
-		return value -> value.toSeq();
-	}
-
 }
 
 
