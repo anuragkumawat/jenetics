@@ -243,36 +243,9 @@ public final class Genotype<G extends Gene<?, G>>
 		return _chromosomes.toString();
 	}
 
-
 	/* *************************************************************************
-	 *  Property access methods
+	 *  Static factory methods
 	 * ************************************************************************/
-
-	/**
-	 * Return a converter which access the chromosome array of this genotype.
-	 */
-	public static <T extends Gene<?, T>>
-	Function<Genotype<T>, ISeq<Chromosome<T>>> Chromosomes() {
-		return gt -> gt.toSeq();
-	}
-
-	/**
-	 * Return a converter which access the chromosome with the given index of
-	 * this genotype.
-	 */
-	public static <T extends Gene<?, T>>
-	Function<Genotype<T>, Chromosome<T>> Chromosome(final int index) {
-		return gt -> gt.getChromosome(index);
-	}
-
-	/**
-	 * Return a converter which access the first chromosome of this genotype.
-	 */
-	public static <T extends Gene<?, T>>
-	Function<Genotype<T>, Chromosome<T>> Chromosome() {
-		return gt -> gt.getChromosome();
-	}
-
 
 	/**
 	 * Create a new Genotype from a given array of <code>Chromosomes</code>.
