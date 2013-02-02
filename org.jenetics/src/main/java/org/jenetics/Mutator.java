@@ -31,7 +31,6 @@ import org.jenetics.util.IndexStream;
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
 
-
 /**
  * This class is for mutating a chromosomes of an given population. There are
  * two distinct roles mutation plays

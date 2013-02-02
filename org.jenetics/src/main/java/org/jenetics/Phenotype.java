@@ -290,18 +290,6 @@ public final class Phenotype<
 	 * ************************************************************************/
 
 	/**
-	 * Create a {@link Function} which return the phenotype age when calling
-	 * {@code converter.convert(phenotype)}.
-	 *
-	 * @param currentGeneration the current generation.
-	 * @return an age {@link Function}.
-	 */
-	public static Function<Phenotype<?, ?>, Integer>
-	Age(final int currentGeneration) {
-		return pt -> pt.getAge(currentGeneration);
-	}
-
-	/**
 	 * Create a {@link Function} which return the phenotype generation when
 	 * calling {@code converter.convert(phenotype)}.
 	 *

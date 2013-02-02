@@ -716,10 +716,10 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 			final MinMax<Phenotype<G, C>> minMax = new MinMax<>();
 			final Variance<Integer> age = new Variance<>();
 
-			accumulators.<Phenotype<G, C>>accumulate(
+			accumulators.accumulate(
 					population,
 					minMax,
-					age.map(Phenotype.Age(generation))
+					age.<Phenotype<G, C>>map(pt -> pt.getAge(generation))
 				);
 
 			builder.bestPhenotype(opt.best(minMax.getMax(), minMax.getMin()));

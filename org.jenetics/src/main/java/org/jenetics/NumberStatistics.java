@@ -322,10 +322,10 @@ public class NumberStatistics<
 			final Variance<Integer> age = new Variance<>();
 			final Variance<R> fitness = new Variance<>();
 
-			accumulators.<Phenotype<G, R>>accumulate(
+			accumulators.accumulate(
 					population,
 					minMax,
-					age.map(Phenotype.Age(generation)),
+					age.<Phenotype<G, R>>map(pt -> pt.getAge(generation)),
 					fitness.map(Phenotype.<R>Fitness())
 				);
 			builder.bestPhenotype(opt.best(minMax.getMax(), minMax.getMin()));
