@@ -94,13 +94,13 @@ public abstract class SelectorTester<S extends Selector<Float64Gene, Float64>>
 				selector.select(population, npopulation, Optimize.MAXIMUM);
 
 			accumulate(
-					selection,
-					histogram
-						.map(Float64Gene.Allele)
-						.map(Float64Chromosome.Gene)
-						.map(Genotype.<Float64Gene>Chromosome())
-						.map(Phenotype.<Float64Gene>Genotype())
-				);
+				selection,
+				histogram
+					.map(Float64Gene.Allele)
+					.map(Float64Chromosome.Gene)
+					.map(Genotype.<Float64Gene>Chromosome())
+					.<Phenotype<Float64Gene, Float64>>map(pt -> pt.getGenotype())
+			);
 
 			population.clear();
 		}
