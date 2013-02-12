@@ -34,6 +34,7 @@ import java.util.ListIterator;
 import java.util.Random;
 import java.util.RandomAccess;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import javolution.context.StackContext;
 import javolution.util.FastList;
@@ -527,10 +528,10 @@ public final class Array<T>
 	}
 
 	@Override
-	public Array<T> fill(final Factory<? extends T> factory) {
+	public Array<T> fill(final Supplier<? extends T> supplier) {
 		_array.cloneIfSealed();
 		for (int i = _start; i < _end; ++i) {
-			_array.data[i] = factory.newInstance();
+			_array.data[i] = supplier.get();
 		}
 		return this;
 	}

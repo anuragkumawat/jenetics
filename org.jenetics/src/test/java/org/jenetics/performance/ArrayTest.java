@@ -47,13 +47,6 @@ public class ArrayTest {
 		}
 	};
 
-	private static final Factory<Integer> INTEGER_FACTORY = new Factory<Integer>() {
-		@Override
-		public Integer newInstance() {
-			return 1;
-		}
-	};
-
 	private static final int LOOPS = 20;
 	private static int SIZE = 1000000;
 
@@ -65,7 +58,7 @@ public class ArrayTest {
 	@Test(1)
 	public final TestCase forLoopGetter = new TestCase("for-loop (getter)", LOOPS, SIZE) {
 		{
-			_array.fill(INTEGER_FACTORY);
+			_array.fill(() -> 1);
 			for (int i = _array.length(); --i >= 0;) {
 				_array.get(i);
 			}
@@ -109,7 +102,7 @@ public class ArrayTest {
 	public final TestCase fillFactory = new TestCase("fill(Factory)", LOOPS, SIZE) {
 		@Override
 		protected void test() {
-			_array.fill(INTEGER_FACTORY);
+			_array.fill(() -> 1);
 		}
 	};
 

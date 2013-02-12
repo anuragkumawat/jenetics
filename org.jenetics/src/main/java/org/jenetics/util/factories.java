@@ -22,6 +22,8 @@
  */
 package org.jenetics.util;
 
+import java.util.function.Supplier;
+
 /**
  * Contains factory (methods) for some 'primitive' types.
  *
@@ -38,7 +40,7 @@ public final class factories extends StaticObject {
 	 *
 	 * @return an integer factory.
 	 */
-	public static Factory<Integer> Int() {
+	public static Supplier<Integer> Int() {
 		return Int(1);
 	}
 
@@ -49,7 +51,7 @@ public final class factories extends StaticObject {
 	 * @param step the gap between the generated integers.
 	 * @return an integer factory.
 	 */
-	public static Factory<Integer> Int(final int step) {
+	public static Supplier<Integer> Int(final int step) {
 		return Int(0, step);
 	}
 
@@ -60,12 +62,12 @@ public final class factories extends StaticObject {
 	 * @param step the gap between the generated integers.
 	 * @return an integer factory.
 	 */
-	public static Factory<Integer> Int(final int start, final int step) {
-		return new Factory<Integer>() {
+	public static Supplier<Integer> Int(final int start, final int step) {
+		return new Supplier<Integer>() {
 			private int _value = start;
 
 			@Override
-			public Integer newInstance() {
+			public Integer get() {
 				return next();
 			}
 
