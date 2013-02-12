@@ -65,43 +65,6 @@ public abstract class MappedAccumulator<T>
 		++_samples;
 	}
 
-	/**
-	 * Return a view of this adapter with a different type {@code B}.
-	 *
-	 * Usage example:
-	 * [code]
-	 * // Convert a string on the fly into a double value.
-	 * final Converter<String, Double> converter = new Converter<String, Double>() {
-	 *         public Double convert(final String value) {
-	 *             return Double.valueOf(value);
-	 *         }
-	 *     };
-	 *
-	 * // The values to accumulate
-	 * final List<String> values = Arrays.asList("0", "1", "2", "3", "4", "5");
-	 *
-	 * final Accumulators.Min<Double> accumulator = new Accumulators.Min<Double>();
-	 *
-	 * // No pain to accumulate collections of a different type.
-	 * Accumulators.accumulate(values, accumulator.map(converter));
-	 * [/code]
-	 *
-	 * @param <B> the type of the returned adapter (view).
-	 * @param mapper the mapper needed to map between the type of this
-	 *        adapter and the adapter view type.
-	 * @return the adapter view with the different type.
-	 * @throws NullPointerException if the given {@code converter} is {@code null}.
-	 */
-	public <B> MappedAccumulator<B> map(final Function<? super B, ? extends T> mapper) {
-		nonNull(mapper, "Mapper");
-		return new MappedAccumulator<B>() {
-			@Override
-			public void accumulate(final B value) {
-				MappedAccumulator.this.accumulate(mapper.apply(value));
-			}
-		};
-	}
-
 	@Override
 	public int hashCode() {
 		return hashCodeOf(getClass()).and(_samples).value();
