@@ -500,14 +500,14 @@ public class GeneticAlgorithm<
 		assert (numberOfSurvivors + numberOfOffspring == _populationSize);
 
 		try (Concurrency c = Concurrency.start()) {
-			c.execute(new Runnable() { @Override public void run() {
+			c.execute(() -> {
 				final Population<G, C> survivors = _survivorSelector.select(
 					_population, numberOfSurvivors, _optimization
 				);
 
 				assert (survivors.size() == numberOfSurvivors);
 				selection.set(0, survivors);
-			}});
+			});
 
 			final Population<G, C> offsprings = _offspringSelector.select(
 				_population, numberOfOffspring, _optimization
