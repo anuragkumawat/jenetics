@@ -22,10 +22,11 @@
  */
 package org.jenetics.util;
 
+import static java.util.function.Predicates.isNull;
+import static java.util.function.Predicates.negate;
+
 import static org.jenetics.util.arrays.isSorted;
 import static org.jenetics.util.factories.Int;
-import static org.jenetics.util.functions.Null;
-import static org.jenetics.util.functions.not;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,7 +34,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -118,7 +118,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 		array.set(18, null);
 		array.set(19, null);
 
-		final Array<Integer> filtered = array.filter(not(Null));
+		final Array<Integer> filtered = array.filter(negate(isNull()));
 		Assert.assertEquals(filtered.length(), array.length() - 2);
 	}
 

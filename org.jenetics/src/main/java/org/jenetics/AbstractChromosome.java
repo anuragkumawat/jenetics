@@ -25,7 +25,6 @@ package org.jenetics;
 import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
 import static org.jenetics.util.object.nonNull;
-import static org.jenetics.util.functions.Null;
 
 import java.util.Iterator;
 import java.util.RandomAccess;
