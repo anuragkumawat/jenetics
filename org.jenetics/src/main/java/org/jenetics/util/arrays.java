@@ -30,7 +30,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Block;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -907,7 +907,7 @@ public final class arrays extends StaticObject {
 	 */
 	public static <T> void foreach(
 		final T[] array,
-		final Block<? super T> block
+		final Consumer<? super T> block
 	) {
 		for (int i = 0; i < array.length; ++i) {
 			block.accept(array[i]);
@@ -923,7 +923,7 @@ public final class arrays extends StaticObject {
 	 */
 	public static <T, R> void foreach(
 		final Iterable<? extends T> values,
-		final Block<? super T> block
+		final Consumer<? super T> block
 	) {
 		for (final T value : values) {
 			block.accept(value);

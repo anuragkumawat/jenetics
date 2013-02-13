@@ -31,7 +31,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Block;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -115,7 +115,7 @@ abstract class ArraySeq<T> implements Seq<T>, Serializable {
 	}
 
 	@Override
-	public void foreach(final Block<? super T> block) {
+	public void foreach(final Consumer<? super T> block) {
 		for (int i = _start; i < _end; ++i) {
 			@SuppressWarnings("unchecked")
 			final T element = (T)_array.data[i];

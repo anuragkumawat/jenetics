@@ -25,7 +25,7 @@ package org.jenetics.util;
 import java.util.Iterator;
 import java.util.List;
 import java.util.RandomAccess;
-import java.util.function.Block;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -80,7 +80,7 @@ public interface Seq<T> extends Iterable<T> {
 	 * @throws NullPointerException if the given {@code function} is
 	 *          {@code null}.
 	 */
-	public default void foreach(final Block<? super T> block) {
+	public default void foreach(final Consumer<? super T> block) {
 		if (this instanceof RandomAccess) {
 			for (int i = 0, n = length(); i < n; ++i) {
 				block.accept(get(i));

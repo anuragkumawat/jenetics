@@ -24,7 +24,7 @@ package org.jenetics.util;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.function.Block;
+import java.util.function.Consumer;
 
 /**
  * Some helper methods for creating hash codes and comparing values.
@@ -51,7 +51,7 @@ public final class object extends StaticObject {
 	 * arrays.foreach(CheckRange<(0, 10));
 	 * [/code]
 	 */
-	public static final <C extends Comparable<? super C>> Block<C>
+	public static final <C extends Comparable<? super C>> Consumer<C>
 	CheckRange(final C min, final C max) {
 		return value -> {
 			if (value.compareTo(min) < 0 || value.compareTo(max) >= 0) {
@@ -76,7 +76,7 @@ public final class object extends StaticObject {
 	 * arrays.foreach(array, NonNull);
 	 * [/code]
 	 */
-	public static final Block<Object> NonNull = o -> { nonNull(o, "Object"); };
+	public static final Consumer<Object> NonNull = o -> { nonNull(o, "Object"); };
 
 	/**
 	 * A {@code null} checking predicate which can be used to check an array
@@ -91,7 +91,7 @@ public final class object extends StaticObject {
 	 * arrays.foreach(array, NonNull);
 	 * [/code]
 	 */
-	public static final Block<Object> NonNull(final String message) {
+	public static final Consumer<Object> NonNull(final String message) {
 		return object -> { nonNull(object, message); };
 	}
 
