@@ -130,17 +130,6 @@ public final class functions extends StaticObject {
 		};
 	}
 
-	/**
-	 * Return the identity function for the given type.
-	 *
-	 * @return the identity function for the given type.
-	 */
-	@SuppressWarnings("unchecked")
-	public static <T> Function<T, T> Identity() {
-		return o -> o;
-	}
-
-
 	public static <A, B, C> Function<A, C> compose(
 		final Function<A, B> f1,
 		final Function<B, C> f2

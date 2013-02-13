@@ -27,6 +27,7 @@ import static org.jenetics.util.object.hashCodeOf;
 import static org.jenetics.util.object.nonNull;
 
 import java.util.function.Function;
+import java.util.function.Functions;
 
 import javolution.context.ObjectFactory;
 import javolution.lang.Immutable;
@@ -281,7 +282,7 @@ public final class Phenotype<
 		final Function<Genotype<G>, C> function,
 		final int generation
 	) {
-		return valueOf(_genotype, function, functions.<C>Identity(), generation);
+		return valueOf(_genotype, function, Functions.<C>identity(), generation);
 	}
 
 
@@ -305,7 +306,7 @@ public final class Phenotype<
 		final Function<Genotype<G>, C> fitnessFunction,
 		final int generation
 	) {
-		return valueOf(genotype, fitnessFunction, functions.<C>Identity(), generation);
+		return valueOf(genotype, fitnessFunction, Functions.<C>identity(), generation);
 	}
 
 	/**

@@ -33,6 +33,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Function;
+import java.util.function.Functions;
 import java.util.function.Predicate;
 
 import org.jscience.mathematics.number.Float64;
@@ -249,7 +250,7 @@ public class GeneticAlgorithm<
 		this(
 			genotypeFactory,
 			fitnessFunction,
-			functions.<C>Identity(),
+			Functions.<C>identity(),
 			Optimize.MAXIMUM
 		);
 	}
@@ -271,7 +272,7 @@ public class GeneticAlgorithm<
 		this(
 			genotypeFactory,
 			fitnessFunction,
-			functions.<C>Identity(),
+			Functions.<C>identity(),
 			optimization
 		);
 	}
