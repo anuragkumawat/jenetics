@@ -79,11 +79,7 @@ public interface Accumulator<T> {
 	 * @throws NullPointerException if the given {@code converter} is {@code null}.
 	 */
 	public default <B> Accumulator<B> map(final Function<? super B, ? extends T> mapper) {
-		return new Accumulator<B>() {
-			@Override public void accumulate(final B value) {
-				Accumulator.this.accumulate(mapper.apply(value));
-			}
-		};
+		return value -> accumulate(mapper.apply(value));
 	}
 
 }
