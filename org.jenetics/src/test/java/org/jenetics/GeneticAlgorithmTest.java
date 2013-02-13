@@ -48,7 +48,7 @@ import org.testng.annotations.Test;
 public class GeneticAlgorithmTest {
 
 	static {
-		ForkJoinContext.setForkkJoinPool(new ForkJoinPool(5));
+		ForkJoinContext.setForkJoinPool(new ForkJoinPool(5));
 	}
 
 	private static class FF
