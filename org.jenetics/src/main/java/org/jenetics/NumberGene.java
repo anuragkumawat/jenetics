@@ -108,7 +108,7 @@ public abstract class NumberGene<
 	public abstract G newInstance(final java.lang.Number value);
 
 	/**
-	 * Set the <code>NumerGene</code>.
+	 * Set the <code>NumberGene</code>.
 	 *
 	 * @param value The value of the number gene.
 	 * @param min The allowed min value of the gene.
