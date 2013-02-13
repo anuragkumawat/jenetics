@@ -109,7 +109,7 @@ public final class CharSeq
 				}
 			}
 
-			char[] array = new char[count];
+			final char[] array = new char[count];
 			System.arraycopy(result, 0, array, 0, count);
 			result = array;
 		}
