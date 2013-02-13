@@ -28,7 +28,7 @@ import java.io.Serializable;
 
 
 /**
- * This class implements a linear congruental PRNG with additional bit-shift
+ * This class implements a linear congruential PRNG with additional bit-shift
  * transition. The base recursion
  * <p><div align="center">
  * <img
@@ -164,7 +164,7 @@ public class LCG64ShiftRandom extends Random64 {
 	 * way:
 	 *
 	 * [code]
-	 * // Register the PRGN with the default parameters.
+	 * // Register the PRNG with the default parameters.
 	 * RandomRegistry.setRandom(new LCG64ShiftRandom.ThreadLocal());
 	 *
 	 * // Register the PRNG with the {@code LECUYER3} parameters.
