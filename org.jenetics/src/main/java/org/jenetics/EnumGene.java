@@ -184,7 +184,7 @@ public final class EnumGene<A> implements Gene<A, EnumGene<A>> {
 		final G[] validAlleles,
 		final int alleleIndex
 	) {
-		return valueOf(new Array<>(validAlleles).toISeq(), alleleIndex);
+		return valueOf(Array.valueOf(validAlleles).toISeq(), alleleIndex);
 	}
 
 	public static <G> EnumGene<G> valueOf(
@@ -212,7 +212,7 @@ public final class EnumGene<A> implements Gene<A, EnumGene<A>> {
 	}
 
 	public static <G> EnumGene<G> valueOf(final G[] validAlleles) {
-		return valueOf(new Array<>(validAlleles).toISeq());
+		return valueOf(Array.valueOf(validAlleles).toISeq());
 	}
 
 	public static <G> EnumGene<G> valueOf(final ISeq<G> validAlleles) {

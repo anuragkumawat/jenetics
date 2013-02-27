@@ -213,7 +213,7 @@ public final class PermutationChromosome<T>
 
 			final ISeq<Object> ialleles = alleles.toISeq();
 
-			final Array<Integer> indexes = new Array<>(
+			final Array<Integer> indexes = Array.valueOf(
 				xml.get(ALLELE_INDEXES, String.class
 			).split(",")).map(s -> Integer.parseInt(s));
 
