@@ -60,8 +60,8 @@ public class PartiallyMatchedCrossoverTest {
 		final Array<EnumGene<Integer>> that = alleles.map(EnumGene.ToGene(ialleles));
 		final Array<EnumGene<Integer>> other = alleles.map(EnumGene.ToGene(ialleles));
 
-		arrays.shuffle(that);
-		arrays.shuffle(other);
+		that.shuffle();
+		other.shuffle();
 
 		final PermutationChromosome<Integer> thatChrom1 = PermutationChromosome.valueOf(that.toISeq());
 		Assert.assertTrue(thatChrom1.isValid(), "thatChrom1 not valid");
