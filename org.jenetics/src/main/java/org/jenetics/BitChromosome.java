@@ -109,7 +109,7 @@ public class BitChromosome extends Number<BitChromosome>
 
 	/**
 	 * Constructing a new BitChromosome with the given _length. The TRUEs and
-	 * FALSE in the {@code Chromosome} are equaly distributed.
+	 * FALSE in the {@code Chromosome} are equally distributed.
 	 *
 	 * @param length Length of the BitChromosome.
 	 * @throws NegativeArraySizeException if the <code>_length</code> is smaller
