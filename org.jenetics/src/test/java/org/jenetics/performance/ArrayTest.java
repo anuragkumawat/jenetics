@@ -151,7 +151,7 @@ public class ArrayTest {
 
 		@Override
 		protected void afterTest() {
-			if (!arrays.isSorted(_array)) {
+			if (!_array.isSorted()) {
 				throw new IllegalArgumentException("Error: array not sorted");
 			}
 		}
@@ -174,7 +174,7 @@ public class ArrayTest {
 
 		@Override
 		protected void afterTest() {
-			if (!arrays.isSorted(_array)) {
+			if (!_array.isSorted()) {
 				throw new IllegalArgumentException("Error: array not sorted");
 			}
 		}
