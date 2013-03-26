@@ -22,7 +22,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.util.accumulators.accumulate;
+import static org.jenetics.util.Accumulator.accumulate;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -33,8 +33,8 @@ import javolution.xml.stream.XMLStreamException;
 import org.jscience.mathematics.number.Float64;
 
 import org.jenetics.stat.Variance;
-import org.jenetics.util.accumulators;
-import org.jenetics.util.accumulators.MinMax;
+import org.jenetics.util.Accumulator;
+import org.jenetics.util.Accumulator.MinMax;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -322,7 +322,7 @@ public class NumberStatistics<
 			final Variance<Integer> age = new Variance<>();
 			final Variance<R> fitness = new Variance<>();
 
-			accumulators.accumulate(
+			Accumulator.accumulate(
 					population,
 					minMax,
 					age.<Phenotype<G, R>>map(pt -> pt.getAge(generation)),

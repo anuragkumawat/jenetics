@@ -98,7 +98,7 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 	@Override
 	public boolean isValid() {
 		if (_valid == null) {
-			_valid = _genes.forall(g -> g.isValid());
+			_valid = _genes.forall(Gene::isValid);
 		}
 
 		return _valid;
