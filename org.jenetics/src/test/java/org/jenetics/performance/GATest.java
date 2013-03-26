@@ -30,6 +30,7 @@ import org.jscience.mathematics.number.Float64;
 import org.jenetics.BoltzmannSelector;
 import org.jenetics.CharacterChromosome;
 import org.jenetics.CharacterGene;
+import org.jenetics.Chromosome;
 import org.jenetics.Float64Gene;
 import org.jenetics.GeneticAlgorithm;
 import org.jenetics.Genotype;

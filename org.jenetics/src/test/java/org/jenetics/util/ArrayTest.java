@@ -235,7 +235,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 			array.set(i, (char)random.nextInt());
 		}
 
-		final char[] unboxed = array.unbox(TypeBound.Character);
+		final char[] unboxed = Array.unboxChar(array);
 
 		for (int i = 0; i < array.length(); ++i) {
 			Assert.assertEquals(unboxed[i], array.get(i).charValue());
@@ -250,7 +250,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 			array.set(i, random.nextInt());
 		}
 
-		final int[] unboxed = array.unbox(TypeBound.Integer);
+		final int[] unboxed = Array.unboxInt(array);
 
 		for (int i = 0; i < array.length(); ++i) {
 			Assert.assertEquals(unboxed[i], array.get(i).intValue());
@@ -265,7 +265,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 			array.set(i, random.nextLong());
 		}
 
-		final long[] unboxed = array.unbox(TypeBound.Long);
+		final long[] unboxed = Array.unboxLong(array);
 
 		for (int i = 0; i < array.length(); ++i) {
 			Assert.assertEquals(unboxed[i], array.get(i).longValue());
@@ -280,7 +280,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 			array.set(i, random.nextFloat());
 		}
 
-		final float[] unboxed = array.unbox(TypeBound.Float);
+		final float[] unboxed = Array.unboxFloat(array);
 
 		for (int i = 0; i < array.length(); ++i) {
 			Assert.assertEquals(unboxed[i], array.get(i).floatValue());
@@ -295,7 +295,7 @@ public class ArrayTest extends ObjectTester<Array<Double>> {
 			array.set(i, random.nextDouble());
 		}
 
-		final double[] unboxed = array.unbox(TypeBound.Double);
+		final double[] unboxed = Array.unboxDouble(array);
 
 		for (int i = 0; i < array.length(); ++i) {
 			Assert.assertEquals(unboxed[i], array.get(i).doubleValue());
