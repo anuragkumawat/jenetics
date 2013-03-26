@@ -427,7 +427,7 @@ public final class object extends StaticObject {
 	 *          otherwise.
 	 */
 	public static boolean eq(final Seq<?> a, final Seq<?> b) {
-		return arrays.equals(a, b);
+		return Seq.equals(a, b);
 	}
 
 	/**

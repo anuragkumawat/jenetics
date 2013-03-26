@@ -134,7 +134,7 @@ final class DefaultHashCodeBuilder extends HashCodeBuilder {
 
 	@Override
 	public HashCodeBuilder and(final Seq<?> values) {
-		_hash += arrays.hashCode(values); return this;
+		_hash += Seq.hashCode(values); return this;
 	}
 
 }
