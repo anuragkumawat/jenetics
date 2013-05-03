@@ -27,6 +27,7 @@ import static org.jenetics.util.object.hashCodeOf;
 import static org.jenetics.util.object.str;
 
 import java.io.Serializable;
+import java.util.function.Supplier;
 
 import javolution.lang.Reference;
 
@@ -39,7 +40,12 @@ import javolution.lang.Reference;
  * @since 1.0
  * @version 1.0 &mdash; <em>$Date$</em>
  */
-public final class FinalReference<T> implements Reference<T>, Serializable {
+public final class FinalReference<T>
+	implements
+		Reference<T>,
+		Supplier<T>,
+		Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	private T _value = null;

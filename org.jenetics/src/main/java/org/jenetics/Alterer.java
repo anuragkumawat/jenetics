@@ -22,7 +22,6 @@
  */
 package org.jenetics;
 
-
 /**
  * The Alterer is responsible for the changing/recombining the Population.
  * Alterers can be chained by appending a list of alterers with the
@@ -47,6 +46,24 @@ package org.jenetics;
  */
 public interface Alterer<G extends Gene<?, G>> {
 
+	public static final double DEFAULT_ALTER_PROBABILITY = 0.2;
+
+	/**
+	 * Return an alterer which does nothing.
+	 *
+	 * @return an alterer which does nothing.
+	 */
+	public static <G extends Gene<?, G>> Alterer<G> Null() {
+		return new Alterer<G>() {
+			@Override
+			public <C extends Comparable<? super C>> int alter(
+				final Population<G, C> population,
+				final int generation
+			) {
+				return 0;
+			}
+		};
+	}
 
 	/**
 	 * Alters (recombine) a given population. If the <code>population</code>
