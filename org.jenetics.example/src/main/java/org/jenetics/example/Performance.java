@@ -28,7 +28,6 @@ import static java.lang.Math.toRadians;
 
 import java.io.Serializable;
 import java.util.function.Function;
-import java.util.function.Functions;
 
 import javax.measure.Measure;
 import javax.measure.unit.SI;
@@ -65,7 +64,7 @@ public class Performance {
 	public static void main(String[] args) {
 		final Perf ff = new Perf();
 		final Factory<Genotype<Float64Gene>> gtf = Genotype.valueOf(new Float64Chromosome(0, 360));
-		final Function<Float64, Float64> fs = Functions.identity();
+		final Function<Float64, Float64> fs = a -> a;
 
 		final int size = 1000000;
 		final Population<Float64Gene, Float64> population = new Population<>(size);
