@@ -24,7 +24,6 @@ package org.jenetics.util;
 
 import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
-import static org.jenetics.util.object.str;
 
 import java.io.Serializable;
 import java.util.function.Supplier;
@@ -118,7 +117,7 @@ public final class FinalReference<T>
 
 	@Override
 	public String toString() {
-		return str(get());
+		return Objects.toString(get());
 	}
 
 }

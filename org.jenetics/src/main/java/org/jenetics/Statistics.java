@@ -24,9 +24,9 @@ package org.jenetics;
 
 import static java.lang.Double.NaN;
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
 import static org.jenetics.util.object.eq;
 import static org.jenetics.util.object.hashCodeOf;
-import static org.jenetics.util.object.nonNull;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -117,7 +117,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 		}
 
 		public Builder<G, C> optimize(final Optimize optimize) {
-			_optimize = nonNull(optimize, "Optimize strategy");
+			_optimize = requireNonNull(optimize, "Optimize strategy");
 			return this;
 		}
 
@@ -474,9 +474,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 			xml.add(s._time.get(), STATISITCS_TIME);
 		}
 		@Override
-		public void read(final InputElement xml, final Statistics p)
-			throws XMLStreamException
-		{
+		public void read(final InputElement xml, final Statistics p) {
 		}
 	};
 
@@ -659,9 +657,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 				xml.add(format.format(s.statistics.get()), STATISTICS_TIME);
 			}
 			@Override
-			public void read(final InputElement xml, final Statistics.Time p)
-				throws XMLStreamException
-			{
+			public void read(final InputElement xml, final Statistics.Time p) {
 			}
 
 			private MeasureFormat getMeasureFormat() {

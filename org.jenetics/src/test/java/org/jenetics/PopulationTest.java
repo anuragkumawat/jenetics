@@ -30,6 +30,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.function.Function;
 
+import javolution.xml.XMLSerializable;
+
+import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -38,8 +41,8 @@ import javolution.xml.XMLSerializable;
 import org.jscience.mathematics.number.Float64;
 
 import org.jenetics.util.IO;
-import org.jenetics.util.arrays;
 import org.jenetics.util.Serialize;
+import org.jenetics.util.lists;
 
 
 /**

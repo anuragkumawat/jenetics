@@ -23,7 +23,7 @@
 package org.jenetics.util;
 
 import static java.lang.String.format;
-import static org.jenetics.util.object.nonNull;
+import static java.util.Objects.requireNonNull;
 
 import java.util.Random;
 import java.util.function.Function;
@@ -69,9 +69,9 @@ public abstract class IndexStream {
 	 *
 	 * @param consumer the function to apply to the elements.
 	 * @throws NullPointerException if the given {@code function} is
-	 *          {@code null}.
+	 *         {@code null}.
 	 */
-	public void foreach(final IntConsumer consumer) {
+	public void forEach(final IntConsumer consumer) {
 		for (int i = next(); i != -1; i = next()) {
 			consumer.accept(i);
 		}

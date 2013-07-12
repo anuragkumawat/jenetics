@@ -40,7 +40,6 @@ import javolution.xml.stream.XMLStreamException;
 import org.jenetics.util.Array;
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
-import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.bit;
 
 
@@ -75,7 +74,7 @@ public final class PermutationChromosome<T>
 		super(
 			new Array<EnumGene<T>>(
 				validAlleles.length()
-			).fill(Gene(validAlleles)).shuffle(RandomRegistry.getRandom()).toISeq()
+			).fill(Gene(validAlleles)).shuffle().toISeq()
 		);
 		_validAlleles = validAlleles;
 	}

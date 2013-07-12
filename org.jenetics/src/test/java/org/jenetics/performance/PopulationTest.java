@@ -76,7 +76,7 @@ public class PopulationTest {
 
 		@Override
 		protected void afterTest() {
-			arrays.shuffle(_population);
+			lists.shuffle(_population);
 		}
 	};
 
