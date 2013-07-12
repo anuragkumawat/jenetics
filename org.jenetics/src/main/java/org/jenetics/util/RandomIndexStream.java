@@ -195,12 +195,12 @@ public class RandomIndexStream implements IntStream {
 	}
 
 	@Override
-	public LongStream longs() {
+	public LongStream asLongStream() {
 		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
 
 	@Override
-	public DoubleStream doubles() {
+	public DoubleStream asDoubleStream() {
 		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
 
