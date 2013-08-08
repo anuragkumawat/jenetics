@@ -32,6 +32,7 @@ import java.util.function.Function;
 
 import javolution.xml.XMLSerializable;
 
+import org.jenetics.util.arrays;
 import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -81,7 +82,7 @@ public class PopulationTest {
 			Assert.assertTrue(first.compareTo(second) >= 0);
 		}
 
-		arrays.shuffle(population);
+		lists.shuffle(population);
 		population.populationSort(Optimize.MAXIMUM.<Float64>descending());
 		for (int i = 0; i < population.size() - 1; ++i) {
 			Float64 first = _cf.apply(population.get(i).getGenotype());
@@ -89,7 +90,7 @@ public class PopulationTest {
 			Assert.assertTrue(first.compareTo(second) >= 0, first + "<" + second);
 		}
 
-		arrays.shuffle(population);
+		lists.shuffle(population);
 		population.populationSort(Optimize.MINIMUM.<Float64>descending());
 		for (int i = 0; i < population.size() - 1; ++i) {
 			Float64 first = _cf.apply(population.get(i).getGenotype());
