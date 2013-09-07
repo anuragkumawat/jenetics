@@ -314,7 +314,7 @@
 			<class name="org.jenetics.util.PRNGTest" />
 		</classes>
 	</test>
-	<test name="org.jenetics.util.RandomIndexStream">
+	<test name="org.jenetics.util.RandomIndexStream_">
 		<classes>
 			<class name="org.jenetics.util.RandomIndexStreamTest" />
 		</classes>
