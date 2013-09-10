@@ -34,7 +34,6 @@ public abstract class AbstractAlterer<G extends Gene<?, G>>
 	implements Alterer<G>
 {
 
-
 	/**
 	 * The altering probability.
 	 */
