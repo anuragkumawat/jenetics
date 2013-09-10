@@ -40,17 +40,6 @@ public final class functions extends StaticObject {
 	private functions() {}
 
 	/**
-	 * Convert an object to a string by calling the objects {@link Object#toString()}
-	 * method.
-	 */
-	public static final Function<Object, String>
-	ObjectToString = new Function<Object, String>() {
-		@Override public String apply(final Object value) {
-			return Objects.toString(value);
-		}
-	};
-
-	/**
 	 * Convert a string value to its length.
 	 */
 	public static final Function<String, Integer>
