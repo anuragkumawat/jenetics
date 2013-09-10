@@ -116,7 +116,7 @@ public abstract class IndexStream {
 			));
 		}
 
-		return new RandomIndexStream_(n, p, random);
+		return new RandomIndexStream(n, p, random);
 	}
 
 }

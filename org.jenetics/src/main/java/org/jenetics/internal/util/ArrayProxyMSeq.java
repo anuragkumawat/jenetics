@@ -25,12 +25,11 @@ import static java.lang.String.format;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.function.Function;
 
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
-import org.jenetics.util.Seq;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -157,7 +156,8 @@ public class ArrayProxyMSeq<T> extends ArrayProxySeq<T> implements MSeq<T> {
 		return new ArrayProxyMSeq<>(_proxy.sub(start));
 	}
 
-	public <B> MSeq<B> map(Function<? super T, ? extends B> mapper) {
+	@Override
+	public <B> MSeq<B> map(final Function<? super T, ? extends B> mapper) {
 		final ArrayProxyMSeq<B> array = new ArrayProxyMSeq<>(
 			new ArrayProxyImpl<B>(length())
 		);

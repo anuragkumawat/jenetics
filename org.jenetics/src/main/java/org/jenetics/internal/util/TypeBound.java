@@ -19,8 +19,9 @@
  */
 package org.jenetics.internal.util;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.StaticObject;
+
+import java.util.function.Function;
 
 
 /**
