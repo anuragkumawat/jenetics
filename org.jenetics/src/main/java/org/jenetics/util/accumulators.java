@@ -55,7 +55,7 @@ public final class accumulators extends StaticObject {
 	 *
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
 	 * @since 1.0
-	 * @version 1.0 &ndash; <em>$Revision: 4b803cb54726 $</em>
+	 * @version 1.0 &mdash; <em>$Date$</em>
 	 */
 	public static class Sum<G extends GroupAdditive<G>>
 		extends AbstractAccumulator<G>
