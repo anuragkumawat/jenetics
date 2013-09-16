@@ -119,32 +119,32 @@ public abstract class IndexStream {
 		return new RandomIndexStream(n, p, random);
 	}
 
-}
 
-/**
- * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @since 1.4
- * @version 1.4 &mdash; <em>$Date$</em>
- */
-final class RandomIndexStream extends IndexStream {
-	private final int _n;
-	private final int _p;
-	private final Random _random;
+	/**
+	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
+	 * @since 1.4
+	 * @version 1.4 &mdash; <em>$Date$</em>
+	 */
+	final static class RandomIndexStream extends IndexStream {
+		private final int _n;
+		private final int _p;
+		private final Random _random;
 
-	private int _pos = -1;
+		private int _pos = -1;
 
-	RandomIndexStream(final int n, final double p, final Random random) {
-		_n = n;
-		_p = probability.toInt(p);
-		_random = requireNonNull(random, "Random object must not be null.");
-	}
-
-	@Override
-	public final int next() {
-		while (_pos < _n && _random.nextInt() >= _p) {
-			++_pos;
+		RandomIndexStream(final int n, final double p, final Random random) {
+			_n = n;
+			_p = probability.toInt(p);
+			_random = requireNonNull(random, "Random object must not be null.");
 		}
-		return (_pos < _n - 1) ? ++_pos : -1;
+
+		@Override
+		public final int next() {
+			while (_pos < _n && _random.nextInt() >= _p) {
+				++_pos;
+			}
+			return (_pos < _n - 1) ? ++_pos : -1;
+		}
 	}
 }
 
