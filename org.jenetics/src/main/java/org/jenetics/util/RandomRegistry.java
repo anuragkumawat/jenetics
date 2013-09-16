@@ -96,7 +96,7 @@ import javolution.lang.Reference;
 public final class RandomRegistry extends StaticObject {
 	private RandomRegistry() {}
 
-	private static final Reference<Random> TLOCAL_REF = new Ref<Random>() {
+	private static final Reference<Random> THREAD_LOCAL_REF = new Ref<Random>() {
 		@Override
 		public Random get() {
 			return ThreadLocalRandom.current();
@@ -104,7 +104,7 @@ public final class RandomRegistry extends StaticObject {
 	};
 
 	private static final LocalContext.Reference<Reference<? extends Random>>
-	RANDOM = new LocalContext.Reference<Reference<? extends Random>>(TLOCAL_REF);
+	RANDOM = new LocalContext.Reference<Reference<? extends Random>>(THREAD_LOCAL_REF);
 
 	/**
 	 * Return the global {@link Random} object.
@@ -153,7 +153,7 @@ public final class RandomRegistry extends StaticObject {
 	 * is the {@link ThreadLocalRandom} PRNG.
 	 */
 	public static void reset() {
-		RANDOM.set(TLOCAL_REF);
+		RANDOM.set(THREAD_LOCAL_REF);
 	}
 
 
