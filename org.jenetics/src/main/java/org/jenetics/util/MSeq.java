@@ -23,10 +23,11 @@ import static java.lang.String.format;
 
 import java.util.Iterator;
 import java.util.ListIterator;
-import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import org.jenetics.internal.util.SeqListIteratorAdapter;
 
 /**
  * Mutable, ordered, fixed sized sequence.
@@ -226,59 +227,4 @@ public interface MSeq<T> extends Seq<T>, Copyable<MSeq<T>> {
 
 
 }
-
-/**
- * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @since @__new_version__@
- * @version @__new_version__@ &mdash; <em>$Date$</em>
- */
-final class SeqListIteratorAdapter<T>
-	extends SeqIteratorAdapter<T>
-	implements ListIterator<T>
-{
-
-	public SeqListIteratorAdapter(final MSeq<T> seq) {
-		super(seq);
-	}
-
-	@Override
-	public void set(final T value) {
-		final MSeq<T> array = (MSeq<T>)_seq;
-		array.set(_pos, value);
-	}
-
-	@Override
-	public int nextIndex() {
-		return _pos;
-	}
-
-	@Override
-	public boolean hasPrevious() {
-		return _pos > 0;
-	}
-
-	@Override
-	public T previous() {
-		if (!hasPrevious()) {
-			throw new NoSuchElementException();
-		}
-		return _seq.get(--_pos);
-	}
-
-	@Override
-	public int previousIndex() {
-		return _pos - 1;
-	}
-
-	@Override
-	public void add(final T o) {
-		throw new UnsupportedOperationException("Can't change array size.");
-	}
-
-	@Override
-	public void remove() {
-		throw new UnsupportedOperationException("Can't change array size.");
-	}
-}
-
 
