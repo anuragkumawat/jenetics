@@ -23,14 +23,13 @@ import static java.lang.Math.abs;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 import static org.jenetics.util.math.pow;
-import static org.jenetics.util.math.ulpDistance;
 import static org.jenetics.util.math.statistics.sum;
+import static org.jenetics.util.math.ulpDistance;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
-import org.jenetics.util.Factory;
 import org.jenetics.util.RandomRegistry;
-
 
 /**
  * Probability selectors are a variation of fitness proportional selectors and
@@ -86,11 +85,11 @@ public abstract class ProbabilitySelector<
 			incremental(probabilities);
 
 			final Random random = RandomRegistry.getRandom();
-			final Factory<Phenotype<G, C>> factory = () -> (
+			final Supplier<Phenotype<G, C>> supplier = () -> (
 				population.get(indexOf(probabilities, random.nextDouble()))
 			);
 
-			selection.fill(factory, count);
+			selection.fill(supplier, count);
 			assert (count == selection.size());
 		}
 
