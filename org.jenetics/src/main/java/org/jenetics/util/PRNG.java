@@ -22,7 +22,8 @@ package org.jenetics.util;
 import java.util.Random;
 
 /**
- * Abstract {@Random} class with additional <i>next</i> random number methods.
+ * Abstract {@code Random} class with additional <i>next</i> random number
+ * methods.
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.2
@@ -37,7 +38,7 @@ abstract class PRNG extends Random {
 	 *
 	 * @param seed the seed of the new {@code PRNG} instance.
 	 */
-	protected PRNG(long seed) {
+	protected PRNG(final long seed) {
 		super(seed);
 	}
 
