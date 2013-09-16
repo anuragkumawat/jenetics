@@ -27,18 +27,15 @@ package org.jenetics;
  * [code]
  * final GeneticAlgorithm<Float64Gene, Float64> ga = ...
  * ga.setOffspringFraction(0.7);
- * ga.setSurvivorSelector(
- *     new RouletteWheelSelector<Float64Gene, Float64>()
- * );
- * ga.setOffspringSelector(
- *     new TournamentSelector<Float64Gene, Float64>()
- * );
+ * ga.setSurvivorSelector(new RouletteWheelSelector<());
+ * ga.setOffspringSelector(new TournamentSelector<>());
  * [/code]
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
  * @version 1.0 &mdash; <em>$Date$</em>
  */
+@FunctionalInterface
 public interface Selector<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
