@@ -483,6 +483,8 @@ public final class Array<T>
 
 	@Override
 	public <B> Array<B> map(final Function<? super T, ? extends B> mapper) {
+		return map(mapper, Array::new);
+		/*
 		requireNonNull(mapper, "Converter");
 
 		final int length = length();
@@ -495,6 +497,7 @@ public final class Array<T>
 			result._array.data[i] = mapper.apply(value);
 		}
 		return result;
+		*/
 	}
 
 	@Override
