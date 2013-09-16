@@ -48,10 +48,9 @@ import org.jenetics.internal.math.probability;
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
- * @version 1.1 &mdash; <em>$Date$</em>
+ * @version @__new_version__@ &mdash; <em>$Date$</em>
  */
 public abstract class IndexStream extends IntStreamAdapter {
-
 
 	protected IndexStream() {
 		setAdoptee(IntStream.generate(this::next));
