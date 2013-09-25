@@ -250,4 +250,14 @@ abstract class IntStreamAdapter implements IntStream {
 		return _adoptee.unordered();
 	}
 
+	@Override
+	public IntStream onClose(final Runnable runnable) {
+		return _adoptee.onClose(runnable);
+	}
+
+	@Override
+	public void close() {
+		_adoptee.close();
+	}
+
 }
