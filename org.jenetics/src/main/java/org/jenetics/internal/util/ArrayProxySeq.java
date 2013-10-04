@@ -104,7 +104,7 @@ public abstract class ArrayProxySeq<T> implements Seq<T> {
 		int index = -1;
 		if (element == null) {
 			for (int i = start + _proxy._start, n = end + _proxy._start;
-				i < n && index == -1; ++i)
+					i < n && index == -1; ++i)
 			{
 				if (_proxy.uncheckedOffsetGet(i) == null) {
 					index = i - _proxy._start;
@@ -112,7 +112,7 @@ public abstract class ArrayProxySeq<T> implements Seq<T> {
 			}
 		} else {
 			for (int i = start + _proxy._start, n = end + _proxy._start;
-			i < n && index == -1; ++i)
+					i < n && index == -1; ++i)
 			{
 				if (element.equals(_proxy.uncheckedOffsetGet(i))) {
 					index = i - _proxy._start;
