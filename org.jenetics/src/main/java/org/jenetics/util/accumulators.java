@@ -19,10 +19,6 @@
  */
 package org.jenetics.util;
 
-import static java.util.Objects.requireNonNull;
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
-
 import java.util.Iterator;
 
 import org.jscience.mathematics.structure.GroupAdditive;
