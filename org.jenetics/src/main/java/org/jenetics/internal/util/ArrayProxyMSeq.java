@@ -158,14 +158,7 @@ public class ArrayProxyMSeq<T> extends ArrayProxySeq<T> implements MSeq<T> {
 
 	@Override
 	public <B> MSeq<B> map(final Function<? super T, ? extends B> mapper) {
-		final ArrayProxyMSeq<B> array = new ArrayProxyMSeq<>(
-			new ArrayProxyImpl<B>(length())
-		);
-		for (int i = 0; i < _proxy._length; ++i) {
-			array._proxy.uncheckedSet(i, mapper.apply(_proxy.uncheckedGet(i)));
-		}
-
-		return array;
+		return map(mapper, l -> new ArrayProxyMSeq<>(new ArrayProxyImpl<B>(l)));
 	}
 
 	@Override
