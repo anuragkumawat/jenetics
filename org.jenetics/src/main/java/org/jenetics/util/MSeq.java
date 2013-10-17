@@ -268,6 +268,7 @@ public interface MSeq<T> extends Seq<T>, ObjIntConsumer<T>, Copyable<MSeq<T>> {
 	 * @param <T> the element type of the new {@code MSeq}.
 	 * @return an empty {@code MSeq}.
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> MSeq<T> empty() {
 		return (MSeq<T>)EMPTY;
 	}
