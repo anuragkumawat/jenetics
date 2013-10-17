@@ -43,6 +43,7 @@ public final class math extends StaticObject {
 	 * @return the sum of the given values.
 	 * @throws ArithmeticException if the summation would lead to an overflow.
 	 */
+	@Deprecated
 	public static long plus(final long a, final long b) {
 		final long z = a + b;
 		if (((a^z) & (b^z)) < 0) {
@@ -61,6 +62,7 @@ public final class math extends StaticObject {
 	 * @return the difference of the given values.
 	 * @throws ArithmeticException if the subtraction would lead to an overflow.
 	 */
+	@Deprecated
 	public static long minus(final long a, final long b) {
 		final long z = a - b;
 		if (((a^b) & (a^z)) < 0) {
