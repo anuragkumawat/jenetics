@@ -19,13 +19,11 @@
  */
 package org.jenetics.util;
 
-import static java.util.Objects.requireNonNull;
-
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Supplier;
 
 import javolution.context.LocalContext;
-import javolution.lang.Reference;
 
 /**
  * This class holds the {@link Random} engine used for the GA. The
@@ -96,15 +94,8 @@ import javolution.lang.Reference;
 public final class RandomRegistry extends StaticObject {
 	private RandomRegistry() {}
 
-	private static final Reference<Random> THREAD_LOCAL_REF = new Ref<Random>() {
-		@Override
-		public Random get() {
-			return ThreadLocalRandom.current();
-		}
-	};
-
-	private static final LocalContext.Reference<Reference<? extends Random>>
-	RANDOM = new LocalContext.Reference<Reference<? extends Random>>(THREAD_LOCAL_REF);
+	private static final LocalContext.Reference<Supplier<Random>>
+	RANDOM = new LocalContext.Reference<>(ThreadLocalRandom::current);
 
 	/**
 	 * Return the global {@link Random} object.
@@ -130,7 +121,7 @@ public final class RandomRegistry extends StaticObject {
 	 * @throws NullPointerException if the {@code random} object is {@code null}.
 	 */
 	public static void setRandom(final Random random) {
-		RANDOM.set(new RRef(random));
+		RANDOM.set(() -> random);
 	}
 
 	/**
@@ -145,7 +136,7 @@ public final class RandomRegistry extends StaticObject {
 	 * @throws NullPointerException if the {@code random} object is {@code null}.
 	 */
 	public static void setRandom(final ThreadLocal<? extends Random> random) {
-		RANDOM.set(new TLRRef<>(random));
+		RANDOM.set(random::get);
 	}
 
 	/**
@@ -153,41 +144,7 @@ public final class RandomRegistry extends StaticObject {
 	 * is the {@link ThreadLocalRandom} PRNG.
 	 */
 	public static void reset() {
-		RANDOM.set(THREAD_LOCAL_REF);
-	}
-
-
-	/*
-	 * Some helper Reference classes.
-	 */
-
-	private static abstract class Ref<R> implements Reference<R> {
-		@Override public void set(final R random) {}
-	}
-
-	private final static class RRef extends Ref<Random> {
-		private final Random _random;
-		public RRef(final Random random) {
-			_random = requireNonNull(random, "Random");
-		}
-		@Override public final Random get() {
-			return _random;
-		}
-	}
-
-	private final static class TLRRef<R extends Random> extends Ref<R> {
-		private final ThreadLocal<R> _random;
-		public TLRRef(final ThreadLocal<R> random) {
-			_random = requireNonNull(random, "Random");
-		}
-		@Override public final R get() {
-			return _random.get();
-		}
+		RANDOM.set(ThreadLocalRandom::current);
 	}
 
 }
-
-
-
-
-
