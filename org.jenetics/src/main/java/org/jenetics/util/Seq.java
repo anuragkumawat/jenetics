@@ -54,7 +54,7 @@ public interface Seq<T> extends Iterable<T>, IntFunction<T> {
 	 * @param index index of the element to return.
 	 * @return the value at the given {@code index}.
 	 * @throws IndexOutOfBoundsException if the index is out of range
-	 *          {@code (index < 0 || index >= size())}.
+	 *         {@code (index < 0 || index >= size())}.
 	 */
 	public T get(final int index);
 
@@ -134,7 +134,6 @@ public interface Seq<T> extends Iterable<T>, IntFunction<T> {
 			for (int i = 0, n = length(); i < n && valid; ++i) {
 				valid = predicate.test(get(i));
 			}
-			return valid;
 		} else {
 			final Iterator<T> it = iterator();
 			while (it.hasNext() && valid) {
