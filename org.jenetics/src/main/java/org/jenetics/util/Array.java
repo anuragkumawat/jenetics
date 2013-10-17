@@ -53,10 +53,8 @@ import javolution.util.FastList;
  * @since 1.0
  * @version @__version__@ &mdash; <em>$Date$</em>
  *
- * @deprecated Use the {@link MSeq} factory methods for creating new
- *            {@code MSeq} instances.
  */
-@Deprecated
+//@Deprecated
 public final class Array<T>
 	extends ArraySeq<T>
 	implements
