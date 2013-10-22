@@ -89,12 +89,7 @@ public enum Optimize {
 	 * @return a new {@link Comparator} for the type {@code T}.
 	 */
 	public <T extends Comparable<? super T>> Comparator<T> descending() {
-		return new Comparator<T>() {
-			@Override
-			public int compare(final T o1, final T o2) {
-				return Optimize.this.compare(o2, o1);
-			}
-		};
+		return (o1, o2) -> Optimize.this.compare(o2, o1);
 	}
 
 	/**
@@ -116,12 +111,7 @@ public enum Optimize {
 	 * @return a new {@link Comparator} for the type {@code T}.
 	 */
 	public <T extends Comparable<? super T>> Comparator<T> ascending() {
-		return new Comparator<T>() {
-			@Override
-			public int compare(final T o1, final T o2) {
-				return Optimize.this.compare(o1, o2);
-			}
-		};
+		return (o1, o2) -> Optimize.this.compare(o1, o2);
 	}
 
 	/**
