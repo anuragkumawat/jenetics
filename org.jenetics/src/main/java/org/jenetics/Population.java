@@ -92,14 +92,14 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 	 *          negative
 	 */
 	public Population(final int size) {
-		this(new ArrayList<Phenotype<G, C>>(size + 1));
+		this(new ArrayList<>(size + 1));
 	}
 
 	/**
 	 * Creating a new <code>Population</code>.
 	 */
 	public Population() {
-		this(new ArrayList<Phenotype<G, C>>());
+		this(new ArrayList<>());
 	}
 
 	/**
@@ -388,7 +388,7 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 	@Override
 	public String toString() {
-		StringBuilder out = new StringBuilder();
+		final StringBuilder out = new StringBuilder();
 
 		for (Phenotype<?, ?> pt : this) {
 			out.append(pt.toString()).append("\n");

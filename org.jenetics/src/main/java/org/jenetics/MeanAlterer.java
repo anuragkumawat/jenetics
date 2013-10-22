@@ -32,7 +32,6 @@ import org.jenetics.util.Mean;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Seq;
 
-
 /**
  * <p>
  * The order ({@link #getOrder()}) of this Recombination implementation is two.
