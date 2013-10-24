@@ -74,7 +74,9 @@ public class BitChromosome extends Number<BitChromosome>
 	protected byte[] _genes;
 	private transient BitGeneArray _seq;
 
-
+	/**
+	 * Primary constructor.
+	 */
 	private BitChromosome(final byte[] bits, final int length, final double p) {
 		if (bits.length < bit.toByteLength(length)) {
 			throw new IllegalArgumentException(String.format(
