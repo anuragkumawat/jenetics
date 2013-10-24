@@ -33,7 +33,7 @@ final class DefaultHashCodeBuilder extends HashCodeBuilder {
 	private static final int P4 = 1237;
 
 
-	public DefaultHashCodeBuilder(final Class<?> type) {
+	DefaultHashCodeBuilder(final Class<?> type) {
 		super(type);
 	}
 
