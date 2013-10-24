@@ -105,7 +105,7 @@ public abstract class ArrayProxy<T> implements Copyable<ArrayProxy<T>> {
 	 * Set the <i>array</i> element at the specified absolute position in the
 	 * {@code ArrayProxy}. The array boundaries are not checked.
 	 *
-	 * @param index absolute index of the <i>array</i> element
+	 * @param absoluteIndex absolute index of the <i>array</i> element
 	 */
 	public abstract void uncheckedOffsetSet(final int absoluteIndex, final T value);
 
