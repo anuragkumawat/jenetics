@@ -250,7 +250,7 @@ public final class math extends StaticObject {
 	 * @throws ArithmeticException if the distance doesn't fit in a long value.
 	 */
 	public static long ulpDistance(final double a, final double b) {
-		return minus(ulpPosition(a), ulpPosition(b));
+		return Math.subtractExact(ulpPosition(a), ulpPosition(b));
 	}
 
 	/**
