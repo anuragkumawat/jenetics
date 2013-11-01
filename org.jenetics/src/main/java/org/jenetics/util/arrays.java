@@ -25,7 +25,6 @@ import static java.util.Objects.requireNonNull;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**

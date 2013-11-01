@@ -77,8 +77,6 @@ public class SinglePointCrossover<G extends Gene<?, G>>
 		this(0.05);
 	}
 
-
-
 	@Override
 	protected int crossover(final MSeq<G> that, final MSeq<G> other) {
 		assert (that.length() == other.length());

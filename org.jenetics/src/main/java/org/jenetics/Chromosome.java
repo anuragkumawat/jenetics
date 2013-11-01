@@ -42,8 +42,8 @@ public interface Chromosome<G extends Gene<?, G>>
 	extends
 		Verifiable,
 		Iterable<G>,
-		Immutable,
 		Factory<Chromosome<G>>,
+		Immutable,
 		Serializable
 {
 

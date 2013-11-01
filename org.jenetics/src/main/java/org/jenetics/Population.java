@@ -84,10 +84,10 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 	}
 
 	/**
-	 * Creating a new <code>Population</code> with the preallocated population
+	 * Creating a new <code>Population</code> with the pre-allocated population
 	 * size.
 	 *
-	 * @param size Preallocated population size.
+	 * @param size Pre-allocated population size.
 	 * @throws IllegalArgumentException if the specified initial capacity is
 	 *          negative
 	 */
