@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
  * @since @__version__@
  */
 public class LazyTest {
-
+/*
 	@Test
 	public void singleInitialization() {
 		final AtomicInteger count = new AtomicInteger(0);
@@ -43,5 +43,5 @@ public class LazyTest {
 			Assert.assertEquals("value_1", value.get());
 		}
 	}
-
+*/
 }
