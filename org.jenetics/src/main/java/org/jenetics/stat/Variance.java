@@ -102,8 +102,8 @@ public class Variance<N extends Number> extends Mean<N> {
 	 * @return a new variance containing the merged result of {@code this} and
 	 *         {@code other}.
 	 */
-	public Variance merge(final Variance other) {
-		final Variance result = new Variance();
+	public Variance<N> merge(final Variance<N> other) {
+		final Variance<N> result = new Variance<>();
 
 		final double r = other._mean - _mean;
 		result._samples = _samples + other._samples;

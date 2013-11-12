@@ -78,7 +78,7 @@ public interface PopulationStatistics<
 	{
 		@Override
 		public Supplier<MStats<G, C>> supplier() {
-			return () -> new MStats();
+			return () -> new MStats<>();
 		}
 
 		@Override
