@@ -39,9 +39,10 @@ apply from: "${rootDir}/gradle/packaging.gradle"
 apply from: "${rootDir}/gradle/xlint.gradle"
 
 dependencies {
-	//testCompile(Include.Javolution) { transitive = false }
 	compile Include.JScience
+	
 	testCompile Include.TestNG
+	testCompile Include.Apache.Commons.Math
 }
 
 jar {
