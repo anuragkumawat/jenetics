@@ -107,16 +107,6 @@ abstract class IntStreamAdapter implements IntStream {
 	}
 
 	@Override
-	public IntStream substream(final long startInclusive) {
-		return _adoptee.substream(startInclusive);
-	}
-
-	@Override
-	public IntStream substream(final long startInclusive, final long endExclusive) {
-		return _adoptee.substream(startInclusive, endExclusive);
-	}
-
-	@Override
 	public void forEach(final IntConsumer action) {
 		_adoptee.forEach(action);
 	}
@@ -248,6 +238,11 @@ abstract class IntStreamAdapter implements IntStream {
 	@Override
 	public IntStream unordered() {
 		return _adoptee.unordered();
+	}
+
+	@Override
+	public IntStream skip(final long n) {
+		return _adoptee.skip(n);
 	}
 
 	@Override
