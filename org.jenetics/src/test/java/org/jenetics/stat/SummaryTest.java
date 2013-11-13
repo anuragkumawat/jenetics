@@ -68,6 +68,8 @@ public class SummaryTest {
 		Assert.assertEquals(psummary.getSum(), expected.getSum(), 0.00001);
 		Assert.assertEquals(psummary.getMean(), expected.getMean(), 0.00001);
 		Assert.assertEquals(psummary.getVariance(), expected.getVariance(), 0.00001);
+		Assert.assertEquals(psummary.getSkewness(), expected.getSkewness(), 0.00001);
+		Assert.assertEquals(psummary.getKurtosis(), expected.getKurtosis(), 0.00001);
 	}
 
 }
