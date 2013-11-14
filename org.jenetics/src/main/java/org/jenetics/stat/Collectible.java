@@ -28,6 +28,6 @@ interface Collectible<N, C extends Collectible<N, C>> {
 
 	void accumulate(final N sample);
 
-	C merge(final C other);
+	C combine(final C other);
 
 }
