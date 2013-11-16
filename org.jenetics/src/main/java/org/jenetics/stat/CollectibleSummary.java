@@ -61,6 +61,7 @@ final class CollectibleSummary<N extends Number & Comparable<? super N>>
 
 		if (_min == null || _min.compareTo(number) > 0) _min = number;
 		if (_max == null || _max.compareTo(number) < 0) _max = number;
+		++_n;
 		accumulateSum(value);
 		accumulateMoments(value);
 	}
@@ -73,7 +74,6 @@ final class CollectibleSummary<N extends Number & Comparable<? super N>>
 	}
 
 	private void accumulateMoments(final double value) {
-		++_n;
 		final double d = value - _m1;
 		final double dN = d/_n;
 		final double dN2 = dN*dN;
