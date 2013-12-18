@@ -57,7 +57,7 @@ abstract class ArraySeq<T> implements Seq<T>, Serializable {
 	 * @param end the end index of the given array (exclusively)
 	 * @throws NullPointerException if the given {@code array} is {@code null}.
 	 * @throws IndexOutOfBoundsException for an illegal start/end point index
-	 *          value ({@code start < 0 || end > array.lenght || start > end}).
+	 *          value ({@code start < 0 || end > array.length || start > end}).
 	 */
 	ArraySeq(final ArrayRef array, final int start, final int end) {
 		requireNonNull(array, "Array");

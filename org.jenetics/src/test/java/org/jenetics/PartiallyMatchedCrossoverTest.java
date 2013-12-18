@@ -34,7 +34,7 @@ import org.jenetics.stat.Variance;
 import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.Range;
-import org.jenetics.util.arrays;
+import org.jenetics.util.shuffling;
 
 
 /**

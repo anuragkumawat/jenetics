@@ -71,12 +71,12 @@ public abstract class Random64 extends PRNG {
 
 	@Override
 	public int nextInt() {
-		return (int)(nextLong() >>> 32);
+		return (int)(nextLong() >>> Integer.SIZE);
 	}
 
 	@Override
 	protected int next(final int bits) {
-		return (int)(nextLong() >>> (64 - bits));
+		return (int)(nextLong() >>> (Long.SIZE - bits));
 	}
 
 	/**
@@ -86,7 +86,7 @@ public abstract class Random64 extends PRNG {
 	@Override
 	public void nextBytes(final byte[] bytes) {
 		for (int i = 0, len = bytes.length; i < len;) {
-			int n = min(len - i, Long.SIZE/Byte.SIZE);
+			int n = min(len - i, LONG_BYTE_SIZE);
 
 			for (long x = nextLong(); --n >= 0; x >>= Byte.SIZE) {
 				bytes[i++] = (byte)x;

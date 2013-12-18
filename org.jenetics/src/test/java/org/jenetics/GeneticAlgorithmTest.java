@@ -45,10 +45,6 @@ import org.jenetics.util.RandomRegistry;
  */
 public class GeneticAlgorithmTest {
 
-	static {
-		ForkJoinContext.setForkJoinPool(new ForkJoinPool(5));
-	}
-
 	private static class FF
 		implements Function<Genotype<Float64Gene>, Float64>,
 					Serializable

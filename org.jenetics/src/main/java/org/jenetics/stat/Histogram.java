@@ -526,7 +526,7 @@ public class Histogram<C> extends AbstractAccumulator<C> {
 		for (int i = 1, n = pts - rest; i < n; ++i) {
 			separators[i - 1] = i*bulk + min;
 		}
-		for (int i = 0, n = rest; i < n; ++i) {
+		for (int i = 0; i < rest; ++i) {
 			separators[separators.length - rest + i] =
 					(pts - rest)*bulk + i*(bulk + 1) + min;
 		}

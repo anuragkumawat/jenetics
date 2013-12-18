@@ -311,7 +311,7 @@ public class Quantile<N extends Number> extends AbstractAccumulator<N> {
 	@Override
 	public String toString() {
 		return format(
-			"%s[samples=%d, qantile=%f]",
+			"%s[samples=%d, quantile=%f]",
 			getClass().getSimpleName(), getSamples(), getQuantile()
 		);
 	}

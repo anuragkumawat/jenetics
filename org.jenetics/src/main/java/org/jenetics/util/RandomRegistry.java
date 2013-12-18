@@ -58,8 +58,8 @@ import javolution.context.LocalContext;
  * <b>Setup of a <i>local</i> PRNG</b><br/>
  *
  * With the help of the {@link LocalContext} from the <a href="http://javolution.org/">
- * javolution</a> project you can temporarily (and locally) change the
- * implementation of the PRNG
+ * Javolution</a> project you can temporarily (and locally) change the
+ * implementation of the PRNG.
  *
  * [code]
  * public class GA {
