@@ -65,8 +65,8 @@ public final class Phenotype<
 	private static final long serialVersionUID = 1L;
 
 	private Genotype<G> _genotype;
-	private Function<Genotype<G>, C> _fitnessFunction;
-	private Function<C, C> _fitnessScaler;
+	private Function<? super Genotype<G>, ? extends C> _fitnessFunction;
+	private Function<? super C, ? extends C> _fitnessScaler;
 
 	private int _generation = 0;
 
@@ -115,7 +115,7 @@ public final class Phenotype<
 	 *
 	 * @return the fitness function.
 	 */
-	public Function<Genotype<G>, C> getFitnessFunction() {
+	public Function<? super Genotype<G>, ? extends C> getFitnessFunction() {
 		return _fitnessFunction;
 	}
 
@@ -125,7 +125,7 @@ public final class Phenotype<
 	 *
 	 * @return the fitness scaler.
 	 */
-	public Function<C, C> getFitnessScaler() {
+	public Function<? super C, ? extends C> getFitnessScaler() {
 		return _fitnessScaler;
 	}
 
@@ -255,8 +255,8 @@ public final class Phenotype<
 	 * @throws IllegalArgumentException if the given {@code generation} is < 0.
 	 */
 	public Phenotype<G, C> newInstance(
-		final Function<Genotype<G>, C> function,
-		final Function<C, C> scaler,
+		final Function<? super Genotype<G>, ? extends C> function,
+		final Function<? super C, ? extends C> scaler,
 		final int generation
 	) {
 		return valueOf(_genotype, function, scaler, generation);
@@ -317,8 +317,8 @@ public final class Phenotype<
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
 	Phenotype<G, C> valueOf(
 		final Genotype<G> genotype,
-		final Function<Genotype<G>, C> fitnessFunction,
-		final Function<C, C> fitnessScaler,
+		final Function<? super Genotype<G>, ? extends C> fitnessFunction,
+		final Function<? super C, ? extends C> fitnessScaler,
 		final int generation
 	) {
 		requireNonNull(genotype, "Genotype");
