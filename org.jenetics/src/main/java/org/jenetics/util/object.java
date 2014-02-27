@@ -160,7 +160,7 @@ public final class object extends StaticObject {
 	/**
 	 * Create a HashCodeBuilder for the given type.
 	 *
-	 * @param type the type the HashCodebuilder is created for.
+	 * @param type the type the HashCodeBuilder is created for.
 	 * @return a new HashCodeBuilder.
 	 */
 	public static HashCodeBuilder hashCodeOf(final Class<?> type) {
