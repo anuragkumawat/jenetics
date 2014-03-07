@@ -172,7 +172,3 @@ public class ArrayProxyMSeq<T> extends ArrayProxySeq<T> implements MSeq<T> {
 	}
 
 }
-
-
-
-

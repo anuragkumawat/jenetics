@@ -140,7 +140,7 @@ public class RandomIndexStreamTest {
 		final Random random = new LCG64ShiftRandom();
 		final Range<Long> domain = new Range<>(0L, n.longValue());
 
-		final Histogram<Long> histogram = Histogram.valueOf(
+		final Histogram<Long> histogram = Histogram.of(
 					domain.getMin(), domain.getMax(), 10
 				);
 		final Variance<Long> variance = new Variance<>();
@@ -261,7 +261,3 @@ public class RandomIndexStreamTest {
 	}
 
 }
-
-
-
-

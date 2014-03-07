@@ -23,9 +23,8 @@ import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.math.statistics.Φ;
 import static org.jenetics.internal.math.statistics.φ;
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
-import static org.jenetics.util.object.nonNegative;
+import static org.jenetics.internal.util.object.eq;
+import static org.jenetics.internal.util.object.nonNegative;
 
 import java.io.Serializable;
 import java.util.Locale;
@@ -33,6 +32,9 @@ import java.util.function.Function;
 
 import org.jscience.mathematics.number.Float64;
 
+import org.jenetics.internal.util.HashBuilder;
+
+import org.jenetics.util.Function;
 import org.jenetics.util.Range;
 
 /**
@@ -248,7 +250,7 @@ public class NormalDistribution<
 
 	@Override
 	public int hashCode() {
-		return hashCodeOf(getClass()).and(_domain).and(_mean).and(_var).value();
+		return HashBuilder.of(getClass()).and(_domain).and(_mean).and(_var).value();
 	}
 
 	@Override
@@ -272,5 +274,3 @@ public class NormalDistribution<
 	}
 
 }
-
-

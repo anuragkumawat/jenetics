@@ -305,4 +305,3 @@ public interface MSeq<T> extends Seq<T>, ObjIntConsumer<T>, Copyable<MSeq<T>> {
 	}
 
 }
-

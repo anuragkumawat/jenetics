@@ -19,15 +19,16 @@
  */
 package org.jenetics;
 
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
-import static java.util.Objects.requireNonNull;
 import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
+import static org.jenetics.internal.util.object.Verify;
+import static org.jenetics.internal.util.object.eq;
 
 import java.util.Iterator;
 import java.util.RandomAccess;
 import java.util.function.Function;
 
+import org.jenetics.internal.util.HashBuilder;
 import org.jenetics.internal.util.cast;
 import org.jenetics.util.ISeq;
 
@@ -126,7 +127,7 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 
 	@Override
 	public int hashCode() {
-		return hashCodeOf(getClass()).and(_genes).value();
+		return HashBuilder.of(getClass()).and(_genes).value();
 	}
 
 	@Override
@@ -148,7 +149,3 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 	}
 
 }
-
-
-
-

@@ -860,7 +860,3 @@ public final class math extends StaticObject {
 	}
 
 }
-
-
-
-

@@ -23,6 +23,8 @@ import java.util.Iterator;
 
 import org.jscience.mathematics.structure.GroupAdditive;
 
+import org.jenetics.internal.util.HashBuilder;
+
 
 /**
  * Collection of some general purpose Accumulators and some static helper classes
@@ -45,8 +47,11 @@ public final class accumulators extends StaticObject {
 	 *
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
 	 * @since 1.0
-	 * @version 1.0 &mdash; <em>$Date$</em>
+	 * @version 1.0 &ndash; <em>$Date$</em>
+	 *
+	 * @deprecated Will be removed.
 	 */
+	@Deprecated
 	public static class Sum<G extends GroupAdditive<G>>
 		extends AbstractAccumulator<G>
 	{
@@ -156,7 +161,7 @@ public final class accumulators extends StaticObject {
 		final Iterable<? extends T> values,
 		final Accumulator<? super T>... accus
 	) {
-		accumulate(values, Array.valueOf(accus));
+		accumulate(values, Array.of(accus));
 	}
 
 	/**
@@ -322,5 +327,3 @@ public final class accumulators extends StaticObject {
 	}
 
 }
-
-

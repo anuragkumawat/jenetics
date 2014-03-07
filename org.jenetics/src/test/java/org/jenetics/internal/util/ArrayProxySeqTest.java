@@ -69,7 +69,3 @@ public class ArrayProxySeqTest extends SeqTestBase {
 
 
 }
-
-
-
-

@@ -245,5 +245,3 @@ final class RandomIndexStreamP1 extends IndexStream {
 		return _pos < _n ? _pos : -1;
 	}
 }
-
-

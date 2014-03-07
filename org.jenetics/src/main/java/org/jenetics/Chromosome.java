@@ -94,4 +94,3 @@ public interface Chromosome<G extends Gene<?, G>>
 	public ISeq<G> toSeq();
 
 }
-

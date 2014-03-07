@@ -22,8 +22,7 @@ package org.jenetics;
 import static java.lang.Double.NaN;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
+import static org.jenetics.internal.util.object.eq;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -38,6 +37,8 @@ import javolution.xml.stream.XMLStreamException;
 
 import org.jscience.mathematics.number.Float64;
 import org.jscience.mathematics.number.Integer64;
+
+import org.jenetics.internal.util.HashBuilder;
 
 import org.jenetics.stat.Variance;
 import org.jenetics.util.Accumulator;
@@ -350,7 +351,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 	@Override
 	public int hashCode() {
-		return hashCodeOf(getClass()).
+		return HashBuilder.of(getClass()).
 				and(_optimize).
 				and(_generation).
 				and(_ageMean).
@@ -540,7 +541,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 		@Override
 		public int hashCode() {
-			return hashCodeOf(getClass()).
+			return HashBuilder.of(getClass()).
 					and(alter).
 					and(combine).
 					and(evaluation).
@@ -559,12 +560,12 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 			}
 
 			final Statistics.Time time = (Statistics.Time)object;
-			return eq(alter, time.alter) &&
-					eq(combine, time.combine) &&
-					eq(evaluation, time.evaluation) &&
-					eq(execution, time.execution) &&
-					eq(selection, time.selection) &&
-					eq(statistics, time.statistics);
+			return eq(alter.get(), time.alter.get()) &&
+					eq(combine.get(), time.combine.get()) &&
+					eq(evaluation.get(), time.evaluation.get()) &&
+					eq(execution.get(), time.execution.get()) &&
+					eq(selection.get(), time.selection.get()) &&
+					eq(statistics.get(), time.statistics.get());
 		}
 
 		@Override
@@ -585,6 +586,10 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 			return out.toString();
 		}
+
+		/* ********************************************************************
+		 *  XML object serialization
+		 * ********************************************************************/
 
 		static final XMLFormat<Statistics.Time> XML =
 			new XMLFormat<Statistics.Time>(Statistics.Time.class)
@@ -632,7 +637,12 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 			public void read(final InputElement xml, final Statistics.Time p) {
 			}
 		};
-	}
+
+		private static String fd(final Measurable<Duration> duration) {
+			return String.format("%d ns", duration.longValue(SI.NANO(SI.SECOND)));
+		}
+
+ 	}
 
 
 	/**
@@ -694,6 +704,3 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 	}
 
 }
-
-
-

@@ -21,8 +21,7 @@ package org.jenetics.stat;
 
 import static java.lang.Double.compare;
 import static java.lang.String.format;
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
+import static org.jenetics.internal.util.object.eq;
 
 import java.util.Arrays;
 
@@ -281,7 +280,7 @@ public class Quantile<N extends Number> extends AbstractAccumulator<N> {
 
 	@Override
 	public int hashCode() {
-		return hashCodeOf(getClass()).
+		return HashBuilder.of(getClass()).
 				and(super.hashCode()).
 				and(_quantile).
 				and(_dn).
@@ -327,5 +326,3 @@ public class Quantile<N extends Number> extends AbstractAccumulator<N> {
 	}
 
 }
-
-

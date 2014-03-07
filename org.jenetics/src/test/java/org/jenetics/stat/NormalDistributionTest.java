@@ -22,10 +22,12 @@ package org.jenetics.stat;
 import java.util.Random;
 import java.util.function.Function;
 
-import org.jscience.mathematics.number.Float64;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import org.jscience.mathematics.number.Float64;
+
+import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Range;
 
@@ -39,7 +41,7 @@ public class NormalDistributionTest {
 	@Test(invocationCount = 10)
 	public void cdfDistribution() {
 		final Random random = RandomRegistry.getRandom();
-		final Histogram<Double> histogram = Histogram.valueOf(0.0, 1000.0, 10);
+		final Histogram<Double> histogram = Histogram.of(0.0, 1000.0, 10);
 		final Variance<Double> variance = new Variance<>();
 
 		final double mean = 500;
