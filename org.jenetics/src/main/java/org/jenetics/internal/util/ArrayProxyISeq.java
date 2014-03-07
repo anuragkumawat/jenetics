@@ -19,10 +19,10 @@
  */
 package org.jenetics.internal.util;
 
+import java.util.function.Function;
+
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
-
-import java.util.function.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
