@@ -142,7 +142,7 @@ public class GenotypeTest extends ObjectTester<Genotype<DoubleGene>> {
 		try {
 			RandomRegistry.setRandom(random);
 			final BitChromosome chromosome = new BitChromosome(30, 0.5);
-			final Genotype<?> genotype = Genotype.of(chromosome, chromosome);
+			final Genotype<BitGene> genotype = Genotype.of(chromosome, chromosome);
 
 			/*
 			JAXBContext jc = JAXBContext.newInstance("org.jenetics");

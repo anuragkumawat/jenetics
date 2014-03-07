@@ -108,6 +108,7 @@ public class RandomUtils {
 	}
 
 	public static <T> ISeq<T> ISeq(final int size, final Factory<T> factory) {
-		return new Array<T>(size).fill(factory).toISeq();
+		//return new Array<T>(size).fill(factory).toISeq();
+		return null;
 	}
 }

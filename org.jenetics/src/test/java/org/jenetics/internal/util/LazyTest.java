@@ -22,7 +22,6 @@ package org.jenetics.internal.util;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 /**
