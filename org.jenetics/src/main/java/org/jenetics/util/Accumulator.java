@@ -19,15 +19,16 @@
  */
 package org.jenetics.util;
 
-import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
 import static java.util.Objects.requireNonNull;
+import static org.jenetics.util.object.eq;
 
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Function;
-import java.util.Iterator;
 
 import org.jscience.mathematics.structure.GroupAdditive;
+
+import org.jenetics.internal.util.HashBuilder;
 
 /**
  * Interface for accumulating values of a given type. Here an usage example:
@@ -144,7 +145,7 @@ public interface Accumulator<T> {
 
 		@Override
 		public int hashCode() {
-			return hashCodeOf(getClass()).and(super.hashCode()).and(_min).value();
+			return HashBuilder.of(getClass()).and(super.hashCode()).and(_min).value();
 		}
 
 		@Override
@@ -232,7 +233,7 @@ public interface Accumulator<T> {
 
 		@Override
 		public int hashCode() {
-			return hashCodeOf(getClass()).and(super.hashCode()).and(_max).value();
+			return HashBuilder.of(getClass()).and(super.hashCode()).and(_max).value();
 		}
 
 		@Override
@@ -334,7 +335,7 @@ public interface Accumulator<T> {
 
 		@Override
 		public int hashCode() {
-			return hashCodeOf(getClass()).
+			return HashBuilder.of(getClass()).
 				and(super.hashCode()).
 				and(_min).
 				and(_max).value();

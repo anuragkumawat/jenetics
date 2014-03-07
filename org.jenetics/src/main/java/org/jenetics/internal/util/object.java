@@ -23,16 +23,15 @@ import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 import java.util.Arrays;
+import java.util.function.Function;
 
 import javax.measure.Measurable;
 import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.Seq;
 import org.jenetics.util.StaticObject;
 import org.jenetics.util.Verifiable;
-import org.jenetics.util.arrays;
 
 /**
  * Some helper methods for creating hash codes and comparing values.
@@ -436,7 +435,7 @@ public final class object extends StaticObject {
 	 *          otherwise.
 	 */
 	public static boolean eq(final Seq<?> a, final Seq<?> b) {
-		return arrays.equals(a, b);
+		return Seq.equals(a, b);
 	}
 
 }

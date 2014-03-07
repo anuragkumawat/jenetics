@@ -32,7 +32,7 @@ import javolution.context.LocalContext;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.UniformDistribution;
 import org.jenetics.stat.Variance;
-import org.jenetics.util.Function;
+import java.util.function.Function;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.accumulators.MinMax;
 

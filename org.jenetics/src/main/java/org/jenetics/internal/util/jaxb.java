@@ -24,6 +24,7 @@ import static org.jenetics.internal.util.reflect.classOf;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -52,7 +53,6 @@ import org.jenetics.internal.util.model.ShortModel;
 import org.jenetics.internal.util.model.StringModel;
 import org.jenetics.internal.util.model.ValueType;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.StaticObject;
 
 /**

@@ -22,9 +22,10 @@ package org.jenetics.stat;
 import static java.lang.Double.NaN;
 import static java.lang.Math.sqrt;
 import static org.jenetics.util.object.eq;
-import static org.jenetics.util.object.hashCodeOf;
 
 import java.util.Objects;
+
+import org.jenetics.internal.util.HashBuilder;
 
 /**
  * Mutable implementation of the statistical {@code Summary} interface.
@@ -206,7 +207,7 @@ final class CollectibleSummary<N extends Number & Comparable<? super N>>
 
 	@Override
 	public int hashCode() {
-		return hashCodeOf(CollectibleSummary.class)
+		return HashBuilder.of(CollectibleSummary.class)
 			.and(_n)
 			.and(_min)
 			.and(_max)

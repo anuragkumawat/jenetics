@@ -20,9 +20,9 @@
 package org.jenetics;
 
 import static org.jenetics.stat.StatisticsAssert.assertDistribution;
-import static org.jenetics.util.accumulators.accumulate;
 
 import java.util.Random;
+import java.util.function.Function;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,7 +32,6 @@ import javolution.context.LocalContext;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.UniformDistribution;
 import org.jenetics.stat.Variance;
-import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.accumulators.MinMax;
 
