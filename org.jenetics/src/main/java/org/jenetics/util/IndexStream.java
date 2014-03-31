@@ -54,7 +54,7 @@ import org.jenetics.internal.math.probability;
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
- * @version @__version__@ &mdash; <em>$Date$</em>
+ * @version 2.0 &mdash; <em>$Date$</em>
  */
 public abstract class IndexStream extends IntStreamAdapter {
 
@@ -93,6 +93,7 @@ public abstract class IndexStream extends IntStreamAdapter {
 	 * @param n the maximal value (exclusively) the created index stream will
 	 *         return.
 	 * @param probability the index selection probability.
+	 * @return a new {@code IndexStream} with the given parameter
 	 * @throws IllegalArgumentException if {@code n == Integer.MAX_VALUE} or
 	 *         {@code n <= 0} or the given {@code probability} is not valid.
 	 */
@@ -108,6 +109,7 @@ public abstract class IndexStream extends IntStreamAdapter {
 	 *        return.
 	 * @param p the index selection probability.
 	 * @param random the random engine used for creating the random indexes.
+	 * @return a new {@code IndexStream} with the given parameter
 	 * @throws IllegalArgumentException if {@code n == Integer.MAX_VALUE} or
 	 *         {@code n <= 0} or the given {@code probability} is not valid.
 	 * @throws NullPointerException if the given {@code random} engine is

@@ -32,6 +32,7 @@ public class RandomRegistryTest {
 
 	@Test
 	public void setDefault() {
+		RandomRegistry.reset();
 		final Random devault = RandomRegistry.getRandom();
 		Assert.assertNotNull(devault);
 
@@ -48,6 +49,15 @@ public class RandomRegistryTest {
 		RandomRegistry.setRandom(random);
 
 		Assert.assertSame(RandomRegistry.getRandom(), random);
+	}
+
+	@Test
+	public void setThreadLocalRandom() {
+		final LCG64ShiftRandom.ThreadLocal random =
+			new LCG64ShiftRandom.ThreadLocal();
+		RandomRegistry.setRandom(random);
+
+		Assert.assertSame(RandomRegistry.getRandom(), random.get());
 	}
 
 	@Test(expectedExceptions = NullPointerException.class)
@@ -79,9 +89,9 @@ public class RandomRegistryTest {
 
 	@Test(invocationCount = 10)
 	public void concurrentLocalContext() {
-		try (Concurrency c = Concurrency.start()) {
+		try (Scoped<Concurrent> c = Concurrent.scope()) {
 			for (int i = 0; i < 25; ++i) {
-				c.execute(new ContextRunnable());
+				c.get().execute(new ContextRunnable());
 			}
 		}
 	}
