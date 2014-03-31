@@ -50,6 +50,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.Function;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -75,7 +76,6 @@ import org.jenetics.Optimize;
 import org.jenetics.Phenotype;
 import org.jenetics.TournamentSelector;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.RandomRegistry;
 
 

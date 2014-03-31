@@ -23,10 +23,9 @@ import static java.lang.String.format;
 import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import org.jenetics.internal.util.HashBuilder;
-
-import org.jenetics.util.Function;
 
 /**
  * Implements an exponential fitness scaling, whereby all fitness values are

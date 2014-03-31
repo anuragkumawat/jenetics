@@ -19,7 +19,7 @@
  */
 package org.jenetics.stat;
 
-import org.jenetics.util.Function;
+import java.util.function.Function;
 import org.jenetics.util.Range;
 
 /**

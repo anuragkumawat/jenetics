@@ -22,7 +22,6 @@ package org.jenetics.internal.util;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.4

@@ -42,11 +42,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.function.Function;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.Duration;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.IO;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.LCG64ShiftRandom;

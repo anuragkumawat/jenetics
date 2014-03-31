@@ -19,7 +19,8 @@
  */
 package org.jenetics.internal.util;
 
-import org.jenetics.util.Function;
+import java.util.function.Function;
+
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
 

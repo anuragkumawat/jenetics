@@ -38,7 +38,7 @@ abstract class PRNG extends Random {
 	 *
 	 * @param seed the seed of the new {@code PRNG} instance.
 	 */
-	protected PRNG(long seed) {
+	protected PRNG(final long seed) {
 		super(seed);
 	}
 

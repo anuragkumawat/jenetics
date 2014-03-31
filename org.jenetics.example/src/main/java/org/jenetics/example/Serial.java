@@ -20,13 +20,13 @@
 package org.jenetics.example;
 
 import java.io.File;
+import java.util.function.Function;
 
 import org.jenetics.Chromosome;
 import org.jenetics.DoubleChromosome;
 import org.jenetics.DoubleGene;
 import org.jenetics.GeneticAlgorithm;
 import org.jenetics.Genotype;
-import org.jenetics.util.Function;
 import org.jenetics.util.IO;
 
 /**

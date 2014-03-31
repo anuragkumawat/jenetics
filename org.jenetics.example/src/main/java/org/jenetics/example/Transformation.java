@@ -23,6 +23,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
+import java.util.function.Function;
 
 import org.jenetics.CompositeAlterer;
 import org.jenetics.DoubleChromosome;
@@ -33,7 +34,6 @@ import org.jenetics.MeanAlterer;
 import org.jenetics.Mutator;
 import org.jenetics.RouletteWheelSelector;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

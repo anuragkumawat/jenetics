@@ -17,23 +17,23 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.util;
+package org.jenetics.internal.util;
 
 /**
- * A function of 1 parameter.
- *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @since 1.0
- * @version 2.0 &mdash; <em>$Date$</em>
+ * @version @__version__@ &mdash; <em>$Date$</em>
+ * @since @__version__@
  */
-public interface Function<T, R> {
+public interface IArray<T> {
 
-	/**
-	 * Apply the body of this function to the argument.
-	 *
-	 * @param value the function argument.
-	 * @return the result of function application.
-	 */
-	public R apply(final T value);
+	public T get(final int index);
+
+	public void set(final int index, final T value);
+
+	public int length();
+
+	public default int size() {
+		return length();
+	}
 
 }

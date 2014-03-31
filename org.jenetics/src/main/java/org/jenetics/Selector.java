@@ -39,6 +39,7 @@ package org.jenetics;
  * @since 1.0
  * @version 2.0 &mdash; <em>$Date$</em>
  */
+@FunctionalInterface
 public interface Selector<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>

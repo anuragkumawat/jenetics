@@ -24,7 +24,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import org.jenetics.internal.util.HashBuilder;
 
-import org.jenetics.util.MappedAccumulator;
+import org.jenetics.util.AbstractAccumulator;
 
 
 /**
@@ -47,7 +47,7 @@ import org.jenetics.util.MappedAccumulator;
  * @since 1.0
  * @version 2.0 &mdash; <em>$Date$</em>
  */
-public class Mean<N extends Number> extends MappedAccumulator<N> {
+public class Mean<N extends Number> extends AbstractAccumulator<N> {
 
 	protected double _mean = Double.NaN;
 

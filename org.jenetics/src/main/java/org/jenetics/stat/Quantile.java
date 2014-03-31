@@ -27,7 +27,7 @@ import java.util.Arrays;
 
 import org.jenetics.internal.util.HashBuilder;
 
-import org.jenetics.util.MappedAccumulator;
+import org.jenetics.util.AbstractAccumulator;
 
 
 /**
@@ -52,7 +52,7 @@ import org.jenetics.util.MappedAccumulator;
  * @since 1.0
  * @version 2.0 &mdash; <em>$Date$</em>
  */
-public class Quantile<N extends Number> extends MappedAccumulator<N> {
+public class Quantile<N extends Number> extends AbstractAccumulator<N> {
 
 	// The desired quantile.
 	private final double _quantile;

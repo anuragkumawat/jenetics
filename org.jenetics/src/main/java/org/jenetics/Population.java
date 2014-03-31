@@ -122,7 +122,6 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 		for (int i = count; --i >= 0;) {
 			_population.add(factory.newInstance());
 		}
-		//lists.fill(_population, factory, count);
 		return this;
 	}
 
@@ -203,7 +202,7 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 	 * Sorting the phenotypes in this population according to its fitness
 	 * value in descending order.
 	 */
-	public void sort() {
+	public void populationSort() {
 		sortWith(Optimize.MAXIMUM.<C>descending());
 	}
 
@@ -371,7 +370,7 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 	@Override
 	public String toString() {
-		StringBuilder out = new StringBuilder();
+		final StringBuilder out = new StringBuilder();
 
 		for (Phenotype<?, ?> pt : this) {
 			out.append(pt).append("\n");

@@ -20,11 +20,11 @@
 package org.jenetics.performance;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import org.jenetics.BoltzmannSelector;
 import org.jenetics.CharacterChromosome;
 import org.jenetics.CharacterGene;
-import org.jenetics.Chromosome;
 import org.jenetics.DoubleGene;
 import org.jenetics.GeneticAlgorithm;
 import org.jenetics.Genotype;
@@ -33,8 +33,6 @@ import org.jenetics.Mutator;
 import org.jenetics.RouletteWheelSelector;
 import org.jenetics.SinglePointCrossover;
 import org.jenetics.util.Array;
-import org.jenetics.util.Function;
-import org.jenetics.util.ISeq;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -111,12 +109,11 @@ public class GATest {
 		String.format("CharacterGene[G=%s, C=%s]", NGENES, NCHROMOSOMES),
 		LOOPS, NGENES*NCHROMOSOMES
 	) {
-		private final ISeq<Chromosome<CharacterGene>> _chromosomes = 
-			new Array<Chromosome<CharacterGene>>(NCHROMOSOMES)
-				.fill(CharacterChromosome.of(NGENES))
-				.toISeq();
-
-		private final Genotype<CharacterGene> _gt = new Genotype<>(_chromosomes);
+		private final Array<CharacterChromosome> _chromosomes = new Array<>(NCHROMOSOMES);
+		{
+			_chromosomes.fill(() -> CharacterChromosome.of(NGENES));
+		}
+		private final Genotype<CharacterGene> _gt = new Genotype(_chromosomes.toISeq());
 
 		private GeneticAlgorithm<CharacterGene, Double> _ga;
 

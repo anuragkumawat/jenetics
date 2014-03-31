@@ -29,7 +29,6 @@ import org.jenetics.internal.util.HashBuilder;
 import org.jenetics.util.IndexStream;
 import org.jenetics.util.MSeq;
 
-
 /**
  * This class is for mutating a chromosomes of an given population. There are
  * two distinct roles mutation plays

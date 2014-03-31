@@ -71,6 +71,13 @@ public class RandomIndexStreamTest {
 	}
 
 	@Test
+	public void map() {
+		final IndexStream stream = IndexStream.Random(1000, 0.5, new Random(1));
+		//final Object[] array = stream.mapToObj(i -> Integer.toString(i)).toArray();
+		System.out.println(stream.summaryStatistics());
+	}
+
+	@Test
 	public void reference() {
 		final int size = 5000;
 		final double p = 0.5;

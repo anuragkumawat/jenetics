@@ -22,6 +22,7 @@ package org.jenetics.util;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -35,13 +36,8 @@ public abstract class MSeqTestBase extends SeqTestBase {
 	@Override
 	protected abstract MSeq<Integer> newSeq(final int length);
 
-	private Factory<Integer> RandomInt(final Random random) {
-		return new Factory<Integer>() {
-			@Override
-			public Integer newInstance() {
-				return random.nextInt();
-			}
-		};
+	private Supplier<Integer> RandomInt(final Random random) {
+		return () -> random.nextInt();
 	}
 
 	@Test

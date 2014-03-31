@@ -50,6 +50,11 @@ final class BitGeneArray extends ArrayProxyMSeq<BitGene> {
 		return new BitGeneISeq((Proxy)_proxy.seal());
 	}
 
+	/**
+	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
+	 * @since 1.4
+	 * @version 1.4 &mdash; <em>$Date$</em>
+	 */
 	static final class BitGeneISeq extends ArrayProxyISeq<BitGene> {
 		public BitGeneISeq(final Proxy proxy) {
 			super(proxy);
@@ -67,6 +72,11 @@ final class BitGeneArray extends ArrayProxyMSeq<BitGene> {
 
 	}
 
+	/**
+	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
+	 * @since 1.4
+	 * @version 1.4 &mdash; <em>$Date$</em>
+	 */
 	static final class Proxy extends ArrayProxy<BitGene> {
 		private byte[] _array;
 		private boolean _sealed = false;

@@ -25,10 +25,10 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;
 import java.util.Locale;
+import java.util.function.Function;
 
 import org.jenetics.internal.util.HashBuilder;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.Range;
 
 

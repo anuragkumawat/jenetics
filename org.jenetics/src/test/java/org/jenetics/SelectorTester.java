@@ -19,7 +19,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.util.accumulators.accumulate;
+import static org.jenetics.util.Accumulator.accumulate;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -28,7 +28,6 @@ import org.jenetics.stat.Distribution;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.StatisticsAssert;
 import org.jenetics.util.Factory;
-import org.jenetics.util.Function;
 import org.jenetics.util.ObjectTester;
 import org.jenetics.util.Range;
 
@@ -90,29 +89,19 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 				selector.select(population, npopulation, Optimize.MAXIMUM);
 
 			accumulate(
-					selection,
-					histogram
-						.map(Allele)
-						.map(Gene)
-						.map(Genotype.<DoubleGene>Chromosome())
-						.map(Phenotype.<DoubleGene>Genotype())
-				);
+				selection,
+				histogram
+					.<Gene<Double, DoubleGene>>map(g -> g.getAllele())
+					.<Chromosome<DoubleGene>>map(ch -> ch.getGene())
+					.<Genotype<DoubleGene>>map(gt -> gt.getChromosome())
+					.<Phenotype<DoubleGene, Double>>map(pt -> pt.getGenotype())
+			);
 
 			population.clear();
 		}
 
 		check(histogram, getDistribution());
 	}
-
-	private static final Function<DoubleGene, Double> Allele =
-		new Function<DoubleGene, Double>() {
-			@Override public Double apply(final DoubleGene value) {
-				return value.getAllele();
-			}
-		};
-
-	private static final Function<Chromosome<DoubleGene>, DoubleGene>
-		Gene = AbstractChromosome.gene();
 
 	protected double χ2(
 		final Histogram<Double> histogram,

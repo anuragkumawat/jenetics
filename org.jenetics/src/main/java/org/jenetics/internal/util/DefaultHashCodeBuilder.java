@@ -22,7 +22,6 @@ package org.jenetics.internal.util;
 import java.util.Arrays;
 
 import org.jenetics.util.Seq;
-import org.jenetics.util.arrays;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -136,7 +135,7 @@ public final class DefaultHashCodeBuilder implements Hash {
 
 	@Override
 	public DefaultHashCodeBuilder and(final Seq<?> values) {
-		_hash += arrays.hashCode(values); return this;
+		_hash += Seq.hashCode(values); return this;
 	}
 
 	@Override

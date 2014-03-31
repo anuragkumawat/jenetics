@@ -36,42 +36,6 @@ public abstract class AbstractAlterer<G extends Gene<?, G>>
 {
 
 	/**
-	 * Return an alterer which does nothing.
-	 *
-	 * @param <G> the <i>gene</i> typ
-	 * @return an alterer which does nothing.
-	 */
-	public static <G extends Gene<?, G>> Alterer<G> Null() {
-		return new Alterer<G>() {
-			@Override
-			public <C extends Comparable<? super C>> int alter(
-				final Population<G, C> population,
-				final int generation
-			) {
-				return 0;
-			}
-
-			@Override
-			public int hashCode() {
-				return HashBuilder.of(getClass()).value();
-			}
-
-			@Override
-			public boolean equals(final Object obj) {
-				return obj == this ||
-						obj != null && obj.getClass() == getClass();
-			}
-
-			@Override
-			public String toString() {
-				return "Alterer.Null";
-			}
-		};
-	}
-
-	public static final double DEFAULT_ALTER_PROBABILITY = 0.2;
-
-	/**
 	 * The altering probability.
 	 */
 	protected final double _probability;

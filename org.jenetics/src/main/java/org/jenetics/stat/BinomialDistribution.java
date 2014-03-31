@@ -24,8 +24,8 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.object.checkProbability;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
-import org.jenetics.util.Function;
 import org.jenetics.util.Range;
 
 /**

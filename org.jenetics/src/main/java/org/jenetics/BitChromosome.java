@@ -65,7 +65,7 @@ public class BitChromosome extends Number
 
 
 	/**
-	 * The one's probability of the randomly generated Chromosome.
+	 * The ones probability of the randomly generated Chromosome.
 	 */
 	protected double _p;
 
