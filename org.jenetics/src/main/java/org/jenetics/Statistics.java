@@ -25,6 +25,7 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;
+import java.util.concurrent.Executor;
 
 import org.jenetics.internal.util.HashBuilder;
 
@@ -574,6 +575,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 		 * @return a new statistics object generated from the given arguments.
 		 */
 		public Statistics.Builder<G, C> evaluate(
+			final Executor executor,
 			final Iterable<? extends Phenotype<G, C>> population,
 			final int generation,
 			final Optimize opt
@@ -586,10 +588,11 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 			final Variance<Integer> age = new Variance<>();
 
 			Accumulator.accumulate(
-					population,
-					minMax,
-					age.<Phenotype<G, C>>map(pt -> pt.getAge(generation))
-				);
+				executor,
+				population,
+				minMax,
+				age.map(Phenotype.Age(generation))
+			);
 
 			builder.bestPhenotype(opt.best(minMax.getMax(), minMax.getMin()));
 			builder.worstPhenotype(opt.worst(minMax.getMax(), minMax.getMin()));

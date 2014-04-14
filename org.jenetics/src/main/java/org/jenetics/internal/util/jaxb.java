@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+import javax.xml.bind.DataBindingException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
@@ -44,16 +45,22 @@ import org.jenetics.util.StaticObject;
 public class jaxb extends StaticObject {
 	private jaxb() {}
 
-	public static final JAXBContext CONTEXT = newContext();
-
-	private static JAXBContext newContext() {
-		try {
-			return JAXBContext.newInstance(
-				"org.jenetics:org.jenetics.internal.util"
-			);
-		} catch (JAXBException e) {
-			throw new AssertionError(e);
+	private static final class JAXBContextHolder {
+		private static final JAXBContext CONTEXT; static {
+			try {
+				CONTEXT = JAXBContext.newInstance(
+					"org.jenetics:org.jenetics.internal.util"
+				);
+			} catch (JAXBException e) {
+				throw new DataBindingException(
+					"Something went wrong while creating JAXBContext.", e
+				);
+			}
 		}
+	}
+
+	public static JAXBContext context() {
+		return JAXBContextHolder.CONTEXT;
 	}
 
 	private static final XmlAdapter<Object, Object> IdentityAdapter =

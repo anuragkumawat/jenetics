@@ -19,37 +19,21 @@
  */
 package org.jenetics.util;
 
-import java.util.concurrent.Executor;
-
 /**
+ * A function of 1 parameter.
+ *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 2.0 &mdash; <em>$Date$</em>
- * @since 2.0
+ * @since 1.0
+ * @version 1.0 &mdash; <em>$Date$</em>
  */
-final class ScopedExecutorProxy implements Scoped<Concurrent> {
+public interface Function<T, R> {
 
-	private final Scoped<Executor> _scope;
-	private final Scoped<Concurrent> _executor;
+	/**
+	 * Apply the body of this function to the argument.
+	 *
+	 * @param value the function argument.
+	 * @return the result of function application.
+	 */
+	public R apply(final T value);
 
-	public ScopedExecutorProxy(
-		final Scoped<Executor> scope,
-		final Scoped<Concurrent> executor
-	) {
-		_scope = scope;
-		_executor = executor;
-	}
-
-	@Override
-	public Concurrent get() {
-		return _executor.get();
-	}
-
-	@Override
-	public void close() {
-		try {
-			_executor.close();
-		} finally {
-			_scope.close();
-		}
-	}
 }
