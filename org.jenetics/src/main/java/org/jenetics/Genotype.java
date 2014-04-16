@@ -19,7 +19,6 @@
  */
 package org.jenetics;
 
-import static org.jenetics.internal.util.object.Verify;
 import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;

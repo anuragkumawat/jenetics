@@ -144,10 +144,10 @@ class TestUtils {
 		final int nchromosomes,
 		final int npopulation
 	) {
-		final Random random = RandomRegistry.getRandom();
+		final Random random = new Random(122343);
 		final Array<Double> alleles = new Array<>(ngenes);
 		for (int i = 0; i < ngenes; ++i) {
-			alleles.set(i, Double.valueOf(random.nextDouble()*10));
+			alleles.set(i, random.nextDouble()*10);
 		}
 		final ISeq<Double> ialleles = alleles.toISeq();
 

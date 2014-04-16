@@ -29,36 +29,6 @@ import org.testng.annotations.Test;
 public class objectTest {
 
 	@Test
-	public void rangeCheckPredicate1() {
-		final Array<Integer> array = new Array<>(100);
-		for (int i = 0; i < array.length(); ++i) {
-			array.set(i, i);
-		}
-		//array.forEach(CheckRange(0, 100));
-		assert(false);
-	}
-
-	@Test(expectedExceptions = NullPointerException.class)
-	public void rangeCheckPredicate2() {
-		final Array<Integer> array = new Array<>(100);
-		for (int i = 0; i < array.length(); ++i) {
-			array.set(i, i);
-		}
-		array.set(45, null);
-		//array.forEach(CheckRange(0, 100));
-	}
-
-	@Test(expectedExceptions = IllegalArgumentException.class)
-	public void rangeCheckPredicate3() {
-		final Array<Integer> array = new Array<>(100);
-		for (int i = 0; i < array.length(); ++i) {
-			array.set(i, i);
-		}
-		array.set(45, 333);
-		//array.forEach(CheckRange(0, 100));
-	}
-
-	@Test
 	public void validPredicate() {
 		final Array<Verifiable> array = new Array<>(100);
 		for (int i = 0; i < array.length(); ++i) {
@@ -76,26 +46,6 @@ public class objectTest {
 			}
 		});
 		Assert.assertEquals(array.indexWhere(o -> !o.isValid()), 77);
-	}
-
-	@Test
-	public void nonNullPredicate1() {
-		final Array<Integer> array = new Array<>(100);
-		for (int i = 0; i < array.length(); ++i) {
-			array.set(i, i);
-		}
-
-		//array.forEach(NonNull);
-	}
-
-	@Test(expectedExceptions = NullPointerException.class)
-	public void nonNullPredicate2() {
-		final Array<Integer> array = new Array<>(100);
-		for (int i = 0; i < array.length(); ++i) {
-			array.set(i, i);
-		}
-		array.set(45, null);
-		//array.forEach(NonNull);
 	}
 
 }

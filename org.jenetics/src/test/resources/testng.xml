@@ -255,14 +255,6 @@
 			<class name="org.jenetics.stat.UniformDistributionTest" />
 		</classes>
 	</test>
-	<test name="org.jenetics.util.accumulatorsTest">
-		<classes>
-			<class name="org.jenetics.util.accumulatorsTest" />
-			<class name="org.jenetics.util.accumulatorsMaxTest" />
-			<class name="org.jenetics.util.accumulatorsMinMaxTest" />
-			<class name="org.jenetics.util.accumulatorsMinTest" />
-		</classes>
-	</test>
 	<test name="org.jenetics.internal.util.ArrayProxy">
 		<classes>
 			<class name="org.jenetics.internal.util.ArrayProxyImplTest" />

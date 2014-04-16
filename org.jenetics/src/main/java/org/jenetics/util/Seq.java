@@ -219,7 +219,7 @@ public interface Seq<T> extends Iterable<T>, IntFunction<T> {
 	public default int indexOf(final Object element, final int start, final int end) {
 		int index = -1;
 		if (element != null) {
-			index = indexWhere(o -> element.equals(o), start, end);
+			index = indexWhere(element::equals, start, end);
 		} else {
 			index = indexWhere(o -> o == null, start, end);
 		}

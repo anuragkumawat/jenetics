@@ -110,7 +110,9 @@ class SetupPlugin extends JeneticsPlugin {
 	}
 
 	private void configureTestReporting() {
-		plugins.apply(JacocoPlugin)
+		// TODO: Jacoco doesn't work with java8
+
+		//plugins.apply(JacocoPlugin)
 		project.test {
 			useTestNG {
 				//parallel = 'tests' // 'methods'
@@ -121,6 +123,7 @@ class SetupPlugin extends JeneticsPlugin {
                     )
 			}
 		}
+        /*
 		project.jacocoTestReport {
 			reports {
 				xml.enabled true
@@ -130,6 +133,7 @@ class SetupPlugin extends JeneticsPlugin {
 		task('testReport', dependsOn: 'test') << {
 			project.jacocoTestReport.execute()
 		}
+		*/
 	}
 
 	private void configureJavadoc() {
@@ -209,7 +213,7 @@ class SetupPlugin extends JeneticsPlugin {
 		'finally',
 		'overrides',
 		'rawtypes',
-		'serial',
+		//'serial',
 		//'try',
 		'unchecked'
 	]
