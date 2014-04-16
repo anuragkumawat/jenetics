@@ -20,6 +20,7 @@
 package org.jenetics.internal.util;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Supplier;
 
 import org.jenetics.util.Scoped;
 

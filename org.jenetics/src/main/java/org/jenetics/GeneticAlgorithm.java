@@ -302,7 +302,7 @@ public class GeneticAlgorithm<
 		this(
 			genotypeFactory,
 			fitnessFunction,
-			functions.<C>Identity(),
+			a -> a,
 			optimization,
 			Concurrency.commonPool()
 		);

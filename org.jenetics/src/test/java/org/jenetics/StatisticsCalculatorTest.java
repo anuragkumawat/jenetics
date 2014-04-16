@@ -90,6 +90,7 @@ public class StatisticsCalculatorTest {
 
 		final Variance<Integer> ageVariance = new Variance<>();
 		Accumulator.accumulate(
+			Concurrency.commonPool(),
 			population(size),
 			ageVariance.<Phenotype<DoubleGene, Double>>map(pt -> pt.getAge(gen))
 		);

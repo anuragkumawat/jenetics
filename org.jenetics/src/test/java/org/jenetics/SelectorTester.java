@@ -24,6 +24,8 @@ import static org.jenetics.util.Accumulator.accumulate;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import org.jenetics.internal.util.Concurrency;
+
 import org.jenetics.stat.Distribution;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.StatisticsAssert;
@@ -89,6 +91,7 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 				selector.select(population, npopulation, Optimize.MAXIMUM);
 
 			accumulate(
+				Concurrency.commonPool(),
 				selection,
 				histogram
 					.<Gene<Double, DoubleGene>>map(g -> g.getAllele())
