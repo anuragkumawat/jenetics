@@ -58,26 +58,6 @@ public abstract class ArrayProxySeq<T> implements Seq<T> {
 	}
 
 	@Override
-	public <B> Iterator<B> iterator(
-		final Function<? super T, ? extends B> mapper
-	) {
-		requireNonNull(mapper, "Mapper must not be null.");
-
-		return new Iterator<B>() {
-			private final Iterator<T> _iterator = iterator();
-			@Override public boolean hasNext() {
-				return _iterator.hasNext();
-			}
-			@Override public B next() {
-				return mapper.apply(_iterator.next());
-			}
-			@Override public void remove() {
-				_iterator.remove();
-			}
-		};
-	}
-
-	@Override
 	public void forEach(final Consumer<? super T> consumer) {
 		requireNonNull(consumer, "The consumer must not be null.");
 
