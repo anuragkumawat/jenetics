@@ -23,7 +23,7 @@ import static java.lang.String.format;
 
 import java.util.Random;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.IndexStream;
 import org.jenetics.util.MSeq;
@@ -88,7 +88,7 @@ public final class GaussianMutator<G extends NumericGene<?, G>>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(super.hashCode()).value();
+		return Hash.of(getClass()).and(super.hashCode()).value();
 	}
 
 	@Override

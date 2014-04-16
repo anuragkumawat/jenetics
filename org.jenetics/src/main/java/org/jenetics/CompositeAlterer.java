@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
@@ -116,7 +116,7 @@ public final class CompositeAlterer<G extends Gene<?, G>>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_alterers).value();
+		return Hash.of(getClass()).and(_alterers).value();
 	}
 
 	@Override

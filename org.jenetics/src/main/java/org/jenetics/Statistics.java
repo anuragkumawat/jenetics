@@ -27,7 +27,7 @@ import static org.jenetics.internal.util.object.eq;
 import java.io.Serializable;
 import java.util.concurrent.Executor;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.stat.Variance;
 import org.jenetics.util.Accumulator;
@@ -373,7 +373,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(_optimize).
 				and(_generation).
 				and(_ageMean).
@@ -497,7 +497,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 
 		@Override
 		public int hashCode() {
-			return HashBuilder.of(getClass()).
+			return Hash.of(getClass()).
 					and(alter).
 					and(combine).
 					and(evaluation).
@@ -591,7 +591,7 @@ public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
 				executor,
 				population,
 				minMax,
-				age.map(Phenotype.Age(generation))
+				age.map(pt -> pt.getAge(generation))
 			);
 
 			builder.bestPhenotype(opt.best(minMax.getMax(), minMax.getMin()));

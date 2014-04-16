@@ -51,26 +51,6 @@ abstract class AbstractNumericChromosome<
 	}
 
 	@Override
-	public byte byteValue(final int index) {
-		return getGene(index).getAllele().byteValue();
-	}
-
-	@Override
-	public byte byteValue() {
-		return byteValue(0);
-	}
-
-	@Override
-	public short shortValue(final int index) {
-		return getGene(index).getAllele().shortValue();
-	}
-
-	@Override
-	public short shortValue() {
-		return shortValue(0);
-	}
-
-	@Override
 	public int intValue(final int index) {
 		return getGene(index).getAllele().intValue();
 	}

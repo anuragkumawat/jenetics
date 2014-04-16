@@ -21,7 +21,7 @@ package org.jenetics.util;
 
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 
 /**
@@ -41,7 +41,7 @@ class Tuple2<T1, T2> {
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_1).and(_2).value();
+		return Hash.of(getClass()).and(_1).and(_2).value();
 	}
 
 	@Override

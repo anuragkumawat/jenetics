@@ -25,7 +25,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.util.Objects;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * Mutable implementation of the statistical {@code Summary} interface.
@@ -207,7 +207,7 @@ final class CollectibleSummary<N extends Number & Comparable<? super N>>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(CollectibleSummary.class)
+		return Hash.of(CollectibleSummary.class)
 			.and(_n)
 			.and(_min)
 			.and(_max)

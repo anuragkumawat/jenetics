@@ -24,7 +24,7 @@ import static java.lang.String.format;
 
 import java.util.Random;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
@@ -149,7 +149,7 @@ public class MultiPointCrossover<G extends Gene<?, G>> extends Crossover<G> {
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(super.hashCode()).
 				and(_n).value();
 	}

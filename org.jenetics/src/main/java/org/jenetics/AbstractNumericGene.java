@@ -49,16 +49,6 @@ abstract class AbstractNumericGene<
 	}
 
 	@Override
-	public byte byteValue() {
-		return _value.byteValue();
-	}
-
-	@Override
-	public short shortValue() {
-		return _value.shortValue();
-	}
-
-	@Override
 	public int intValue() {
 		return _value.intValue();
 	}

@@ -27,7 +27,7 @@ import java.io.Serializable;
 import java.util.Locale;
 import java.util.function.Function;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.Range;
 
@@ -265,7 +265,7 @@ public class LinearDistribution<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(_domain).
 				and(_x1).and(_x2).
 				and(_y1).and(_y2).value();

@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.Array;
 import org.jenetics.util.CharSeq;
@@ -145,7 +145,7 @@ public final class CharacterGene
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_character).and(_validCharacters).value();
+		return Hash.of(getClass()).and(_character).and(_validCharacters).value();
 	}
 
 	@Override

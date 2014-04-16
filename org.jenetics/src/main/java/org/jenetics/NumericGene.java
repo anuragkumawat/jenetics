@@ -40,7 +40,9 @@ public interface NumericGene<
 	 * @return the numeric value represented by this object after conversion to
 	 *         type {@code byte}.
 	 */
-	public byte byteValue();
+	public default byte byteValue() {
+		return (byte)intValue();
+	}
 
 	/**
 	 * Returns the value of the specified gene as an short. This may involve
@@ -49,7 +51,9 @@ public interface NumericGene<
 	 * @return the numeric value represented by this object after conversion to
 	 *         type {@code short}.
 	 */
-	public short shortValue();
+	public default short shortValue() {
+		return (short)intValue();
+	}
 
 	/**
 	 * Returns the value of the specified gene as an int. This may involve

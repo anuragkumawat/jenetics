@@ -23,7 +23,7 @@ import static java.lang.Math.pow;
 import static java.lang.String.format;
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * <p>
@@ -108,7 +108,7 @@ public final class ExponentialRankSelector<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_c).value();
+		return Hash.of(getClass()).and(_c).value();
 	}
 
 	@Override

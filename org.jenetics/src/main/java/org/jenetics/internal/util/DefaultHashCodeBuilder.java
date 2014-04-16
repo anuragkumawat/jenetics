@@ -37,7 +37,7 @@ public final class DefaultHashCodeBuilder implements Hash {
 
 	protected int _hash = 0;
 
-	protected DefaultHashCodeBuilder(final Class<?> type) {
+	public DefaultHashCodeBuilder(final Class<?> type) {
 		_hash = type.hashCode();
 	}
 

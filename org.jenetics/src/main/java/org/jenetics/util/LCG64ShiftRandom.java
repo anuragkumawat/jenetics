@@ -24,7 +24,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 
 /**
@@ -535,7 +535,7 @@ public class LCG64ShiftRandom extends Random64 {
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass())
+		return Hash.of(getClass())
 				.and(_a).and(_b).and(_r)
 				.and(_seed).and(_param).value();
 	}

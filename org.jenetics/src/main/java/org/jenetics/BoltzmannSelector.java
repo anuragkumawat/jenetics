@@ -26,7 +26,7 @@ import static org.jenetics.util.math.divide;
 import static org.jenetics.util.math.normalize;
 import static org.jenetics.util.math.statistics.max;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * <p>
@@ -115,7 +115,7 @@ public final class BoltzmannSelector<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_b).value();
+		return Hash.of(getClass()).and(_b).value();
 	}
 
 	@Override

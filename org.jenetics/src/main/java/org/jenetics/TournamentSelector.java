@@ -24,7 +24,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Random;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.RandomRegistry;
 
@@ -142,7 +142,7 @@ public class TournamentSelector<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_sampleSize).value();
+		return Hash.of(getClass()).and(_sampleSize).value();
 	}
 
 	@Override

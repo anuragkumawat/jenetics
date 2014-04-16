@@ -27,7 +27,7 @@ import java.io.Serializable;
 import java.util.Locale;
 import java.util.function.Function;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.Range;
 
@@ -235,7 +235,7 @@ public class UniformDistribution<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_domain).value();
+		return Hash.of(getClass()).and(_domain).value();
 	}
 
 	@Override

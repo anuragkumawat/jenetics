@@ -22,7 +22,7 @@ package org.jenetics;
 import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * Base class for genes where the alleles are bound by a minimum and a maximum
@@ -105,7 +105,7 @@ abstract class AbstractBoundedGene<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_value).and(_min).and(_max).value();
+		return Hash.of(getClass()).and(_value).and(_min).and(_max).value();
 	}
 
 	@Override

@@ -21,7 +21,7 @@ package org.jenetics;
 
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.ISeq;
 
@@ -76,7 +76,7 @@ abstract class AbstractBoundedChromosome<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 			and(super.hashCode()).
 			and(_min).
 			and(_max).value();

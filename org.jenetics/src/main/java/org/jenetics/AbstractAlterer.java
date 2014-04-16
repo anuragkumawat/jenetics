@@ -22,7 +22,7 @@ package org.jenetics;
 import static org.jenetics.internal.util.object.checkProbability;
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * Abstract implementation of the alterer interface.
@@ -62,7 +62,7 @@ public abstract class AbstractAlterer<G extends Gene<?, G>>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_probability).value();
+		return Hash.of(getClass()).and(_probability).value();
 	}
 
 	@Override

@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * A final reference. This class is used if you want to allow to set the
@@ -94,7 +94,7 @@ public final class FinalReference<T>
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(get()).value();
+		return Hash.of(getClass()).and(get()).value();
 	}
 
 	@Override

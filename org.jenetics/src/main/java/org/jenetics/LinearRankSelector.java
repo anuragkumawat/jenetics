@@ -22,7 +22,7 @@ package org.jenetics;
 import static java.lang.String.format;
 import static org.jenetics.internal.util.object.eq;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * <p>
@@ -122,7 +122,7 @@ public final class LinearRankSelector<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_nminus).and(_nplus).value();
+		return Hash.of(getClass()).and(_nminus).and(_nplus).value();
 	}
 
 	@Override

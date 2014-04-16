@@ -25,7 +25,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.util.concurrent.Executor;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.stat.Variance;
 import org.jenetics.util.Accumulator;
@@ -210,7 +210,7 @@ public class NumberStatistics<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(super.hashCode()).
 				and(_fitnessMean).
 				and(_fitnessVariance).

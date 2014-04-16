@@ -25,7 +25,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.util.Arrays;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.AbstractAccumulator;
 
@@ -270,7 +270,7 @@ public class Quantile<N extends Number> extends AbstractAccumulator<N> {
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(super.hashCode()).
 				and(_quantile).
 				and(_dn).

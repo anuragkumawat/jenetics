@@ -25,7 +25,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * Timer for measure the performance of the GA. The timer uses nano second
@@ -183,7 +183,7 @@ public final class Timer
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).
+		return Hash.of(getClass()).
 				and(_label).
 				and(_start).
 				and(_stop).

@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.regex.PatternSyntaxException;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 /**
  * This class is used for holding the valid characters of an
@@ -186,7 +186,7 @@ public final class CharSeq
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).and(_characters).value();
+		return Hash.of(getClass()).and(_characters).value();
 	}
 
 	@Override

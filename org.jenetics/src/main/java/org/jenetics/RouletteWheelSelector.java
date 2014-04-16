@@ -27,7 +27,7 @@ import static org.jenetics.util.math.ulpDistance;
 
 import java.util.Arrays;
 
-import org.jenetics.internal.util.HashBuilder;
+import org.jenetics.internal.util.Hash;
 
 
 /**
@@ -86,7 +86,7 @@ public class RouletteWheelSelector<
 
 	@Override
 	public int hashCode() {
-		return HashBuilder.of(getClass()).value();
+		return Hash.of(getClass()).value();
 	}
 
 	@Override
