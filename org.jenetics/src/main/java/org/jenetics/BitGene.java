@@ -20,6 +20,7 @@
 package org.jenetics;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,7 +30,6 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import java.util.function.Function;
 import org.jenetics.util.RandomRegistry;
 
 /**

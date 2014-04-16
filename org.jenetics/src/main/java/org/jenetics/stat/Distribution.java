@@ -20,6 +20,7 @@
 package org.jenetics.stat;
 
 import java.util.function.Function;
+
 import org.jenetics.util.Range;
 
 /**
