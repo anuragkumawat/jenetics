@@ -452,7 +452,7 @@ public interface Accumulator<T> {
 		final Iterable<? extends T> values,
 		final Accumulator<? super T>... accus
 	) {
-		accumulate(executor, values, Array.of(accus));
+		accumulate(executor, values, MSeq.of(accus));
 	}
 
 	/**

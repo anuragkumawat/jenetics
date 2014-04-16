@@ -30,7 +30,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.jenetics.internal.util.Hash;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.Seq;
 
@@ -56,12 +55,11 @@ public final class CompositeAlterer<G extends Gene<?, G>>
 	public CompositeAlterer(final Seq<Alterer<G>> alterers) {
 		super(1.0);
 
-		//alterers.forEach(NonNull("Alterer"));
-		_alterers = normalize(alterers).toISeq();
+		_alterers = normalize(alterers);
 	}
 
 	private static <G extends Gene<?, G>>
-	Array<Alterer<G>> normalize(final Seq<Alterer<G>> alterers) {
+	ISeq<Alterer<G>> normalize(final Seq<Alterer<G>> alterers) {
 		final Deque<Alterer<G>> stack = new LinkedList<>(alterers.asList());
 
 		final List<Alterer<G>> normalized = new LinkedList<>();
@@ -80,7 +78,7 @@ public final class CompositeAlterer<G extends Gene<?, G>>
 			}
 		}
 
-		return Array.of(normalized);
+		return ISeq.of(normalized);
 	}
 
 	@Override
@@ -148,7 +146,7 @@ public final class CompositeAlterer<G extends Gene<?, G>>
 	@SafeVarargs
 	public static <G extends Gene<?, G>>
 	CompositeAlterer<G> of(final Alterer<G>... alterers) {
-		return new CompositeAlterer<>(Array.of(alterers));
+		return new CompositeAlterer<>(ISeq.of(alterers));
 	}
 
 	/**

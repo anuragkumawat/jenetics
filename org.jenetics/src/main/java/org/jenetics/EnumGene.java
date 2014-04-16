@@ -41,7 +41,6 @@ import org.jenetics.internal.util.cast;
 import org.jenetics.internal.util.jaxb;
 import org.jenetics.internal.util.model.IndexedObject;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
 import org.jenetics.util.RandomRegistry;
@@ -212,7 +211,7 @@ public final class EnumGene<A>
 		return new Function<Integer, EnumGene<T>>() {
 			@Override
 			public EnumGene<T> apply(final Integer index) {
-				return new EnumGene<>(index, validAlleles);
+				return new EnumGene<T>(index, validAlleles);
 			}
 		};
 	}
@@ -222,7 +221,7 @@ public final class EnumGene<A>
 			private int _index = 0;
 			@Override
 			public EnumGene<T> newInstance() {
-				return new EnumGene<>(_index++, validAlleles);
+				return new EnumGene<T>(_index++, validAlleles);
 			}
 		};
 	}
@@ -261,7 +260,7 @@ public final class EnumGene<A>
 		final int alleleIndex,
 		final A... validAlleles
 	) {
-		return new EnumGene<>(alleleIndex, Array.of(validAlleles).toISeq());
+		return new EnumGene<A>(alleleIndex, ISeq.of(validAlleles));
 	}
 
 	/**
@@ -276,7 +275,7 @@ public final class EnumGene<A>
 	 */
 	@SafeVarargs
 	public static <A> EnumGene<A> of(final A... validAlleles) {
-		return EnumGene.of(Array.of(validAlleles).toISeq());
+		return EnumGene.of(ISeq.of(validAlleles));
 	}
 
 	/* *************************************************************************
@@ -320,9 +319,7 @@ public final class EnumGene<A>
 			public EnumGene unmarshal(final Model m) {
 				return new EnumGene<>(
 					m.allele.index,
-					Array.of(m.alleles)
-						.map(jaxb.Unmarshaller(m.allele.value))
-						.toISeq()
+					ISeq.of(m.alleles).map(jaxb.Unmarshaller(m.allele.value))
 				);
 			}
 

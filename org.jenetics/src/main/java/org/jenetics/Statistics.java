@@ -42,9 +42,7 @@ import org.jenetics.util.FinalReference;
  * @since 1.0
  * @version 2.0 &mdash; <em>$Date$</em>
  */
-public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>>
-	implements Serializable
-{
+public class Statistics<G extends Gene<?, G>, C extends Comparable<? super C>> {
 
 	/**
 	 * Builder for the Statistics class.

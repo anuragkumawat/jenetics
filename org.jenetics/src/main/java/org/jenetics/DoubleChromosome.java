@@ -93,7 +93,7 @@ public class DoubleChromosome
 	 *         empty.
 	 */
 	public static DoubleChromosome of(final DoubleGene... genes) {
-		return new DoubleChromosome(Array.of(genes).toISeq());
+		return new DoubleChromosome(ISeq.of(genes));
 	}
 
 	/**
@@ -213,9 +213,8 @@ public class DoubleChromosome
 				final Double min = model.min;
 				final Double max = model.max;
 				return new DoubleChromosome(
-					Array.of(model.values)
+					ISeq.of(model.values)
 						.map(value -> new DoubleGene(value, min, max))
-						.toISeq()
 				);
 			}
 		}
