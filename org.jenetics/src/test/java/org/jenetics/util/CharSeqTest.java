@@ -117,9 +117,10 @@ public class CharSeqTest extends ObjectTester<CharSeq> {
 	@Test(dataProvider = "randomString")
 	public void distinctRandomStrings(final String value) {
 		final CharSeq seq = new CharSeq(value);
-		final Set<Character> set = new HashSet<>(
-			Array.box(value.toCharArray()).asList()
-		);
+		final Set<Character> set = new HashSet<>();
+		for (int i = value.length(); --i >= 0;) {
+			set.add(value.charAt(i));
+		}
 
 		Assert.assertEquals(seq.length(), set.size());
 		for (Character c : seq) {

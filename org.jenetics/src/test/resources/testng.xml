@@ -277,15 +277,6 @@
             <class name="org.jenetics.internal.util.internalbitTest" />
         </classes>
     </test>
-	<test name="org.jenetics.util.Array">
-		<classes>
-			<class name="org.jenetics.util.ArraySeqTest" />
-			<class name="org.jenetics.util.ArrayISeqTest" />
-			<class name="org.jenetics.util.ArrayMSeqTest" />
-			<class name="org.jenetics.util.ArrayTest" />
-			<class name="org.jenetics.util.ArraySeqIteratorTest" />
-		</classes>
-	</test>
 	<test name="org.jenetics.util.arrays">
 		<classes>
 			<class name="org.jenetics.util.arraysTest" />

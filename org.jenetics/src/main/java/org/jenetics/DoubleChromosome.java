@@ -36,8 +36,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.jenetics.internal.util.Hash;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
+import org.jenetics.util.MSeq;
 
 /**
  * Numeric chromosome implementation which holds 64 bit floating point numbers.
@@ -163,7 +163,7 @@ public class DoubleChromosome
 	{
 		in.defaultReadObject();
 
-		final Array<DoubleGene> genes = new Array<>(in.readInt());
+		final MSeq<DoubleGene> genes = MSeq.ofLength(in.readInt());
 		_min = in.readDouble();
 		_max = in.readDouble();
 

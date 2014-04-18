@@ -30,7 +30,7 @@ public class objectTest {
 
 	@Test
 	public void validPredicate() {
-		final Array<Verifiable> array = new Array<>(100);
+		final MSeq<Verifiable> array = MSeq.ofLength(100);
 		for (int i = 0; i < array.length(); ++i) {
 			array.set(i, new Verifiable() {
 				@Override public boolean isValid() {

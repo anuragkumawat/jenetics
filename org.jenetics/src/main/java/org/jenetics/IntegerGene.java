@@ -32,8 +32,8 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
+import org.jenetics.util.MSeq;
 import org.jenetics.util.Mean;
 import org.jenetics.util.RandomRegistry;
 
@@ -103,7 +103,7 @@ public final class IntegerGene
 		final int max = maximum;
 		final Random r = RandomRegistry.getRandom();
 
-		final Array<IntegerGene> genes = new Array<>(length);
+		final MSeq<IntegerGene> genes = MSeq.ofLength(length);
 		for (int i = 0; i < length; ++i) {
 			genes.set(i, new IntegerGene(nextInt(r, min, max), minimum, maximum));
 		}

@@ -39,9 +39,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.jenetics.internal.util.Hash;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.CharSeq;
 import org.jenetics.util.ISeq;
+import org.jenetics.util.MSeq;
 
 /**
  * CharacterChromosome which represents character sequences.
@@ -176,7 +176,7 @@ public class CharacterChromosome
 		final String alleles,
 		final CharSeq validChars
 	) {
-		final Array<CharacterGene> genes = new Array<>(alleles.length());
+		final MSeq<CharacterGene> genes = MSeq.ofLength(alleles.length());
 		genes.fill(GeneFactory(alleles, validChars));
 		return new CharacterChromosome(genes.toISeq());
 	}
@@ -231,7 +231,7 @@ public class CharacterChromosome
 		final int length = in.readInt();
 		_validCharacters = (CharSeq)in.readObject();
 
-		final Array<CharacterGene> genes = new Array<>(length);
+		final MSeq<CharacterGene> genes = MSeq.ofLength(length);
 		for (int i = 0; i < length; ++i) {
 			final CharacterGene gene = CharacterGene.of(
 				in.readChar(),

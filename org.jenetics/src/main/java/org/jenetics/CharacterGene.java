@@ -37,9 +37,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.jenetics.internal.util.Hash;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.CharSeq;
 import org.jenetics.util.ISeq;
+import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
 
 /**
@@ -274,7 +274,7 @@ public final class CharacterGene
 		final Random random = RandomRegistry.getRandom();
 		final int charsLength = characters.length();
 
-		final Array<CharacterGene> genes = new Array<>(length);
+		final MSeq<CharacterGene> genes = MSeq.ofLength(length);
 		for (int i = 0; i < length; ++i) {
 			final CharacterGene gene = new CharacterGene(
 				characters, random.nextInt(charsLength)

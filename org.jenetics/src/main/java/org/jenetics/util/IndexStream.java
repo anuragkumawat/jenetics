@@ -54,7 +54,7 @@ import org.jenetics.internal.math.probability;
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
- * @version 2.0 &mdash; <em>$Date$</em>
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public abstract class IndexStream extends IntStreamAdapter {
 
@@ -199,7 +199,7 @@ public abstract class IndexStream extends IntStreamAdapter {
 		}
 
 		@Override
-		public final int next() {
+		public int next() {
 			while (_pos < _n && _random.nextInt() >= _p) {
 				++_pos;
 			}

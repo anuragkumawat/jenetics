@@ -56,6 +56,8 @@ final class BitGeneArray extends ArrayProxyMSeq<BitGene> {
 	 * @version 1.4 &mdash; <em>$Date$</em>
 	 */
 	static final class BitGeneISeq extends ArrayProxyISeq<BitGene> {
+		private static final long serialVersionUID = 1L;
+
 		public BitGeneISeq(final Proxy proxy) {
 			super(proxy);
 		}
@@ -78,6 +80,8 @@ final class BitGeneArray extends ArrayProxyMSeq<BitGene> {
 	 * @version 1.4 &mdash; <em>$Date$</em>
 	 */
 	static final class Proxy extends ArrayProxy<BitGene> {
+		private static final long serialVersionUID = 1L;
+
 		private byte[] _array;
 		private boolean _sealed = false;
 

@@ -45,8 +45,8 @@ import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.cast;
 import org.jenetics.internal.util.jaxb;
 
-import org.jenetics.util.Array;
 import org.jenetics.util.ISeq;
+import org.jenetics.util.MSeq;
 import org.jenetics.util.bit;
 
 
@@ -156,7 +156,7 @@ public final class PermutationChromosome<T>
 	 */
 	public static <T> PermutationChromosome<T> of(final ISeq<? extends T> alleles) {
 		final PermutationChromosome<T> chromosome = new PermutationChromosome<>(
-			new Array<EnumGene<T>>(alleles.length())
+			MSeq.<EnumGene<T>>ofLength(alleles.length())
 					.fill(EnumGene.Gene(alleles))
 					.shuffle()
 					.toISeq()
@@ -208,7 +208,7 @@ public final class PermutationChromosome<T>
 				"end <= start: %d <= %d", end, start
 			));
 		}
-		return of(new Array<Integer>(end - start).fill(Int(start, 1)).toISeq());
+		return of(MSeq.<Integer>ofLength(end - start).fill(Int(start, 1)).toISeq());
 	}
 
 	private static Supplier<Integer> Int(final int start, final int step) {
@@ -251,7 +251,7 @@ public final class PermutationChromosome<T>
 
 		_validAlleles = (ISeq<T>)in.readObject();
 
-		final Array<EnumGene<T>> genes = new Array<>(_validAlleles.length());
+		final MSeq<EnumGene<T>> genes = MSeq.ofLength(_validAlleles.length());
 		for (int i = 0; i < _validAlleles.length(); ++i) {
 			genes.set(i, new EnumGene<>(in.readInt(), _validAlleles));
 		}

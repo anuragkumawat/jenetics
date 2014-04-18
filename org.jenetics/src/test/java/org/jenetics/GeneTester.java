@@ -22,7 +22,7 @@ package org.jenetics;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import org.jenetics.util.Array;
+import org.jenetics.util.MSeq;
 import org.jenetics.util.ObjectTester;
 
 /**
@@ -33,7 +33,7 @@ public abstract class GeneTester<G extends Gene<?, G>> extends ObjectTester<G> {
 
 	@Test
 	public void equalsAllele() {
-		final Array<G> same = newSameObjects(5);
+		final MSeq<G> same = newSameObjects(5);
 
 		final G that = same.get(0);
 		for (int i = 1; i < same.length(); ++i) {
