@@ -19,9 +19,6 @@
  */
 package org.jenetics.internal.collection;
 
-import org.jenetics.internal.collection.ArrayProxyISeq;
-import org.jenetics.internal.collection.ArrayProxyImpl;
-
 import org.jenetics.util.ISeq;
 import org.jenetics.util.ISeqTestBase;
 
@@ -33,7 +30,7 @@ public class ArrayProxyISeqTest extends ISeqTestBase {
 
 	@Override
 	protected ISeq<Integer> newSeq(final int length) {
-		final ArrayProxyImpl<Integer> impl = new ArrayProxyImpl<>(length);
+		final ObjectArrayProxy<Integer> impl = new ObjectArrayProxy<>(length);
 		for (int i = 0; i < length; ++i) {
 			impl._array[i] = i;
 		}

@@ -21,11 +21,6 @@ package org.jenetics.internal.collection;
 
 import java.util.function.Function;
 
-import org.jenetics.internal.collection.ArrayProxy;
-import org.jenetics.internal.collection.ArrayProxyISeq;
-import org.jenetics.internal.collection.ArrayProxyImpl;
-import org.jenetics.internal.collection.ArrayProxySeq;
-
 import org.jenetics.util.ISeq;
 import org.jenetics.util.Seq;
 import org.jenetics.util.SeqTestBase;
@@ -44,7 +39,7 @@ public class ArrayProxySeqTest extends SeqTestBase {
 
 		@Override
 		public <B> ISeq<B> map(final Function<? super T, ? extends B> mapper) {
-			final ArrayProxyImpl<B> proxy = new ArrayProxyImpl<>(_proxy._length);
+			final ObjectArrayProxy<B> proxy = new ObjectArrayProxy<>(_proxy._length);
 			for (int i = 0; i < proxy._length; ++i) {
 				proxy._array[i] = mapper.apply(_proxy.uncheckedGet(i));
 			}
@@ -65,7 +60,7 @@ public class ArrayProxySeqTest extends SeqTestBase {
 
 	@Override
 	protected Seq<Integer> newSeq(final int length) {
-		final ArrayProxyImpl<Integer> impl = new ArrayProxyImpl<>(length);
+		final ObjectArrayProxy<Integer> impl = new ObjectArrayProxy<>(length);
 		for (int i = 0; i < length; ++i) {
 			impl._array[i] = i;
 		}

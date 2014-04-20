@@ -41,11 +41,7 @@ public class ArrayProxyISeq<T>
 
 	@Override
 	public <B> ISeq<B> map(final Function<? super T, ? extends B> mapper) {
-		final ArrayProxyImpl<B> proxy = new ArrayProxyImpl<>(_proxy._length);
-		for (int i = 0; i < proxy._length; ++i) {
-			proxy._array[i] = mapper.apply(_proxy.uncheckedGet(i));
-		}
-		return new ArrayProxyISeq<>(proxy);
+		return new ArrayProxyISeq<B>(_proxy.map(mapper));
 	}
 
 	@Override

@@ -21,6 +21,7 @@ package org.jenetics.internal.collection;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.RandomAccess;
 
@@ -30,8 +31,11 @@ import java.util.RandomAccess;
  * @version 1.5 &mdash; <em>$Date$</em>
  */
 public class ArrayProxyList<T> extends AbstractList<T>
-	implements RandomAccess
+	implements
+		RandomAccess,
+		Serializable
 {
+	private static final long serialVersionUID = 1L;
 
 	protected final ArrayProxy<T, ?, ?> _proxy;
 

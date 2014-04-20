@@ -26,6 +26,8 @@ package org.jenetics.internal.collection;
  */
 public class ArrayProxyMList<T> extends ArrayProxyList<T> {
 
+	private static final long serialVersionUID = 1L;
+
 	public ArrayProxyMList(final ArrayProxy<T, ?, ?> proxy) {
 		super(proxy);
 	}

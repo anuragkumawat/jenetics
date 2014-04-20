@@ -19,9 +19,6 @@
  */
 package org.jenetics.internal.collection;
 
-import org.jenetics.internal.collection.ArrayProxyImpl;
-import org.jenetics.internal.collection.ArrayProxyMSeq;
-
 import org.jenetics.util.MSeq;
 import org.jenetics.util.MSeqTestBase;
 
@@ -33,7 +30,7 @@ public class ArrayProxyMSeqTest extends MSeqTestBase {
 
 	@Override
 	protected MSeq<Integer> newSeq(final int length) {
-		final ArrayProxyImpl<Integer> impl = new ArrayProxyImpl<>(length);
+		final ObjectArrayProxy<Integer> impl = new ObjectArrayProxy<>(length);
 		for (int i = 0; i < length; ++i) {
 			impl._array[i] = i;
 		}

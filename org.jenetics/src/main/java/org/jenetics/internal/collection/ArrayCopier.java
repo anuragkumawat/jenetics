@@ -23,10 +23,10 @@ import java.io.Serializable;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version @__version__@ &mdash; <em>$Date$</em>
- * @since @__version__@
+ * @version 3.0 &mdash; <em>$Date$</em>
+ * @since 3.0
  */
 @FunctionalInterface
 public interface ArrayCopier<A> extends Serializable {
-	public A copy(final A array);
+	public A copy(final A array, final int from, final int to);
 }
