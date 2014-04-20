@@ -17,7 +17,7 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
 
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -25,6 +25,10 @@ import java.util.Random;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import org.jenetics.internal.collection.ArrayProxy;
+import org.jenetics.internal.collection.ArrayProxyImpl;
+import org.jenetics.internal.collection.ArrayProxyIterator;
 
 import org.jenetics.util.math;
 

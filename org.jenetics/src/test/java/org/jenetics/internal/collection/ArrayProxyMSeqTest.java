@@ -17,25 +17,27 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
+
+import org.jenetics.internal.collection.ArrayProxyImpl;
+import org.jenetics.internal.collection.ArrayProxyMSeq;
+
+import org.jenetics.util.MSeq;
+import org.jenetics.util.MSeqTestBase;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version @__version__@ &mdash; <em>$Date$</em>
- * @since @__version__@
+ * @version <em>$Date$</em>
  */
-public class LazyTest {
-/*
-	@Test
-	public void singleInitialization() {
-		final AtomicInteger count = new AtomicInteger(0);
-		final Lazy<String> value = new Lazy<>(() ->
-			"value_" + count.incrementAndGet()
-		);
+public class ArrayProxyMSeqTest extends MSeqTestBase {
 
-		for (int i = 0; i < 100; ++i) {
-			Assert.assertEquals("value_1", value.get());
+	@Override
+	protected MSeq<Integer> newSeq(final int length) {
+		final ArrayProxyImpl<Integer> impl = new ArrayProxyImpl<>(length);
+		for (int i = 0; i < length; ++i) {
+			impl._array[i] = i;
 		}
+		return new ArrayProxyMSeq<>(impl);
 	}
-*/
+
 }

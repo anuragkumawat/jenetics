@@ -30,8 +30,8 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
 
-import org.jenetics.internal.util.ArrayProxyImpl;
-import org.jenetics.internal.util.ArrayProxyMSeq;
+import org.jenetics.internal.collection.ArrayProxyImpl;
+import org.jenetics.internal.collection.ArrayProxyMSeq;
 
 /**
  * Mutable, ordered, fixed sized sequence.

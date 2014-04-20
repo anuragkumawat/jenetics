@@ -17,24 +17,24 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
+
+import java.util.Random;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @since 1.4
- * @version 1.4 &mdash; <em>$Date$</em>
+ * @version <em>$Date$</em>
  */
-public class ArrayProxyMList<T> extends ArrayProxyList<T> {
+public class ArrayProxyImplTest extends ArrayProxyTestBase<Integer> {
 
-	public ArrayProxyMList(final ArrayProxy<T, ?, ?> proxy) {
-		super(proxy);
+	@Override
+	public ArrayProxy<Integer, ?, ?> newArrayProxy(final int length) {
+		return new ArrayProxyImpl<>(length);
 	}
 
 	@Override
-	public T set(final int index, final T element) {
-		final T oldElement = _proxy.get(index);
-		_proxy.set(index, element);
-		return oldElement;
+	public Integer newArrayProxyElement(final Random random) {
+		return random.nextInt();
 	}
 
 }

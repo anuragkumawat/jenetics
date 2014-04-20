@@ -17,24 +17,26 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
 
-import org.jenetics.util.MSeq;
-import org.jenetics.util.MSeqTestBase;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version <em>$Date$</em>
+ * @since 1.4
+ * @version 1.4 &mdash; <em>$Date$</em>
  */
-public class ArrayProxyMSeqTest extends MSeqTestBase {
+public class ArrayProxyMIterator<T> extends ArrayProxyIterator<T> {
+
+	public ArrayProxyMIterator(final ArrayProxy<T, ?, ?> proxy) {
+		super(proxy);
+	}
 
 	@Override
-	protected MSeq<Integer> newSeq(final int length) {
-		final ArrayProxyImpl<Integer> impl = new ArrayProxyImpl<>(length);
-		for (int i = 0; i < length; ++i) {
-			impl._array[i] = i;
+	public void set(final T value) {
+		if (_lastElement < 0) {
+			throw new IllegalStateException();
 		}
-		return new ArrayProxyMSeq<>(impl);
+		_proxy.uncheckedSet(_lastElement, value);
 	}
 
 }

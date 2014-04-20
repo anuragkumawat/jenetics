@@ -17,9 +17,8 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
 
-import java.io.Serializable;
 import java.util.function.Function;
 
 import org.jenetics.util.ISeq;
