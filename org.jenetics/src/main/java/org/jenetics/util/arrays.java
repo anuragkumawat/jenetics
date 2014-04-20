@@ -246,27 +246,6 @@ public final class arrays extends StaticObject {
 	}
 
 	/**
-	 * Iterates over all elements of the given {@code values}
-	 *
-	 * @param <T> the element type
-	 * @param <R> the returned type of the applied function
-	 * @param values the values to iterate.
-	 * @param f the function to apply to each element.
-	 * @throws NullPointerException if one of the elements are {@code null}.
-	 */
-	public static <T, R> void forEach(
-		final Iterable<? extends T> values,
-		final Function<? super T, ? extends R> f
-	) {
-		requireNonNull(values, "Array");
-		requireNonNull(f, "Function");
-
-		for (final T value : values) {
-			f.apply(value);
-		}
-	}
-
-	/**
 	 * Map the array from type A to an other array of type B.
 	 *
 	 * @param <A> the source type.

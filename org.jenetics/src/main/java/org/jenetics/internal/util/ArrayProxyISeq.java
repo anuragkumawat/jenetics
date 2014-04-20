@@ -36,7 +36,7 @@ public class ArrayProxyISeq<T>
 {
 	private static final long serialVersionUID = 1L;
 
-	public ArrayProxyISeq(final ArrayProxy<T> proxy) {
+	public ArrayProxyISeq(final ArrayProxy<T, ?, ?> proxy) {
 		super(proxy);
 	}
 

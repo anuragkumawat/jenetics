@@ -33,9 +33,9 @@ public class ArrayProxyList<T> extends AbstractList<T>
 	implements RandomAccess
 {
 
-	protected final ArrayProxy<T> _proxy;
+	protected final ArrayProxy<T, ?, ?> _proxy;
 
-	public ArrayProxyList(final ArrayProxy<T> proxy) {
+	public ArrayProxyList(final ArrayProxy<T, ?, ?> proxy) {
 		_proxy = requireNonNull(proxy, "ArrayProxy must not be null.");
 	}
 

@@ -43,9 +43,9 @@ public abstract class ArrayProxySeq<T>
 {
 	private static final long serialVersionUID = 1L;
 
-	protected final ArrayProxy<T> _proxy;
+	protected final ArrayProxy<T, ?, ?> _proxy;
 
-	public ArrayProxySeq(final ArrayProxy<T> proxy) {
+	public ArrayProxySeq(final ArrayProxy<T, ?, ?> proxy) {
 		_proxy = requireNonNull(proxy, "ArrayProxy must not be null.");
 	}
 

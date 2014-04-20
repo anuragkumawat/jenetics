@@ -38,7 +38,9 @@ import org.jenetics.util.MSeq;
  */
 public class ArrayProxyMSeq<T> extends ArrayProxySeq<T> implements MSeq<T> {
 
-	public ArrayProxyMSeq(final ArrayProxy<T> proxy) {
+	private static final long serialVersionUID = 1L;
+
+	public ArrayProxyMSeq(final ArrayProxy<T, ?, ?> proxy) {
 		super(proxy);
 	}
 

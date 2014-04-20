@@ -29,12 +29,12 @@ import java.util.NoSuchElementException;
  */
 public class ArrayProxyIterator<T> implements ListIterator<T> {
 
-	protected final ArrayProxy<T> _proxy;
+	protected final ArrayProxy<T, ?, ?> _proxy;
 
 	protected int _cursor = 0;
 	protected int _lastElement = -1;
 
-	public ArrayProxyIterator(final ArrayProxy<T> proxy) {
+	public ArrayProxyIterator(final ArrayProxy<T, ?, ?> proxy) {
 		_proxy = proxy;
 	}
 

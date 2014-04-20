@@ -31,7 +31,7 @@ import org.jenetics.internal.util.ArrayProxyTestBase;
 public class BitGeneArrayProxyTest extends ArrayProxyTestBase<BitGene> {
 
 	@Override
-	public ArrayProxy<BitGene> newArrayProxy(final int length) {
+	public ArrayProxy<BitGene, ?, ?> newArrayProxy(final int length) {
 		return new BitGeneArray.Proxy(length);
 	}
 

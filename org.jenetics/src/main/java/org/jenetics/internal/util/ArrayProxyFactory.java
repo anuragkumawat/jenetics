@@ -19,22 +19,14 @@
  */
 package org.jenetics.internal.util;
 
-import java.util.Random;
+import java.io.Serializable;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version <em>$Date$</em>
+ * @version @__version__@ &mdash; <em>$Date$</em>
+ * @since @__version__@
  */
-public class ArrayProxyImplTest extends ArrayProxyTestBase<Integer> {
-
-	@Override
-	public ArrayProxy<Integer, ?, ?> newArrayProxy(final int length) {
-		return new ArrayProxyImpl<>(length);
-	}
-
-	@Override
-	public Integer newArrayProxyElement(final Random random) {
-		return random.nextInt();
-	}
-
+@FunctionalInterface
+public interface ArrayProxyFactory<A, P> extends Serializable {
+	public P create(final A array, final int start, final int end);
 }

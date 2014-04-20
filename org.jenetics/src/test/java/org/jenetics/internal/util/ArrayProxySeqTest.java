@@ -33,7 +33,7 @@ public class ArrayProxySeqTest extends SeqTestBase {
 
 	private static final class ArrayProxySeqImpl<T> extends ArrayProxySeq<T> {
 
-		ArrayProxySeqImpl(final ArrayProxy<T> proxy) {
+		ArrayProxySeqImpl(final ArrayProxy<T, ?, ?> proxy) {
 			super(proxy);
 		}
 
