@@ -62,9 +62,11 @@ public interface ISeq<T>
 	 * ************************************************************************/
 
 	/**
-	 * Create a new {@code Seq} from the given values.
+	 * Create a new {@code ISeq} from the given values.
 	 *
+	 * @param <T> the element type
 	 * @param values the array values.
+	 * @return a new {@code ISeq} with the given values.
 	 * @throws NullPointerException if the {@code values} array is {@code null}.
 	 */
 	@SafeVarargs
@@ -73,9 +75,11 @@ public interface ISeq<T>
 	}
 
 	/**
-	 * Create a new {@code Seq} from the given values.
+	 * Create a new {@code ISeq} from the given values.
 	 *
+	 * @param <T> the element type
 	 * @param values the array values.
+	 * @return a new {@code ISeq} with the given values.
 	 * @throws NullPointerException if the {@code values} array is {@code null}.
 	 */
 	public static <T> ISeq<T> of(final Collection<? extends T> values) {

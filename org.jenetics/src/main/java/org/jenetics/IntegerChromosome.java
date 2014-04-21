@@ -102,6 +102,7 @@ public class IntegerChromosome
 	 * @param min the min value of the {@link IntegerGene}s (inclusively).
 	 * @param max the max value of the {@link IntegerGene}s (inclusively).
 	 * @param length the length of the chromosome.
+	 * @return a new random {@code IntegerChromosome}
 	 */
 	public static IntegerChromosome of(
 		final int min,
@@ -116,6 +117,7 @@ public class IntegerChromosome
 	 *
 	 * @param min the minimal value of this chromosome (inclusively).
 	 * @param max the maximal value of this chromosome (inclusively).
+	 * @return a new random {@code IntegerChromosome} of length one
 	 */
 	public static IntegerChromosome of(final int min, final int max) {
 		return new IntegerChromosome(min, max);

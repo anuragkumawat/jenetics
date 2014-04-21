@@ -78,6 +78,7 @@ public final class IntegerGene
 	 * @param value the value of the gene.
 	 * @param min the minimal valid value of this gene (inclusively).
 	 * @param max the maximal valid value of this gene (inclusively).
+	 * @return a new random {@code IntegerGene}
 	 */
 	public static IntegerGene of(final int value, final int min, final int max) {
 		return new IntegerGene(value, min, max);
@@ -89,6 +90,7 @@ public final class IntegerGene
 	 *
 	 * @param min the minimal valid value of this gene (inclusively).
 	 * @param max the maximal valid value of this gene (inclusively).
+	 * @return a new random {@code IntegerGene}
 	 */
 	public static IntegerGene of(final int min, final int max) {
 		return of(nextInt(RandomRegistry.getRandom(), min, max), min, max);
