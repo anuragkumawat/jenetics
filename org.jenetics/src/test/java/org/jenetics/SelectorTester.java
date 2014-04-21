@@ -21,10 +21,10 @@ package org.jenetics;
 
 import static org.jenetics.util.Accumulator.accumulate;
 
+import java.util.concurrent.ForkJoinPool;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import org.jenetics.internal.util.Concurrency;
 
 import org.jenetics.stat.Distribution;
 import org.jenetics.stat.Histogram;
@@ -91,7 +91,7 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 				selector.select(population, npopulation, Optimize.MAXIMUM);
 
 			accumulate(
-				Concurrency.commonPool(),
+				ForkJoinPool.commonPool(),
 				selection,
 				histogram
 					.<Gene<Double, DoubleGene>>map(g -> g.getAllele())

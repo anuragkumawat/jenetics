@@ -24,6 +24,7 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.object.eq;
 
 import java.io.Serializable;
+import java.time.Duration;
 
 import org.jenetics.internal.util.Hash;
 

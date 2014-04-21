@@ -21,9 +21,9 @@ package org.jenetics.internal.util;
 
 import static org.jenetics.internal.util.reflect.classOf;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 
 import javax.xml.bind.DataBindingException;
@@ -73,7 +73,8 @@ public class jaxb extends StaticObject {
 			}
 		};
 
-	private static final Map<Class<?>, XmlAdapter<?, ?>> ADAPTERS = new HashMap<>();
+	private static final ConcurrentMap<Class<?>, XmlAdapter<?, ?>> ADAPTERS =
+		new ConcurrentHashMap<>();
 
 	static {
 		ADAPTERS.put(Character.class, CharacterModel.ADAPTER);
@@ -90,15 +91,9 @@ public class jaxb extends StaticObject {
 	 */
 	@SuppressWarnings("unchecked")
 	public static XmlAdapter<Object, Object> adapterFor(final Object value) {
-		final Class<?> cls = classOf(value);
-
-		synchronized (ADAPTERS) {
-			if (!ADAPTERS.containsKey(cls)) {
-				ADAPTERS.put(cls, newXmlAdapter(cls));
-			}
-
-			return (XmlAdapter<Object, Object>) ADAPTERS.get(cls);
-		}
+		return (XmlAdapter<Object, Object>)ADAPTERS.computeIfAbsent(
+			classOf(value), jaxb::newXmlAdapter
+		);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -141,14 +136,11 @@ public class jaxb extends StaticObject {
 	 * @return the marshaller function
 	 */
 	public static <V, B> Function<B, V> Marshaller(final XmlAdapter<V, B> a) {
-		return new Function<B, V>() {
-			@Override
-			public V apply(final B value) {
-				try {
-					return a.marshal(value);
-				} catch (Exception e) {
-					throw new RuntimeException(e);
-				}
+		return value -> {
+			try {
+				return a.marshal(value);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		};
 	}
@@ -161,14 +153,11 @@ public class jaxb extends StaticObject {
 	 * @return the unmarshaller function
 	 */
 	public static <V, B> Function<V, B> Unmarshaller(final XmlAdapter<V, B> a) {
-		return new Function<V, B>() {
-			@Override
-			public B apply(final V value) {
-				try {
-					return a.unmarshal(value);
-				} catch (Exception e) {
-					throw new RuntimeException(e);
-				}
+		return value -> {
+			try {
+				return a.unmarshal(value);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		};
 	}

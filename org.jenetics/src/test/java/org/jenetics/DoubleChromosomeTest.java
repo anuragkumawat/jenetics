@@ -23,12 +23,11 @@ import static org.jenetics.stat.StatisticsAssert.assertDistribution;
 import static org.jenetics.util.Accumulator.accumulate;
 
 import java.util.Random;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Function;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import org.jenetics.internal.util.Concurrency;
 
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.UniformDistribution;
@@ -70,7 +69,7 @@ public class DoubleChromosomeTest
 				final DoubleChromosome chromosome = new DoubleChromosome(min, max, 500);
 
 				accumulate(
-					Concurrency.commonPool(),
+					ForkJoinPool.commonPool(),
 					chromosome,
 					mm.map(Allele),
 					histogram.map(Allele),
