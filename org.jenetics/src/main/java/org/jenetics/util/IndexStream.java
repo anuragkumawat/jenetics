@@ -47,7 +47,7 @@ import org.jenetics.internal.math.probability;
  * }
  * [/code]
  * [code]
- * IndexStream.Random(1000, 0.6).forEach(index -> {
+ * IndexStream.Random(1000, 0.6).forEach(index -&gt; {
  *     System.out.println(index);
  * });
  * [/code]
@@ -142,8 +142,8 @@ public abstract class IndexStream extends IntStreamAdapter {
 
 	/**
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
-	 * @since @__version__@
-	 * @version @__version__@ &mdash; <em>$Date$</em>
+	 * @since 3.0
+	 * @version 3.0 &mdash; <em>$Date$</em>
 	 */
 	final static class IndexSpliterator implements Spliterator.OfInt {
 		private final IndexStream _stream;
@@ -183,7 +183,7 @@ public abstract class IndexStream extends IntStreamAdapter {
 	/**
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
 	 * @since 1.4
-	 * @version @__version__@ &mdash; <em>$Date$</em>
+	 * @version 3.0 &mdash; <em>$Date$</em>
 	 */
 	final static class RandomIndexStream extends IndexStream {
 		private final int _n;

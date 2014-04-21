@@ -29,7 +29,7 @@ import java.util.Random;
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
- * @version @__version__@ &mdash; <em>$Date$</em>
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class math extends StaticObject {
 	private math() {}
