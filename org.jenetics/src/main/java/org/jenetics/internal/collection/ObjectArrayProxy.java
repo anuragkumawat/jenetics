@@ -56,13 +56,13 @@ public final class ObjectArrayProxy<T>
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T __get(final int index) {
-		return (T)_array[index];
+	public T __get__(final int index) {
+		return (T) array[index];
 	}
 
 	@Override
-	public void __set(final int index, final T value) {
-		_array[index] = value;
+	public void __set__(final int index, final T value) {
+		array[index] = value;
 	}
 
 }
