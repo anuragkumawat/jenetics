@@ -310,6 +310,13 @@
 			<class name="org.jenetics.util.RandomRegistryTest" />
 		</classes>
 	</test>
+    <test name="org.jenetics.util.Seq">
+        <classes>
+            <class name="org.jenetics.util.SeqTest" />
+            <class name="org.jenetics.util.ISeqTest" />
+            <class name="org.jenetics.util.MSeqTest" />
+        </classes>
+    </test>
 	<test name="org.jenetics.util.StaticObject">
 		<classes>
 			<class name="org.jenetics.util.StaticObjectTest" />

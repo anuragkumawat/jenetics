@@ -21,6 +21,7 @@ package org.jenetics.util;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -29,6 +30,8 @@ import java.util.Objects;
 import java.util.RandomAccess;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 
 /**
  * General interface for a ordered, fixed sized, object sequence.
@@ -661,6 +664,15 @@ public interface Seq<T> extends Iterable<T> {
 	/* *************************************************************************
 	 *  Some static factory methods.
 	 * ************************************************************************/
+
+	public static <T> Collector<T, ?, Seq<T>> collector() {
+		return Collector.of(
+			(Supplier<List<T>>)ArrayList::new,
+			List::add,
+			(left, right) -> { left.addAll(right); return left; },
+			Seq::of
+		);
+	}
 
 	/**
 	 * Create a new {@code Seq} from the given values.
