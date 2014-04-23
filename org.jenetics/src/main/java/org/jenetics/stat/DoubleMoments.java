@@ -19,12 +19,8 @@
  */
 package org.jenetics.stat;
 
-import static org.jenetics.internal.util.object.eq;
-
 import java.util.Objects;
 import java.util.function.DoubleConsumer;
-
-import org.jenetics.internal.util.Hash;
 
 /**
  * @see <a href="http://people.xiph.org/~tterribe/notes/homs.html">
@@ -87,29 +83,6 @@ public class DoubleMoments extends MomentsBase implements DoubleConsumer {
 			n, _min, _max, sum,
 			getMean(), getVariance(), getSkewness(), getKurtosis()
 		);
-	}
-
-	@Override
-	public int hashCode() {
-		return Hash.of(DoubleMoments.class)
-			.and(super.hashCode())
-			.and(_min)
-			.and(_max).value();
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof DoubleMoments)) {
-			return false;
-		}
-
-		final DoubleMoments sum = (DoubleMoments)obj;
-		return super.equals(obj) &&
-			eq(_min, sum._min) &&
-			eq(_max, sum._max);
 	}
 
 }
