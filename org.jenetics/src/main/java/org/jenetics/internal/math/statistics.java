@@ -199,4 +199,12 @@ public final class statistics extends StaticObject {
 		return Phi(z, µ, σ);
 	}
 
+	public static <C extends Comparable<? super C>> C min(final C a, final C b) {
+		return a != null ? b != null ? a.compareTo(b) <= 0 ? a : b : a : b;
+	}
+
+	public static <C extends Comparable<? super C>> C max(final C a, final C b) {
+		return a != null ? b != null ? a.compareTo(b) >= 0 ? a : b : a : b;
+	}
+
 }

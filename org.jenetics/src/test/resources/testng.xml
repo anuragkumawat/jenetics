@@ -272,6 +272,11 @@
 			<class name="org.jenetics.internal.collection.ArrayProxyMSeqTest" />
 		</classes>
 	</test>
+    <test name="org.jenetics.internal.math.DoubleAdder">
+        <classes>
+            <class name="org.jenetics.internal.math.DoubleAdderTest" />
+        </classes>
+    </test>
 	<test name="org.jenetics.internal.math.probability">
 		<classes>
 			<class name="org.jenetics.internal.math.probabilityTest" />
