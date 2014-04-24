@@ -242,7 +242,7 @@
 	</test>
     <test name="org.jenetics.stat.Moments">
         <classes>
-            <class name="org.jenetics.stat.MomentsTest" />
+            <class name="org.jenetics.stat.DoubleMomentsTest" />
         </classes>
     </test>
 	<test name="org.jenetics.stat.NormalDistribution">
