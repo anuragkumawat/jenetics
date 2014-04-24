@@ -51,7 +51,7 @@ public class DoubleAdderTest {
 			.collect(summarizingDouble(Double::doubleValue))
 			.getSum();
 
-		Assert.assertEquals(adder.value, expectedSum);
+		Assert.assertEquals(adder.doubleValue(), expectedSum);
 
 		double naiveSum = 0;
 		for (Double value : numbers) {
