@@ -53,6 +53,14 @@ public class IntMoments extends Moments implements IntConsumer {
 		_sum += value;
 	}
 
+	public IntMoments set(final IntMoments moments) {
+		super.set(moments);
+		_min = moments._min;
+		_max = moments._max;
+		_sum = moments._sum;
+		return this;
+	}
+
 	/**
 	 * Combine two {@code DoubleMoments} statistic objects.
 	 *

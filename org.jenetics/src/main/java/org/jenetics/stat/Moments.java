@@ -59,6 +59,14 @@ class Moments {
 		_m2.add(t1);
 	}
 
+	void set(final Moments moments) {
+		_n = moments._n;
+		_m1.set(moments._m1);
+		_m2.set(moments._m2);
+		_m3.set(moments._m3);
+		_m4.set(moments._m4);
+	}
+
 	/**
 	 * @see <a href="http://people.xiph.org/~tterribe/notes/homs.html">
 	 *      Computing Higher-Order Moments Online</a>

@@ -55,6 +55,14 @@ public class DoubleMoments extends Moments implements DoubleConsumer {
 		_sum.add(value);
 	}
 
+	public DoubleMoments set(final DoubleMoments moments) {
+		super.set(moments);
+		_min = moments._min;
+		_max = moments._max;
+		_sum.set(moments._sum);
+		return this;
+	}
+
 	/**
 	 * Combine two {@code DoubleMoments} statistic objects.
 	 *

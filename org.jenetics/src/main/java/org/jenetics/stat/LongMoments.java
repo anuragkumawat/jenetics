@@ -53,6 +53,14 @@ public class LongMoments extends Moments implements LongConsumer {
 		_sum += value;
 	}
 
+	public LongMoments set(final LongMoments moments) {
+		super.set(moments);
+		_min = moments._min;
+		_max = moments._max;
+		_sum = moments._sum;
+		return this;
+	}
+
 	/**
 	 * Combine two {@code DoubleMoments} statistic objects.
 	 *
