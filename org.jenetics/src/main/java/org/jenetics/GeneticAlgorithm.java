@@ -669,8 +669,8 @@ public class GeneticAlgorithm<
 		return _population.parallelStream().collect(collector);
 	}
 
-	public <T> T collect(final BiFunction<Integer, Optimize, Collector<Phenotype<G, C>, ?, T>> f) {
-		return collect(f.apply(getGeneration(), getOptimization()));
+	public <T> T collect(final Function<GeneticAlgorithm<G, C>, Collector<Phenotype<G, C>, ?, T>> f) {
+		return collect(f.apply(this));
 	}
 
 	private int getNumberOfSurvivors() {
