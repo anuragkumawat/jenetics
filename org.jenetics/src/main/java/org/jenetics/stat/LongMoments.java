@@ -87,6 +87,7 @@ public class LongMoments extends Moments implements LongConsumer {
 		super.combine(other);
 		_min = min(_min, other._min);
 		_max = max(_max, other._max);
+		_sum += other._sum;
 	}
 
 	/**

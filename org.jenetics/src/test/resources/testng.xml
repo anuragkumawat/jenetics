@@ -242,6 +242,8 @@
 	</test>
     <test name="org.jenetics.stat.Moments">
         <classes>
+            <class name="org.jenetics.stat.IntMomentsTest" />
+            <class name="org.jenetics.stat.LongMomentsTest" />
             <class name="org.jenetics.stat.DoubleMomentsTest" />
         </classes>
     </test>
