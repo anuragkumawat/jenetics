@@ -89,6 +89,7 @@ public class DoubleMoments extends Moments implements DoubleConsumer {
 		super.combine(other);
 		_min = min(_min, other._min);
 		_max = max(_max, other._max);
+		_sum.add(other._sum);
 	}
 
 	/**
