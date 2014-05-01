@@ -20,9 +20,7 @@
 package org.jenetics.stat;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.util.RandomRegistry;
@@ -53,24 +51,6 @@ public class NormalDistributionTest {
 		final Distribution<Double> dist = new NormalDistribution<>(domain, mean, std*std);
 
 		StatisticsAssert.assertDistribution(histogram, dist);
-	}
-
-	@Test
-	public void pdfToString() {
-		final Range<Double> domain = new Range<>(0.0, 100.0);
-		final Distribution<Double> dist = new NormalDistribution<>(domain, 50.0, 34.0);
-		final Function<Double, Double> pdf = dist.getPDF();
-
-		Assert.assertEquals(pdf.toString(), "p(x) = N[µ=50.000000, σ²=34.000000](x)");
-	}
-
-	@Test
-	public void cdfToString() {
-		final Range<Double> domain = new Range<>(0.0, 100.0);
-		final Distribution<Double> dist = new NormalDistribution<>(domain, 50.0, 34.0);
-		final Function<Double, Double> cdf = dist.getCDF();
-
-		Assert.assertEquals(cdf.toString(), "P(x) = 1/2(1 + erf((x - 50.000000)/(sqrt(2·34.000000))))");
 	}
 
 }
