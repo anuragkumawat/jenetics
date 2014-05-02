@@ -29,6 +29,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import org.jenetics.internal.math.random;
+
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
@@ -38,8 +40,8 @@ public class CharSeqTest extends ObjectTester<CharSeq> {
 	private final Factory<CharSeq> _factory = new Factory<CharSeq>() {
 		@Override
 		public CharSeq newInstance() {
-			final Random random = RandomRegistry.getRandom();
-			return new CharSeq(RandomUtils.nextString(random.nextInt(200) + 100));
+			final Random r = RandomRegistry.getRandom();
+			return new CharSeq(random.nextString(r, r.nextInt(200) + 100));
 		}
 	};
 	@Override
