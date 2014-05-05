@@ -23,6 +23,7 @@ import static org.jenetics.internal.math.statistics.max;
 import static org.jenetics.internal.math.statistics.min;
 
 import java.util.function.Consumer;
+import java.util.stream.Collector;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -51,6 +52,31 @@ public class MinMax<C extends Comparable<? super C>> implements Consumer<C> {
 
 	public C getMax() {
 		return _max;
+	}
+
+	/**
+	 * Return a {@code Collector} which applies an long-producing mapping
+	 * function to each input element, and returns moments-statistics for the
+	 * resulting values.
+	 *
+	 * [code]
+	 * final Stream&lt;SomeObject&gt; stream = ...
+	 * final MinMax&lt;SomeObject&gt; moments = stream
+	 *     .collect(doubleMoments.collector());
+	 * [/code]
+	 *
+	 * @param <C> the type of the input elements
+	 * @return a {@code Collector} implementing the moments-statistics reduction
+	 * @throws java.lang.NullPointerException if the given {@code mapper} is
+	 *         {@code null}
+	 */
+	public static <C extends Comparable<? super C>>
+	Collector<C, ?, MinMax<C>> collector() {
+		return Collector.of(
+			MinMax::new,
+			(r, t) -> r.accept(t),
+			(a, b) -> {a.combine(b); return a;}
+		);
 	}
 
 }
