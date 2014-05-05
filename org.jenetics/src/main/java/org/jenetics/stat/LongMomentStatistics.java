@@ -132,6 +132,25 @@ public class LongMomentStatistics extends Moments implements LongConsumer {
 	}
 
 	/**
+	 * Return a new value object of the statistical moments, currently
+	 * represented by this object.
+	 *
+	 * @return the current statistical moments
+	 */
+	public LongMoments moments() {
+		return new LongMoments(
+			getCount(),
+			getMin(),
+			getMax(),
+			getSum(),
+			getMean(),
+			getVariance(),
+			getSkewness(),
+			getKurtosis()
+		);
+	}
+
+	/**
 	 * Return a {@code Collector} which applies an long-producing mapping
 	 * function to each input element, and returns moments-statistics for the
 	 * resulting values.
