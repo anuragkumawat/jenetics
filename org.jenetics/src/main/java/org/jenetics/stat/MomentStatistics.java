@@ -113,8 +113,8 @@ class MomentStatistics {
 	}
 
 	/**
-	 * Return the arithmetic mean of values recorded, or zero if no values have
-	 * been recorded.
+	 * Return the arithmetic mean of values recorded, or {@code Double.NaN} if
+	 * no values have been recorded.
 	 *
 	 * @return the arithmetic mean of values, or zero if none
 	 */
