@@ -22,8 +22,8 @@ package org.jenetics;
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz
  *         Wilhelmstötter</a>
- * @version @__version__@ &mdash; <em>$Date$</em>
- * @since @__version__@
+ * @version 3.0 &mdash; <em>$Date$</em>
+ * @since 3.0
  */
 public class PopulationSummaryStatistics {
 }
