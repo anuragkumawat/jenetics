@@ -91,7 +91,7 @@ public abstract class MutatorTestBase {
 
 		for (int i = 0; i < N; ++i) {
 			final long alterations = mutator.alter(population, 1);
-			histogram.accumulate(alterations);
+			histogram.accept(alterations);
 			variance.accumulate(alterations);
 		}
 

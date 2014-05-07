@@ -19,10 +19,6 @@
  */
 package org.jenetics;
 
-import static org.jenetics.util.Accumulator.accumulate;
-
-import java.util.concurrent.ForkJoinPool;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -86,19 +82,9 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 				population.add(Phenotype.of(gtf.newInstance(), TestUtils.FF, 12));
 			}
 
-
-			final Population<DoubleGene, Double> selection =
-				selector.select(population, npopulation, Optimize.MAXIMUM);
-
-			accumulate(
-				ForkJoinPool.commonPool(),
-				selection,
-				histogram
-					.<Gene<Double, DoubleGene>>map(g -> g.getAllele())
-					.<Chromosome<DoubleGene>>map(ch -> ch.getGene())
-					.<Genotype<DoubleGene>>map(gt -> gt.getChromosome())
-					.<Phenotype<DoubleGene, Double>>map(pt -> pt.getGenotype())
-			);
+			selector.select(population, npopulation, Optimize.MAXIMUM).stream()
+				.map(pt -> pt.getGenotype().getChromosome().getGene().getAllele())
+				.forEach(histogram);
 
 			population.clear();
 		}

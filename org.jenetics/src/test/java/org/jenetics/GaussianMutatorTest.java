@@ -61,7 +61,7 @@ public class GaussianMutatorTest extends MutatorTestBase {
 		for (int i = 0; i < 10000; ++i) {
 			final double value = mutator.mutate(gene, random).getAllele();
 
-			histogram.accumulate(value);
+			histogram.accept(value);
 			variance.accumulate(value);
 		}
 

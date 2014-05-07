@@ -43,7 +43,7 @@ public class NormalDistributionTest {
 		final double std = 100;
 		for (int i = 0; i < 50000; ++i) {
 			final double value =  random.nextGaussian()*std + mean;
-			histogram.accumulate(value);
+			histogram.accept(value);
 			variance.accumulate(value);
 		}
 

@@ -147,7 +147,7 @@ public class RandomIndexStreamTest {
 		for (int i = 0; i < 2500; ++i) {
 			final long k = k(n, p, random);
 
-			histogram.accumulate(k);
+			histogram.accept(k);
 			variance.accumulate(k);
 		}
 

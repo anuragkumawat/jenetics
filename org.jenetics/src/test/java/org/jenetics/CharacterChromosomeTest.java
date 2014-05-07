@@ -56,7 +56,7 @@ public class CharacterChromosomeTest extends ChromosomeTester<CharacterGene> {
 			final Histogram<Long> histogram = Histogram.of(0L, 10L, 10);
 
 			for (CharacterGene gene : chromosome) {
-				histogram.accumulate(Long.valueOf(gene.getAllele().toString()));
+				histogram.accept(Long.valueOf(gene.getAllele().toString()));
 			}
 
 			assertDistribution(histogram, new UniformDistribution<>(0L, 10L));

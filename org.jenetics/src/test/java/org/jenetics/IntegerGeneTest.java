@@ -70,8 +70,8 @@ public class IntegerGeneTest extends NumericGeneTester<Integer, IntegerGene> {
 
 				variance.accumulate(g1.getAllele());
 				variance.accumulate(g2.getAllele());
-				histogram.accumulate(g1.getAllele());
-				histogram.accumulate(g2.getAllele());
+				histogram.accept(g1.getAllele());
+				histogram.accept(g2.getAllele());
 			}
 
 			assertDistribution(histogram, new UniformDistribution<>(min, max));

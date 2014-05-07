@@ -116,7 +116,7 @@ public class PartiallyMatchedCrossoverTest {
 
 		for (int i = 0; i < N; ++i) {
 			final long alterations = crossover.alter(population, 1);
-			histogram.accumulate(alterations);
+			histogram.accept(alterations);
 			variance.accumulate(alterations);
 		}
 
