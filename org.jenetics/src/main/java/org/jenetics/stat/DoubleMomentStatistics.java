@@ -136,25 +136,6 @@ public class DoubleMomentStatistics
 		return _sum.doubleValue();
 	}
 
-	/**
-	 * Return a new value object of the statistical moments, currently
-	 * represented by this object.
-	 *
-	 * @return the current statistical moments
-	 */
-	public DoubleMoments moments() {
-		return new DoubleMoments(
-			getCount(),
-			getMin(),
-			getMax(),
-			getSum(),
-			getMean(),
-			getVariance(),
-			getSkewness(),
-			getKurtosis()
-		);
-	}
-
 	@Override
 	public String toString() {
 		return String.format(

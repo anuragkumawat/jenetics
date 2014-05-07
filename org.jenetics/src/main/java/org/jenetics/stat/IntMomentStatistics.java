@@ -132,25 +132,6 @@ public class IntMomentStatistics
 		return _sum;
 	}
 
-	/**
-	 * Return a new value object of the statistical moments, currently
-	 * represented by this object.
-	 *
-	 * @return the current statistical moments
-	 */
-	public IntMoments moments() {
-		return new IntMoments(
-			getCount(),
-			getMin(),
-			getMax(),
-			getSum(),
-			getMean(),
-			getVariance(),
-			getSkewness(),
-			getKurtosis()
-		);
-	}
-
 	@Override
 	public String toString() {
 		return String.format(

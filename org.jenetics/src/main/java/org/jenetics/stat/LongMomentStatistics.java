@@ -132,24 +132,6 @@ public class LongMomentStatistics
 		return _sum;
 	}
 
-	/**
-	 * Return a new value object of the statistical moments, currently
-	 * represented by this object.
-	 *
-	 * @return the current statistical moments
-	 */
-	public LongMoments moments() {
-		return new LongMoments(
-			getCount(),
-			getMin(),
-			getMax(),
-			getSum(),
-			getMean(),
-			getVariance(),
-			getSkewness(),
-			getKurtosis()
-		);
-	}
 
 	/**
 	 * Return a {@code Collector} which applies an long-producing mapping

@@ -211,6 +211,26 @@ public final class LongMoments implements Serializable {
 	}
 
 	/**
+	 * Return a new value object of the statistical moments, currently
+	 * represented by the {@code statistics} object.
+	 *
+	 * @param statistics the creating (mutable) statistics class
+	 * @return the statistical moments
+	 */
+	public static LongMoments of(final LongMomentStatistics statistics) {
+		return new LongMoments(
+			statistics.getCount(),
+			statistics.getMin(),
+			statistics.getMax(),
+			statistics.getSum(),
+			statistics.getMean(),
+			statistics.getVariance(),
+			statistics.getSkewness(),
+			statistics.getKurtosis()
+		);
+	}
+
+	/**
 	 * Return a {@code Collector} which applies an int-producing mapping
 	 * function to each input element, and returns moments-statistics for the
 	 * resulting values.
@@ -234,7 +254,7 @@ public final class LongMoments implements Serializable {
 			LongMomentStatistics::new,
 			(a, b) -> a.accept(mapper.applyAsLong(b)),
 			(a, b) -> {a.combine(b); return a;},
-			LongMomentStatistics::moments
+			LongMoments::of
 		);
 	}
 
