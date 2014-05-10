@@ -23,6 +23,9 @@ import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 import java.util.Random;
+import java.util.stream.IntStream;
+
+import org.jenetics.internal.math.probability;
 
 /**
  * This object contains mathematical helper functions.
@@ -493,6 +496,50 @@ public final class math extends StaticObject {
 	 */
 	public static final class random extends StaticObject {
 		private random() {}
+
+		/**
+		 * Create an {@code IntStream} which creates random indexes within the
+		 * given range and the index probability.
+		 *
+		 * @since 3.0
+		 *
+		 * @param random the random engine used for calculating the random
+		 *        indexes
+		 * @param start the start index (inclusively)
+		 * @param end the end index (exclusively)
+		 * @param p the index selection probability
+		 * @return an new random index stream
+		 */
+		public static IntStream indexes(
+			final Random random,
+			final int start,
+			final int end,
+			final double p
+		) {
+			final int P = probability.toInt(p);
+			return IntStream.range(start, end).filter(i -> random.nextInt() < P);
+		}
+
+		/**
+		 * Create an {@code IntStream} which creates random indexes within the
+		 * given range and the index probability.
+		 *
+		 * @since 3.0
+		 *
+		 * @param random the random engine used for calculating the random
+		 *        indexes
+		 * @param n the end index (exclusively). The start index is zero.
+		 * @param p the index selection probability
+		 * @return an new random index stream
+		 */
+		public static IntStream indexes(
+			final Random random,
+			final int n,
+			final double p
+		) {
+			final int P = probability.toInt(p);
+			return IntStream.range(0, n).filter(i -> random.nextInt() < P);
+		}
 
 		/**
 		 * Returns a pseudo-random, uniformly distributed int value between min

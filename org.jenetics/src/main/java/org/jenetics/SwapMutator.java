@@ -20,13 +20,13 @@
 package org.jenetics;
 
 import static java.lang.String.format;
+import static org.jenetics.util.math.random.indexes;
 
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.jenetics.internal.util.Hash;
+import org.jenetics.internal.util.IntRef;
 
-import org.jenetics.util.IndexStream;
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
 
@@ -68,18 +68,18 @@ public class SwapMutator<G extends Gene<?, G>> extends Mutator<G> {
 	 */
 	@Override
 	protected int mutate(final MSeq<G> genes, final double p) {
-		final AtomicInteger alterations = new AtomicInteger(0);
+		final IntRef alterations = new IntRef(0);
 
 		if (genes.length() > 1) {
 			final Random random = RandomRegistry.getRandom();
 
-			IndexStream.Random(genes.length(), p, random).forEach(i -> {
+			indexes(random, genes.length(), p).forEach(i -> {
 				genes.swap(i, random.nextInt(genes.length()));
-				alterations.incrementAndGet();
+				++alterations.value;
 			});
 		}
 
-		return alterations.get();
+		return alterations.value;
 	}
 
 	@Override
