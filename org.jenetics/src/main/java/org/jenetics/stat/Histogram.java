@@ -35,8 +35,6 @@ import java.util.function.ToDoubleFunction;
 
 import org.jenetics.internal.util.Hash;
 
-import org.jenetics.util.AbstractAccumulator;
-
 /**
  * To create an <i>Histogram Accumulator</i> you have to define the <i>class
  * border</i> which define the histogram classes. A value is part of the
