@@ -48,8 +48,6 @@ public abstract class Random64 extends PRNG {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int LONG_BYTE_SIZE = 8;
-
 	protected Random64(final long seed) {
 		super(seed);
 	}
@@ -88,7 +86,7 @@ public abstract class Random64 extends PRNG {
 	@Override
 	public void nextBytes(final byte[] bytes) {
 		for (int i = 0, len = bytes.length; i < len;) {
-			int n = min(len - i, LONG_BYTE_SIZE);
+			int n = min(len - i, Long.BYTES);
 
 			for (long x = nextLong(); --n >= 0; x >>= Byte.SIZE) {
 				bytes[i++] = (byte)x;
