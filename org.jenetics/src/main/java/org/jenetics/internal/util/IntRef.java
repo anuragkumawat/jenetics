@@ -52,6 +52,12 @@ public final class IntRef implements Serializable {
 		this(0);
 	}
 
+	public int getAndAdd(final int delta) {
+		final int prev = value;
+		value += delta;
+		return prev;
+	}
+
 	@Override
 	public int hashCode() {
 		return Integer.hashCode(value);

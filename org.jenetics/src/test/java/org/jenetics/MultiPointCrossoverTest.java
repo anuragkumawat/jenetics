@@ -237,10 +237,10 @@ public class MultiPointCrossoverTest {
 	public void reverseCrossover(final Integer npoints) {
 		for (int i = 1; i < 500; ++i) {
 			final CharSeq chars = CharSeq.of("a-zA-Z");
-			final ISeq<Character> a = new CharacterChromosome(chars, i)
-											.toSeq().map(CharacterGene.Allele);
-			final ISeq<Character> b = new CharacterChromosome(chars, i)
-											.toSeq().map(CharacterGene.Allele);
+			final ISeq<Character> a = new CharacterChromosome(chars, i).toSeq()
+				.map(CharacterGene::getAllele);
+			final ISeq<Character> b = new CharacterChromosome(chars, i).toSeq()
+				.map(CharacterGene::getAllele);
 
 			final MSeq<Character> ma1 = a.copy();
 			final MSeq<Character> mb1 = b.copy();

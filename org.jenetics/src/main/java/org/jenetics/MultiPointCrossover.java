@@ -149,9 +149,9 @@ public class MultiPointCrossover<G extends Gene<?, G>> extends Crossover<G> {
 
 	@Override
 	public int hashCode() {
-		return Hash.of(getClass()).
-				and(super.hashCode()).
-				and(_n).value();
+		return Hash.of(getClass())
+				.and(super.hashCode())
+				.and(_n).value();
 	}
 
 	@Override

@@ -105,11 +105,9 @@ public final class IntegerGene
 		final int max = maximum;
 		final Random r = RandomRegistry.getRandom();
 
-		final MSeq<IntegerGene> genes = MSeq.ofLength(length);
-		for (int i = 0; i < length; ++i) {
-			genes.set(i, new IntegerGene(nextInt(r, min, max), minimum, maximum));
-		}
-		return genes.toISeq();
+		return MSeq.<IntegerGene>ofLength(length)
+			.fill(() -> new IntegerGene(nextInt(r, min, max), minimum, maximum))
+			.toISeq();
 	}
 
 	@Override

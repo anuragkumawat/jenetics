@@ -207,7 +207,7 @@ public class LongChromosome
 				m.length = c.length();
 				m.min = c._min;
 				m.max = c._max;
-				m.values = c.toSeq().map(g -> g.getAllele()).asList();
+				m.values = c.toSeq().map(LongGene::getAllele).asList();
 				return m;
 			}
 

@@ -20,7 +20,6 @@
 package org.jenetics;
 
 import java.io.Serializable;
-import java.util.function.Function;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -130,20 +129,6 @@ public enum BitGene
 	public static BitGene of(final boolean value) {
 		return value ? TRUE : FALSE;
 	}
-
-	/* *************************************************************************
-	 *  Property access methods methods
-	 * ************************************************************************/
-
-	/**
-	 * Converter for accessing the allele from a given gene.
-	 */
-	public static final Function<BitGene, Boolean> Allele =
-		new Function<BitGene, Boolean>() {
-			@Override public Boolean apply(final BitGene value) {
-				return value._value;
-			}
-		};
 
 
 	/* *************************************************************************

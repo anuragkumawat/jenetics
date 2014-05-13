@@ -24,6 +24,7 @@ import static org.jenetics.util.bit.shiftRight;
 import static org.jenetics.util.bit.toByteLength;
 
 import org.jenetics.util.StaticObject;
+import org.jenetics.util.bit;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -83,6 +84,12 @@ public final class internalbit extends StaticObject {
 		}
 
 		return copy;
+	}
+
+	public static boolean getAndSet(final byte[] array, final int index) {
+		final boolean result = bit.get(array, index);
+		bit.set(array, index);
+		return result;
 	}
 
 }

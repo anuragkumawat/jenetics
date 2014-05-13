@@ -27,6 +27,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -121,9 +122,9 @@ public class CharacterChromosome
 
 	@Override
 	public int hashCode() {
-		return Hash.of(getClass()).
-				and(super.hashCode()).
-				and(_validCharacters).value();
+		return Hash.of(getClass())
+				.and(super.hashCode())
+				.and(_validCharacters).value();
 	}
 
 	@Override
@@ -136,16 +137,15 @@ public class CharacterChromosome
 		}
 
 		final CharacterChromosome cc = (CharacterChromosome)obj;
-		return super.equals(obj) && eq(_validCharacters, cc._validCharacters);
+		return super.equals(obj) &&
+			eq(_validCharacters, cc._validCharacters);
 	}
 
 	@Override
 	public String toString() {
-		final StringBuilder out = new StringBuilder();
-		for (CharacterGene gene : this) {
-			out.append(gene);
-		}
-		return out.toString();
+		return toSeq().asList().stream()
+			.map(Object::toString)
+			.collect(Collectors.joining());
 	}
 
 

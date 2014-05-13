@@ -109,11 +109,9 @@ public final class DoubleGene
 		final double max = maximum;
 		final Random r = RandomRegistry.getRandom();
 
-		final MSeq<DoubleGene> genes = MSeq.ofLength(length);
-		for (int i = 0; i < length; ++i) {
-			genes.set(i, new DoubleGene(nextDouble(r, min, max), minimum, maximum));
-		}
-		return genes.toISeq();
+		return MSeq.<DoubleGene>ofLength(length)
+			.fill(() -> new DoubleGene(nextDouble(r, min, max), minimum, maximum))
+			.toISeq();
 	}
 
 	@Override

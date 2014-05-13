@@ -105,7 +105,10 @@ abstract class AbstractBoundedGene<
 
 	@Override
 	public int hashCode() {
-		return Hash.of(getClass()).and(_value).and(_min).and(_max).value();
+		return Hash.of(getClass())
+			.and(_value)
+			.and(_min)
+			.and(_max).value();
 	}
 
 	@Override

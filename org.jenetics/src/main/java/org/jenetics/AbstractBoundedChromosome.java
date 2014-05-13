@@ -76,10 +76,10 @@ abstract class AbstractBoundedChromosome<
 
 	@Override
 	public int hashCode() {
-		return Hash.of(getClass()).
-			and(super.hashCode()).
-			and(_min).
-			and(_max).value();
+		return Hash.of(getClass())
+			.and(super.hashCode())
+			.and(_min)
+			.and(_max).value();
 	}
 
 	@Override
@@ -91,8 +91,11 @@ abstract class AbstractBoundedChromosome<
 			return false;
 		}
 
-		final AbstractBoundedChromosome<?, ?> nc = (AbstractBoundedChromosome<?, ?>)object;
-		return eq(_min, nc._min) && eq(_max, nc._max) && super.equals(object);
+		final AbstractBoundedChromosome<?, ?> nc =
+			(AbstractBoundedChromosome<?, ?>)object;
+		return eq(_min, nc._min) &&
+			eq(_max, nc._max) &&
+			super.equals(object);
 	}
 
 }

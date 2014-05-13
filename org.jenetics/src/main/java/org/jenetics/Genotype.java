@@ -113,11 +113,9 @@ public final class Genotype<G extends Gene<?, G>>
 	}
 
 	private static int ngenes(final Seq<? extends Chromosome<?>> chromosomes) {
-		int ngenes = 0;
-		for (int i = chromosomes.length(); --i >= 0;) {
-			ngenes += chromosomes.get(i).length();
-		}
-		return ngenes;
+		return chromosomes.asList().stream()
+			.mapToInt(c -> c.length())
+			.sum();
 	}
 
 	/**
@@ -267,6 +265,7 @@ public final class Genotype<G extends Gene<?, G>>
 	) {
 		return new Genotype<G>(ISeq.of(chromosomes));
 	}
+
 
 	/* *************************************************************************
 	 *  JAXB object serialization

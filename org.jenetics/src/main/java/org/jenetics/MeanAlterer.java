@@ -110,7 +110,8 @@ public final class MeanAlterer<G extends Gene<?, G> & Mean<G>>
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this || obj instanceof MeanAlterer<?> && super.equals(obj);
+		return obj == this ||
+			obj instanceof MeanAlterer<?> && super.equals(obj);
 	}
 
 	@Override

@@ -77,9 +77,9 @@ public interface Seq<T> extends Iterable<T> {
 	 *
 	 * @param predicate the predicate to use to test the elements.
 	 * @return {@code true} if the given predicate p holds for all elements of
-	 *          this sequence, {@code false} otherwise.
+	 *         this sequence, {@code false} otherwise.
 	 * @throws NullPointerException if the given {@code predicate} is
-	 *          {@code null}.
+	 *         {@code null}.
 	 */
 	public default boolean forAll(final Predicate<? super T> predicate) {
 		boolean valid = true;

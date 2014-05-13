@@ -38,6 +38,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.jenetics.internal.util.Hash;
+import org.jenetics.internal.util.IntRef;
 import org.jenetics.internal.util.cast;
 import org.jenetics.internal.util.jaxb;
 import org.jenetics.internal.util.model.IndexedObject;
@@ -206,13 +207,8 @@ public final class EnumGene<A>
 	 * ************************************************************************/
 
 	static <T> Supplier<EnumGene<T>> Gene(final ISeq<? extends T> validAlleles) {
-		return new Supplier<EnumGene<T>>() {
-			private int _index = 0;
-			@Override
-			public EnumGene<T> get() {
-				return new EnumGene<T>(_index++, validAlleles);
-			}
-		};
+		final IntRef index = new IntRef();
+		return () -> new EnumGene<T>(index.value++, validAlleles);
 	}
 
 	/**
@@ -308,7 +304,8 @@ public final class EnumGene<A>
 			public EnumGene unmarshal(final Model m) {
 				return new EnumGene<>(
 					m.allele.index,
-					ISeq.of(m.alleles).map(jaxb.Unmarshaller(m.allele.value))
+					ISeq.of(m.alleles)
+						.map(jaxb.Unmarshaller(m.allele.value))
 				);
 			}
 

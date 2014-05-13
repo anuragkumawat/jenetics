@@ -260,9 +260,7 @@ public final class Phenotype<
 	 */
 	Phenotype<G, C> newInstance(final Genotype<G> genotype, final int generation) {
 		requireNonNull(genotype, "Genotype");
-		return Phenotype.of(
-			genotype, _fitnessFunction, _fitnessScaler, generation
-		);
+		return of(genotype, _fitnessFunction, _fitnessScaler, generation);
 	}
 
 	/**

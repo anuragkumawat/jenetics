@@ -586,7 +586,7 @@ public class GeneticAlgorithm<
 				s.stream()
 					.filter(Phenotype::isValid)
 					.filter(pt -> pt.getAge(_generation) <= _maximalPhenotypeAge)
-					.collect(Population.collector())
+					.collect(Population.toPopulation())
 			);
 
 		final CompletableFuture<Population<G, C>> combined =

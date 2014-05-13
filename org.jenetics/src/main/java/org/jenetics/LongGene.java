@@ -105,11 +105,9 @@ public final class LongGene
 		final long max = maximum;
 		final Random r = RandomRegistry.getRandom();
 
-		final MSeq<LongGene> genes = MSeq.ofLength(length);
-		for (int i = 0; i < length; ++i) {
-			genes.set(i, new LongGene(nextLong(r, min, max), minimum, maximum));
-		}
-		return genes.toISeq();
+		return MSeq.<LongGene>ofLength(length)
+			.fill(() -> new LongGene(nextLong(r, min, max), minimum, maximum))
+			.toISeq();
 	}
 
 	@Override
