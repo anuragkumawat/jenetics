@@ -60,12 +60,11 @@ public interface ISeq<T>
 	public MSeq<T> copy();
 
 
-
 	/* *************************************************************************
 	 *  Some static factory methods.
 	 * ************************************************************************/
 
-	public static <T> Collector<T, ?, ISeq<T>> collector() {
+	public static <T> Collector<T, ?, ISeq<T>> toISeq() {
 		return Collector.of(
 			(Supplier<List<T>>)ArrayList::new,
 			List::add,

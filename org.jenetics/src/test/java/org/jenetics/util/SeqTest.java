@@ -19,6 +19,8 @@
  */
 package org.jenetics.util;
 
+import static org.jenetics.util.Seq.toSeq;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,7 +44,7 @@ public class SeqTest {
 			list.add(random.nextDouble());
 		}
 
-		final Seq<Double> seq = list.stream().collect(Seq.collector());
+		final Seq<Double> seq = list.stream().collect(toSeq());
 		Assert.assertEquals(list, seq.asList());
 	}
 

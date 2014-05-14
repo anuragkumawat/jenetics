@@ -19,6 +19,8 @@
  */
 package org.jenetics.util;
 
+import static org.jenetics.util.ISeq.toISeq;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,7 +44,7 @@ public class ISeqTest {
 			list.add(random.nextDouble());
 		}
 
-		final ISeq<Double> seq = list.stream().collect(ISeq.collector());
+		final ISeq<Double> seq = list.stream().collect(toISeq());
 		Assert.assertEquals(list, seq.asList());
 	}
 

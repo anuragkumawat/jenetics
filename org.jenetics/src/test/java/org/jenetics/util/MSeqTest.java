@@ -19,6 +19,8 @@
  */
 package org.jenetics.util;
 
+import static org.jenetics.util.MSeq.toMSeq;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,7 +44,7 @@ public class MSeqTest {
 			list.add(random.nextDouble());
 		}
 
-		final MSeq<Double> seq = list.stream().collect(MSeq.collector());
+		final MSeq<Double> seq = list.stream().collect(toMSeq());
 		Assert.assertEquals(list, seq.asList());
 	}
 

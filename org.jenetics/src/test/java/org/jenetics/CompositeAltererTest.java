@@ -139,6 +139,7 @@ public class CompositeAltererTest {
 				{ new Integer(80),  new Integer(15), new Integer(500) }
 		};
 	}
+
 	@Test
 	public void join() {
 		CompositeAlterer<DoubleGene> alterer = CompositeAlterer.join(

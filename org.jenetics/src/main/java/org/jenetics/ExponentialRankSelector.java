@@ -120,7 +120,8 @@ public final class ExponentialRankSelector<
 			return false;
 		}
 
-		final ExponentialRankSelector<?, ?> selector = (ExponentialRankSelector<?, ?>)obj;
+		final ExponentialRankSelector<?, ?> selector =
+			(ExponentialRankSelector<?, ?>)obj;
 		return eq(_c, selector._c);
 	}
 
