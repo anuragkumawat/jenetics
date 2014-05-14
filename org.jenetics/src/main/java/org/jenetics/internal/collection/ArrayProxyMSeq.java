@@ -69,15 +69,6 @@ public class ArrayProxyMSeq<T, P extends ArrayProxy<T, ?, ?>>
 	}
 
 	@Override
-	public MSeq<T> setAll(final T value) {
-		proxy.cloneIfSealed();
-		for (int i = proxy.start; i < proxy.end; ++i) {
-			proxy.__set__(i, value);
-		}
-		return this;
-	}
-
-	@Override
 	public MSeq<T> setAll(final Iterator<? extends T> it) {
 		proxy.cloneIfSealed();
 		for (int i = proxy.start; i < proxy.end && it.hasNext(); ++i) {

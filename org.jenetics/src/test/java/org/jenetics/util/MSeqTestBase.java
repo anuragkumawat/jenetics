@@ -100,7 +100,8 @@ public abstract class MSeqTestBase extends SeqTestBase {
 		final long seed = math.random.seed();
 		final Random random = new Random(seed);
 
-		seq.setAll(random.nextInt());
+		final Integer v = random.nextInt();
+		seq.fill(() -> v);
 
 		random.setSeed(seed);
 		final Integer value = random.nextInt();

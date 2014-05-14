@@ -143,7 +143,7 @@ public class CharacterChromosome
 
 	@Override
 	public String toString() {
-		return toSeq().asList().stream()
+		return toSeq().stream()
 			.map(Object::toString)
 			.collect(Collectors.joining());
 	}

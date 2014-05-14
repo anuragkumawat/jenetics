@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import org.jenetics.util.Seq;
 
@@ -51,6 +52,16 @@ public abstract class ArrayProxySeq<T, P extends ArrayProxy<T, ?, ?>>
 	@Override
 	public final T get(final int index) {
 		return proxy.get(index);
+	}
+
+	@Override
+	public Stream<T> stream() {
+		return proxy.stream();
+	}
+
+	@Override
+	public Stream<T> parallelStream() {
+		return proxy.parallelStream();
 	}
 
 	@Override

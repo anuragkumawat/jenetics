@@ -23,8 +23,12 @@ import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.IntFunction;
+import java.util.stream.Stream;
+
+import org.jenetics.internal.util.IntRef;
 
 import org.jenetics.util.Copyable;
 
@@ -182,6 +186,30 @@ public abstract class ArrayProxy<T, A, P extends ArrayProxy<T, A, P>>
 	 */
 	public final P slice(final int from) {
 		return slice(from, length);
+	}
+
+	/**
+	 * Return a stream with the elements of this {@code ArrayProxy}.
+	 *
+	 * @since 3.0
+	 *
+	 * @return a stream with the elements of this {@code ArrayProxy}
+	 */
+	public Stream<T> stream() {
+		final IntRef index = new IntRef(start);
+		return Stream.generate(() -> __get__(index.value++)).limit(length);
+	}
+
+	/**
+	 * Return a parallel stream with the elements of this {@code ArrayProxy}.
+	 *
+	 * @since 3.0
+	 *
+	 * @return a stream with the elements of this {@code ArrayProxy}
+	 */
+	public Stream<T> parallelStream() {
+		final IntRef index = new IntRef(start);
+		return Stream.generate(() -> __get__(index.value++)).limit(length);
 	}
 
 	/**
