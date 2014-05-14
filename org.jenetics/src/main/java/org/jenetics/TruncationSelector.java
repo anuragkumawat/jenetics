@@ -82,7 +82,7 @@ public final class TruncationSelector<
 			));
 		}
 
-		population.sortWith(opt.<C>descending());
+		population.sortWith(opt.descending());
 		return new Population<>(population.subList(0, count));
 	}
 

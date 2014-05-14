@@ -19,6 +19,8 @@
  */
 package org.jenetics;
 
+import static org.jenetics.util.ISeq.toISeq;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -216,8 +218,9 @@ public class LongChromosome
 				final Long min = model.min;
 				final Long max = model.max;
 				return new LongChromosome(
-					ISeq.of(model.values)
+					model.values.stream()
 						.map(value -> new LongGene(value, min, max))
+						.collect(toISeq())
 				);
 			}
 		}

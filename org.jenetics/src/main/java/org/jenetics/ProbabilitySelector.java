@@ -88,7 +88,6 @@ public abstract class ProbabilitySelector<
 				() -> population.get(indexOf(probabilities, random.nextDouble())),
 				count
 			);
-			assert (count == selection.size());
 		}
 
 		return selection;

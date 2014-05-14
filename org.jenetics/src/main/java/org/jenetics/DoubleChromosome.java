@@ -19,6 +19,8 @@
  */
 package org.jenetics;
 
+import static org.jenetics.util.ISeq.toISeq;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -213,8 +215,9 @@ public class DoubleChromosome
 				final Double min = model.min;
 				final Double max = model.max;
 				return new DoubleChromosome(
-					ISeq.of(model.values)
+					model.values.stream()
 						.map(value -> new DoubleGene(value, min, max))
+						.collect(toISeq())
 				);
 			}
 		}

@@ -22,6 +22,7 @@ package org.jenetics;
 import static java.lang.Math.min;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
+import static java.util.stream.Collectors.joining;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -307,7 +308,6 @@ public class BitChromosome extends Number
 		}
 
 		System.arraycopy(_genes, 0, bytes, 0, _genes.length);
-
 		return _genes.length;
 	}
 
@@ -376,11 +376,9 @@ public class BitChromosome extends Number
 	 *         BitChromosome.
 	 */
 	public String toCanonicalString() {
-		final StringBuilder out = new StringBuilder(length());
-		for (int i = 0; i < _length; ++i) {
-			out.append(bit.get(_genes, i) ? '1' : '0');
-		}
-		return out.toString();
+		return toSeq().stream()
+			.map(g -> g.booleanValue() ? "1" : "0")
+			.collect(joining());
 	}
 
 	@Override
