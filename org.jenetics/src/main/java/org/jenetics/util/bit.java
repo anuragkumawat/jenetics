@@ -19,6 +19,7 @@
  */
 package org.jenetics.util;
 
+import static java.lang.Integer.parseInt;
 import static java.lang.Math.min;
 import static org.jenetics.util.math.random.indexes;
 
@@ -420,7 +421,7 @@ public final class bit extends StaticObject {
 			}
 
 			try {
-				bytes[parts.length - 1 - i] = (byte)Integer.parseInt(parts[i], 2);
+				bytes[parts.length - 1 - i] = (byte)parseInt(parts[i], 2);
 			} catch (NumberFormatException e) {
 				throw new IllegalArgumentException(e);
 			}
