@@ -1245,18 +1245,16 @@ public class GeneticAlgorithm<
 	 */
 	@Override
 	public String toString() {
-		Phenotype<G, C> phenotype = null;
-		int generation = 0;
-
 		_lock.lock();
 		try {
-			generation = _generation;
-			phenotype = getStatistics().getBestPhenotype();
+			return format(
+				"%4d: (best) %s",
+				_generation,
+				getStatistics().getBestPhenotype()
+			);
 		} finally {
 			_lock.unlock();
 		}
-
-		return format("%4d: (best) %s", generation, phenotype);
 	}
 
 }
