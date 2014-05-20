@@ -41,7 +41,7 @@ public final class termination extends StaticObject {
 	 * hasn't improved for a given number of generations.
 	 *
 	 * @param <C> the fitness type.
-	 * @param generation the number of generations the fitness don't have been
+	 * @param generations the number of generations the fitness don't have been
 	 *         improved.
 	 * @return the GA terminator.
 	 */
