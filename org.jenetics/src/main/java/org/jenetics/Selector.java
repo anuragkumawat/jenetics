@@ -35,6 +35,9 @@ package org.jenetics;
  * );
  * [/code]
  *
+ * @param <G> The gene type this GA evaluates,
+ * @param <C> The result type (of the fitness function).
+ *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.0
  * @version 1.0 &mdash; <em>$Date$</em>
