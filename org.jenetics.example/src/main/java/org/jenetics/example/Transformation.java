@@ -131,8 +131,8 @@ public class Transformation {
 
 		ga.setPopulationSize(1000);
 		ga.setAlterer(CompositeAlterer.of(
-			new Mutator<DoubleGene>(0.03),
-			new MeanAlterer<DoubleGene>(0.6)
+			new Mutator<DoubleGene, Double>(0.03),
+			new MeanAlterer<DoubleGene, Double>(0.6)
 		));
 		ga.setSelectors(new RouletteWheelSelector<DoubleGene, Double>());
 
@@ -142,7 +142,7 @@ public class Transformation {
 				"Affine transformation",
 				ga,
 				generations,
-				((CompositeAlterer<?>)ga.getAlterer()).getAlterers().toArray()
+				((CompositeAlterer<?, ?>)ga.getAlterer()).getAlterers().toArray()
 			);
 
 		GAUtils.execute(ga, generations, 10);

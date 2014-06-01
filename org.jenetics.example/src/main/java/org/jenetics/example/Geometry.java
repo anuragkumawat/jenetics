@@ -856,8 +856,8 @@ class GeometryController implements StepListener {
 					_ga.getLock().lock();
 					try {
 						_ga.setAlterers(
-							new Mutator<DoubleGene>(probability),
-							new MeanAlterer<DoubleGene>()
+							new Mutator<DoubleGene, Double>(probability),
+							new MeanAlterer<DoubleGene, Double>()
 						);
 						System.out.println("Mutation probability: " + probability);
 					} finally {
@@ -1674,8 +1674,8 @@ class GA {
 				GA.getGenotypeFactory(), function, new Scaler(), Optimize.MINIMUM
 			);
 		ga.setAlterers(
-			new MeanAlterer<DoubleGene>(),
-			new Mutator<DoubleGene>(0.1)
+			new MeanAlterer<DoubleGene, Double>(),
+			new Mutator<DoubleGene, Double>(0.1)
 		);
 		ga.setSelectors(new TournamentSelector<DoubleGene, Double>(5));
 		ga.setPopulationSize(25);

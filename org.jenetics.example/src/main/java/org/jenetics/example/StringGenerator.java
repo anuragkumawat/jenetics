@@ -89,8 +89,8 @@ public class StringGenerator {
 			new TournamentSelector<CharacterGene, Integer>(5)
 		);
 		ga.setAlterer(CompositeAlterer.of(
-			new Mutator<CharacterGene>(0.1),
-			new SinglePointCrossover<CharacterGene>(0.5)
+			new Mutator<CharacterGene, Integer>(0.1),
+			new SinglePointCrossover<CharacterGene, Integer>(0.5)
 		));
 
 		final int generations = 100;
@@ -99,7 +99,7 @@ public class StringGenerator {
 				"String generator",
 				ga,
 				generations,
-				((CompositeAlterer<?>)ga.getAlterer()).getAlterers().toArray()
+				((CompositeAlterer<?, ?>)ga.getAlterer()).getAlterers().toArray()
 			);
 
 		GAUtils.execute(ga, generations, 20);

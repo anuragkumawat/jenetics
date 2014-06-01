@@ -44,7 +44,7 @@ public class PartiallyMatchedCrossoverTest {
 
 	@Test(invocationCount = 10)
 	public void crossover() {
-		final PartiallyMatchedCrossover<Integer> pmco =
+		final PartiallyMatchedCrossover<Integer, Double> pmco =
 			new PartiallyMatchedCrossover<>(1);
 
 		final int length = 1000;
@@ -77,7 +77,7 @@ public class PartiallyMatchedCrossoverTest {
 
 	@Test
 	public void corssoverWithIllegalChromosome() {
-		final PartiallyMatchedCrossover<Integer> pmco = new PartiallyMatchedCrossover<>(1);
+		final PartiallyMatchedCrossover<Integer, Double> pmco = new PartiallyMatchedCrossover<>(1);
 
 		final int length = 1000;
 		final MSeq<Integer> alleles = MSeq.<Integer>ofLength(length).fill(Int());
@@ -101,7 +101,7 @@ public class PartiallyMatchedCrossoverTest {
 			newPermutationDoubleGenePopulation(ngenes, nchromosomes, npopulation);
 
 		// The mutator to test.
-		final PartiallyMatchedCrossover<Double> crossover = new PartiallyMatchedCrossover<>(p);
+		final PartiallyMatchedCrossover<Double, Double> crossover = new PartiallyMatchedCrossover<>(p);
 
 		final long nallgenes = ngenes*nchromosomes*npopulation;
 		final long N = 100;

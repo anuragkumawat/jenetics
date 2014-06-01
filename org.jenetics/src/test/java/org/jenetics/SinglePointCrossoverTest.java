@@ -73,7 +73,7 @@ public class SinglePointCrossoverTest {
 
 		int rv = 12;
 		try (Scoped<?> s = RandomRegistry.scope(new ConstRandom(rv))) {
-			final SinglePointCrossover<CharacterGene>
+			final SinglePointCrossover<CharacterGene, Double>
 			crossover = new SinglePointCrossover<>();
 
 			MSeq<CharacterGene> g1c = g1.copy();
@@ -130,7 +130,7 @@ public class SinglePointCrossoverTest {
 			);
 
 		// The mutator to test.
-		final SinglePointCrossover<DoubleGene> crossover = new SinglePointCrossover<>(p);
+		final SinglePointCrossover<DoubleGene, Double> crossover = new SinglePointCrossover<>(p);
 
 		final long nallgenes = ngenes*nchromosomes*npopulation;
 		final long N = 200;

@@ -93,8 +93,8 @@ public class TravelingSalesman {
 			);
 		ga.setPopulationSize(500);
 		ga.setAlterers(
-			new SwapMutator<EnumGene<Integer>>(0.2),
-			new PartiallyMatchedCrossover<Integer>(0.3)
+			new SwapMutator<EnumGene<Integer>, Double>(0.2),
+			new PartiallyMatchedCrossover<Integer, Double>(0.3)
 		);
 
 		ga.setup();

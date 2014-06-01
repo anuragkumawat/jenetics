@@ -275,7 +275,7 @@ public class MultiPointCrossoverTest {
 		final ISeq<CharacterGene> g1 = new CharacterChromosome(chars, 20).toSeq();
 		final ISeq<CharacterGene> g2 = new CharacterChromosome(chars, 20).toSeq();
 
-		final MultiPointCrossover<CharacterGene> crossover =
+		final MultiPointCrossover<CharacterGene, Double> crossover =
 				new MultiPointCrossover<>(2000);
 		final int[] points = new int[g1.length()];
 		for (int i = 0; i < points.length; ++i) {

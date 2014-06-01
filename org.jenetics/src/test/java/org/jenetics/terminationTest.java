@@ -75,7 +75,7 @@ public class terminationTest {
 		ga.setPopulationSize(20);
 		ga.setAlterers(
 			ga.getAlterer(),
-			new Mutator<DoubleGene>(0.999)
+			new Mutator<DoubleGene, Double>(0.999)
 		);
 		ga.setup();
 		values.addFirst(ga.getBestPhenotype().getFitness());
