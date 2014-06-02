@@ -50,7 +50,7 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 	}
 
 	protected S getSelector() {
-		return getFactory().newInstance();
+		return factory().newInstance();
 	}
 
 	protected boolean isCheckEnabled() {

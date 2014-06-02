@@ -38,7 +38,6 @@ import org.jenetics.util.Range;
  */
 public class MeanAltererTest {
 
-
 	@Test
 	public void recombinate() {
 		final int ngenes = 11;
@@ -88,7 +87,10 @@ public class MeanAltererTest {
 		}
 
 		// Normal distribution as approximation for binomial distribution.
-		assertDistribution(histogram, new NormalDistribution<>(domain, mean, variance.getVariance()));
+		assertDistribution(
+			histogram,
+			new NormalDistribution<>(domain, mean, variance.getVariance())
+		);
 	}
 
 	@DataProvider(name = "alterProbabilityParameters")

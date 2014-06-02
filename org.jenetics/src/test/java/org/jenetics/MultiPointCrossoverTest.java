@@ -228,8 +228,6 @@ public class MultiPointCrossoverTest {
 
 			Assert.assertEquals(ma1, ma2);
 			Assert.assertEquals(mb1, mb2);
-
-			//System.out.println(i + ": " + ma1);
 		}
 	}
 

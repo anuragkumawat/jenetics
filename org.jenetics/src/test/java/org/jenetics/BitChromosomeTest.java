@@ -45,7 +45,7 @@ public class BitChromosomeTest extends ChromosomeTester<BitGene> {
 
 	private final Factory<Chromosome<BitGene>>
 	_factory = BitChromosome.of(500, 0.3);
-	@Override protected Factory<Chromosome<BitGene>> getFactory() {
+	@Override protected Factory<Chromosome<BitGene>> factory() {
 		return _factory;
 	}
 

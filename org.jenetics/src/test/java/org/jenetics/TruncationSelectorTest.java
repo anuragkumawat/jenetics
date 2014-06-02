@@ -42,7 +42,7 @@ public class TruncationSelectorTest
 		}
 	};
 	@Override
-	protected Factory<TruncationSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<TruncationSelector<DoubleGene, Double>> factory() {
 		return _factory;
 	}
 

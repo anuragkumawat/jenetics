@@ -45,7 +45,7 @@ public class CharSeqTest extends ObjectTester<CharSeq> {
 		}
 	};
 	@Override
-	protected Factory<CharSeq> getFactory() {
+	protected Factory<CharSeq> factory() {
 		return _factory;
 	}
 

@@ -43,9 +43,9 @@ import org.jenetics.util.Scoped;
  */
 public class CharacterGeneTest extends GeneTester<CharacterGene> {
 
-	private final Factory<CharacterGene> _factory = CharacterGene.of();
-	@Override protected Factory<CharacterGene> getFactory() {
-		return _factory;
+	@Override
+	protected Factory<CharacterGene> factory() {
+		return CharacterGene::of;
 	}
 
 	@Test(invocationCount = 20, successPercentage = 95)

@@ -37,7 +37,7 @@ public class LinearRankSelectorTest
 	}
 
 	@Override
-	protected Factory<LinearRankSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<LinearRankSelector<DoubleGene, Double>> factory() {
 		return SelectorFactories.LinearRankSelector;
 	}
 

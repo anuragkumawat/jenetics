@@ -46,7 +46,7 @@ public class TournamentSelectorTest
 		}
 	};
 	@Override
-	protected Factory<TournamentSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<TournamentSelector<DoubleGene, Double>> factory() {
 		return _factory;
 	}
 

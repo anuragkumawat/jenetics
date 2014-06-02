@@ -49,7 +49,7 @@ public class VarianceTest extends MappedAccumulatorTester<Variance<Double>> {
 		}
 	};
 	@Override
-	protected Factory<Variance<Double>> getFactory() {
+	protected Factory<Variance<Double>> factory() {
 		return _factory;
 	}
 

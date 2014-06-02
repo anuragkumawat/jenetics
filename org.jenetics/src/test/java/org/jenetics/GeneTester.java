@@ -49,8 +49,8 @@ public abstract class GeneTester<G extends Gene<?, G>> extends ObjectTester<G> {
 	@Test
 	public void notEqualsAllele() {
 		for (int i = 0; i < 10; ++i) {
-			final G that = getFactory().newInstance();
-			final G other = getFactory().newInstance();
+			final G that = factory().newInstance();
+			final G other = factory().newInstance();
 
 			if (that.equals(other)) {
 				Assert.assertTrue(other.getAllele().equals(that.getAllele()));

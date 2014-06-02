@@ -54,7 +54,7 @@ public class StatisticsTest extends ObjectTester<Statistics<DoubleGene, Double>>
 		}
 	};
 	@Override
-	protected Factory<Statistics<DoubleGene, Double>> getFactory() {
+	protected Factory<Statistics<DoubleGene, Double>> factory() {
 		return _factory;
 	}
 

@@ -39,7 +39,7 @@ public class ExponentialRankSelectorTest
 	}
 
 	@Override
-	protected Factory<ExponentialRankSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<ExponentialRankSelector<DoubleGene, Double>> factory() {
 		return SelectorFactories.ExponentialRankSelector;
 	}
 

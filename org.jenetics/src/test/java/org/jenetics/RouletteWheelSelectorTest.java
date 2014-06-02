@@ -31,7 +31,6 @@ public class RouletteWheelSelectorTest
 	extends ProbabilitySelectorTester<RouletteWheelSelector<DoubleGene, Double>>
 {
 
-
 	@Override
 	protected Distribution<Double> getDistribution() {
 		return new LinearDistribution<>(getDomain(), 0);
@@ -43,7 +42,7 @@ public class RouletteWheelSelectorTest
 	}
 
 	@Override
-	protected Factory<RouletteWheelSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<RouletteWheelSelector<DoubleGene, Double>> factory() {
 		return SelectorFactories.RouletteWheelSelector;
 	}
 

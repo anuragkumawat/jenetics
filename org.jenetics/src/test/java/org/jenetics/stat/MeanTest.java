@@ -49,7 +49,7 @@ public class MeanTest extends MappedAccumulatorTester<Mean<Double>> {
 		}
 	};
 	@Override
-	protected Factory<Mean<Double>> getFactory() {
+	protected Factory<Mean<Double>> factory() {
 		return _factory;
 	}
 

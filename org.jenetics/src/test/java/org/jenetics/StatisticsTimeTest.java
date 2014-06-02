@@ -50,7 +50,7 @@ public class StatisticsTimeTest extends ObjectTester<Time> {
 		}
 	};
 	@Override
-	protected Factory<Time> getFactory() {
+	protected Factory<Time> factory() {
 		return _factory;
 	}
 

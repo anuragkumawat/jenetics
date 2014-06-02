@@ -40,10 +40,9 @@ import org.jenetics.util.Scoped;
  */
 public class CharacterChromosomeTest extends ChromosomeTester<CharacterGene> {
 
-	private final Factory<Chromosome<CharacterGene>>
-	_factory = CharacterChromosome.of(500);
-	@Override protected Factory<Chromosome<CharacterGene>> getFactory() {
-		return _factory;
+	@Override
+	protected Factory<Chromosome<CharacterGene>> factory() {
+		return () -> CharacterChromosome.of(500);
 	}
 
 

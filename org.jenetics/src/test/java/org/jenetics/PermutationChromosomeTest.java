@@ -36,7 +36,7 @@ public class PermutationChromosomeTest
 	extends ChromosomeTester<EnumGene<Integer>>
 {
 	@Override
-	protected Factory<Chromosome<EnumGene<Integer>>> getFactory() {
+	protected Factory<Chromosome<EnumGene<Integer>>> factory() {
 		return () -> PermutationChromosome.ofInteger(100);
 	}
 

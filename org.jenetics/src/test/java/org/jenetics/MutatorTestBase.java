@@ -97,9 +97,9 @@ public abstract class MutatorTestBase {
 
 		// Normal distribution as approximation for binomial distribution.
 		assertDistribution(
-				histogram,
-				new NormalDistribution<>(domain, mean, variance.getVariance())
-			);
+			histogram,
+			new NormalDistribution<>(domain, mean, variance.getVariance())
+		);
 	}
 
 	public double var(final double p, final long N) {

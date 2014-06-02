@@ -34,7 +34,7 @@ import org.jenetics.util.lists;
  */
 public class PopulationTest {
 
-	private static final class Continous
+	private static final class Continuous
 		implements Function<Genotype<DoubleGene>, Double>,
 					Serializable
 	{
@@ -45,7 +45,7 @@ public class PopulationTest {
 		}
 	}
 
-	private static final Function<Genotype<DoubleGene>, Double> _cf = new Continous();
+	private static final Function<Genotype<DoubleGene>, Double> _cf = new Continuous();
 	private static Phenotype<DoubleGene, Double> pt(double value) {
 		return Phenotype.of(Genotype.of(DoubleChromosome.of(DoubleGene.of(value, 0, 10))), _cf, 0);
 	}

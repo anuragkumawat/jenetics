@@ -46,7 +46,7 @@ public class IntegerChromosomeTest
 	);
 
 	@Override
-	protected IntegerChromosome getFactory() {
+	protected IntegerChromosome factory() {
 		return _factory;
 	}
 

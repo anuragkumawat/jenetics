@@ -46,7 +46,7 @@ public class StochasticUniversalSelectorTest
 		}
 	};
 	@Override
-	protected Factory<StochasticUniversalSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<StochasticUniversalSelector<DoubleGene, Double>> factory() {
 		return _factory;
 	}
 

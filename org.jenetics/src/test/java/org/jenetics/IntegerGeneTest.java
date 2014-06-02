@@ -41,7 +41,7 @@ import org.jenetics.util.Scoped;
 public class IntegerGeneTest extends NumericGeneTester<Integer, IntegerGene> {
 
 	private final Factory<IntegerGene> _factory = IntegerGene.of(0, Integer.MAX_VALUE);
-	@Override protected Factory<IntegerGene> getFactory() {
+	@Override protected Factory<IntegerGene> factory() {
 		return _factory;
 	}
 

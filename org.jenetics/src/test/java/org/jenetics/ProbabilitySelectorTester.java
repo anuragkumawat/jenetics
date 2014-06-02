@@ -123,7 +123,7 @@ public abstract class ProbabilitySelectorTester<
 		final Population<DoubleGene, Double> population = TestUtils.newDoublePopulation(100);
 		lists.shuffle(population, new Random(System.currentTimeMillis()));
 
-		final S selector = getFactory().newInstance();
+		final S selector = factory().newInstance();
 		final double[] props = selector.probabilities(population, 23);
 		Assert.assertEquals(props.length, population.size());
 
@@ -184,7 +184,8 @@ public abstract class ProbabilitySelectorTester<
 		}
 	}
 
-	protected static <T extends Comparable<T>> void assertSortedDescending(final List<? extends T> values) {
+	protected static <T extends Comparable<T>>
+	void assertSortedDescending(final List<? extends T> values) {
 		for (int i = 1; i < values.size(); ++i) {
 			Assert.assertTrue(values.get(i - 1).compareTo(values.get(i)) >= 0);
 		}

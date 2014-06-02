@@ -52,7 +52,7 @@ public class LinearDistributionTest extends ObjectTester<LinearDistribution<Doub
 		}
 	};
 	@Override
-	protected Factory<LinearDistribution<Double>> getFactory() {
+	protected Factory<LinearDistribution<Double>> factory() {
 		return _factory;
 	}
 

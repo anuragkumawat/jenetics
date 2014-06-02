@@ -39,7 +39,7 @@ public class BoltzmannSelectorTest
 	}
 
 	@Override
-	protected Factory<BoltzmannSelector<DoubleGene, Double>> getFactory() {
+	protected Factory<BoltzmannSelector<DoubleGene, Double>> factory() {
 		return SelectorFactories.BoltzmannSelector;
 	}
 

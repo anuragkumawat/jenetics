@@ -43,7 +43,7 @@ import org.jenetics.util.Scoped;
 public class DoubleGeneTest extends NumericGeneTester<Double, DoubleGene> {
 
 	private final Factory<DoubleGene> _factory = DoubleGene.of(0, Double.MAX_VALUE);
-	@Override protected Factory<DoubleGene> getFactory() {
+	@Override protected Factory<DoubleGene> factory() {
 		return _factory;
 	}
 

@@ -46,7 +46,7 @@ public class LongChromosomeTest
 	);
 
 	@Override
-	protected LongChromosome getFactory() {
+	protected LongChromosome factory() {
 		return _factory;
 	}
 

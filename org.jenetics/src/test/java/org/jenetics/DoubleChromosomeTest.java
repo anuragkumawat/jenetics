@@ -46,7 +46,7 @@ public class DoubleChromosomeTest
 	);
 
 	@Override
-	protected DoubleChromosome getFactory() {
+	protected DoubleChromosome factory() {
 		return _factory;
 	}
 

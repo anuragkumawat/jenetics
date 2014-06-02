@@ -46,7 +46,7 @@ public class EnumGeneTest extends GeneTester<EnumGene<Integer>> {
 	};
 
 	@Override
-	protected Factory<EnumGene<Integer>> getFactory() {
+	protected Factory<EnumGene<Integer>> factory() {
 		return _factory;
 	}
 

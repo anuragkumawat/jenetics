@@ -43,7 +43,7 @@ public class TimerTest extends ObjectTester<Timer> {
 	};
 
 	@Override
-	protected Factory<Timer> getFactory() {
+	protected Factory<Timer> factory() {
 		return _factory;
 	}
 
