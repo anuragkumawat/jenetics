@@ -52,15 +52,6 @@ public class DoubleAdderTest {
 			.getSum();
 
 		Assert.assertEquals(adder.doubleValue(), expectedSum);
-
-		double naiveSum = 0;
-		for (Double value : numbers) {
-			naiveSum += value;
-		}
-
-//		System.out.println(naiveSum);
-//		System.out.println(expectedSum);
-//		System.out.println(adder.value);
 	}
 
 }

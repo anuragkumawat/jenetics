@@ -26,8 +26,7 @@ import org.testng.annotations.Test;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 2.0 &mdash; <em>$Date$</em>
- * @since 2.0
+ * @version <em>$Date$</em>
  */
 public class StackTest {
 
