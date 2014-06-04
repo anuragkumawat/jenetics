@@ -134,11 +134,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			((DrawPanel)_drawPanel).setSourcePolygon(polygon);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					((DrawPanel)_drawPanel).setSourcePolygon(polygon);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                ((DrawPanel)_drawPanel).setSourcePolygon(polygon);
+            });
 		}
 	}
 
@@ -146,11 +144,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			((DrawPanel)_drawPanel).setTargetPolygon(polygon);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					((DrawPanel)_drawPanel).setTargetPolygon(polygon);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                ((DrawPanel)_drawPanel).setTargetPolygon(polygon);
+            });
 		}
 	}
 
@@ -158,11 +154,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			_fitnessMeanTextField.setValue(format(mean));
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					_fitnessMeanTextField.setValue(format(mean));
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                _fitnessMeanTextField.setValue(format(mean));
+            });
 		}
 	}
 
@@ -170,11 +164,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			_fitnessVarianceTextField.setValue(format(variance));
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					_fitnessVarianceTextField.setValue(format(variance));
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                _fitnessVarianceTextField.setValue(format(variance));
+            });
 		}
 	}
 
@@ -182,11 +174,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			_generationTextField.setValue(generation);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					_generationTextField.setValue(generation);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                _generationTextField.setValue(generation);
+            });
 		}
 	}
 
@@ -194,11 +184,9 @@ public class Geometry extends javax.swing.JFrame {
 		if (SwingUtilities.isEventDispatchThread()) {
 			((TransformPanel)_targetTransformPanel).setAffineTransform(transform);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					((TransformPanel)_targetTransformPanel).setAffineTransform(transform);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                ((TransformPanel)_targetTransformPanel).setAffineTransform(transform);
+            });
 		}
 	}
 
@@ -207,12 +195,10 @@ public class Geometry extends javax.swing.JFrame {
 			((DrawPanel)_drawPanel).setAlltimeBestTransform(transform);
 			((TransformPanel)_gaBestTransformPanel).setAffineTransform(transform);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					((DrawPanel)_drawPanel).setAlltimeBestTransform(transform);
-					((TransformPanel)_gaBestTransformPanel).setAffineTransform(transform);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                ((DrawPanel)_drawPanel).setAlltimeBestTransform(transform);
+                ((TransformPanel)_gaBestTransformPanel).setAffineTransform(transform);
+            });
 		}
 	}
 
@@ -221,12 +207,10 @@ public class Geometry extends javax.swing.JFrame {
 			((DrawPanel)_drawPanel).setPopulationBestTransform(transform);
 			((TransformPanel)_populationBestTransformPanel).setAffineTransform(transform);
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					((DrawPanel)_drawPanel).setPopulationBestTransform(transform);
-					((TransformPanel)_populationBestTransformPanel).setAffineTransform(transform);
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                ((DrawPanel)_drawPanel).setPopulationBestTransform(transform);
+                ((TransformPanel)_populationBestTransformPanel).setAffineTransform(transform);
+            });
 		}
 	}
 
@@ -244,12 +228,10 @@ public class Geometry extends javax.swing.JFrame {
 			super.repaint();
 			_drawPanel.repaint();
 		} else {
-			SwingUtilities.invokeLater(new Runnable() {
-				@Override public void run() {
-					Geometry.super.repaint();
-					_drawPanel.repaint();
-				}
-			});
+			SwingUtilities.invokeLater(() -> {
+                Geometry.super.repaint();
+                _drawPanel.repaint();
+            });
 		}
 	}
 
@@ -606,13 +588,11 @@ public class Geometry extends javax.swing.JFrame {
 	 * 			  the command line arguments
 	 */
 	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			@Override public void run() {
-				final Geometry geometry = new Geometry();
-				geometry.setVisible(true);
-				new GeometryController(geometry);
-			}
-		});
+		java.awt.EventQueue.invokeLater(() -> {
+            final Geometry geometry = new Geometry();
+            geometry.setVisible(true);
+            new GeometryController(geometry);
+        });
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -718,15 +698,13 @@ class GeometryController implements StepListener {
 		if (_stepable != null) {
 			_stepable.removeStepListener(this);
 		}
-		_stepable = new Stepable(new Runnable() {
-			@Override public void run() {
-				if (_ga.getGeneration() == 0) {
-					_ga.setup();
-				} else {
-					_ga.evolve();
-				}
-			}
-		});
+		_stepable = new Stepable(() -> {
+            if (_ga.getGeneration() == 0) {
+                _ga.setup();
+            } else {
+                _ga.evolve();
+            }
+        });
 		_stepable.addStepListener(this);
 
 		if (_thread != null) {
@@ -799,72 +777,60 @@ class GeometryController implements StepListener {
 
 	void setPopulationSize(final int size) {
 		if (_ga != null) {
-			_threads.submit(new Runnable() {
-				@Override
-				public void run() {
-					_ga.getLock().lock();
-					try {
-						_ga.setPopulationSize(size);
-						System.out.println("Population size: " + size);
-					} finally {
-						_ga.getLock().unlock();
-					}
-				}
-			});
+			_threads.submit(() -> {
+                _ga.getLock().lock();
+                try {
+                    _ga.setPopulationSize(size);
+                    System.out.println("Population size: " + size);
+                } finally {
+                    _ga.getLock().unlock();
+                }
+            });
 		}
 	}
 
 	void setMaximalPhenotypeAge(final int age) {
 		if (_ga != null) {
-			_threads.submit(new Runnable() {
-				@Override
-				public void run() {
-					_ga.getLock().lock();
-					try {
-						_ga.setMaximalPhenotypeAge(age);
-						System.out.println("Phenotype age: " + age);
-					} finally {
-						_ga.getLock().unlock();
-					}
-				}
-			});
+			_threads.submit(() -> {
+                _ga.getLock().lock();
+                try {
+                    _ga.setMaximalPhenotypeAge(age);
+                    System.out.println("Phenotype age: " + age);
+                } finally {
+                    _ga.getLock().unlock();
+                }
+            });
 		}
 	}
 
 	void setOffspringFraction(final double fraction) {
 		if (_ga != null) {
-			_threads.submit(new Runnable() {
-				@Override
-				public void run() {
-					_ga.getLock().lock();
-					try {
-						_ga.setOffspringFraction(fraction);
-						System.out.println("Offspring fraction: " + fraction);
-					} finally {
-						_ga.getLock().unlock();
-					}
-				}
-			});
+			_threads.submit(() -> {
+                _ga.getLock().lock();
+                try {
+                    _ga.setOffspringFraction(fraction);
+                    System.out.println("Offspring fraction: " + fraction);
+                } finally {
+                    _ga.getLock().unlock();
+                }
+            });
 		}
 	}
 
 	void setMutationProbability(final double probability) {
 		if (_ga != null) {
-			_threads.submit(new Runnable() {
-				@Override
-				public void run() {
-					_ga.getLock().lock();
-					try {
-						_ga.setAlterers(
-							new Mutator<DoubleGene, Double>(probability),
-							new MeanAlterer<DoubleGene, Double>()
-						);
-						System.out.println("Mutation probability: " + probability);
-					} finally {
-						_ga.getLock().unlock();
-					}
-				}
-			});
+			_threads.submit(() -> {
+                _ga.getLock().lock();
+                try {
+                    _ga.setAlterers(
+                            new Mutator<DoubleGene, Double>(probability),
+                            new MeanAlterer<DoubleGene, Double>()
+                    );
+                    System.out.println("Mutation probability: " + probability);
+                } finally {
+                    _ga.getLock().unlock();
+                }
+            });
 		}
 	}
 
@@ -1111,12 +1077,9 @@ class OffspringFractionRangeModel extends DefaultBoundedRangeModel
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				_controller.setOffspringFraction(getValue()/100.0);
-			}
-		}).start();
+		new Thread(() -> {
+            _controller.setOffspringFraction(getValue()/100.0);
+        }).start();
 	}
 
 }
@@ -1582,29 +1545,25 @@ class GA {
 		}
 
 		public final Function<Genotype<DoubleGene>, AffineTransform>
-		_converter = new Function<Genotype<DoubleGene>, AffineTransform>() {
-
-			@Override
-			public AffineTransform apply(final Genotype<DoubleGene> genotype) {
-				System.out.println(genotype);
-				final double theta = genotype.getChromosome(0).getGene().doubleValue();
-				final double tx = genotype.getChromosome(1).getGene(0).doubleValue();
-				final double ty = genotype.getChromosome(1).getGene(1).doubleValue();
-				final double shx = genotype.getChromosome(2).getGene(0).doubleValue();
-				final double shy = genotype.getChromosome(2).getGene(1).doubleValue();
-
-				final AffineTransform rotate = AffineTransform.getRotateInstance(theta);
-				final AffineTransform translate = AffineTransform.getTranslateInstance(tx, ty);
-				final AffineTransform shear = AffineTransform.getShearInstance(shx,shy);
-
-				final AffineTransform transform = new AffineTransform();
-				transform.concatenate(shear);
-				transform.concatenate(rotate);
-				transform.concatenate(translate);
-
-				return transform;
-			}
-		};
+		_converter = (final Genotype<DoubleGene> genotype) -> {
+            System.out.println(genotype);
+            final double theta = genotype.getChromosome(0).getGene().doubleValue();
+            final double tx = genotype.getChromosome(1).getGene(0).doubleValue();
+            final double ty = genotype.getChromosome(1).getGene(1).doubleValue();
+            final double shx = genotype.getChromosome(2).getGene(0).doubleValue();
+            final double shy = genotype.getChromosome(2).getGene(1).doubleValue();
+            
+            final AffineTransform rotate = AffineTransform.getRotateInstance(theta);
+            final AffineTransform translate = AffineTransform.getTranslateInstance(tx, ty);
+            final AffineTransform shear = AffineTransform.getShearInstance(shx,shy);
+            
+            final AffineTransform transform = new AffineTransform();
+            transform.concatenate(shear);
+            transform.concatenate(rotate);
+            transform.concatenate(translate);
+            
+            return transform;
+        };
 
 	}
 
@@ -1674,14 +1633,14 @@ class GA {
 				GA.getGenotypeFactory(), function, new Scaler(), Optimize.MINIMUM
 			);
 		ga.setAlterers(
-			new MeanAlterer<DoubleGene, Double>(),
-			new Mutator<DoubleGene, Double>(0.1)
+			new MeanAlterer<>(),
+			new Mutator<>(0.1)
 		);
-		ga.setSelectors(new TournamentSelector<DoubleGene, Double>(5));
+		ga.setSelectors(new TournamentSelector<>(5));
 		ga.setPopulationSize(25);
 		ga.setMaximalPhenotypeAge(30);
 		ga.setOffspringFraction(0.3);
-		ga.setStatisticsCalculator(new NumberStatistics.Calculator<DoubleGene, Double>());
+		ga.setStatisticsCalculator(new NumberStatistics.Calculator<>());
 
 		return ga;
 	}
