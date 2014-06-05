@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.RandomAccess;
 
 import org.jenetics.internal.util.Hash;
-import org.jenetics.internal.util.cast;
+import org.jenetics.internal.util.reflect;
 
 import org.jenetics.util.ISeq;
 import org.jenetics.util.Verifiable;
@@ -83,7 +83,7 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 			));
 		}
 
-		_genes = cast.apply(genes);
+		_genes = reflect.cast(genes);
 	}
 
 	@Override

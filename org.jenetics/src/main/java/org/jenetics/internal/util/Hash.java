@@ -23,8 +23,8 @@ import org.jenetics.util.Seq;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 3.0 &mdash; <em>$Date$</em>
  * @since 1.6
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public interface Hash {
 

@@ -43,8 +43,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.IntRef;
-import org.jenetics.internal.util.cast;
 import org.jenetics.internal.util.jaxb;
+import org.jenetics.internal.util.reflect;
 
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
@@ -142,7 +142,7 @@ public final class PermutationChromosome<T>
 					.shuffle()
 					.toISeq()
 		);
-		chromosome._validAlleles = cast.apply(alleles);
+		chromosome._validAlleles = reflect.cast(alleles);
 		chromosome._valid = true;
 
 		return chromosome;

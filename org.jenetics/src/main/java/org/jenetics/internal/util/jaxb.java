@@ -98,18 +98,10 @@ public class jaxb extends StaticObject {
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	private static XmlAdapter<Object, Object> newXmlAdapter(final Class<?> cls) {
-		final Function<Class, XmlAdapter> toXmlAdapter = c -> {
-			try {
-				return (XmlAdapter<Object, Object>)c.newInstance();
-			} catch (InstantiationException | IllegalAccessException e) {
-				throw new RuntimeException(e);
-			}
-		};
-
 		return innerClasses(cls)
 			.filter(XmlAdapter.class::isAssignableFrom)
 			.findFirst()
-			.map(toXmlAdapter)
+			.map(reflect::<XmlAdapter<Object, Object>>newInstance)
 			.orElse(IDENTITY_ADAPTER);
 	}
 
