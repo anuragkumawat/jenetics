@@ -98,7 +98,8 @@ public class Quantile implements DoubleConsumer {
 
 		_n[0] = -1.0;
 		_q[2] = 0.0;
-		_initialized = compare(quantile, 0.0) == 0 || compare(quantile, 1.0) == 0;
+		_initialized = compare(quantile, 0.0) == 0 ||
+						compare(quantile, 1.0) == 0;
 		_samples = 0;
 	}
 
