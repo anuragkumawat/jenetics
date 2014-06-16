@@ -47,8 +47,7 @@ public class reflect extends StaticObject {
 	 */
 	public static Stream<Class<?>> innerClasses(final Class<?> cls) {
 		return concat(
-			stream(cls.getDeclaredClasses())
-				.flatMap(reflect::innerClasses),
+			stream(cls.getDeclaredClasses()).flatMap(reflect::innerClasses),
 			stream(cls.getDeclaredClasses())
 		);
 	}
