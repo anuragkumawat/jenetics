@@ -55,7 +55,8 @@ public class MultiPointCrossoverTest {
 		final MSeq<Character> ma = a.copy();
 		final MSeq<Character> mb = b.copy();
 
-		MultiPointCrossover.crossover(ma, mb, Seq.unboxInt(points));
+		final int[] intPoints = points.stream().mapToInt(Integer::intValue).toArray();
+		MultiPointCrossover.crossover(ma, mb, intPoints);
 		Assert.assertEquals(ma, CharSeq.toISeq(expectedA));
 		Assert.assertEquals(mb, CharSeq.toISeq(expectedB));
 	}
