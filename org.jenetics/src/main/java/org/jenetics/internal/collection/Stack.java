@@ -17,7 +17,7 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.collection;
 
 /**
  * Minimal implementation of stack data-structure. {@code Null} values are not

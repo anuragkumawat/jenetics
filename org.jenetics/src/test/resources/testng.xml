@@ -294,7 +294,7 @@
             <class name="org.jenetics.internal.util.reflectTest" />
         </classes>
     </test>
-    <test name="org.jenetics.internal.util.Stack">
+    <test name="org.jenetics.internal.collection.Stack">
         <classes>
             <class name="org.jenetics.internal.util.StackTest" />
         </classes>
