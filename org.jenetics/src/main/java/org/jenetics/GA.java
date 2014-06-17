@@ -19,8 +19,6 @@
  */
 package org.jenetics;
 
-import org.jenetics.util.ISeq;
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0

@@ -21,8 +21,6 @@ package org.jenetics.internal.collection;
 
 import java.util.Random;
 
-import org.testng.annotations.Test;
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>

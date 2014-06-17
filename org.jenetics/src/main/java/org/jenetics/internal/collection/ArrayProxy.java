@@ -23,7 +23,6 @@ import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.stream.Stream;

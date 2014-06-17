@@ -19,8 +19,8 @@
  */
 package org.jenetics.internal.util;
 
-import static org.jenetics.internal.util.reflect.innerClasses;
 import static org.jenetics.internal.util.reflect.classOf;
+import static org.jenetics.internal.util.reflect.innerClasses;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
