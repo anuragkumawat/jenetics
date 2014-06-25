@@ -55,8 +55,8 @@ public class GA<
 
 	}
 
-	public State evolve(final State state) {
-		return null;
-	}
+//	public State evolve(final State state) {
+//		return null;
+//	}
 
 }
