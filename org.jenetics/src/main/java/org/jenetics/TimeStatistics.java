@@ -148,6 +148,6 @@ public final class TimeStatistics {
 	}
 
 	private static double toSeconds(final Duration duration) {
-		return duration.toMillis()/1_000_000_000.0;
+		return duration.toNanos()/1_000_000_000.0;
 	}
 }
