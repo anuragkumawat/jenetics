@@ -22,6 +22,7 @@ package org.jenetics;
 import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.object.eq;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -113,17 +114,11 @@ abstract class AbstractBoundedGene<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		final AbstractBoundedGene<?, ?> gene = (AbstractBoundedGene<?, ?>)obj;
-		return eq(_value, gene._value) &&
+		return Equality.of(this, obj).test(gene ->
+			eq(_value, gene._value) &&
 			eq(_min, gene._min) &&
-			eq(_max, gene._max);
+			eq(_max, gene._max)
+		);
 	}
 
 	@Override
