@@ -42,6 +42,7 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.internalbit;
 
@@ -492,20 +493,14 @@ public class BitChromosome extends Number
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		if (o == this) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-
-		final BitChromosome c = (BitChromosome)o;
-		boolean equals = length() == c.length();
-		for (int i = 0, n = length(); equals && i < n; ++i) {
-			equals = getGene(i) == c.getGene(i);
-		}
-		return equals;
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(c -> {
+			boolean equals = length() == c.length();
+			for (int i = 0, n = length(); equals && i < n; ++i) {
+				equals = getGene(i) == c.getGene(i);
+			}
+			return equals;
+		});
 	}
 
 	@Override
