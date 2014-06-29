@@ -65,6 +65,11 @@ public class reflect extends StaticObject {
 	}
 
 	@SuppressWarnings("unchecked")
+	public static <T> Class<T> typeOf(final T value) {
+		return (Class<T>)value.getClass();
+	}
+
+	@SuppressWarnings("unchecked")
 	public static <T> Optional<T> newInstance(final Class<?> type) {
 		try {
 			return Optional.of((T)type.newInstance());
