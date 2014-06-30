@@ -32,7 +32,6 @@ import org.jenetics.util.StaticObject;
  * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class Equality extends StaticObject {
-
 	private Equality() {}
 
 	/**
