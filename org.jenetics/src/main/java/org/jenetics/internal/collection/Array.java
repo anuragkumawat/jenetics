@@ -19,8 +19,6 @@
  */
 package org.jenetics.internal.collection;
 
-import java.io.Serializable;
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version !__version__! &mdash; <em>$Date$</em>
