@@ -24,6 +24,7 @@ import static org.jenetics.util.math.random.indexes;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.IntRef;
 
@@ -94,14 +95,7 @@ public class SwapMutator<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		return super.equals(obj);
+		return Equality.of(this, obj).test(super::equals);
 	}
 
 	@Override

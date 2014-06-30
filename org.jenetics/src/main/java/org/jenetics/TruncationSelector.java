@@ -22,6 +22,7 @@ package org.jenetics;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -93,7 +94,7 @@ public final class TruncationSelector<
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this || obj instanceof TruncationSelector<?, ?>;
+		return Equality.of(this, obj).test();
 	}
 
 	@Override

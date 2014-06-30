@@ -24,6 +24,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.RandomRegistry;
@@ -147,15 +148,7 @@ public class TournamentSelector<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		final TournamentSelector<?, ?> selector = (TournamentSelector<?, ?>)obj;
-		return _sampleSize == selector._sampleSize;
+		return Equality.of(this, obj).test(s -> _sampleSize == s._sampleSize);
 	}
 
 	@Override

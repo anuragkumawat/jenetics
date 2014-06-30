@@ -25,6 +25,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -98,16 +99,8 @@ public final class FinalReference<T>
 	}
 
 	@Override
-	public boolean equals(final Object object) {
-		if (object == this) {
-			return true;
-		}
-		if (!(object instanceof FinalReference<?>)) {
-			return false;
-		}
-
-		final FinalReference<?> f = (FinalReference<?>)object;
-		return eq(get(), f.get());
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(f -> eq(get(), f.get()));
 	}
 
 	@Override

@@ -26,6 +26,7 @@ import static org.jenetics.internal.util.object.eq;
 import java.util.Arrays;
 import java.util.function.DoubleConsumer;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 
@@ -287,20 +288,14 @@ public class Quantile implements DoubleConsumer {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || getClass() != obj.getClass()) {
-			return false;
-		}
-
-		final Quantile quantile = (Quantile)obj;
-		return super.equals(obj) &&
-				eq(_quantile, quantile._quantile) &&
-				eq(_dn, quantile._dn) &&
-				eq(_n, quantile._n) &&
-				eq(_nn, quantile._nn) &&
-				eq(_q, quantile._q);
+		return Equality.of(this, obj).test(quantile ->
+			super.equals(obj) &&
+			eq(_quantile, quantile._quantile) &&
+			eq(_dn, quantile._dn) &&
+			eq(_n, quantile._n) &&
+			eq(_nn, quantile._nn) &&
+			eq(_q, quantile._q)
+		);
 	}
 
 	@Override

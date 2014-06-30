@@ -23,6 +23,7 @@ import static java.lang.String.format;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.MSeq;
@@ -126,14 +127,7 @@ public final class PartiallyMatchedCrossover<T, C extends Comparable<? super C>>
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		return super.equals(obj);
+		return Equality.of(this, obj).test(super::equals);
 	}
 
 	@Override

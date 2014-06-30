@@ -28,6 +28,7 @@ import java.util.regex.PatternSyntaxException;
 
 import org.jenetics.internal.collection.ArrayProxyISeq;
 import org.jenetics.internal.collection.CharArrayProxy;
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -167,16 +168,8 @@ public final class CharSeq
 	}
 
 	@Override
-	public boolean equals(final Object object) {
-		if (object == this) {
-			return true;
-		}
-		if (!(object instanceof CharSeq)) {
-			return false;
-		}
-
-		final CharSeq ch = (CharSeq)object;
-		return eq(proxy.array, ch.proxy.array);
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(ch -> eq(proxy.array, ch.proxy.array));
 	}
 
 	@Override

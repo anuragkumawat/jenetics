@@ -24,6 +24,7 @@ import static java.lang.String.format;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.MSeq;
@@ -161,15 +162,10 @@ public class MultiPointCrossover<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		final MultiPointCrossover<?, ?> mpc = (MultiPointCrossover<?, ?>)obj;
-		return _n == mpc._n && super.equals(obj);
+		return Equality.of(this, obj).test(mpc ->
+			_n == mpc._n &&
+			super.equals(obj)
+		);
 	}
 
 	@Override

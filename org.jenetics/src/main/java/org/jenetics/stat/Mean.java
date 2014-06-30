@@ -22,6 +22,7 @@ package org.jenetics.stat;
 import static java.lang.String.format;
 import static org.jenetics.internal.util.object.eq;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.AbstractAccumulator;
@@ -101,15 +102,10 @@ public class Mean<N extends Number> extends AbstractAccumulator<N> {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || getClass() != obj.getClass()) {
-			return false;
-		}
-
-		final Mean<?> mean = (Mean<?>)obj;
-		return eq(_mean, mean._mean) && super.equals(mean);
+		return Equality.of(this, obj).test(mean ->
+			eq(_mean, mean._mean) &&
+			super.equals(mean)
+		);
 	}
 
 	@Override

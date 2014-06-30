@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.jaxb;
 
@@ -229,19 +230,13 @@ public final class Phenotype<
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Phenotype<?, ?>)) {
-			return false;
-		}
-
-		final Phenotype<?, ?> pt = (Phenotype<?, ?>)obj;
-		return eq(getFitness(), pt.getFitness()) &&
-				eq(getRawFitness(), pt.getRawFitness()) &&
-				eq(_genotype, pt._genotype) &&
-				eq(_generation, pt._generation);
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(pt ->
+			eq(getFitness(), pt.getFitness()) &&
+			eq(getRawFitness(), pt.getRawFitness()) &&
+			eq(_genotype, pt._genotype) &&
+			eq(_generation, pt._generation)
+		);
 	}
 
 	@Override

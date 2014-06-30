@@ -23,6 +23,7 @@ import static java.lang.String.format;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.ISeq;
@@ -113,8 +114,7 @@ public final class MeanAlterer<
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this ||
-			obj instanceof MeanAlterer<?, ?> && super.equals(obj);
+		return Equality.of(this, obj).test(super::equals);
 	}
 
 	@Override

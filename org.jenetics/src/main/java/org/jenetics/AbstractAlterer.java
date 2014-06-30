@@ -22,6 +22,7 @@ package org.jenetics;
 import static org.jenetics.internal.util.object.checkProbability;
 import static org.jenetics.internal.util.object.eq;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -70,14 +71,8 @@ public abstract class AbstractAlterer<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof AbstractAlterer<?, ?>)) {
-			return false;
-		}
-
-		final AbstractAlterer<?, ?> alterer = (AbstractAlterer<?, ?>)obj;
-		return eq(_probability, alterer._probability);
+		return Equality.of(this, obj).test(alterer ->
+			eq(_probability, alterer._probability)
+		);
 	}
 }

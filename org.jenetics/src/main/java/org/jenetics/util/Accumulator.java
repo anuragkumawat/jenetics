@@ -28,6 +28,7 @@ import java.util.concurrent.Executor;
 import java.util.function.Function;
 
 import org.jenetics.internal.util.Concurrency;
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 /**
@@ -150,15 +151,10 @@ public interface Accumulator<T> {
 
 		@Override
 		public boolean equals(final Object obj) {
-			if (obj == this) {
-				return true;
-			}
-			if (obj == null || obj.getClass() != getClass()) {
-				return false;
-			}
-
-			final Min<?> min = (Min<?>)obj;
-			return super.equals(obj) && eq(_min, min._min);
+			return Equality.of(this, obj).test(min ->
+				super.equals(obj) &&
+				eq(_min, min._min)
+			);
 		}
 
 		@Override
@@ -343,15 +339,11 @@ public interface Accumulator<T> {
 
 		@Override
 		public boolean equals(final Object obj) {
-			if (obj == this) {
-				return true;
-			}
-			if (obj == null || obj.getClass() != getClass()) {
-				return false;
-			}
-
-			final MinMax<?> mm = (MinMax<?>)obj;
-			return super.equals(obj) && eq(_min, mm._min) && eq(_max, mm._max);
+			return Equality.of(this, obj).test(mm ->
+				super.equals(obj) &&
+				eq(_min, mm._min) &&
+				eq(_max, mm._max)
+			);
 		}
 
 		@Override

@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.CharSeq;
@@ -149,15 +150,10 @@ public final class CharacterGene
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof CharacterGene)) {
-			return false;
-		}
-		final CharacterGene gene = (CharacterGene)obj;
-		return eq(_character, gene._character) &&
-				eq(_validCharacters, gene._validCharacters);
+		return Equality.of(this, obj).test(gene ->
+			eq(_character, gene._character) &&
+			eq(_validCharacters, gene._validCharacters)
+		);
 	}
 
 	@Override

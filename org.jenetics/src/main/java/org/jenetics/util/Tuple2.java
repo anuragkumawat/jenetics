@@ -21,6 +21,7 @@ package org.jenetics.util;
 
 import static org.jenetics.internal.util.object.eq;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 
@@ -46,15 +47,10 @@ class Tuple2<T1, T2> {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		final Tuple2<?, ?> tuple = (Tuple2<?, ?>)obj;
-		return eq(_1, tuple._1) && eq(_2, tuple._2);
+		return Equality.of(this, obj).test(tuple ->
+			eq(_1, tuple._1) &&
+			eq(_2, tuple._2)
+		);
 	}
 
 	@Override

@@ -49,14 +49,7 @@ public final class ObjectRef<T> implements Serializable {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof ObjectRef<?>)) {
-			return false;
-		}
-
-		return eq(value, ((ObjectRef<?>)obj).value);
+		return Equality.of(this, obj).test(r -> eq(value, r.value));
 	}
 
 }

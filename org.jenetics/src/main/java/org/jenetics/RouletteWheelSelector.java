@@ -27,6 +27,7 @@ import static org.jenetics.util.math.ulpDistance;
 
 import java.util.Arrays;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 
@@ -91,7 +92,7 @@ public class RouletteWheelSelector<
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this || obj != null && obj.getClass() == getClass();
+		return Equality.of(this, obj).test();
 	}
 
 	@Override

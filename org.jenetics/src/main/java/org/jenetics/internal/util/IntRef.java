@@ -59,8 +59,7 @@ public final class IntRef implements Serializable {
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this ||
-			(obj instanceof IntRef && value == ((IntRef)obj).value);
+		return Equality.of(this, obj).test(r -> value == r.value);
 	}
 
 	@Override

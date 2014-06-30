@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.ISeq;
@@ -141,8 +142,8 @@ public class LongChromosome
 	}
 
 	@Override
-	public boolean equals(final Object o) {
-		return o == this || o instanceof LongChromosome && super.equals(o);
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(super::equals);
 	}
 
 	/* *************************************************************************

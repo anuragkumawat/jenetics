@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.RandomAccess;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.reflect;
 
@@ -122,15 +123,7 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || getClass() != obj.getClass()) {
-			return false;
-		}
-
-		final AbstractChromosome<?> chromosome = (AbstractChromosome<?>)obj;
-		return eq(_genes, chromosome._genes);
+		return Equality.of(this, obj).test(ch -> eq(_genes, ch._genes));
 	}
 
 	@Override

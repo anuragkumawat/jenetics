@@ -28,6 +28,7 @@ import static org.jenetics.internal.util.object.nonNegative;
 
 import java.util.function.ToDoubleFunction;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.Range;
@@ -158,17 +159,11 @@ public class NormalDistribution<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != getClass()) {
-			return false;
-		}
-
-		final NormalDistribution<?> dist = (NormalDistribution<?>)obj;
-		return eq(_domain, dist._domain) &&
-				eq(_mean, dist._mean) &&
-				eq(_var, dist._var);
+		return Equality.of(this, obj).test(dist ->
+			eq(_domain, dist._domain) &&
+			eq(_mean, dist._mean) &&
+			eq(_var, dist._var)
+		);
 	}
 
 	@Override

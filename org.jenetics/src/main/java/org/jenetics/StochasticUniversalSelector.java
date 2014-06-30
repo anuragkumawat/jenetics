@@ -21,6 +21,7 @@ package org.jenetics;
 
 import static java.util.Objects.requireNonNull;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.RandomRegistry;
@@ -122,10 +123,7 @@ public class StochasticUniversalSelector<
 
 	@Override
 	public boolean equals(final Object obj) {
-		return obj == this ||
-				obj != null &&
-				obj.getClass() == getClass() &&
-				super.equals(obj);
+		return Equality.of(this, obj).test(super::equals);
 	}
 
 	@Override

@@ -38,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.IntRef;
 
@@ -130,16 +131,10 @@ public class CharacterChromosome
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || getClass() != obj.getClass()) {
-			return false;
-		}
-
-		final CharacterChromosome cc = (CharacterChromosome)obj;
-		return super.equals(obj) &&
-			eq(_validCharacters, cc._validCharacters);
+		return Equality.of(this, obj).test(cc ->
+			super.equals(obj) &&
+			eq(_validCharacters, cc._validCharacters)
+		);
 	}
 
 	@Override

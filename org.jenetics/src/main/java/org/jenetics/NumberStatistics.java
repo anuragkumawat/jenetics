@@ -25,6 +25,7 @@ import static org.jenetics.internal.util.object.eq;
 
 import java.util.concurrent.Executor;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 import org.jenetics.stat.Variance;
@@ -219,18 +220,12 @@ public class NumberStatistics<
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof NumberStatistics<?, ?>)) {
-			return false;
-		}
-
-		final NumberStatistics<?, ?> statistics = (NumberStatistics<?, ?>) obj;
-		return eq(statistics._fitnessMean, _fitnessMean) &&
-				eq(statistics._fitnessVariance, _fitnessVariance) &&
-				eq(statistics._standardError, _standardError) &&
-				super.equals(obj);
+		return Equality.of(this, obj).test(statistics ->
+			eq(statistics._fitnessMean, _fitnessMean) &&
+			eq(statistics._fitnessVariance, _fitnessVariance) &&
+			eq(statistics._standardError, _standardError) &&
+			super.equals(obj)
+		);
 	}
 
 	@Override

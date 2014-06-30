@@ -24,6 +24,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
 
+import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
 
@@ -140,15 +141,7 @@ public class LCG64ShiftRandom extends Random64 {
 
 		@Override
 		public boolean equals(final Object obj) {
-			if (obj == this) {
-				return true;
-			}
-			if (!(obj instanceof Param)) {
-				return false;
-			}
-
-			final Param param = (Param)obj;
-			return a == param.a && b == param.b;
+			return Equality.of(this, obj).test(p -> a == p.a && b == p.b);
 		}
 
 		@Override
@@ -542,19 +535,13 @@ public class LCG64ShiftRandom extends Random64 {
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof LCG64ShiftRandom)) {
-			return false;
-		}
-
-		final LCG64ShiftRandom random = (LCG64ShiftRandom)obj;
-		return _a == random._a &&
-				_b == random._b &&
-				_r == random._r &&
-				_seed == random._seed &&
-				_param.equals(random._param);
+		return Equality.of(this, obj).test(random ->
+			_a == random._a &&
+			_b == random._b &&
+			_r == random._r &&
+			_seed == random._seed &&
+			_param.equals(random._param)
+		);
 	}
 
 	/**
