@@ -43,10 +43,9 @@ import org.jenetics.util.bit;
  */
 public class BitChromosomeTest extends ChromosomeTester<BitGene> {
 
-	private final Factory<Chromosome<BitGene>>
-	_factory = BitChromosome.of(500, 0.3);
-	@Override protected Factory<Chromosome<BitGene>> factory() {
-		return _factory;
+	@Override
+	protected Factory<Chromosome<BitGene>> factory() {
+		return () -> BitChromosome.of(500, 0.3);
 	}
 
 	@Test(invocationCount = 20, successPercentage = 90)
