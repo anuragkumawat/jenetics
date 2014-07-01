@@ -522,19 +522,12 @@ public final class math extends StaticObject {
 			final double p
 		) {
 			checkProbability(p);
-
-			IntStream stream = null;
-			if (equals(p, 0, 1E-20)) {
-				stream = IntStream.empty();
-			} else if (equals(p, 1, 1E-20)) {
-				stream = IntStream.range(start, end);
-			} else {
-				final int P = probability.toInt(p);
-				stream = IntStream.range(start, end)
-					.filter(i -> random.nextInt() < P);
-			}
-
-			return stream;
+			return equals(p, 0, 1E-20) ?
+				IntStream.empty() :
+				equals(p, 1, 1E-20) ?
+					IntStream.range(start, end) :
+					IntStream.range(start, end)
+						.filter(i -> random.nextInt() < probability.toInt(p));
 		}
 
 		private static
