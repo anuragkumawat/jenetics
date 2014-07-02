@@ -160,7 +160,7 @@ public abstract class ObjectTester<T> {
 		if (object instanceof Serializable) {
 			for (int i = 0; i < 10; ++i) {
 				final Serializable serializable =
-					(Serializable) factory().newInstance();
+					(Serializable)factory().newInstance();
 
 				Serialize.object.test(serializable);
 			}
