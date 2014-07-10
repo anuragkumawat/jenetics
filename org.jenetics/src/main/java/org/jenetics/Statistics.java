@@ -22,7 +22,7 @@ package org.jenetics;
 import static java.lang.Double.NaN;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.internal.util.object.eq;
+import static org.jenetics.internal.util.Equality.eq;
 
 import java.io.Serializable;
 import java.time.Duration;

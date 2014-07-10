@@ -20,7 +20,7 @@
 package org.jenetics;
 
 import static org.jenetics.internal.util.object.checkProbability;
-import static org.jenetics.internal.util.object.eq;
+import static org.jenetics.internal.util.Equality.eq;
 
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;

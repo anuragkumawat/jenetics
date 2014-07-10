@@ -19,7 +19,7 @@
  */
 package org.jenetics.util;
 
-import static org.jenetics.internal.util.object.eq;
+import static org.jenetics.internal.util.Equality.eq;
 
 import java.io.Serializable;
 import java.util.Objects;
