@@ -25,6 +25,8 @@ import static java.lang.Math.exp;
 import static java.lang.Math.log;
 import static java.lang.Math.sqrt;
 
+import java.util.Comparator;
+
 import org.jenetics.util.StaticObject;
 
 /**
@@ -205,6 +207,14 @@ public final class statistics extends StaticObject {
 
 	public static <C extends Comparable<? super C>> C max(final C a, final C b) {
 		return a != null ? b != null ? a.compareTo(b) >= 0 ? a : b : a : b;
+	}
+
+	public static <C> C min(final Comparator<C> comp, final C a, final C b) {
+		return a != null ? b != null ? comp.compare(a, b) <= 0 ? a : b : a : b;
+	}
+
+	public static <C> C max(final Comparator<C> comp, final C a, final C b) {
+		return a != null ? b != null ? comp.compare(a, b) >= 0 ? a : b : a : b;
 	}
 
 }
