@@ -58,7 +58,7 @@ public final class LongSummary implements Serializable {
 	 * @param sum the sum of the recorded values
 	 * @param mean the arithmetic mean of values
 	 */
-	public LongSummary(
+	private LongSummary(
 		final long count,
 		final long min,
 		final long max,
@@ -147,6 +147,31 @@ public final class LongSummary implements Serializable {
 		return String.format(
 			"LongSummary[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s]",
 			getCount(), getMin(), getMax(), getSum(), getMean()
+		);
+	}
+
+	/**
+	 * Create an immutable object which contains statistical summary values.
+	 *
+	 * @param count the count of values recorded
+	 * @param min the minimum value
+	 * @param max the maximum value
+	 * @param sum the sum of the recorded values
+	 * @param mean the arithmetic mean of values
+	 */
+	public static LongSummary of(
+		final long count,
+		final long min,
+		final long max,
+		final long sum,
+		final double mean
+	) {
+		return new LongSummary(
+			count,
+			min,
+			max,
+			sum,
+			mean
 		);
 	}
 

@@ -58,7 +58,7 @@ public final class IntSummary implements Serializable {
 	 * @param sum the sum of the recorded values
 	 * @param mean the arithmetic mean of values
 	 */
-	public IntSummary(
+	private IntSummary(
 		final long count,
 		final int min,
 		final int max,
@@ -147,6 +147,31 @@ public final class IntSummary implements Serializable {
 		return String.format(
 			"IntSummary[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s]",
 			getCount(), getMin(), getMax(), getSum(), getMean()
+		);
+	}
+
+	/**
+	 * Create an immutable object which contains statistical summary values.
+	 *
+	 * @param count the count of values recorded
+	 * @param min the minimum value
+	 * @param max the maximum value
+	 * @param sum the sum of the recorded values
+	 * @param mean the arithmetic mean of values
+	 */
+	public static IntSummary of(
+		final long count,
+		final int min,
+		final int max,
+		final long sum,
+		final double mean
+	) {
+		return new IntSummary(
+			count,
+			min,
+			max,
+			sum,
+			mean
 		);
 	}
 
