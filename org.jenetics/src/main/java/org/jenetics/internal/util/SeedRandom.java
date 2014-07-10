@@ -27,7 +27,7 @@ import org.jenetics.util.math;
  * @since 1.5
  * @version 1.5 &mdash; <em>$Date$</em>
  */
-public class SeedRandom extends Random64 {
+public final class SeedRandom extends Random64 {
 
 	private static final long serialVersionUID = 1L;
 
