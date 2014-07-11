@@ -96,7 +96,6 @@ public class jaxb extends StaticObject {
 		);
 	}
 
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	private static XmlAdapter<Object, Object> newXmlAdapter(final Class<?> cls) {
 		return innerClasses(cls)
 			.filter(XmlAdapter.class::isAssignableFrom)
