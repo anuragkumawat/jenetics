@@ -21,9 +21,6 @@ package org.jenetics.internal.util;
 
 import static java.lang.String.format;
 
-import java.util.Arrays;
-
-import org.jenetics.util.Seq;
 import org.jenetics.util.StaticObject;
 
 /**
