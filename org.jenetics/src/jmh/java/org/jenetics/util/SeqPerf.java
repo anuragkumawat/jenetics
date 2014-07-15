@@ -33,6 +33,8 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import org.jenetics.internal.util.IntRef;
+
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version 3.0 &mdash; <em>$Date$</em>
@@ -64,8 +66,33 @@ public class SeqPerf {
 	}
 
 	@Benchmark
+	public int forLoopArray() {
+		int sum = 0;
+		for (int i = 0; i < array.length; ++i) {
+			sum += array[i];
+		}
+		return sum;
+	}
+
+	@Benchmark
 	public Integer getFromSeq() {
 		return seq.get(index);
+	}
+
+	@Benchmark
+	public int forLoopSeq() {
+		int sum = 0;
+		for (int i = 0; i < seq.length(); ++i) {
+			sum += seq.get(i);
+		}
+		return 0;
+	}
+
+	@Benchmark
+	public int forEachLoopSeq() {
+		final IntRef sum = new IntRef();
+		seq.forEach(i -> sum.value += i);
+		return sum.value;
 	}
 
 	public static void main(String[] args) throws RunnerException {
