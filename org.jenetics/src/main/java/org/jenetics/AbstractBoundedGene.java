@@ -100,11 +100,6 @@ abstract class AbstractBoundedGene<
 	}
 
 	@Override
-	public int compareTo(final G other) {
-		return _value.compareTo(other._value);
-	}
-
-	@Override
 	public int hashCode() {
 		return Hash.of(getClass())
 			.and(_value)
