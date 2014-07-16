@@ -364,16 +364,8 @@ public class Histogram<C> implements Consumer<C> {
 	public static <C extends Comparable<? super C>> Histogram<C> of(
 		final C... separators
 	) {
-		return new Histogram<C>(COMPARATOR, separators);
+		return new Histogram<C>((o1, o2) -> o1.compareTo(o2), separators);
 	}
-
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	private static final Comparator COMPARATOR = new Comparator() {
-		@Override
-		public int compare(final Object o1, final Object o2) {
-			return ((Comparable)o1).compareTo(o2);
-		}
-	};
 
 	/**
 	 * Return a <i>histogram</i> for {@link Double} values. The <i>histogram</i>
