@@ -128,7 +128,7 @@ public final class DoubleGene
 
 	@Override
 	public DoubleGene mean(final DoubleGene that) {
-		return new DoubleGene(_value + (that._value - _value) / 2.0, _min, _max);
+		return new DoubleGene(_value + (that._value - _value)/2.0, _min, _max);
 	}
 
 	/* *************************************************************************
