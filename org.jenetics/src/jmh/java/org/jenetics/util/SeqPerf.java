@@ -67,11 +67,11 @@ public class SeqPerf {
 
 	@Benchmark
 	public int forLoopArray() {
-		int sum = 0;
+		final IntRef sum = new IntRef();
 		for (int i = 0; i < array.length; ++i) {
-			sum += array[i];
+			sum.value += array[i];
 		}
-		return sum;
+		return sum.value;
 	}
 
 	@Benchmark
@@ -81,11 +81,11 @@ public class SeqPerf {
 
 	@Benchmark
 	public int forLoopSeq() {
-		int sum = 0;
+		final IntRef sum = new IntRef();
 		for (int i = 0; i < seq.length(); ++i) {
-			sum += seq.get(i);
+			sum.value += seq.get(i);
 		}
-		return 0;
+		return sum.value;
 	}
 
 	@Benchmark
