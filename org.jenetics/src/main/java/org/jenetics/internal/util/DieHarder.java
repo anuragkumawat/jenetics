@@ -46,7 +46,7 @@ import org.jenetics.internal.util.DieHarder.Result.Assessment;
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 1.5
- * @version !__version__! &mdash; <em>$Date$</em>
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class DieHarder {
 
@@ -195,8 +195,8 @@ public final class DieHarder {
 	 * Represents one DieHarder test result.
 	 *
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
-	 * @since !__version__!
-	 * @version !__version__! &mdash; <em>$Date$</em>
+	 * @since 3.0
+	 * @version 3.0 &mdash; <em>$Date$</em>
 	 */
 	static final class Result {
 
