@@ -48,7 +48,7 @@ public class PopulationSummaryStatistics<
 
 	private Phenotype<G, C> _best = null;
 	private Phenotype<G, C> _worst = null;
-	private IntSummaryStatistics _ageSummary = new IntSummaryStatistics();
+	private final IntSummaryStatistics _ageSummary = new IntSummaryStatistics();
 
 	public PopulationSummaryStatistics(
 		final Optimize optimize,
