@@ -19,15 +19,9 @@
  */
 package org.jenetics.internal.engine;
 
-import static java.util.Objects.requireNonNull;
-
-import java.time.Clock;
-import java.util.concurrent.Executor;
-
-import org.jenetics.internal.util.NanoClock;
-
 import org.jenetics.Gene;
 import org.jenetics.Phenotype;
+import org.jenetics.Population;
 import org.jenetics.util.Factory;
 
 /**
@@ -35,55 +29,38 @@ import org.jenetics.util.Factory;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class Context<
+public class SurvivorFilter<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
-	>
+>
 {
 
-	private final Clock _clock = NanoClock.INSTANCE;
+	private int _generation;
+	private int _maxAge;
+	private final Factory<Phenotype<G, C>> _factory;
 
-	private final int _generation;
-	private final int _maximalPhenotypeAge;
-	private final int _populationSize;
-	private final Factory<Phenotype<G, C>> _phenotypeFactory;
-	private final Executor _executor;
-
-	public Context(
+	public SurvivorFilter(
 		final int generation,
-		final int maximalPhenotypeAge,
-		final int populationSize,
-		final Factory<Phenotype<G, C>> phenotypeFactory,
-		final Executor executor
+		final int maxAge,
+		final Factory<Phenotype<G, C>> factory
 	) {
 		_generation = generation;
-		_maximalPhenotypeAge = maximalPhenotypeAge;
-		_populationSize = populationSize;
-		_phenotypeFactory = phenotypeFactory;
-		_executor = requireNonNull(executor);
+		_maxAge = maxAge;
+		_factory = factory;
 	}
 
-	public Clock getClock() {
-		return _clock;
+
+	public final class Result {
+		public final Population<G, C> population;
+		public final int invalid;
+		public final int killed;
+
+
+		private Result(final Population<G, C> population, final int invalid, final int killed) {
+			this.population = population;
+			this.invalid = invalid;
+			this.killed = killed;
+		}
 	}
 
-	public int getGeneration() {
-		return _generation;
-	}
-
-	public int getMaximalPhenotypeAge() {
-		return _maximalPhenotypeAge;
-	}
-
-	public int getPopulationSize() {
-		return _populationSize;
-	}
-
-	public Factory<Phenotype<G, C>> getPhenotypeFactory() {
-		return _phenotypeFactory;
-	}
-
-	public Executor getExecutor() {
-		return _executor;
-	}
 }
