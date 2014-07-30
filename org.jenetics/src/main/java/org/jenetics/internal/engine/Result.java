@@ -19,7 +19,7 @@
  */
 package org.jenetics.internal.engine;
 
-import static org.jenetics.internal.util.NanoClock.minus;
+import static org.jenetics.internal.time.minus;
 
 import java.time.Duration;
 import java.time.Instant;

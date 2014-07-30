@@ -20,14 +20,12 @@
 package org.jenetics.internal.util;
 
 import static java.util.Objects.requireNonNull;
+import static org.jenetics.internal.time.NANOS_PER_SECOND;
 
 import java.time.Clock;
-import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.function.Supplier;
 
 /**
  * Clock implementation with <i>nano</i> second precision.
@@ -38,7 +36,6 @@ import java.util.function.Supplier;
  */
 public final class NanoClock extends Clock {
 
-	private static final long NANOS_PER_SECOND = 1_000_000_000;
 	private static final long EPOCH_NANOS = System.currentTimeMillis()*1_000_000;
 	private static final long NANO_START = System.nanoTime();
 
@@ -76,24 +73,6 @@ public final class NanoClock extends Clock {
 	public Instant instant() {
 		final long now = System.nanoTime() - NANO_START + EPOCH_NANOS;
 		return Instant.ofEpochSecond(now/NANOS_PER_SECOND, now%NANOS_PER_SECOND);
-	}
-
-	public static Duration minus(final Instant a, final Instant b)  {
-		final long seconds = a.getEpochSecond() - b.getEpochSecond();
-		final long nanos = a.getNano() - b.getNano();
-
-		return Duration.ofNanos(seconds*NANOS_PER_SECOND + nanos);
-	}
-
-	public static <T> Supplier<T> timing(final AtomicLong timer, final Supplier<T> supplier) {
-		return () -> {
-			final long start = System.nanoTime();
-			try {
-				return supplier.get();
-			} finally {
-				timer.addAndGet(System.nanoTime() - start);
-			}
-		};
 	}
 
 }
