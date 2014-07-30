@@ -47,4 +47,8 @@ public abstract class StageResult {
 		};
 	}
 
+	public Timer getTimer() {
+		return _timer;
+	}
+
 }
