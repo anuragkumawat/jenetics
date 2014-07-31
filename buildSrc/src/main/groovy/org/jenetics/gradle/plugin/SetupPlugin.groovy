@@ -155,8 +155,10 @@ class SetupPlugin extends JeneticsPlugin {
                 //subpackages = 'org.jenetics'
                 //exclude = 'org.jenetics.internal'
 				exclude 'org/*/internal/**'
+                excludeDocFilesSubDir 'org/jenetics/internal'
 
 				options.addStringOption('subpackages', 'org.jenetics')
+                options.addStringOption('excludedocfilessubdir', 'org/jenetics/internal')
 				options.addStringOption('exclude', 'org.jenetics.internal')
 
 				group('Core API', ['org.jenetics']).

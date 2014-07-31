@@ -33,7 +33,7 @@ public interface Hash {
 	/**
 	 * Add hash code for a {@code boolean} value.
 	 *
-	 * @param values the value to add to the hash code.
+	 * @param value the value to add to the hash code.
 	 * @return {@code this}
 	 */
 	public Hash and(final boolean value);
