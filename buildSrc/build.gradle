@@ -33,3 +33,15 @@ project.tasks.withType(JavaCompile) { JavaCompile compile ->
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
 }
+
+
+dependencies {
+    compile files("${System.properties['java.home']}/../lib/tools.jar")
+}
+
+
+buildscript {
+    dependencies {
+        classpath files("${System.properties['java.home']}/../lib/tools.jar")
+    }
+}
