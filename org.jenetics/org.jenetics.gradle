@@ -54,6 +54,7 @@ jmhJar {
     appendix = 'jmh'
 }
 
+/*
 javadoc {
     options.docletpath = files(
             "${project.rootDir}/buildSrc/build/libs/buildSrc.jar"
@@ -64,6 +65,7 @@ javadoc {
     //options.doclet = 'de.kruis.padoclet.PublishedApiDoclet'
     //options.addStringOption('-padExcludeTag', 'exclude')
 }
+*/
 
 jar.manifest.instruction('Export-Package',
 	'org.jenetics',
