@@ -20,11 +20,10 @@
 package org.jenetics.internal.util;
 
 import static java.lang.Math.min;
-import static org.jenetics.util.bit.shiftRight;
-import static org.jenetics.util.bit.toByteLength;
+import static org.jenetics.internal.util.bit.shiftRight;
+import static org.jenetics.internal.util.bit.toByteLength;
 
 import org.jenetics.util.StaticObject;
-import org.jenetics.util.bit;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

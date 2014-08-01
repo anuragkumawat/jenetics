@@ -49,7 +49,7 @@ import org.jenetics.internal.util.reflect;
 
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
-import org.jenetics.util.bit;
+import org.jenetics.internal.util.bit;
 
 
 /**

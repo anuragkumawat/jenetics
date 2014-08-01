@@ -67,9 +67,9 @@ public abstract class RandomTestBase {
 		final byte[] bytes = new byte[8];
 		for (int i = 0; i < 1234; ++i) {
 			rand1.nextBytes(bytes);
-			bit.reverse(bytes);
+			org.jenetics.internal.util.bit.reverse(bytes);
 
-			Assert.assertEquals(bit.toLong(bytes), rand2.nextLong());
+			Assert.assertEquals(org.jenetics.internal.util.bit.toLong(bytes), rand2.nextLong());
 		}
 	}
 

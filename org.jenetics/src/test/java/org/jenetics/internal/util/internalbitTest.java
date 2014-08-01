@@ -20,9 +20,9 @@
 package org.jenetics.internal.util;
 
 import static java.lang.Math.min;
-import static org.jenetics.util.bit.get;
-import static org.jenetics.util.bit.set;
-import static org.jenetics.util.bit.toByteLength;
+import static org.jenetics.internal.util.bit.get;
+import static org.jenetics.internal.util.bit.set;
+import static org.jenetics.internal.util.bit.toByteLength;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +37,6 @@ import org.jenetics.DoubleChromosome;
 import org.jenetics.DoubleGene;
 import org.jenetics.Genotype;
 import org.jenetics.util.IO;
-import org.jenetics.util.bit;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

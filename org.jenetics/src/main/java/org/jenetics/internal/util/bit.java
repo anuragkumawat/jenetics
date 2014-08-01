@@ -17,11 +17,14 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.util;
+package org.jenetics.internal.util;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.min;
 import static org.jenetics.internal.math.math.random.indexes;
+
+import org.jenetics.util.RandomRegistry;
+import org.jenetics.util.StaticObject;
 
 
 /**
