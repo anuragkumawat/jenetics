@@ -23,8 +23,8 @@ import java.io.Serializable;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 3.0 &mdash; <em>$Date$</em>
  * @since 3.0
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 @FunctionalInterface
 public interface ArrayProxyFactory<A, P> extends Serializable {

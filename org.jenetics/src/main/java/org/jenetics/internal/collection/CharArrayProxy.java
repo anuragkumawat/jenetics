@@ -23,8 +23,8 @@ import java.util.Arrays;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 3.0 &mdash; <em>$Date$</em>
  * @since 3.0
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class CharArrayProxy
 	extends ArrayProxy<Character, char[], CharArrayProxy>
