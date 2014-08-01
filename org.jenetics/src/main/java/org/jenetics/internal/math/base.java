@@ -35,8 +35,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class math extends StaticObject {
-	private math() {}
+public final class base extends StaticObject {
+	private base() {}
 
 	/**
 	 * <i>Clamping</i> a value between a pair of boundary values.

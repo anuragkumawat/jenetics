@@ -43,7 +43,7 @@ import org.jenetics.stat.UniformDistribution;
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-public class mathRandomTest {
+public class baseRandomTest {
 
 	@Test(dataProvider = "nextBigIntegerIntData")
 	public void nextBigIntegerInt(int n) {
