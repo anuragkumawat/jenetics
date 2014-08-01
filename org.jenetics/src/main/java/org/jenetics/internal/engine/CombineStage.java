@@ -21,15 +21,9 @@ package org.jenetics.internal.engine;
 
 import static java.util.Objects.requireNonNull;
 
-import java.time.Instant;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import org.jenetics.internal.util.Concurrency;
-import org.jenetics.internal.util.ObjectRef;
-
 import org.jenetics.Gene;
-import org.jenetics.Phenotype;
 import org.jenetics.Population;
 
 /**

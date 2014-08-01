@@ -19,10 +19,6 @@
  */
 package org.jenetics.internal.engine;
 
-import static org.jenetics.internal.time.minus;
-
-import java.time.Duration;
-import java.time.Instant;
 import java.util.function.Supplier;
 
 import org.jenetics.internal.util.Timer;
