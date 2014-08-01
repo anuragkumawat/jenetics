@@ -19,7 +19,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.util.math.random.nextLong;
+import static org.jenetics.internal.math.math.random.nextLong;
 
 import java.util.Random;
 

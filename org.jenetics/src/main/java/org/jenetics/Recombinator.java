@@ -20,8 +20,8 @@
 package org.jenetics;
 
 import static java.lang.String.format;
-import static org.jenetics.util.math.random.indexes;
-import static org.jenetics.util.math.subset;
+import static org.jenetics.internal.math.math.random.indexes;
+import static org.jenetics.internal.math.math.subset;
 
 import java.util.Random;
 

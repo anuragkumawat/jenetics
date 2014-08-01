@@ -22,9 +22,9 @@ package org.jenetics;
 import static java.lang.Math.abs;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.util.math.pow;
-import static org.jenetics.util.math.statistics.sum;
-import static org.jenetics.util.math.ulpDistance;
+import static org.jenetics.internal.math.math.pow;
+import static org.jenetics.internal.math.math.statistics.sum;
+import static org.jenetics.internal.math.math.ulpDistance;
 
 import java.util.Random;
 

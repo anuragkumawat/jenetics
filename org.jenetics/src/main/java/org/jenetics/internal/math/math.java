@@ -17,7 +17,7 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.util;
+package org.jenetics.internal.math;
 
 import static java.lang.Double.doubleToLongBits;
 import static java.lang.Math.nextDown;
@@ -29,7 +29,8 @@ import java.math.BigInteger;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import org.jenetics.internal.math.probability;
+import org.jenetics.util.RandomRegistry;
+import org.jenetics.util.StaticObject;
 
 /**
  * This object contains mathematical helper functions.

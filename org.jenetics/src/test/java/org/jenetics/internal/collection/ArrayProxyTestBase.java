@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
 
 import org.jenetics.internal.util.IntRef;
 
-import org.jenetics.util.math;
+import org.jenetics.internal.math.math;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

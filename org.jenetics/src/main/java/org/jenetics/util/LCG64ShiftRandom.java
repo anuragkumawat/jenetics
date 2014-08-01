@@ -116,7 +116,7 @@ public class LCG64ShiftRandom extends Random64 {
 		private static final long STEP_BASE = 1L << 56;
 
 		private int _block = 0;
-		private long _seed = math.random.seed();
+		private long _seed = org.jenetics.internal.math.math.random.seed();
 
 		private final Param _param;
 
@@ -159,7 +159,7 @@ public class LCG64ShiftRandom extends Random64 {
 		protected synchronized LCG64ShiftRandom initialValue() {
 			if (_block > 127) {
 				_block = 0;
-				_seed = math.random.seed();
+				_seed = org.jenetics.internal.math.math.random.seed();
 			}
 
 			final LCG64ShiftRandom random = new TLLCG64ShiftRandom(_seed, _param);
@@ -231,7 +231,7 @@ public class LCG64ShiftRandom extends Random64 {
 		 * @throws NullPointerException if the given {@code param} is null.
 		 */
 		public ThreadSafe(final Param param) {
-			this(math.random.seed(), param);
+			this(org.jenetics.internal.math.math.random.seed(), param);
 		}
 
 		/**
@@ -239,7 +239,7 @@ public class LCG64ShiftRandom extends Random64 {
 		 * a safe seed.
 		 */
 		public ThreadSafe() {
-			this(math.random.seed(), Param.DEFAULT);
+			this(org.jenetics.internal.math.math.random.seed(), Param.DEFAULT);
 		}
 
 		@Override
@@ -399,7 +399,7 @@ public class LCG64ShiftRandom extends Random64 {
 	 * @throws NullPointerException if the given {@code param} is null.
 	 */
 	public LCG64ShiftRandom(final Param param) {
-		this(param, math.random.seed());
+		this(param, org.jenetics.internal.math.math.random.seed());
 	}
 
 	/**
@@ -417,7 +417,7 @@ public class LCG64ShiftRandom extends Random64 {
 	 * seed.
 	 */
 	public LCG64ShiftRandom() {
-		this(Param.DEFAULT, math.random.seed());
+		this(Param.DEFAULT, org.jenetics.internal.math.math.random.seed());
 	}
 
 	@Override
@@ -466,7 +466,7 @@ public class LCG64ShiftRandom extends Random64 {
 		if (p > 1) {
 			jump(s + 1);
 			final long b = _param.b*f(p, _param.a);
-			final long a = math.pow(_param.a, p);
+			final long a = org.jenetics.internal.math.math.pow(_param.a, p);
 			_param = Param.of(a, b);
 			backward();
 		}
@@ -493,7 +493,7 @@ public class LCG64ShiftRandom extends Random64 {
 			));
 		}
 
-		_state._r = _state._r*math.pow(_param.a, 1L << s) +
+		_state._r = _state._r*org.jenetics.internal.math.math.pow(_param.a, 1L << s) +
 					f(1L << s, _param.a)*_param.b;
 	}
 

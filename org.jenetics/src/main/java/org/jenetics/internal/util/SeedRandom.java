@@ -20,7 +20,7 @@
 package org.jenetics.internal.util;
 
 import org.jenetics.util.Random64;
-import org.jenetics.util.math;
+import org.jenetics.internal.math.math;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

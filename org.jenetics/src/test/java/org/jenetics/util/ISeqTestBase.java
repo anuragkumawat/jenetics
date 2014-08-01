@@ -52,7 +52,7 @@ public abstract class ISeqTestBase extends SeqTestBase {
 			Assert.assertEquals(mcopy[i], seq.get(i));
 		}
 
-		final long seed = math.random.seed();
+		final long seed = org.jenetics.internal.math.math.random.seed();
 		final Random random = new Random(seed);
 		for (int i = 0; i < copy.length(); ++i) {
 			copy.set(i, random.nextInt());

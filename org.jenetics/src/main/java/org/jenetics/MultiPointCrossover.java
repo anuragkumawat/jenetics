@@ -29,7 +29,7 @@ import org.jenetics.internal.util.Hash;
 
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.math;
+import org.jenetics.internal.math.math;
 
 /**
  * <p><strong>Multiple point crossover</strong></p>

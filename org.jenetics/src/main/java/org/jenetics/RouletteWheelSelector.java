@@ -20,10 +20,10 @@
 package org.jenetics;
 
 import static java.lang.Math.abs;
-import static org.jenetics.util.math.pow;
-import static org.jenetics.util.math.statistics.min;
-import static org.jenetics.util.math.statistics.sum;
-import static org.jenetics.util.math.ulpDistance;
+import static org.jenetics.internal.math.math.pow;
+import static org.jenetics.internal.math.math.statistics.min;
+import static org.jenetics.internal.math.math.statistics.sum;
+import static org.jenetics.internal.math.math.ulpDistance;
 
 import java.util.Arrays;
 

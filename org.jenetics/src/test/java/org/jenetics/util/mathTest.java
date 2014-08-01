@@ -19,7 +19,7 @@
  */
 package org.jenetics.util;
 
-import static org.jenetics.util.math.statistics.sum;
+import static org.jenetics.internal.math.math.statistics.sum;
 
 import java.util.Random;
 
@@ -48,7 +48,7 @@ public class mathTest {
 
 		for (int i = 1; i < 100; ++i) {
 			int[] sub = new int[i];
-			math.subset(1000, sub, random);
+			org.jenetics.internal.math.math.subset(1000, sub, random);
 
 			Assert.assertTrue(isSortedd(sub));
 		}

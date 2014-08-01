@@ -21,7 +21,7 @@ package org.jenetics;
 
 import static java.lang.Math.pow;
 import static java.lang.String.format;
-import static org.jenetics.util.math.random.indexes;
+import static org.jenetics.internal.math.math.random.indexes;
 
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;

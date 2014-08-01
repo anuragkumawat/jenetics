@@ -20,7 +20,7 @@
 package org.jenetics.internal.math;
 
 import static java.lang.Math.abs;
-import static org.jenetics.util.math.random.nextInt;
+import static org.jenetics.internal.math.math.random.nextInt;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

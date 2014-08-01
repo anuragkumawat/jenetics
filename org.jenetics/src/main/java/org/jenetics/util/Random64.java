@@ -25,7 +25,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.function.LongSupplier;
 
-import org.jenetics.internal.math.random;
+import org.jenetics.internal.math.*;
 
 /**
  * An abstract base class which eases the implementation of {@code Random}
@@ -55,7 +55,7 @@ public abstract class Random64 extends PRNG {
 	}
 
 	protected Random64() {
-		this(math.random.seed());
+		this(org.jenetics.internal.math.math.random.seed());
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class LCG64ShiftRandomTest extends RandomTestBase {
 
 	@Override @DataProvider(name = "seededPRNGPair")
 	protected Object[][] getSeededPRNGPair() {
-		final long seed = math.random.seed();
+		final long seed = org.jenetics.internal.math.math.random.seed();
 		return new Object[][]{
 			{new LCG64ShiftRandom(seed), new LCG64ShiftRandom(seed)},
 			{new LCG64ShiftRandom.ThreadSafe(seed), new LCG64ShiftRandom.ThreadSafe(seed)}
@@ -38,7 +38,7 @@ public class LCG64ShiftRandomTest extends RandomTestBase {
 
 	@Override @DataProvider(name = "PRNG")
 	protected Object[][] getPRNG() {
-		final long seed = math.random.seed();
+		final long seed = org.jenetics.internal.math.math.random.seed();
 		return new Object[][]{
 			{new LCG64ShiftRandom(seed)},
 			{new LCG64ShiftRandom.ThreadSafe(seed)},
