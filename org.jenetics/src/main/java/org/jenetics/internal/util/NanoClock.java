@@ -20,7 +20,7 @@
 package org.jenetics.internal.util;
 
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.internal.time.NANOS_PER_SECOND;
+import static org.jenetics.internal.util.time.NANOS_PER_SECOND;
 
 import java.time.Clock;
 import java.time.Instant;

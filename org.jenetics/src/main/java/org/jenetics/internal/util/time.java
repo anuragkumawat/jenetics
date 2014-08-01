@@ -17,7 +17,7 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal;
+package org.jenetics.internal.util;
 
 import java.time.Duration;
 import java.time.Instant;
