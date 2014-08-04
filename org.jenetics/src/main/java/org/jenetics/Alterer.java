@@ -52,8 +52,9 @@ public interface Alterer<
 	public static final double DEFAULT_ALTER_PROBABILITY = 0.2;
 
 	/**
-	 * Alters (recombine) a given population. If the {@code population}
-	 * is empty, nothing is altered.
+	 * Alters (recombine) a given population. If the {@code population} is empty,
+	 * nothing is altered. The altering of the population is done in place; the
+	 * given <i>population</i> is altered.
 	 *
 	 * @param population The Population to be altered. If the
 	 *        {@code population} is {@code null} or empty, nothing is altered.
