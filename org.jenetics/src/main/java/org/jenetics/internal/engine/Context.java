@@ -19,6 +19,8 @@
  */
 package org.jenetics.internal.engine;
 
+import static java.lang.Math.round;
+
 import java.time.Clock;
 import java.util.concurrent.Executor;
 import java.util.function.Supplier;
@@ -108,6 +110,14 @@ public class Context<
 
 	public Selector<G, C> getOffspringSelector() {
 		return _offspringSelector;
+	}
+
+	public int getSurvivorCount() {
+		return getPopulationSize() - getOffspringCount();
+	}
+
+	public int getOffspringCount() {
+		return (int)round(getOffspringFraction()*getPopulationSize());
 	}
 
 	public Alterer<G, C> getAlterer() {
