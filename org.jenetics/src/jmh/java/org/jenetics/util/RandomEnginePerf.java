@@ -70,17 +70,17 @@ public class RandomEnginePerf {
 
 	}
 
-	public static class LCG64ShiftRandomPerf extends Base {
-		{random = new LCG64ShiftRandom();}
-	}
+	public static class LCG64ShiftRandomPerf extends Base {{
+		random = new LCG64ShiftRandom();
+	}}
 
-	public static class RandomPerf extends Base {
-		{random = new Random();}
-	}
+	public static class RandomPerf extends Base {{
+		random = new Random();
+	}}
 
-	public static class ThreadLocalRandomPerf extends Base {
-		{random = ThreadLocalRandom.current();}
-	}
+	public static class ThreadLocalRandomPerf extends Base {{
+		random = ThreadLocalRandom.current();
+	}}
 
 
 	public static void main(String[] args) throws RunnerException {
