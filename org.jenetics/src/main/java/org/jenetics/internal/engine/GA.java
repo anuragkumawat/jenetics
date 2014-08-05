@@ -27,8 +27,6 @@ import java.util.concurrent.Executor;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.jenetics.internal.util.Timer;
-
 import org.jenetics.Alterer;
 import org.jenetics.Gene;
 import org.jenetics.Genotype;
