@@ -84,7 +84,7 @@ public final class require extends StaticObject {
 	 * @return p if it is a valid probability.
 	 * @throws IllegalArgumentException if {@code p} is not a valid probability.
 	 */
-	public static double checkProbability(final double p) {
+	public static double probability(final double p) {
 		if (p < 0.0 || p > 1.0) {
 			throw new IllegalArgumentException(format(
 				"The given probability is not in the range [0, 1]: %f", p
