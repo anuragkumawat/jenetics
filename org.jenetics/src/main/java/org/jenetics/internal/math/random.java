@@ -22,7 +22,7 @@ package org.jenetics.internal.math;
 import static java.lang.Math.abs;
 import static java.lang.Math.nextDown;
 import static java.lang.String.format;
-import static org.jenetics.internal.util.object.checkProbability;
+import static org.jenetics.internal.util.require.checkProbability;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

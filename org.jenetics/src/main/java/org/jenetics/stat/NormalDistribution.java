@@ -24,7 +24,7 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.math.statistics.Φ;
 import static org.jenetics.internal.math.statistics.φ;
 import static org.jenetics.internal.util.Equality.eq;
-import static org.jenetics.internal.util.object.nonNegative;
+import static org.jenetics.internal.util.require.nonNegative;
 
 import java.util.function.ToDoubleFunction;
 

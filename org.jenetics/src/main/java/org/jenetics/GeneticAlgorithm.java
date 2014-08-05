@@ -23,7 +23,7 @@ import static java.lang.Math.round;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
-import static org.jenetics.internal.util.object.checkProbability;
+import static org.jenetics.internal.util.require.checkProbability;
 
 import java.util.Collection;
 import java.util.Objects;

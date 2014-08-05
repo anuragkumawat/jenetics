@@ -30,8 +30,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.0
  * @version 1.6 &mdash; <em>$Date$</em>
  */
-public final class object extends StaticObject {
-	private object() {}
+public final class require extends StaticObject {
+	private require() {}
 
 	/**
 	 * Check if the specified value is not negative.
