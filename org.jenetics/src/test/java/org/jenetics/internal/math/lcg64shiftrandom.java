@@ -26,7 +26,7 @@ import org.jenetics.internal.util.require;
  * @version <em>$Date$</em>
  */
 public class lcg64shiftrandom {
-	private lcg64shiftrandom() {require.singleton();}
+	private lcg64shiftrandom() {require.noInstance();}
 
 	public static final class State {
 		public long r = 0;

@@ -37,7 +37,7 @@ import org.jenetics.internal.util.require;
  * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class statistics {
-	private statistics() {require.singleton();}
+	private statistics() {require.noInstance();}
 
 
 	/**

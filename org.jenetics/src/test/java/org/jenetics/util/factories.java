@@ -28,7 +28,7 @@ import org.jenetics.internal.util.require;
  * @version <em>$Date$</em>
  */
 public final class factories {
-	private factories() {require.singleton();}
+	private factories() {require.noInstance();}
 
 	/**
 	 * Return an integer factory which creates an integer sequence starting with

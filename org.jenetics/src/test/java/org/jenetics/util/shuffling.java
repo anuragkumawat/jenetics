@@ -28,7 +28,7 @@ import org.jenetics.internal.util.require;
  * @version <em>$Date$</em>
  */
 public final class shuffling {
-	private shuffling() {require.singleton();}
+	private shuffling() {require.noInstance();}
 
 	public static <T> T[] shuffle(final T[] array) {
 		return shuffle(array, RandomRegistry.getRandom());

@@ -27,7 +27,7 @@ import org.jenetics.internal.util.require;
  * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class arithmetic {
-	private arithmetic() {require.singleton();}
+	private arithmetic() {require.noInstance();}
 
 
 	/**
