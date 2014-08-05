@@ -301,7 +301,7 @@
     </test>
 	<test name="org.jenetics.internal.util.bit">
 		<classes>
-			<class name="org.jenetics.util.bitTest" />
+			<class name="org.jenetics.internal.util.bitTest" />
 		</classes>
 	</test>
 	<test name="org.jenetics.util.CharSeq">

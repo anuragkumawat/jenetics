@@ -350,7 +350,7 @@ public final class bit extends StaticObject {
 		return get(data, index) ? unset(data, index) : set(data, index);
 	}
 
-	static byte[] reverse(final byte[] array) {
+	public static byte[] reverse(final byte[] array) {
 		int i = 0;
 		int j = array.length;
 
@@ -534,7 +534,7 @@ public final class bit extends StaticObject {
 		return (bitLength & 7) == 0 ? (bitLength >>> 3) : (bitLength >>> 3) + 1;
 	}
 
-	static long toLong(final byte[] data) {
+	public static long toLong(final byte[] data) {
 		return
 			(((long)data[0] << 56) +
 			((long)(data[1] & 255) << 48) +
