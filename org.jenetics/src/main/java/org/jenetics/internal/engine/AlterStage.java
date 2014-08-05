@@ -48,13 +48,15 @@ public class AlterStage<
 	}
 
 	public Result<G, C> alter(final Population<G, C> offspring, final int generation) {
-		final Timer timer = Timer.of(_context.getClock());
+//		final Timer timer = Timer.of(_context.getClock());
+//
+//		final CompletionStage<Integer> altered = async(timer.timing(() ->
+//			_context.getAlterer().alter(offspring, generation)
+//		));
+//
+//		return new Result<>(timer, altered);
 
-		final CompletionStage<Integer> altered = async(timer.timing(() ->
-			_context.getAlterer().alter(offspring, generation)
-		));
-
-		return new Result<>(timer, altered);
+		return null;
 	}
 
 	/**
