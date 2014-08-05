@@ -26,7 +26,6 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.jenetics.util.ISeq;
-import org.jenetics.util.StaticObject;
 
 /**
  * Helper methods concerning Java reflection.
@@ -35,8 +34,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.6
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class reflect extends StaticObject {
-	private reflect() {}
+public class reflect {
+	private reflect() {require.singleton();}
 
 	/**
 	 * Return all declared classes of the given class, with arbitrary nested

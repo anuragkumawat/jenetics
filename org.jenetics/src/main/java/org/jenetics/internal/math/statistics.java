@@ -27,7 +27,7 @@ import static java.lang.Math.sqrt;
 
 import java.util.Comparator;
 
-import org.jenetics.util.StaticObject;
+import org.jenetics.internal.util.require;
 
 /**
  * Some statistical (special) functions.
@@ -36,8 +36,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class statistics extends StaticObject {
-	private statistics() {}
+public final class statistics {
+	private statistics() {require.singleton();}
 
 
 	/**

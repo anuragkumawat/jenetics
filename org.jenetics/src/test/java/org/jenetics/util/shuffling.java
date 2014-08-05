@@ -21,12 +21,14 @@ package org.jenetics.util;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.require;
+
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-public final class shuffling extends StaticObject {
-	private shuffling() {}
+public final class shuffling {
+	private shuffling() {require.singleton();}
 
 	public static <T> T[] shuffle(final T[] array) {
 		return shuffle(array, RandomRegistry.getRandom());

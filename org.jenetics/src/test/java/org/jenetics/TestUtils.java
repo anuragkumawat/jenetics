@@ -23,17 +23,18 @@ import java.io.Serializable;
 import java.util.Random;
 import java.util.function.Function;
 
+import org.jenetics.internal.util.require;
+
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.StaticObject;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-class TestUtils extends StaticObject {
-	private TestUtils() {}
+class TestUtils {
+	private TestUtils() {require.singleton();}
 
 	/**
 	 * Data for alter count tests.

@@ -19,14 +19,14 @@
  */
 package org.jenetics.internal.math;
 
-import org.jenetics.util.StaticObject;
+import org.jenetics.internal.util.require;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-public class lcg64shiftrandom extends StaticObject {
-	private lcg64shiftrandom() {}
+public class lcg64shiftrandom {
+	private lcg64shiftrandom() {require.singleton();}
 
 	public static final class State {
 		public long r = 0;

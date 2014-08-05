@@ -28,8 +28,6 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-import org.jenetics.util.StaticObject;
-
 /**
  * This object contains models not defined as native XML type.
  *
@@ -37,8 +35,8 @@ import org.jenetics.util.StaticObject;
  * @version 1.6 &mdash; <em>$Date$</em>
  * @since 2.0
  */
-public final class model extends StaticObject {
-	private model() {}
+public final class model {
+	private model() {require.singleton();}
 
 	@XmlRootElement(name = "char")
 	@XmlType(name = "char")

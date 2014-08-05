@@ -24,7 +24,6 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 import org.jenetics.util.Seq;
-import org.jenetics.util.StaticObject;
 
 /**
  * Helper object for calculating object equality.
@@ -33,8 +32,8 @@ import org.jenetics.util.StaticObject;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class Equality extends StaticObject {
-	private Equality() {}
+public final class Equality {
+	private Equality() {require.singleton();}
 
 	/**
 	 * Create a new {@code Equality} object for testing object equality.
