@@ -66,6 +66,10 @@ public class TimedResult<T> {
 		};
 	}
 
+	public static <T> TimedResult<T> of(final Timer timer, final T result) {
+		return new TimedResult<>(timer, result);
+	}
+
 	public T get() {
 		return _result;
 	}
