@@ -17,14 +17,12 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.engine;
+package org.jenetics.internal.util;
 
 import static java.util.Objects.requireNonNull;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-import org.jenetics.internal.util.Timer;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
