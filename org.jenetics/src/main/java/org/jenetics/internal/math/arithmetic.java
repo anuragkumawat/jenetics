@@ -19,15 +19,15 @@
  */
 package org.jenetics.internal.math;
 
-import org.jenetics.util.StaticObject;
+import org.jenetics.internal.util.require;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class arithmetic extends StaticObject {
-	private arithmetic() {}
+public final class arithmetic {
+	private arithmetic() {require.noInstance();}
 
 
 	/**

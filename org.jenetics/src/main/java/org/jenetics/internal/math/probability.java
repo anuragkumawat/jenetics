@@ -21,7 +21,7 @@ package org.jenetics.internal.math;
 
 import static org.jenetics.internal.math.arithmetic.pow;
 
-import org.jenetics.util.StaticObject;
+import org.jenetics.internal.util.require;
 
 /**
  * Mathematical functions regarding probabilities.
@@ -30,8 +30,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.4
  * @version 1.4 &mdash; <em>$Date$</em>
  */
-public final class probability extends StaticObject {
-	private probability() {}
+public final class probability {
+	private probability() {require.noInstance();}
 
 	private static final long INT_RANGE = pow(2, 32) - 1;
 

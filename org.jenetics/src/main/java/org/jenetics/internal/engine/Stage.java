@@ -37,7 +37,7 @@ public abstract class Stage {
 		_executor = executor;
 	}
 
-	protected <T> CompletionStage<T> async(final Supplier<T> supplier) {
+	protected final <T> CompletionStage<T> async(final Supplier<T> supplier) {
 		return CompletableFuture.supplyAsync(supplier, _executor);
 	}
 

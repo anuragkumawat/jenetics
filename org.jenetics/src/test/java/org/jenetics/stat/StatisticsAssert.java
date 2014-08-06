@@ -22,15 +22,15 @@ package org.jenetics.stat;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.testng.Assert;
 
-import org.jenetics.util.StaticObject;
+import org.jenetics.internal.util.require;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-public final class StatisticsAssert extends StaticObject {
+public final class StatisticsAssert {
 
-	private StatisticsAssert() {}
+	private StatisticsAssert() {require.noInstance();}
 
 	public static <C extends Comparable<? super C>> void assertDistribution(
 		final Histogram<C> histogram,

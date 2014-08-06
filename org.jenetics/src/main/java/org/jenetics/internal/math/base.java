@@ -25,8 +25,9 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Random;
 
+import org.jenetics.internal.util.require;
+
 import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.StaticObject;
 
 /**
  * This object contains mathematical helper functions.
@@ -35,8 +36,8 @@ import org.jenetics.util.StaticObject;
  * @since 1.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class base extends StaticObject {
-	private base() {}
+public final class base {
+	private base() {require.noInstance();}
 
 	/**
 	 * <i>Clamping</i> a value between a pair of boundary values.
