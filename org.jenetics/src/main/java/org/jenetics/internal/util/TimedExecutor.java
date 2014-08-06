@@ -20,8 +20,11 @@
 package org.jenetics.internal.util;
 
 import static java.util.Objects.requireNonNull;
+import static java.util.concurrent.CompletableFuture.supplyAsync;
 
-import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.Executor;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -30,47 +33,28 @@ import java.util.function.Supplier;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class TimedResult<T> {
-	private final Duration _duration;
-	private final T _result;
+public final class TimedExecutor {
+	private final Executor _executor;
 
-	private TimedResult(final Duration duration, final T result) {
-		_duration = requireNonNull(duration);
-		_result = requireNonNull(result);
+	public TimedExecutor(final Executor executor) {
+		_executor = requireNonNull(executor);
 	}
 
-	public static <T> Supplier<TimedResult<T>> of(
-		final Supplier<? extends T> supplier
+	public <T> CompletableFuture<TimedResult<T>> async(
+		final Supplier<T> supplier
 	) {
-		return () -> {
-			final Timer timer = Timer.of().start();
-			try {
-				return new TimedResult<>(timer.getTime(), supplier.get());
-			} finally {
-				timer.stop();
-			}
-		};
+		return supplyAsync(TimedResult.of(supplier), _executor);
 	}
 
-	public static <T, R> Function<T, TimedResult<R>> of(
-		final Function<? super T, ? extends R> function
+	public <U, T> CompletableFuture<TimedResult<T>> thenApply(
+		final CompletableFuture<U> result,
+		final Function<U, T> function
 	) {
-		return value -> {
-			final Timer timer = Timer.of().start();
-			try {
-				return new TimedResult<>(timer.getTime(), function.apply(value));
-			} finally {
-				timer.stop();
-			}
-		};
+		return result.thenApplyAsync(TimedResult.of(function), _executor);
 	}
 
-	public T get() {
-		return _result;
-	}
 
-	public Duration getDuration() {
-		return _duration;
+	public Executor get() {
+		return _executor;
 	}
-
 }

@@ -61,10 +61,10 @@ public class SelectStage<
 		_optimize = optimize;
 	}
 
-	public CompletionStage<TimedResult<Population<G, C>>>
+	public CompletionStage<org.jenetics.internal.util.TimedResult<Population<G, C>>>
 	select(final Population<G, C> population) {
-		return async(TimedResult.of(() ->
-			_selector.select(population, _count, _optimize)
+		return async(org.jenetics.internal.util.TimedResult.of(() ->
+				_selector.select(population, _count, _optimize)
 		));
 	}
 

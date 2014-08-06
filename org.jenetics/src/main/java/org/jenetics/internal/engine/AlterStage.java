@@ -47,10 +47,10 @@ public class AlterStage<
 		_alterer = alterer;
 	}
 
-	public CompletionStage<TimedResult<Result<G, C>>>
+	public CompletionStage<org.jenetics.internal.util.TimedResult<Result<G, C>>>
 	alter(final Population<G, C> population, final int generation) {
-		return async(TimedResult.of(() ->
-			new Result<>(population, _alterer.alter(population, generation))
+		return async(org.jenetics.internal.util.TimedResult.of(() ->
+				new Result<>(population, _alterer.alter(population, generation))
 		));
 	}
 
