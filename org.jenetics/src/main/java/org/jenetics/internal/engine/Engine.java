@@ -42,7 +42,7 @@ import org.jenetics.util.Factory;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class GA<
+public class Engine<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
@@ -62,7 +62,7 @@ public class GA<
 	// Execution context.
 	private final TimedExecutor _executor;
 
-	public GA(
+	public Engine(
 		final Selector<G, C> survivorsSelector,
 		final Selector<G, C> offspringSelector,
 		final Alterer<G, C> alterer,
