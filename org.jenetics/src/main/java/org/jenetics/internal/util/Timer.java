@@ -52,9 +52,15 @@ public final class Timer {
 	}
 
     public Duration getTime() {
-        return time.minus(_stop, _start);
+        return minus(_stop, _start);
     }
 
+	private static Duration minus(final Instant a, final Instant b)  {
+		final long seconds = a.getEpochSecond() - b.getEpochSecond();
+		final long nanos = a.getNano() - b.getNano();
+
+		return Duration.ofNanos(seconds*NanoClock.NANOS_PER_SECOND + nanos);
+	}
 
     public static Timer of(final Clock clock) {
         return new Timer(clock);

@@ -20,7 +20,6 @@
 package org.jenetics.internal.util;
 
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.internal.util.time.NANOS_PER_SECOND;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -35,6 +34,8 @@ import java.time.ZoneOffset;
  * @version 3.0 &mdash; <em>$Date$</em>
  */
 public final class NanoClock extends Clock {
+
+	public static final long NANOS_PER_SECOND = 1_000_000_000;
 
 	private static final long EPOCH_NANOS = System.currentTimeMillis()*1_000_000;
 	private static final long NANO_START = System.nanoTime();
