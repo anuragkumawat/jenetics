@@ -31,12 +31,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import org.jenetics.util.RandomRegistry;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import org.jenetics.internal.math.random;
+
+import org.jenetics.util.RandomRegistry;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
