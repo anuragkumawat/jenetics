@@ -100,7 +100,7 @@ public final class require {
      * Require the given {@code value} to be positive (&gt: 0).
      * @param value the value to check
      * @return the given value
-     * @throws IllegalAccessException if the given {@code value} is smaller than
+     * @throws IllegalArgumentException if the given {@code value} is smaller than
      *         or equal zero.
      */
     public static int positive(final int value) {
