@@ -78,7 +78,7 @@ public abstract class ProbabilitySelectorTester<
 		}
 	}
 
-	@Test(dataProvider = "propsize")
+	@Test(dataProvider = "probabilitySizes")
 	public void indexOf(final Integer size) {
 		final Random random = RandomRegistry.getRandom();
 
@@ -111,8 +111,8 @@ public abstract class ProbabilitySelectorTester<
 		return j;
 	}
 
-	@DataProvider(name = "propsize")
-	public Object[][] propsize() {
+	@DataProvider(name = "probabilitySizes")
+	public Object[][] probabilitySizes() {
 		return new Object[][] {
 			{1}, {2}, {3}, {5}, {9}, {15}, {30}, {99}, {150}
 		};
