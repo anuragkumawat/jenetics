@@ -28,8 +28,8 @@ import org.jenetics.util.RandomRegistry;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class arrays {
-	private arrays() {require.noInstance();}
+public final class array {
+	private array() {require.noInstance();}
 
 	public static void revert(final double[] array) {
 		for (int i = 0, j = array.length - 1; i < j; ++i, --j) {
