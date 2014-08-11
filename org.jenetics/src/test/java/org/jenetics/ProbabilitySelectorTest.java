@@ -78,6 +78,19 @@ public class ProbabilitySelectorTest {
 		}
 	}
 
+    @Test(dataProvider = "arraySize")
+    public void revertSortedArray(final Integer size) {
+        final double[] values = new double[100];
+        for (int i = 0; i < values.length; ++i) {
+            values[i] = i;
+        }
+
+        final double[] reverted = ProbabilitySelector.revert(values);
+        for (int i = 0; i < values.length; ++i) {
+            Assert.assertEquals(reverted[i], (double)(values.length - i - 1));
+        }
+    }
+
 //	@Test
 //	public void performance() {
 //		final Random random = new Random(123);
