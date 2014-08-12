@@ -112,9 +112,13 @@ public final class LinearRankSelector<
 		final double N = population.size();
 		final double[] probabilities = new double[population.size()];
 
-		for (int i = probabilities.length; --i >= 0;) {
-			probabilities[probabilities.length - i - 1] =
-				(_nminus + ((_nplus - _nminus)*i)/(N - 1))/N;
+		if (N == 1) {
+			probabilities[0] = 1;
+		} else {
+			for (int i = probabilities.length; --i >= 0; ) {
+				probabilities[probabilities.length - i - 1] =
+					(_nminus + ((_nplus - _nminus)*i)/(N - 1))/N;
+			}
 		}
 
 		assert (sum2one(probabilities)) : "Probabilities doesn't sum to one.";
