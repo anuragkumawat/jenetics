@@ -21,6 +21,7 @@ package org.jenetics;
 
 import java.util.Random;
 
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import org.jenetics.stat.Distribution;
@@ -59,7 +60,7 @@ public class TournamentSelectorTest
 	@Override
 	@Test
 	public void selectDistribution() {
-		//super.selectDistribution();
+		throw new SkipException("TODO: implement this test.");
 	}
 
 }
