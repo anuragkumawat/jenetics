@@ -31,7 +31,6 @@ import org.jenetics.stat.Variance;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Range;
 
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>

@@ -34,7 +34,7 @@ public class TruncationSelectorTest
 
 	@Override
 	protected Factory<TruncationSelector<DoubleGene, Double>> factory() {
-		return () -> new TruncationSelector<>();
+		return TruncationSelector::new;
 	}
 
 	@Override

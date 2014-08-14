@@ -33,7 +33,7 @@ public class MonteCarloSelectorTest
 
 	@Override
 	protected Factory<MonteCarloSelector<DoubleGene, Double>> factory() {
-		return () -> new MonteCarloSelector<>();
+		return MonteCarloSelector::new;
 	}
 
 	@Override

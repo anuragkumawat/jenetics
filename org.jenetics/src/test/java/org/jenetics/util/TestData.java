@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.util.Iterator;
 
 /**
@@ -95,11 +96,9 @@ public class TestData implements Iterable<String[]> {
 		@Override
 		public void close() {
 			try {
-				if (_reader != null) {
-					_reader.close();
-				}
+				_reader.close();
 			} catch (IOException e) {
-				throw new RuntimeException(e);
+				throw new UncheckedIOException(e);
 			}
 		}
 	}
