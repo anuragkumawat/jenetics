@@ -47,7 +47,7 @@ public class LinearRankSelectorTest
 	}
 
 	@Override
-	protected LinearRankSelector<DoubleGene, Double> getSelector() {
+	protected LinearRankSelector<DoubleGene, Double> selector() {
 		return new LinearRankSelector<>(0.0);
 	}
 
