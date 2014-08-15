@@ -20,6 +20,7 @@
 package org.jenetics;
 
 import static java.lang.String.format;
+import static org.jenetics.internal.math.random.indexes;
 
 import java.util.Random;
 
@@ -68,7 +69,7 @@ public final class GaussianMutator<
 		final Random random = RandomRegistry.getRandom();
 
 		final IntRef alterations = new IntRef(0);
-		org.jenetics.internal.math.random.indexes(random, genes.length(), p).forEach(i -> {
+		indexes(random, genes.length(), p).forEach(i -> {
 			genes.set(i, mutate(genes.get(i), random));
 			++alterations.value;
 		});
