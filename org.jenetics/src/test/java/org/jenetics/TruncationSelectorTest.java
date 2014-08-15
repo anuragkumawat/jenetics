@@ -47,7 +47,7 @@ public class TruncationSelectorTest
 	}
 
 	@Override
-	protected boolean isCheckEnabled() {
+	protected boolean isDistributionCheckEnabled() {
 		return false;
 	}
 

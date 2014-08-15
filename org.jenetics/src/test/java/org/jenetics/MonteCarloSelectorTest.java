@@ -37,7 +37,7 @@ public class MonteCarloSelectorTest
 	}
 
 	@Override
-	protected boolean isCheckEnabled() {
+	protected boolean isDistributionCheckEnabled() {
 		return true;
 	}
 

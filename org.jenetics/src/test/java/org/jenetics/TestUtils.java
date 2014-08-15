@@ -196,22 +196,11 @@ class TestUtils {
 		return count;
 	}
 
-	private static final class Continuous
-		implements Function<Genotype<DoubleGene>, Double>,
-					Serializable
-	{
-		private static final long serialVersionUID = 1L;
-
-		@Override
-		public Double apply(Genotype<DoubleGene> genotype) {
-			return genotype.getChromosome().getGene().getAllele();
-		}
-	}
-
 	/**
 	 * 'Identity' fitness function.
 	 */
-	public static final Function<Genotype<DoubleGene>, Double> FF = new Continuous();
+	public static final Function<Genotype<DoubleGene>, Double> FF =
+		gt -> gt.getGene().getAllele();
 
 	public static GeneticAlgorithm<DoubleGene, Double> GA() {
 		return new GeneticAlgorithm<>(
