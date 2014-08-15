@@ -80,6 +80,13 @@ public final class ExponentialRankSelector<
 	}
 
 	/**
+	 * Create a new selector with default value of 0.75.
+	 */
+	public ExponentialRankSelector() {
+		this(0.75);
+	}
+
+	/**
 	 * This method sorts the population in descending order while calculating the
 	 * selection probabilities. (The method {@link Population#populationSort()} is called
 	 * by this method.)
