@@ -50,10 +50,6 @@ dependencies {
     jmh files('build/classes/main')
 }
 
-jmhJar {
-    appendix = 'jmh'
-}
-
 /*
 javadoc {
     options.docletpath = files(
