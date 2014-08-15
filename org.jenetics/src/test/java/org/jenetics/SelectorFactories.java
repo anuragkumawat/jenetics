@@ -33,18 +33,6 @@ public final class SelectorFactories {
 	private SelectorFactories() {
 	}
 
-	public static Factory<BoltzmannSelector<DoubleGene, Double>>
-	BoltzmannSelector = () -> {
-		final Random random = RandomRegistry.getRandom();
-		return new BoltzmannSelector<>(random.nextDouble());
-	};
-
-	public static Factory<ExponentialRankSelector<DoubleGene, Double>>
-	ExponentialRankSelector = () -> {
-		final Random random = RandomRegistry.getRandom();
-		return new ExponentialRankSelector<>(random.nextDouble());
-	};
-
 	public static Factory<LinearRankSelector<DoubleGene, Double>>
 	LinearRankSelector = () -> {
 		final Random random = RandomRegistry.getRandom();
