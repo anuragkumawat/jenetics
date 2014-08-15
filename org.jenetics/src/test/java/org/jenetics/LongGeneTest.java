@@ -82,14 +82,14 @@ public class LongGeneTest extends NumericGeneTester<Long, LongGene> {
 	}
 
 	@Test
-    public void createNumber() {
+	public void createNumber() {
 		LongGene gene = LongGene.of(1, 0, 12);
 		LongGene g2 = gene.newInstance(5L);
 
-        assertEquals(g2.getAllele().longValue(), 5);
-        assertEquals(g2.getMin().longValue(), 0);
-        assertEquals(g2.getMax().longValue(), 12);
-    }
+		assertEquals(g2.getAllele().longValue(), 5);
+		assertEquals(g2.getMin().longValue(), 0);
+		assertEquals(g2.getMax().longValue(), 12);
+	}
 
 	@Test
 	public void createInvalidNumber() {

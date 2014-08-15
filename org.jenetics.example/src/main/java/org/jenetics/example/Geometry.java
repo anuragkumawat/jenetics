@@ -699,12 +699,12 @@ final class GeometryController implements StepListener {
 			_stepable.removeStepListener(this);
 		}
 		_stepable = new Stepable(() -> {
-            if (_ga.getGeneration() == 0) {
-                _ga.setup();
-            } else {
-                _ga.evolve();
-            }
-        });
+			if (_ga.getGeneration() == 0) {
+				_ga.setup();
+			} else {
+				_ga.evolve();
+			}
+		});
 		_stepable.addStepListener(this);
 
 		if (_thread != null) {

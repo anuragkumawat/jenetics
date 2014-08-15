@@ -47,7 +47,7 @@ public class CharacterChromosomeTest extends ChromosomeTester<CharacterGene> {
 
 
 	@Test(invocationCount = 20, successPercentage = 95)
-    public void newInstanceDistribution() {
+	public void newInstanceDistribution() {
 		try (Scoped<Random> s = RandomRegistry.scope(new Random(12345))) {
 			final CharSeq characters = new CharSeq("0123456789");
 			final CharacterChromosome chromosome = new CharacterChromosome(characters, 5000);

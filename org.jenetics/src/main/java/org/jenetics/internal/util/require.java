@@ -96,21 +96,21 @@ public final class require {
 		return length;
 	}
 
-    /**
-     * Require the given {@code value} to be positive (&gt: 0).
-     * @param value the value to check
-     * @return the given value
-     * @throws IllegalArgumentException if the given {@code value} is smaller than
-     *         or equal zero.
-     */
-    public static int positive(final int value) {
-        if (value <= 0) {
-            throw new IllegalArgumentException(format(
-                "Value is not positive: %d", value
-            ));
-        }
-        return value;
-    }
+	/**
+	 * Require the given {@code value} to be positive (&gt: 0).
+	 * @param value the value to check
+	 * @return the given value
+	 * @throws IllegalArgumentException if the given {@code value} is smaller than
+	 *         or equal zero.
+	 */
+	public static int positive(final int value) {
+		if (value <= 0) {
+			throw new IllegalArgumentException(format(
+				"Value is not positive: %d", value
+			));
+		}
+		return value;
+	}
 
 	/**
 	 * Check if the given double value is within the closed range {@code [0, 1]}.
