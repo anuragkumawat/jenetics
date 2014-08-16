@@ -23,6 +23,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.util.Objects.requireNonNull;
 
+import java.util.function.IntConsumer;
 import java.util.function.LongConsumer;
 import java.util.function.ToLongFunction;
 import java.util.stream.Collector;
@@ -61,7 +62,7 @@ import java.util.stream.Collector;
  */
 public class LongMomentStatistics
 	extends MomentStatistics
-	implements LongConsumer
+	implements LongConsumer, IntConsumer
 {
 
 	private long _min = Long.MAX_VALUE;
@@ -85,6 +86,16 @@ public class LongMomentStatistics
 		_min = min(_min, value);
 		_max = max(_max, value);
 		_sum += value;
+	}
+
+	/**
+	 * Records a new value into the moments information
+	 *
+	 * @param value the input {@code value}
+	 */
+	@Override
+	public void accept(final int value) {
+		accept((long)value);
 	}
 
 	/**
