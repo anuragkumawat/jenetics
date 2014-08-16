@@ -54,7 +54,7 @@ public class RouletteWheelSelectorTest
 
 	@Override
 	protected Factory<RouletteWheelSelector<DoubleGene, Double>> factory() {
-		return SelectorFactories.RouletteWheelSelector;
+		return RouletteWheelSelector::new;
 	}
 
 	@Test
