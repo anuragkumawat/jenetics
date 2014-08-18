@@ -120,4 +120,17 @@ public class PopulationSummaryStatistics<
 		);
 	}
 
+	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
+	Collector<Phenotype<G, C>, PopulationSummaryStatistics<G, C>, PopulationSummary<G, C>> collector(
+		final Optimize optimize,
+		final int currentGeneration
+	) {
+		return Collector.of(
+			() -> new PopulationSummaryStatistics<>(optimize, currentGeneration),
+			(r, t) -> r.accept(t),
+			(a, b) -> {a.combine(b); return a;},
+			s -> PopulationSummary.of(s)
+		);
+	}
+
 }
