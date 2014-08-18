@@ -291,46 +291,4 @@ public class Engine<
 
 	}
 
-	/**
-	 * Represents the result of the alter step.
-	 *
-	 * @param <G> the gene type
-	 * @param <C> the fitness type
-	 */
-	public static final class AlterResult<
-		G extends Gene<?, G>,
-		C extends Comparable<? super C>
-	>
-		implements Serializable
-	{
-		private static final long serialVersionUID = 1L;
-
-		private final Population<G, C> _population;
-		private final int _alterCount;
-
-		private AlterResult(
-			final Population<G, C> population,
-			final int alterCount
-		) {
-			_population = requireNonNull(population);
-			_alterCount = alterCount;
-		}
-
-		public Population<G, C> getPopulation() {
-			return _population;
-		}
-
-		public int getAlterCount() {
-			return _alterCount;
-		}
-
-		public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-		AlterResult<G, C> of(
-			final Population<G, C> population,
-			final int alterCount
-		) {
-			return new AlterResult<>(population, alterCount);
-		}
-	}
-
 }
