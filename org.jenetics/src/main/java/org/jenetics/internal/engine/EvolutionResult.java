@@ -34,11 +34,11 @@ public class EvolutionResult<
 >
 {
 	private final EvolutionDurations _durations;
-	private final State<G, C> _state;
+	private final EvolutionStart<G, C> _state;
 
 	private EvolutionResult(
 		final EvolutionDurations durations,
-		final State<G, C> state
+		final EvolutionStart<G, C> state
 	) {
 		_durations = requireNonNull(durations);
 		_state = requireNonNull(state);
@@ -48,14 +48,14 @@ public class EvolutionResult<
 		return _durations;
 	}
 
-	public State<G, C> getState() {
+	public EvolutionStart<G, C> getState() {
 		return _state;
 	}
 
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
 	EvolutionResult<G, C> of(
 		final EvolutionDurations durations,
-		final State<G, C> state
+		final EvolutionStart<G, C> state
 	) {
 		return new EvolutionResult<>(durations, state);
 	}
