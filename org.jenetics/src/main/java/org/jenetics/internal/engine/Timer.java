@@ -17,13 +17,15 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.internal.engine;
 
 import static java.util.Objects.requireNonNull;
 
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
+
+import org.jenetics.internal.util.NanoClock;
 
 /**
  * Timer implementation for measuring execution durations.
