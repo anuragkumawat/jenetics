@@ -20,8 +20,12 @@
 package org.jenetics.internal.engine;
 
 import static java.util.Objects.requireNonNull;
+import static org.jenetics.internal.util.Equality.eq;
 
 import java.io.Serializable;
+
+import org.jenetics.internal.util.Equality;
+import org.jenetics.internal.util.Hash;
 
 import org.jenetics.Gene;
 import org.jenetics.Population;
@@ -36,7 +40,7 @@ import org.jenetics.Population;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class AlterResult<
+final class AlterResult<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
@@ -61,6 +65,21 @@ public final class AlterResult<
 
 	public int getAlterCount() {
 		return _alterCount;
+	}
+
+	@Override
+	public int hashCode() {
+		return Hash.of(getClass())
+			.and(_population)
+			.and(_alterCount).value();
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		return Equality.of(this, obj).test(result ->
+			eq(_population, result._population) &&
+			eq(_alterCount, result._alterCount)
+		);
 	}
 
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
