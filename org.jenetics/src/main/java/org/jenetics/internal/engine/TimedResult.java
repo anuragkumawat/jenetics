@@ -33,7 +33,7 @@ import java.util.function.Supplier;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class TimedResult<T> implements Serializable {
+final class TimedResult<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final Duration _duration;
