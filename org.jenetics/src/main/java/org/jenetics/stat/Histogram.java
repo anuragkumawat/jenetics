@@ -23,6 +23,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.round;
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
+import static org.jenetics.internal.math.arithmetic.normalize;
 import static org.jenetics.internal.util.Equality.eq;
 
 import java.io.IOException;
@@ -212,6 +213,10 @@ public class Histogram<C> implements Consumer<C> {
 	 */
 	public long[] getHistogram() {
 		return getHistogram(new long[_histogram.length]);
+	}
+
+	public double[] getNormalizedHistogram() {
+		return normalize(getHistogram());
 	}
 
 	/**

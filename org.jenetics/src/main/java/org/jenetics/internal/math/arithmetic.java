@@ -48,6 +48,16 @@ public final class arithmetic {
 		return values;
 	}
 
+	public static double[] normalize(final long[] values) {
+		final double[] result = new double[values.length];
+		final double sum = 1.0/statistics.sum(values);
+		for (int i = values.length; --i >= 0;) {
+			result[i] = values[i]*sum;
+		}
+
+		return result;
+	}
+
 	/**
 	 * Component wise division of the given double array.
 	 *
