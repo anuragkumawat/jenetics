@@ -19,7 +19,6 @@
  */
 package org.jenetics;
 
-import java.io.Serializable;
 import java.util.Random;
 import java.util.function.Function;
 
