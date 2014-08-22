@@ -32,6 +32,7 @@ import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.ToDoubleFunction;
+import java.util.stream.Collector;
 
 import org.jenetics.internal.math.statistics;
 import org.jenetics.internal.util.Equality;
@@ -484,6 +485,15 @@ public class Histogram<C> implements Consumer<C> {
 		}
 
 		return separators;
+	}
+
+	public static Collector<Histogram<Double>, ?, Histogram<Double>>
+	toDoubleHistogram(final Double min, final Double max, final int classCount) {
+		return Collector.of(
+			() -> Histogram.of(min, max, classCount),
+			(a, b) -> a.combine(b),
+			(a, b) -> {a.combine(b); return a;}
+		);
 	}
 
 	/*
