@@ -73,7 +73,7 @@ allprojects { Project prj ->
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.0'
+	gradleVersion = '2.1-rc-1'
 }
 
 task trimLineFeed(type: TrimLineFeedTask) {
