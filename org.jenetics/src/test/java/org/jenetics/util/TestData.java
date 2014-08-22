@@ -218,11 +218,10 @@ public class TestData implements Iterable<String[]> {
 		String[] read() {
 			try {
 				String line = null;
-				while (
-					(line = _reader.readLine()) != null &&
-					(line.trim().startsWith("#") ||
-					line.trim().isEmpty())
-				);
+				do {
+					line = _reader.readLine();
+				} while (line != null &&
+					(line.trim().startsWith("#") || line.trim().isEmpty()));
 
 				return line != null ? line.split(",") : null;
 			} catch (IOException e) {
