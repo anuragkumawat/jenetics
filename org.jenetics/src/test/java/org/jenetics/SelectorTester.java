@@ -294,19 +294,23 @@ public abstract class SelectorTester<S extends Selector<DoubleGene, Double>>
 		);
 
 		return IntStream.range(0, loops).parallel().mapToObj(j -> {
-			final Histogram<Double> hist = Histogram.of(min, max, nclasses);
+            if (j%1000 == 0) {
+                System.err.println(format("%s: %d", selector, j));
+            }
 
-			final Population<DoubleGene, Double> population =
-				IntStream.range(0, npopulation)
-					.mapToObj(i -> ptf.newInstance())
-					.collect(Population.toPopulation());
+            final Histogram<Double> hist = Histogram.of(min, max, nclasses);
 
-			selector.select(population, npopulation/2, opt).stream()
-				.map(pt -> pt.getGenotype().getGene().getAllele())
-				.forEach(hist::accept);
+            final Population<DoubleGene, Double> population =
+                IntStream.range(0, npopulation)
+                    .mapToObj(i -> ptf.newInstance())
+                    .collect(Population.toPopulation());
 
-			return hist;
-		}).collect(collector);
+            selector.select(population, npopulation / 2, opt).stream()
+                .map(pt -> pt.getGenotype().getGene().getAllele())
+                .forEach(hist::accept);
+
+            return hist;
+        }).collect(collector);
 	}
 
 
