@@ -75,6 +75,14 @@ public final class StatisticsAssert {
 
 		final double maxChi = chi(0.999, degreeOfFreedom);
 
+		if (χ2 > maxChi) {
+			String.format(
+				"The histogram doesn't follow the given distribution." +
+					"χ2 must be smaller than %f but was %f",
+				maxChi, χ2
+			);
+		}
+
 		Assert.assertTrue(
 			χ2 <= maxChi,
 			String.format(
