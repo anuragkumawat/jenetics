@@ -126,7 +126,7 @@ public class HistogramTest {
 
 	@Test(expectedExceptions = IllegalArgumentException.class)
 	public void histogramEmptyClasses() {
-		Histogram.of(new Double[0]);
+		Histogram.<Double>of();
 	}
 
 	@Test

@@ -93,4 +93,16 @@ public class ProbabilitySelectorTest {
 		}
 	}
 
+	@Test(dataProvider = "arraySize")
+	public void indexOfSerialEqualBinary(final Integer size) {
+		final double[] probabilities = array(size, new Random(12));
+		normalize(probabilities);
+		ProbabilitySelector.incremental(probabilities);
+
+		Assert.assertEquals(
+			ProbabilitySelector.indexOfSerial(probabilities, 0.5),
+			ProbabilitySelector.indexOfBinary(probabilities, 0.5)
+		);
+	}
+
 }

@@ -53,7 +53,7 @@ public class IndexSorterPerf {
 	private double[] array320 = new Random().doubles(320).toArray();
 
 
-	@Setup(Level.Invocation)
+	@Setup(Level.Iteration)
 	public void shuffle() {
 		array.shuffle(array20);
 		array.shuffle(array40);
