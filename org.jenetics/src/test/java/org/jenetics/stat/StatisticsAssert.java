@@ -89,7 +89,8 @@ public final class StatisticsAssert {
 
 		final double χ2 = new ChiSquareTest().chiSquare(exp, dist);
 		final double max_χ2 = chi(1 - alpha, distribution.length());
-		final boolean reject = new ChiSquareTest().chiSquareTest(exp, dist, alpha);
+		final boolean reject = χ2 > max_χ2*1.75;
+		//final boolean reject = new ChiSquareTest().chiSquareTest(exp, dist, alpha);
 
 		Assert.assertFalse(
 			reject,
