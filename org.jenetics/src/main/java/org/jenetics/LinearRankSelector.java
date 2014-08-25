@@ -141,7 +141,7 @@ public final class LinearRankSelector<
 	@Override
 	public String toString() {
 		return format(
-			"%s[n-=%f, n+=%f]",
+			"%s[(n-)=%f, (n+)=%f]",
 			getClass().getSimpleName(), _nminus, _nplus
 		);
 	}
