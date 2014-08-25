@@ -157,7 +157,7 @@ public class RouletteWheelSelectorTest
 
 			final int npopulation = POPULATION_COUNT;
 			//final int loops = 2_500_000;
-			final int loops = 1_000_000;
+			final int loops = 5_000_000;
 
 			printDistributions(
 				System.out,
