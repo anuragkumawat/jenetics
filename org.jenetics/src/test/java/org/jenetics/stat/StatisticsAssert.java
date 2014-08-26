@@ -25,9 +25,7 @@ import java.util.Arrays;
 
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.apache.commons.math3.stat.inference.ChiSquareTest;
-import org.apache.commons.math3.stat.inference.TestUtils;
 import org.testng.Assert;
-import org.testng.Reporter;
 
 import org.jenetics.internal.util.require;
 

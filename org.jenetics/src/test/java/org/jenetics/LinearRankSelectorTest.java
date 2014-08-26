@@ -22,7 +22,6 @@ package org.jenetics;
 import static java.lang.String.format;
 
 import java.util.Arrays;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import org.testng.annotations.DataProvider;
@@ -37,7 +36,6 @@ import org.jenetics.stat.StatisticsAssert;
 import org.jenetics.util.Factory;
 import org.jenetics.util.LCG64ShiftRandom;
 import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.Range;
 import org.jenetics.util.Scoped;
 import org.jenetics.util.TestData;
 
