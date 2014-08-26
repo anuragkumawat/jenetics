@@ -105,14 +105,30 @@ public final class ExponentialRankSelector<
 		final double N = population.size();
 		final double[] probabilities = new double[population.size()];
 
-		final double b = pow(_c, N) - 1;
-		for (int i = probabilities.length; --i >= 0;) {
-			probabilities[i] = ((_c - 1)*pow(_c, i))/b;
+		final double b = (_c - 1.0)/(pow(_c, N) - 1.0);
+		for (int i = 0; i < probabilities.length; ++i) {
+			probabilities[i] = pow(_c, i)*b;
 		}
 
 		assert (sum2one(probabilities)) : "Probabilities doesn't sum to one.";
 		return probabilities;
 	}
+
+//	protected  double[] probabilities(
+//		final Population<G, C> population,
+//		final int count
+//	) {
+//		final double N = population.size();
+//		final double[] probabilities = new double[population.size()];
+//
+//		final double b = (_c - 1.0)/(pow(_c, N) - 1.0);
+//		for (int i = probabilities.length; --i >= 0;) {
+//			probabilities[i] = pow(_c, i - 1)*b;
+//		}
+//
+//		assert (sum2one(probabilities)) : "Probabilities doesn't sum to one.";
+//		return probabilities;
+//	}
 
 	@Override
 	public int hashCode() {
