@@ -24,6 +24,7 @@ import static org.jenetics.internal.util.Equality.eq;
 
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
+import org.jenetics.internal.util.array;
 
 /**
  * <p>
@@ -91,6 +92,11 @@ public final class LinearRankSelector<
 
 		_nminus = nminus;
 		_nplus = 2 - _nminus;
+	}
+
+	@Override
+	protected double[] revert(final double[] probabilities) {
+		return array.revert(probabilities);
 	}
 
 	/**
