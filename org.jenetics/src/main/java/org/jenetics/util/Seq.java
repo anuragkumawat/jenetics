@@ -680,6 +680,14 @@ public interface Seq<T> extends Iterable<T> {
 	 *  Some static factory methods.
 	 * ************************************************************************/
 
+	/**
+	 * Returns a {@code Collector} that accumulates the input elements into a
+	 * new {@code Seq}.
+	 *
+	 * @param <T> the type of the input elements
+	 * @return a {@code Collector} which collects all the input elements into a
+	 *         {@code Seq}, in encounter order
+	 */
 	public static <T> Collector<T, ?, Seq<T>> toSeq() {
 		return Collector.of(
 			(Supplier<List<T>>) ArrayList::new,

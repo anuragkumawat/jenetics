@@ -223,6 +223,14 @@ public interface MSeq<T> extends Seq<T>, Copyable<MSeq<T>> {
 	 *  Some static factory methods.
 	 * ************************************************************************/
 
+	/**
+	 * Returns a {@code Collector} that accumulates the input elements into a
+	 * new {@code MSeq}.
+	 *
+	 * @param <T> the type of the input elements
+	 * @return a {@code Collector} which collects all the input elements into a
+	 *         {@code MSeq}, in encounter order
+	 */
 	public static <T> Collector<T, ?, MSeq<T>> toMSeq() {
 		return Collector.of(
 			(Supplier<List<T>>)ArrayList::new,
