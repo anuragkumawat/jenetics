@@ -57,11 +57,12 @@ public final class GaussianMutator<
 	extends Mutator<G, C>
 {
 
-	public GaussianMutator() {
-	}
-
 	public GaussianMutator(final double probability) {
 		super(probability);
+	}
+
+	public GaussianMutator() {
+		this(DEFAULT_ALTER_PROBABILITY);
 	}
 
 	@Override

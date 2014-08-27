@@ -82,7 +82,7 @@ public final class ExponentialScaler
 	 * @param c <pre>fitness = (1 * fitness + 0) ^ <strong>c</strong></pre>
 	 */
 	public ExponentialScaler(final double c) {
-		this(0.0, c);
+		this(1.0, 0.0, c);
 	}
 
 
