@@ -19,7 +19,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.stat.StatisticsAssert.assertDistribution;
+import static org.jenetics.stat.StatisticsAssert.assertUniformDistribution;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertNotNull;
@@ -31,7 +31,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.stat.Histogram;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.CharSeq;
 import org.jenetics.util.Factory;
 import org.jenetics.util.RandomRegistry;
@@ -67,7 +66,7 @@ public class CharacterGeneTest extends GeneTester<CharacterGene> {
 				histogram.accept(Long.valueOf(g2.getAllele().toString()));
 			}
 
-			assertDistribution(histogram, new UniformDistribution<>(0L, 10L));
+			assertUniformDistribution(histogram);
 		}
 	}
 

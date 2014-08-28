@@ -150,6 +150,7 @@ public class SinglePointCrossoverTest {
 		}
 
 		// Normal distribution as approximation for binomial distribution.
+		System.out.println(histogram);
 		assertDistribution(histogram, new NormalDistribution<>(domain, mean, variance.getVariance()));
 	}
 

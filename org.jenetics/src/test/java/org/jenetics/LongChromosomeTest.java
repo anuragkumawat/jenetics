@@ -19,7 +19,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.stat.StatisticsAssert.assertDistribution;
+import static org.jenetics.stat.StatisticsAssert.assertUniformDistribution;
 
 import java.util.Random;
 
@@ -27,7 +27,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.stat.Histogram;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.stat.Variance;
 import org.jenetics.util.Accumulator.MinMax;
 import org.jenetics.util.RandomRegistry;
@@ -72,7 +71,7 @@ public class LongChromosomeTest
 
 			Assert.assertTrue(mm.getMin().compareTo(0L) >= 0);
 			Assert.assertTrue(mm.getMax().compareTo(100L) <= 100);
-			assertDistribution(histogram, new UniformDistribution<>(min, max));
+			assertUniformDistribution(histogram);
 		}
 	}
 

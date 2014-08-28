@@ -34,7 +34,6 @@ import org.jenetics.internal.util.require;
  * @version <em>$Date$</em>
  */
 public final class StatisticsAssert {
-
 	private StatisticsAssert() {require.noInstance();}
 
 	public static <C extends Comparable<? super C>> void assertDistribution(
@@ -100,9 +99,16 @@ public final class StatisticsAssert {
 		);
 	}
 
-	public static double chi(final double p, final int degreeOfFreedom) {
+	private static double chi(final double p, final int degreeOfFreedom) {
 		return new ChiSquaredDistribution(degreeOfFreedom)
 			.inverseCumulativeProbability(p);
+	}
+
+	public static <C extends Comparable<? super C>> void assertUniformDistribution(
+		final Histogram<C> histogram
+	) {
+		final double[] expected = distribution.uniform(histogram.length());
+		assertDistribution(histogram, expected);
 	}
 
 }

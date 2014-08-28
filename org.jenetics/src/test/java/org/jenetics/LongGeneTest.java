@@ -19,7 +19,7 @@
  */
 package org.jenetics;
 
-import static org.jenetics.stat.StatisticsAssert.assertDistribution;
+import static org.jenetics.stat.StatisticsAssert.assertUniformDistribution;
 import static org.testng.Assert.assertEquals;
 
 import java.util.Random;
@@ -29,7 +29,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.stat.Histogram;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.Factory;
 import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Scoped;
@@ -57,7 +56,7 @@ public class LongGeneTest extends NumericGeneTester<Long, LongGene> {
 				.forEach(histogram::accept);
 		}
 
-		assertDistribution(histogram, new UniformDistribution<>(min, max));
+		assertUniformDistribution(histogram);
 	}
 
 	@Test
