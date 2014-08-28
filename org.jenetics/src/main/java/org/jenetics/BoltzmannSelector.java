@@ -81,10 +81,10 @@ public final class BoltzmannSelector<
 	}
 
 	/**
-	 * Create a new BoltzmannSelector with a default beta of 3.0.
+	 * Create a new BoltzmannSelector with a default beta of 4.0.
 	 */
 	public BoltzmannSelector() {
-		this(3.0);
+		this(4.0);
 	}
 
 	@Override
