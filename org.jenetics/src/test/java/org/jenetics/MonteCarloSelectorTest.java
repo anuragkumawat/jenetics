@@ -19,8 +19,6 @@
  */
 package org.jenetics;
 
-import org.jenetics.stat.Distribution;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.Factory;
 
 /**
@@ -34,16 +32,6 @@ public class MonteCarloSelectorTest
 	@Override
 	protected Factory<MonteCarloSelector<DoubleGene, Double>> factory() {
 		return MonteCarloSelector::new;
-	}
-
-	@Override
-	protected boolean isDistributionCheckEnabled() {
-		return true;
-	}
-
-	@Override
-	protected Distribution<Double> getDistribution() {
-		return new UniformDistribution<>(getDomain());
 	}
 
 }

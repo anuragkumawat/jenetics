@@ -22,14 +22,11 @@ package org.jenetics;
 import java.util.Arrays;
 
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import org.jenetics.internal.util.Named;
 
-import org.jenetics.stat.Distribution;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.StatisticsAssert;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.Factory;
 import org.jenetics.util.LCG64ShiftRandom;
 import org.jenetics.util.RandomRegistry;
@@ -47,17 +44,6 @@ public class TruncationSelectorTest
 	@Override
 	protected Factory<TruncationSelector<DoubleGene, Double>> factory() {
 		return TruncationSelector::new;
-	}
-
-	@Override
-	protected Distribution<Double> getDistribution() {
-		return new UniformDistribution<>(getDomain());
-	}
-
-	@Override
-	@Test
-	public void selectDistribution() {
-		//throw new SkipException("TODO: implement this test.");
 	}
 
 	// Working, but not stable enough.

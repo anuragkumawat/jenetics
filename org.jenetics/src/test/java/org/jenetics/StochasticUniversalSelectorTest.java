@@ -28,10 +28,8 @@ import org.testng.annotations.Test;
 
 import org.jenetics.internal.util.Named;
 
-import org.jenetics.stat.Distribution;
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.StatisticsAssert;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.Factory;
 import org.jenetics.util.LCG64ShiftRandom;
 import org.jenetics.util.RandomRegistry;
@@ -56,11 +54,6 @@ public class StochasticUniversalSelectorTest
 		return StochasticUniversalSelector::new;
 	}
 
-	@Override
-	protected Distribution<Double> getDistribution() {
-		return new UniformDistribution<>(getDomain());
-	}
-
 	@Test
 	public void selectMinimum() {
 		final Function<Genotype<IntegerGene>, Integer> ff = gt ->
@@ -81,12 +74,6 @@ public class StochasticUniversalSelectorTest
 		final Population<IntegerGene, Integer> selection = selector.select(
 			population, 50, Optimize.MINIMUM
 		);
-	}
-
-	@Override
-	@Test
-	public void selectDistribution() {
-		//throw new SkipException("TODO: implement this test.");
 	}
 
 	@Test(dataProvider = "expectedDistribution", invocationCount = 20)
