@@ -43,9 +43,8 @@ public class SwapMutatorTest extends MutatorTestBase {
 		final Integer nchromosomes,
 		final Integer npopulation
 	) {
-		final Population<DoubleGene, Double> p1 = newDoubleGenePopulation(
-					ngenes, nchromosomes, npopulation
-				);
+		final Population<DoubleGene, Double> p1 =
+			newDoubleGenePopulation(ngenes, nchromosomes, npopulation);
 		final Population<DoubleGene, Double> p2 = p1.copy();
 		Assert.assertEquals(p2, p1);
 
