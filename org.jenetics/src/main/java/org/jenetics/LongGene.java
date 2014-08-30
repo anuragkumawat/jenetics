@@ -124,7 +124,7 @@ public final class LongGene
 
 	@Override
 	public LongGene mean(final LongGene that) {
-		return new LongGene(_value + (that._value - _value) / 2, _min, _max);
+		return new LongGene(_value + (that._value - _value)/2, _min, _max);
 	}
 
 	/* *************************************************************************

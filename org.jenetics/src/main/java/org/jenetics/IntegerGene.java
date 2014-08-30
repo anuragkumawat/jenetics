@@ -124,7 +124,7 @@ public final class IntegerGene
 
 	@Override
 	public IntegerGene mean(final IntegerGene that) {
-		return new IntegerGene(_value + (that._value - _value) / 2, _min, _max);
+		return new IntegerGene(_value + (that._value - _value)/2, _min, _max);
 	}
 
 	/* *************************************************************************
