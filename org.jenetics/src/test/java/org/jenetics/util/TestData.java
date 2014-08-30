@@ -32,6 +32,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -119,6 +120,10 @@ public class TestData implements Iterable<String[]> {
 	 */
 	public Stream<String[]> stream() {
 		return StreamSupport.stream(spliterator(), false);
+	}
+
+	public LongStream longStream() {
+		return stream().mapToLong(line -> Long.parseLong(line[0]));
 	}
 
 	@Override
