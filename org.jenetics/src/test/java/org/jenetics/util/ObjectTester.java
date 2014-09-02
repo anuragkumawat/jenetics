@@ -34,10 +34,10 @@ public abstract class ObjectTester<T> {
 
 	protected abstract Factory<T> factory();
 
-	protected MSeq<T> newSameObjects(final int nobjects) {
-		final MSeq<T> objects = MSeq.ofLength(nobjects);
+	protected MSeq<T> newSameObjects(final int length) {
+		final MSeq<T> objects = MSeq.ofLength(length);
 
-		for (int i = 0; i < nobjects; ++i) {
+		for (int i = 0; i < length; ++i) {
 			try (Scoped<Random> s = RandomRegistry.scope(new Random(23487589))) {
 				objects.set(i, factory().newInstance());
 			}
