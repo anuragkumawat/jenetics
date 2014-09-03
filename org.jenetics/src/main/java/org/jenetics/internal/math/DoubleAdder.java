@@ -134,6 +134,20 @@ public final class DoubleAdder
 		return this;
 	}
 
+	/**
+	 * Add the given {@code value} to this adder, using the
+	 * <a href="http://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan
+	 * summation algorithm</a>
+	 *
+	 * @param other the {@code value} to add
+	 * @return {@code this} adder, for command chaining
+	 * @throws java.lang.NullPointerException if the given {@code value} is
+	 *         {@code null}
+	 */
+	public DoubleAdder combine(final DoubleAdder other) {
+		return add(other);
+	}
+
 	public double value() {
 		final double result =  _sum + _compensation;
 		return isNaN(result) && isInfinite(_simpleSum) ? _simpleSum : result;
