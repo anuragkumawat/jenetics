@@ -40,7 +40,7 @@ public final class arithmetic {
 	 * @throws NullPointerException if the given double array is {@code null}.
 	 */
 	public static double[] normalize(final double[] values) {
-		final double sum = 1.0/statistics.sum(values);
+		final double sum = 1.0/DoubleAdder.sum(values);
 		for (int i = values.length; --i >= 0;) {
 			values[i] = values[i]*sum;
 		}

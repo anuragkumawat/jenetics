@@ -26,7 +26,7 @@ import static org.jenetics.internal.math.statistics.min;
 
 import java.util.Arrays;
 
-import org.jenetics.internal.math.statistics;
+import org.jenetics.internal.math.DoubleAdder;
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
@@ -71,7 +71,7 @@ public class RouletteWheelSelector<
 		}
 
 		final double worst = Math.min(min(probabilities), 0.0);
-		final double sum = statistics.sum(probabilities) - worst*population.size();
+		final double sum = DoubleAdder.sum(probabilities) - worst*population.size();
 
 		if (abs(ulpDistance(sum, 0.0)) > MAX_ULP_DISTANCE) {
 			for (int i = population.size(); --i >= 0;) {
