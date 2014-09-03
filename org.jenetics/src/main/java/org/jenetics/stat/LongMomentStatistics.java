@@ -106,11 +106,13 @@ public class LongMomentStatistics
 	 * @throws java.lang.NullPointerException if the other statistical summary
 	 *         is {@code null}.
 	 */
-	public void combine(final LongMomentStatistics other) {
+	public LongMomentStatistics combine(final LongMomentStatistics other) {
 		super.combine(other);
 		_min = min(_min, other._min);
 		_max = max(_max, other._max);
 		_sum += other._sum;
+
+		return this;
 	}
 
 	/**
@@ -167,7 +169,7 @@ public class LongMomentStatistics
 		return Collector.of(
 			LongMomentStatistics::new,
 			(r, t) -> r.accept(mapper.applyAsLong(t)),
-			(a, b) -> {a.combine(b); return a;}
+			LongMomentStatistics::combine
 		);
 	}
 
