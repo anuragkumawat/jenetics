@@ -31,7 +31,7 @@ import java.util.function.Supplier;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class Lazy<T> implements Supplier<T>, Serializable {
+public final class Lazy<T> implements Supplier<T>, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final Supplier<T> _supplier;
