@@ -209,11 +209,11 @@ public final class statistics {
 		return a != null ? b != null ? a.compareTo(b) >= 0 ? a : b : a : b;
 	}
 
-	public static <C> C min(final Comparator<C> comp, final C a, final C b) {
+	public static <C> C min(final Comparator<? super C> comp, final C a, final C b) {
 		return a != null ? b != null ? comp.compare(a, b) <= 0 ? a : b : a : b;
 	}
 
-	public static <C> C max(final Comparator<C> comp, final C a, final C b) {
+	public static <C> C max(final Comparator<? super C> comp, final C a, final C b) {
 		return a != null ? b != null ? comp.compare(a, b) >= 0 ? a : b : a : b;
 	}
 
