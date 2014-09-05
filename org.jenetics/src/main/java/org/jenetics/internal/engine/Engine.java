@@ -24,8 +24,11 @@ import static java.util.Objects.requireNonNull;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.jenetics.internal.util.Concurrency;
+import org.jenetics.internal.util.ObjectRef;
 import org.jenetics.internal.util.require;
 
 import org.jenetics.Alterer;
@@ -116,6 +119,10 @@ public class Engine<
 		_executor = new TimedExecutor(requireNonNull(executor));
 	}
 
+	public Optimize getOptimize() {
+		return _optimize;
+	}
+
 	public EvolutionStart<G, C> evolutionStart() {
 		final int generation = 1;
 		final int size = _offspringCount + _survivorsCount;
@@ -196,6 +203,7 @@ public class Engine<
 			filteredOffspring.join().get().getInvalidCount();
 
 		return EvolutionResult.of(
+			_optimize,
 			result.get(),
 			start.getGeneration(),
 			durations,
@@ -261,6 +269,15 @@ public class Engine<
 		return population;
 	}
 
+	public Stream<EvolutionResult<G, C>> stream(final int generations) {
+		final ObjectRef<EvolutionStart<G, C>> start = new ObjectRef<>(evolutionStart());
+
+		return IntStream.range(0, generations).mapToObj(i -> {
+			final EvolutionResult<G, C> result = evolve(start.value);
+			start.value = result.next();
+			return result;
+		});
+	}
 
 
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
