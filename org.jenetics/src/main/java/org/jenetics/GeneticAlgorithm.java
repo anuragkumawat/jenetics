@@ -942,6 +942,11 @@ public class GeneticAlgorithm<
 		return _generation;
 	}
 
+	/**
+	 * Return the optimization strategy.
+	 *
+	 * @return the optimization strategy
+	 */
 	public Optimize getOptimization() {
 		return _optimization;
 	}
