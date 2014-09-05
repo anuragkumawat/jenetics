@@ -29,7 +29,7 @@ import static org.jenetics.internal.util.IndexSorter.sort;
 import java.util.Random;
 import java.util.function.Function;
 
-import org.jenetics.internal.math.statistics;
+import org.jenetics.internal.math.DoubleAdder;
 import org.jenetics.internal.util.array;
 
 import org.jenetics.util.RandomRegistry;
@@ -187,7 +187,7 @@ public abstract class ProbabilitySelector<
 	 *         range, {@code false} otherwise.
 	 */
 	static boolean sum2one(final double[] probabilities) {
-		final double sum = statistics.sum(probabilities);
+		final double sum = DoubleAdder.sum(probabilities);
 		return abs(ulpDistance(sum, 1.0)) < MAX_ULP_DISTANCE;
 	}
 

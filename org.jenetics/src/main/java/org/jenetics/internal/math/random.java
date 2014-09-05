@@ -297,8 +297,8 @@ public final class random {
 			));
 		}
 
-		return nextBigInteger(random, max.subtract(min).add(BigInteger.ONE))
-			.add(min);
+		final BigInteger n = max.subtract(min).add(BigInteger.ONE);
+		return nextBigInteger(random, n).add(min);
 	}
 
 	public static BigInteger nextBigInteger(final Random random) {

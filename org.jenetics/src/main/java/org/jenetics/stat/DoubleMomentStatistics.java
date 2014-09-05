@@ -99,11 +99,13 @@ public class DoubleMomentStatistics
 	 * @throws java.lang.NullPointerException if the other statistical summary
 	 *         is {@code null}.
 	 */
-	public void combine(final DoubleMomentStatistics other) {
+	public DoubleMomentStatistics combine(final DoubleMomentStatistics other) {
 		super.combine(other);
 		_min = min(_min, other._min);
 		_max = max(_max, other._max);
 		_sum.add(other._sum);
+
+		return this;
 	}
 
 	/**
@@ -168,7 +170,7 @@ public class DoubleMomentStatistics
 		return Collector.of(
 			DoubleMomentStatistics::new,
 			(r, t) -> r.accept(mapper.applyAsDouble(t)),
-			(a, b) -> {a.combine(b); return a;}
+			DoubleMomentStatistics::combine
 		);
 	}
 
