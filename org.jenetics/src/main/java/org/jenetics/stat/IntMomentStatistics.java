@@ -92,6 +92,7 @@ public class IntMomentStatistics
 	 *
 	 * @param other the other {@code IntMoments} statistics to combine with
 	 *        {@code this} one.
+	 * @return {@code this} statistics object
 	 * @throws java.lang.NullPointerException if the other statistical summary
 	 *         is {@code null}.
 	 */
