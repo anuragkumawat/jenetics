@@ -35,7 +35,7 @@ import org.jenetics.internal.util.Hash;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class EvolutionDurations implements Serializable {
+public final class EvolutionDurations implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final Duration _offspringSelectionDuration;
