@@ -28,6 +28,9 @@ import java.util.function.Consumer;
 import java.util.stream.Collector;
 
 /**
+ * This <i>consumer</i> class is used for calculating the min and max value
+ * according to the given {@code Comparator}.
+ *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
