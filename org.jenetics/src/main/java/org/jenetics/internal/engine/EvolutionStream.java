@@ -20,15 +20,12 @@
 package org.jenetics.internal.engine;
 
 import java.util.Comparator;
-import java.util.function.BinaryOperator;
-import java.util.stream.Stream;
 
 import org.jenetics.DoubleChromosome;
 import org.jenetics.DoubleGene;
 import org.jenetics.Gene;
 import org.jenetics.Genotype;
 import org.jenetics.Optimize;
-import org.jenetics.Phenotype;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

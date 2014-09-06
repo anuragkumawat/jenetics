@@ -19,8 +19,6 @@
  */
 package org.jenetics.stat;
 
-import static org.jenetics.internal.math.statistics.φ;
-
 import java.util.Arrays;
 
 /**
