@@ -242,8 +242,8 @@ public final class EvolutionResult<
 
 		return Collector.of(
 			() -> MinMax.of(comparator),
-			(r, t) -> r.accept(t),
-			(a, b) -> {a.combine(b); return a;},
+			MinMax::accept,
+			MinMax::combine,
 			MinMax::getMax
 		);
 	}
@@ -256,8 +256,8 @@ public final class EvolutionResult<
 
 		return Collector.of(
 			() -> MinMax.of(comparator),
-			(r, t) -> r.accept(t),
-			(a, b) -> {a.combine(b); return a;},
+			MinMax::accept,
+			MinMax::combine,
 			MinMax::getMin
 		);
 	}
