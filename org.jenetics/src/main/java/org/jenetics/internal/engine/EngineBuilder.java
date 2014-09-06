@@ -29,7 +29,6 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.function.Function;
 
 import org.jenetics.Alterer;
-import org.jenetics.CompositeAlterer;
 import org.jenetics.Gene;
 import org.jenetics.Genotype;
 import org.jenetics.Mutator;
@@ -58,7 +57,7 @@ public class EngineBuilder<
 	private Function<? super C, ? extends C> _fitnessScaler = Function.identity();
 	private Selector<G, C> _survivorsSelector = new TournamentSelector<>(3);
 	private Selector<G, C> _offspringSelector = new TournamentSelector<>(3);
-	private Alterer<G, C> _alterer = CompositeAlterer.of(
+	private Alterer<G, C> _alterer = Alterer.of(
 		new SinglePointCrossover<G, C>(0.2),
 		new Mutator<G, C>(0.15)
 	);;

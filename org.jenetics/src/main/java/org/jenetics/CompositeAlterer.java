@@ -24,7 +24,9 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.Equality.eq;
 import static org.jenetics.util.ISeq.toISeq;
 
+import java.util.Objects;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.jenetics.internal.util.Equality;
@@ -40,7 +42,7 @@ import org.jenetics.util.Seq;
  * @since 1.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class CompositeAlterer<
+final class CompositeAlterer<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
@@ -111,7 +113,12 @@ public final class CompositeAlterer<
 
 	@Override
 	public String toString() {
-		return format("%s[%s]", getClass().getSimpleName(), _alterers);
+		return format(
+			"%s:\n%s", getClass().getSimpleName(),
+			_alterers.stream()
+				.map(a -> "   - " + a.toString())
+				.collect(Collectors.joining("\n"))
+		);
 	}
 
 	/**
