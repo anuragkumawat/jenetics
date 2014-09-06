@@ -20,11 +20,11 @@
 package org.jenetics;
 
 import static java.util.Objects.requireNonNull;
-import static org.jenetics.internal.math.statistics.max;
-import static org.jenetics.internal.math.statistics.min;
 
 import java.util.IntSummaryStatistics;
 import java.util.function.Consumer;
+
+import org.jenetics.stat.MinMax;
 
 /**
  * @param <G> the gene type
@@ -58,14 +58,14 @@ final class PopulationSummaryStatistics<
 
 	@Override
 	public void accept(final Phenotype<G, C> phenotype) {
-		_best = max(_optimize::compare, _best, phenotype);
-		_worst = min(_optimize::compare, _worst, phenotype);
+		_best = MinMax.max(_optimize::compare, _best, phenotype);
+		_worst = MinMax.min(_optimize::compare, _worst, phenotype);
 		_ageSummary.accept(phenotype.getAge(_currentGeneration));
 	}
 
 	public void combine(final PopulationSummaryStatistics<G, C> other) {
-		_best = max(_optimize::compare, _best, other._best);
-		_worst = min(_optimize::compare, _worst, other._worst);
+		_best = MinMax.max(_optimize::compare, _best, other._best);
+		_worst = MinMax.min(_optimize::compare, _worst, other._worst);
 		_ageSummary.combine(other._ageSummary);
 	}
 

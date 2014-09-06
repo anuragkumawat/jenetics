@@ -23,7 +23,7 @@ import static java.lang.Math.exp;
 import static java.lang.String.format;
 import static org.jenetics.internal.math.arithmetic.divide;
 import static org.jenetics.internal.math.arithmetic.normalize;
-import static org.jenetics.internal.math.statistics.max;
+import static org.jenetics.stat.MinMax.max;
 import static org.jenetics.internal.util.Equality.eq;
 
 import org.jenetics.internal.util.Equality;
