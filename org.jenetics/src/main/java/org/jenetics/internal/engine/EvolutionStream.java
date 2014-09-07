@@ -62,8 +62,8 @@ public class EvolutionStream {
 
 
 		final double best = engine.stream(105)
-			.min(EvolutionResult::compareTo)
-			.map(EvolutionResult::getWorstPhenotype)
+			.max(EvolutionResult::compareTo)
+			.map(EvolutionResult::getBestPhenotype)
 			.map(r -> r.getGenotype().getGene().getAllele())
 			.orElse(0.0);
 
