@@ -90,13 +90,13 @@ public final class Engine<
 	Engine(
 		final Function<? super Genotype<G>, ? extends C> fitnessFunction,
 		final Function<? super C, ? extends C> fitnessScaler,
-        final Factory<Genotype<G>> genotypeFactory,
+		final Factory<Genotype<G>> genotypeFactory,
 		final Selector<G, C> survivorsSelector,
 		final Selector<G, C> offspringSelector,
 		final Alterer<G, C> alterer,
 		final Optimize optimize,
-        final int offspringCount,
-        final int survivorsCount,
+		final int offspringCount,
+		final int survivorsCount,
 		final int maximalPhenotypeAge,
 		final Executor executor
 	) {
