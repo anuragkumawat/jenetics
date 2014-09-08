@@ -23,13 +23,8 @@
  * @version 2.0 &mdash; <em>$Date$</em>
  */
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'me.champeau.gradle:jmh-gradle-plugin:0.1.2'
-    }
+plugins {
+    id "me.champeau.gradle.jmh" version "0.1.2"
 }
 
 apply plugin: 'packaging'
@@ -37,7 +32,7 @@ apply plugin: 'nexus'
 apply plugin: 'me.champeau.gradle.jmh'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     jcenter()
 }
 
