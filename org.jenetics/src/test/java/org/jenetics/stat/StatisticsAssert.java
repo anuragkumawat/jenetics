@@ -107,7 +107,7 @@ public final class StatisticsAssert {
 	public static <C extends Comparable<? super C>> void assertUniformDistribution(
 		final Histogram<C> histogram
 	) {
-		final double[] expected = distribution.uniform(histogram.length());
+		final double[] expected = dist.uniform(histogram.length());
 		assertDistribution(histogram, expected);
 	}
 

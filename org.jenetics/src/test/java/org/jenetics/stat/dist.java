@@ -25,8 +25,8 @@ import java.util.Arrays;
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
  */
-public final class distribution {
-	private distribution() {}
+public final class dist {
+	private dist() {}
 
 	public static double[] uniform(final int length) {
 		final double[] array = new double[length];
