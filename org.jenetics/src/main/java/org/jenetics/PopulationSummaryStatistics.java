@@ -63,10 +63,14 @@ final class PopulationSummaryStatistics<
 		_ageSummary.accept(phenotype.getAge(_currentGeneration));
 	}
 
-	public void combine(final PopulationSummaryStatistics<G, C> other) {
+	public PopulationSummaryStatistics<G, C> combine(
+		final PopulationSummaryStatistics<G, C> other
+	) {
 		_best = MinMax.max(_optimize::compare, _best, other._best);
 		_worst = MinMax.min(_optimize::compare, _worst, other._worst);
 		_ageSummary.combine(other._ageSummary);
+
+		return this;
 	}
 
 	public Optimize getOptimize() {

@@ -193,7 +193,7 @@ public final class PopulationSummary<
 	 * @return a new population summary collector
 	 */
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-	Collector<Phenotype<G, C>, ?, PopulationSummary<G, C>> collector(
+	Collector<Phenotype<G, C>, ?, PopulationSummary<G, C>> toSummary(
 		final Optimize optimize,
 		final int generation
 	) {
@@ -204,7 +204,7 @@ public final class PopulationSummary<
 		>of(
 			() -> new PopulationSummaryStatistics<>(optimize, generation),
 			PopulationSummaryStatistics::accept,
-			(a, b) -> {a.combine(b); return a;},
+			PopulationSummaryStatistics::combine,
 			PopulationSummary::of
 		);
 	}

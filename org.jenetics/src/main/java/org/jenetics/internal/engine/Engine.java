@@ -23,6 +23,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
+import java.util.function.DoubleFunction;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
@@ -32,6 +33,9 @@ import org.jenetics.internal.util.Concurrency;
 import org.jenetics.internal.util.require;
 
 import org.jenetics.Alterer;
+import org.jenetics.Chromosome;
+import org.jenetics.DoubleChromosome;
+import org.jenetics.DoubleGene;
 import org.jenetics.Gene;
 import org.jenetics.Genotype;
 import org.jenetics.Optimize;
@@ -384,6 +388,22 @@ public final class Engine<
 		final Function<? super Genotype<G>, ? extends C> fitnessFunction
 	) {
 		return new EngineBuilder<>(genotypeFactory, fitnessFunction);
+	}
+
+
+	public static <C extends Comparable<? super C>>
+	EngineBuilder<DoubleGene, C> newBuilder(
+		final DoubleFunction<? extends C> fitnessFunction,
+		final double min, final double max
+	) {
+		final Function<? super Genotype<DoubleGene>, ? extends C> ff = gt ->
+			fitnessFunction.apply(gt.getGene().doubleValue());
+
+		final Factory<Genotype<DoubleGene>> gtf = Genotype.of(
+			DoubleChromosome.of(min, max)
+		);
+
+		return new EngineBuilder<>(gtf, ff);
 	}
 
 }
