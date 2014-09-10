@@ -31,6 +31,7 @@ import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.Lazy;
 
 import org.jenetics.Gene;
+import org.jenetics.Genotype;
 import org.jenetics.Optimize;
 import org.jenetics.Phenotype;
 import org.jenetics.Population;
@@ -246,10 +247,14 @@ public final class EvolutionResult<
 	 *  Some static factory methods.
 	 * ************************************************************************/
 
-	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-	Comparator<EvolutionResult<G, C>> max(final Optimize opt) {
-		return  (a, b) ->
-			opt.compare(a.getBestPhenotype(), b.getBestPhenotype());
+	private static <G extends Gene<?, G>, C extends Comparable<? super C>>
+	Comparator<EvolutionResult<G, C>> bestComparator(final Optimize opt) {
+		return (a, b) -> opt.compare(a.getBestPhenotype(), b.getBestPhenotype());
+	}
+
+	private static <G extends Gene<?, G>, C extends Comparable<? super C>>
+	Comparator<EvolutionResult<G, C>> worstComparator(final Optimize opt) {
+		return (a, b) -> opt.compare(a.getWorstPhenotype(), b.getWorstPhenotype());
 	}
 
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
@@ -263,6 +268,34 @@ public final class EvolutionResult<
 			MinMax::accept,
 			MinMax::combine,
 			MinMax::getMax
+		);
+	}
+
+	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
+	Collector<EvolutionResult<G, C>, ?, Phenotype<G, C>>
+	bestPhenotype(final Optimize opt) {
+		final Comparator<EvolutionResult<G, C>> comparator = (a, b) ->
+			opt.compare(a.getBestPhenotype(), b.getBestPhenotype());
+
+		return Collector.of(
+			() -> MinMax.of(comparator),
+			MinMax::accept,
+			MinMax::combine,
+			mm -> mm.getMax().getBestPhenotype()
+		);
+	}
+
+	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
+	Collector<EvolutionResult<G, C>, ?, Genotype<G>>
+	bestGenotype(final Optimize opt) {
+		final Comparator<EvolutionResult<G, C>> comparator = (a, b) ->
+			opt.compare(a.getBestPhenotype(), b.getBestPhenotype());
+
+		return Collector.of(
+			() -> MinMax.of(comparator),
+			MinMax::accept,
+			MinMax::combine,
+			mm -> mm.getMax().getBestPhenotype().getGenotype()
 		);
 	}
 
