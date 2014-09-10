@@ -17,13 +17,16 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics;
+package org.jenetics.internal.engine;
 
 import static java.util.Objects.requireNonNull;
 
 import java.util.IntSummaryStatistics;
 import java.util.function.Consumer;
 
+import org.jenetics.Gene;
+import org.jenetics.Optimize;
+import org.jenetics.Phenotype;
 import org.jenetics.stat.MinMax;
 
 /**
