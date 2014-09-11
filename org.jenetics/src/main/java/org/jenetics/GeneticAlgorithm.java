@@ -177,8 +177,8 @@ public class GeneticAlgorithm<
 
 	// Alterers
 	private Alterer<G, C> _alterer = CompositeAlterer.of(
-		new SinglePointCrossover<G, C>(0.1),
-		new Mutator<G, C>(0.05)
+		new SinglePointCrossover<G, C>(0.2),
+		new Mutator<G, C>(0.15)
 	);
 
 	// Selectors
