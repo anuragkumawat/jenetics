@@ -21,9 +21,9 @@ package org.jenetics.internal.collection;
 
 import static java.util.Spliterator.IMMUTABLE;
 import static java.util.Spliterator.ORDERED;
-import static java.util.Spliterators.spliterator;
 
 import java.util.Arrays;
+import java.util.Spliterators;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -74,7 +74,7 @@ public final class ObjectArrayProxy<T>
 	@Override
 	public Stream<T> stream() {
 		return StreamSupport.stream(
-			spliterator(array, start, end, ORDERED | IMMUTABLE),
+			Spliterators.spliterator(array, start, end, ORDERED|IMMUTABLE),
 			false
 		);
 	}
@@ -82,7 +82,7 @@ public final class ObjectArrayProxy<T>
 	@Override
 	public Stream<T> parallelStream() {
 		return StreamSupport.stream(
-			spliterator(array, start, end, ORDERED | IMMUTABLE),
+			Spliterators.spliterator(array, start, end, ORDERED | IMMUTABLE),
 			true
 		);
 	}
