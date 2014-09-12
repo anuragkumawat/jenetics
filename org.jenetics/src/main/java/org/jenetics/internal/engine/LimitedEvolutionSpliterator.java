@@ -64,6 +64,7 @@ final class LimitedEvolutionSpliterator<
 		if (_generation < _generations) {
 			final EvolutionResult<G, C> result = _evolution.apply(_start);
 			action.accept(result);
+			_start = result.next();
 
 			++_generation;
 			if (_generation < _generations) {
