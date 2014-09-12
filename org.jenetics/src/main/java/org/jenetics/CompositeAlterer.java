@@ -80,17 +80,6 @@ final class CompositeAlterer<
 	}
 
 	/**
-	 * Create a new CompositeAlterer with the given alterer appended.
-	 *
-	 * @param alterer the alterer to append.
-	 * @return a new CompositeAlterer.
-	 * @throws NullPointerException if the given alterer is {@code null}.
-	 */
-	public CompositeAlterer<G, C> append(final Alterer<G, C> alterer) {
-		return CompositeAlterer.of(this, requireNonNull(alterer, "Alterer"));
-	}
-
-	/**
 	 * Return the alterers this alterer consists of. The returned array is sealed
 	 * and cannot be changed.
 	 *
