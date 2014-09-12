@@ -61,7 +61,7 @@ public final class ArrayProxySpliterator<T> implements Spliterator<T> {
 			(i = _index) >= 0 && i < (_index = hi))
 		{
 			do {
-				action.accept(_proxy.__get(i));
+				action.accept(proxy.__get(i));
 			} while (++i < hi);
 		}
 	}

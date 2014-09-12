@@ -55,15 +55,15 @@ public class SeqSpliterator<T> implements Spliterator<T> {
 	public void forEachRemaining(final Consumer<? super T> action) {
 		requireNonNull(action);
 
-		Seq<T> proxy;
+		Seq<T> seq;
 		int i;
 		int hi;
 
-		if ((proxy = _seq).length() >= (hi = _fence) &&
+		if ((seq = _seq).length() >= (hi = _fence) &&
 			(i = _index) >= 0 && i < (_index = hi))
 		{
 			do {
-				action.accept(_seq.get(i));
+				action.accept(seq.get(i));
 			} while (++i < hi);
 		}
 	}
