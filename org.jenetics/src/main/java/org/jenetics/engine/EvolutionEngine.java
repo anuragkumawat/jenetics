@@ -19,8 +19,6 @@
  */
 package org.jenetics.engine;
 
-import static java.lang.Math.round;
-import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 
 import java.util.concurrent.CompletableFuture;
