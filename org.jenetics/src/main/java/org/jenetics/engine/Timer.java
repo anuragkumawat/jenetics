@@ -34,7 +34,7 @@ import org.jenetics.internal.util.NanoClock;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class Timer {
+final class Timer {
 
 	private final Clock _clock;
 

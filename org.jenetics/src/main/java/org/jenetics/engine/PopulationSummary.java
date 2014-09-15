@@ -43,7 +43,7 @@ import org.jenetics.stat.IntSummary;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class PopulationSummary<
+final class PopulationSummary<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >

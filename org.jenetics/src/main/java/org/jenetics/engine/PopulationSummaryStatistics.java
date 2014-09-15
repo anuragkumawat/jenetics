@@ -37,7 +37,7 @@ import org.jenetics.stat.MinMax;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class PopulationSummaryStatistics<
+final class PopulationSummaryStatistics<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >

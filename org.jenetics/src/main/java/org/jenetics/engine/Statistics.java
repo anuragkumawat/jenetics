@@ -38,7 +38,7 @@ import org.jenetics.Phenotype;
  * @since 1.0
  * @version 2.0 &mdash; <em>$Date$</em>
  */
-public class Statistics<
+class Statistics<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
