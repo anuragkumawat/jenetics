@@ -35,7 +35,7 @@ import org.jenetics.Gene;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-final class UnlimitedEvolutionSpliterator<
+public final class UnlimitedEvolutionSpliterator<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
@@ -47,7 +47,7 @@ final class UnlimitedEvolutionSpliterator<
 
 	private EvolutionStart<G, C> _start;
 
-	UnlimitedEvolutionSpliterator(
+	public UnlimitedEvolutionSpliterator(
 		final Function<EvolutionStart<G, C>, EvolutionResult<G, C>> evolution,
 		final Supplier<EvolutionStart<G, C>> initial
 	) {

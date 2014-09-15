@@ -47,7 +47,7 @@ import java.util.stream.Stream;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-abstract class StreamProxy<T> implements Stream<T> {
+public abstract class StreamProxy<T> implements Stream<T> {
 
 	protected final Stream<T> _proxy;
 

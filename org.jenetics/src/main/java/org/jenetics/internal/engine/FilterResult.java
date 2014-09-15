@@ -40,7 +40,7 @@ import org.jenetics.Population;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-final class FilterResult<
+public final class FilterResult<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >

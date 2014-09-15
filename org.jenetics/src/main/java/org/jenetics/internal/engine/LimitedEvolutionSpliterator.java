@@ -34,7 +34,7 @@ import org.jenetics.Gene;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-final class LimitedEvolutionSpliterator<
+public final class LimitedEvolutionSpliterator<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
