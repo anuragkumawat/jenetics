@@ -17,43 +17,30 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.engine;
-
-import static java.util.Objects.requireNonNull;
-import static java.util.concurrent.CompletableFuture.supplyAsync;
-
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
-import java.util.function.Function;
-import java.util.function.Supplier;
+package org.jenetics.engine;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class TimedExecutor {
-	private final Executor _executor;
+public class EvolutionCollector {
 
-	public TimedExecutor(final Executor executor) {
-		_executor = requireNonNull(executor);
+
+	private static final class Result<C extends Comparable<? super C>> {
+
 	}
 
-	public <T> CompletableFuture<TimedResult<T>> async(
-		final Supplier<T> supplier
-	) {
-		return supplyAsync(TimedResult.of(supplier), _executor);
-	}
+//	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
+//	Collector<EvolutionResult<G, C>, ?, C> best() {
+//
+//
+//		return Collector.of(
+//			(Supplier<List<C>>)ArrayList::new,
+//			(list, result) -> list.add(result.getPopulation()),
+//			(left, right) -> { left.addAll(right); return left; },
+//			list -> list.stream().collect(null)
+//		);
+//	}
 
-	public <U, T> CompletableFuture<TimedResult<T>> thenApply(
-		final CompletableFuture<U> result,
-		final Function<U, T> function
-	) {
-		return result.thenApplyAsync(TimedResult.of(function), _executor);
-	}
-
-
-	public Executor get() {
-		return _executor;
-	}
 }

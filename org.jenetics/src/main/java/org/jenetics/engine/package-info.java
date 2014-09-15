@@ -17,30 +17,10 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.engine;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class EvolutionCollector {
-
-
-	private static final class Result<C extends Comparable<? super C>> {
-
-	}
-
-//	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-//	Collector<EvolutionResult<G, C>, ?, C> best() {
-//
-//
-//		return Collector.of(
-//			(Supplier<List<C>>)ArrayList::new,
-//			(list, result) -> list.add(result.getPopulation()),
-//			(left, right) -> { left.addAll(right); return left; },
-//			list -> list.stream().collect(null)
-//		);
-//	}
-
-}
+package org.jenetics.engine;
