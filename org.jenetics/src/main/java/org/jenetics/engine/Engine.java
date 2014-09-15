@@ -32,7 +32,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 import org.jenetics.internal.util.Concurrency;
 import org.jenetics.internal.util.require;
@@ -59,7 +58,7 @@ import org.jenetics.util.Factory;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class EvolutionEngine<
+public final class Engine<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
@@ -118,7 +117,7 @@ public final class EvolutionEngine<
 	 * @throws IllegalArgumentException if the given integer values are smaller
 	 *         than one.
 	 */
-	EvolutionEngine(
+	Engine(
 		final Function<? super Genotype<G>, ? extends C> fitnessFunction,
 		final Function<? super C, ? extends C> fitnessScaler,
 		final Factory<Genotype<G>> genotypeFactory,
@@ -633,8 +632,8 @@ public final class EvolutionEngine<
 			return this;
 		}
 
-		public EvolutionEngine<G, C> build() {
-			return new EvolutionEngine<>(
+		public Engine<G, C> build() {
+			return new Engine<>(
 				_fitnessFunction,
 				_fitnessScaler,
 				_genotypeFactory,
