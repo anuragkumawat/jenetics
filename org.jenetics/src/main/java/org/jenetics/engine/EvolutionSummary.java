@@ -29,7 +29,7 @@ import org.jenetics.stat.IntSummary;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public class EvolutionResultSummary<
+public class EvolutionSummary<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 >
