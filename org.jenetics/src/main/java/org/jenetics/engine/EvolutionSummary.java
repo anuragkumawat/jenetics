@@ -19,10 +19,12 @@
  */
 package org.jenetics.engine;
 
+import java.util.IntSummaryStatistics;
 import java.util.function.Consumer;
 
 import org.jenetics.Gene;
 import org.jenetics.stat.IntSummary;
+import org.jenetics.stat.MinMax;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -36,12 +38,42 @@ public class EvolutionSummary<
 	implements Consumer<EvolutionResult<G, C>>
 {
 
-	private IntSummary _killedSummary;
-	private IntSummary _invalidSummary;
+	private IntSummaryStatistics _killedStatistics = new IntSummaryStatistics();
+	private IntSummaryStatistics _invalidStatistics = new IntSummaryStatistics();
+	private IntSummaryStatistics _alterStatistics = new IntSummaryStatistics();
+
+	private MinMax<PopulationSummary<G, C>> _populationSummary =
+		MinMax.of((a, b) -> a.getBest().compareTo(b.getBest()));
 
 	@Override
 	public void accept(final EvolutionResult<G, C> result) {
+		_killedStatistics.accept(result.getKillCount());
+		_invalidStatistics.accept(result.getInvalidCount());
+		_alterStatistics.accept(result.getAlterCount());
 
+		final PopulationSummaryStatistics<G, C> populationStatistics =
+			new PopulationSummaryStatistics<>(
+				result.getOptimize(),
+				result.getGeneration()
+			);
+		result.getPopulation().forEach(populationStatistics);
+		_populationSummary.accept(PopulationSummary.of(populationStatistics));
+	}
+
+	public IntSummary getKilledMoments() {
+		return IntSummary.of(_killedStatistics);
+	}
+
+	public IntSummary getInvalidMoments() {
+		return IntSummary.of(_invalidStatistics);
+	}
+
+	public IntSummary getAlterMoments() {
+		return IntSummary.of(_alterStatistics);
+	}
+
+	public PopulationSummary<G, C> getBestPopulationSummary() {
+		return _populationSummary.getMax();
 	}
 
 }
