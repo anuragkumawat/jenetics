@@ -628,6 +628,20 @@ public final class Engine<
 		}
 
 		/**
+		 * The selector used for selecting the survivors and offspring
+		 * population. <i>Default values is set to
+		 * {@code TournamentSelector&lt;&gt;(3)}.</i>
+		 *
+		 * @param selector used for selecting survivors and offspring population
+		 * @return {@code this} builder, for command chaining
+		 */
+		public Builder<G, C> selector(final Selector<G, C> selector) {
+			_offspringSelector = requireNonNull(selector);
+			_survivorsSelector = requireNonNull(selector);
+			return this;
+		}
+
+		/**
 		 * The alterers used for alter the offspring population. <i>Default
 		 * values is set to {@code new SinglePointCrossover&lt;&gt;(0.2)}
 		 * followed by {@code new Mutator&lt;&gt;(0.15)}.</i>
