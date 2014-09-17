@@ -201,12 +201,6 @@ class TestUtils {
 	public static final Function<Genotype<DoubleGene>, Double> FF =
 		gt -> gt.getGene().getAllele();
 
-	public static GeneticAlgorithm<DoubleGene, Double> GA() {
-		return new GeneticAlgorithm<>(
-				Genotype.of(DoubleChromosome.of(0, 1)), FF
-			);
-	}
-
 
 	public static Phenotype<DoubleGene, Double> newDoublePhenotype(final double value) {
 		return Phenotype.of(Genotype.of(

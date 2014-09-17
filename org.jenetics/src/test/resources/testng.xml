@@ -75,11 +75,6 @@
 			<class name="org.jenetics.GaussianMutatorTest" />
 		</classes>
 	</test>
-	<test name="org.jenetics.GeneticAlgorithm">
-		<classes>
-			<class name="org.jenetics.GeneticAlgorithmTest" />
-		</classes>
-	</test>
 	<test name="org.jenetics.ExponentialRankSelector">
 		<classes>
 			<class name="org.jenetics.ExponentialRankSelectorTest" />
