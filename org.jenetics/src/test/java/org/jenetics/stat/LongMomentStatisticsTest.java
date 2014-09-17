@@ -19,6 +19,8 @@
  */
 package org.jenetics.stat;
 
+import static org.jenetics.stat.LongMomentStatistics.toLongMomentStatistics;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -52,7 +54,7 @@ public class LongMomentStatisticsTest {
 		numbers.forEach(expected::addValue);
 
 		final LongMomentStatistics summary = numbers.stream()
-			.collect(LongMomentStatistics.collector(Long::longValue));
+			.collect(toLongMomentStatistics(Long::longValue));
 
 		Assert.assertEquals(summary.getCount(), numbers.size());
 		assertEqualsDouble(min(summary.getMin()), expected.getMin(), 0.0);
@@ -72,7 +74,7 @@ public class LongMomentStatisticsTest {
 		numbers.forEach(expected::addValue);
 
 		final LongMomentStatistics summary = numbers.stream()
-			.collect(LongMomentStatistics.collector(Long::longValue));
+			.collect(toLongMomentStatistics(Long::longValue));
 
 		Assert.assertEquals(summary.getCount(), numbers.size());
 		assertEqualsDouble(min(summary.getMin()), expected.getMin(), 0.0);

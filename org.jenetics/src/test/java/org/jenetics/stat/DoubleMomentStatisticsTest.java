@@ -19,6 +19,8 @@
  */
 package org.jenetics.stat;
 
+import static org.jenetics.stat.DoubleMomentStatistics.toDoubleMomentStatistics;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -52,7 +54,7 @@ public class DoubleMomentStatisticsTest {
 		numbers.forEach(expected::addValue);
 
 		final DoubleMomentStatistics summary = numbers.stream()
-			.collect(DoubleMomentStatistics.collector(Double::doubleValue));
+			.collect(toDoubleMomentStatistics(Double::doubleValue));
 
 		Assert.assertEquals(summary.getCount(), numbers.size());
 		assertEqualsDouble(min(summary.getMin()), expected.getMin(), 0.0);
@@ -72,7 +74,7 @@ public class DoubleMomentStatisticsTest {
 		numbers.forEach(expected::addValue);
 
 		final DoubleMomentStatistics summary = numbers.parallelStream()
-			.collect(DoubleMomentStatistics.collector(Double::doubleValue));
+			.collect(toDoubleMomentStatistics(Double::doubleValue));
 
 		Assert.assertEquals(summary.getCount(), numbers.size());
 		assertEqualsDouble(min(summary.getMin()), expected.getMin(), 0.0);

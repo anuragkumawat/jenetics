@@ -268,7 +268,7 @@ public final class IntMoments implements Serializable {
 	 * [code]
 	 * final Stream&lt;SomeObject&gt; stream = ...
 	 * final IntMoments moments = stream
-	 *     .collect(IntMoments.collector(v -&gt; v.intValue()));
+	 *     .collect(toIntMoments(v -&gt; v.intValue()));
 	 * [/code]
 	 *
 	 * @param mapper a mapping function to apply to each element
@@ -278,12 +278,12 @@ public final class IntMoments implements Serializable {
 	 *         {@code null}
 	 */
 	public static <T> Collector<T, ?, IntMoments>
-	collector(final ToIntFunction<? super T> mapper) {
+	toIntMoments(final ToIntFunction<? super T> mapper) {
 		requireNonNull(mapper);
 		return Collector.of(
 			IntMomentStatistics::new,
 			(a, b) -> a.accept(mapper.applyAsInt(b)),
-			(a, b) -> {a.combine(b); return a;},
+			IntMomentStatistics::combine,
 			IntMoments::of
 		);
 	}

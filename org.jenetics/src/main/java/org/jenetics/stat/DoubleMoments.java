@@ -268,7 +268,7 @@ public final class DoubleMoments implements Serializable {
 	 * [code]
 	 * final Stream&lt;SomeObject&gt; stream = ...
 	 * final DoubleMoments moments = stream
-	 *     .collect(DoubleMoments.collector(v -&gt; v.doubleValue()));
+	 *     .collect(toDoubleMoments(v -&gt; v.doubleValue()));
 	 * [/code]
 	 *
 	 * @param mapper a mapping function to apply to each element
@@ -278,12 +278,12 @@ public final class DoubleMoments implements Serializable {
 	 *         {@code null}
 	 */
 	public static <T> Collector<T, ?, DoubleMoments>
-	collector(final ToDoubleFunction<? super T> mapper) {
+	toDoubleMoments(final ToDoubleFunction<? super T> mapper) {
 		requireNonNull(mapper);
 		return Collector.of(
 			DoubleMomentStatistics::new,
 			(a, b) -> a.accept(mapper.applyAsDouble(b)),
-			(a, b) -> {a.combine(b); return a;},
+			DoubleMomentStatistics::combine,
 			DoubleMoments::of
 		);
 	}

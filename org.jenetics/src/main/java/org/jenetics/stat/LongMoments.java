@@ -268,7 +268,7 @@ public final class LongMoments implements Serializable {
 	 * [code]
 	 * final Stream&lt;SomeObject&gt; stream = ...
 	 * final LongMoments moments = stream
-	 *     .collect(LongMoments.collector(v -&gt; v.longValue()));
+	 *     .collect(toLongMoments(v -&gt; v.longValue()));
 	 * [/code]
 	 *
 	 * @param mapper a mapping function to apply to each element
@@ -278,12 +278,12 @@ public final class LongMoments implements Serializable {
 	 *         {@code null}
 	 */
 	public static <T> Collector<T, ?, LongMoments>
-	collector(final ToLongFunction<? super T> mapper) {
+	toLongMoments(final ToLongFunction<? super T> mapper) {
 		requireNonNull(mapper);
 		return Collector.of(
 			LongMomentStatistics::new,
 			(a, b) -> a.accept(mapper.applyAsLong(b)),
-			(a, b) -> {a.combine(b); return a;},
+			LongMomentStatistics::combine,
 			LongMoments::of
 		);
 	}

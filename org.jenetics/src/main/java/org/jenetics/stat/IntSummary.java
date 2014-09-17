@@ -201,7 +201,7 @@ public final class IntSummary implements Serializable {
 	 * [code]
 	 * final Stream&lt;SomeObject&gt; stream = ...
 	 * final IntSummary summary = stream
-	 *     .collect(IntSummary.collector(v -&gt; v.intValue()));
+	 *     .collect(toIntSummary(v -&gt; v.intValue()));
 	 * [/code]
 	 *
 	 * @param mapper a mapping function to apply to each element
@@ -211,7 +211,7 @@ public final class IntSummary implements Serializable {
 	 *         {@code null}
 	 */
 	public static <T> Collector<T, ?, IntSummary>
-	collector(final ToIntFunction<? super T> mapper) {
+	toIntSummary(final ToIntFunction<? super T> mapper) {
 		requireNonNull(mapper);
 		return Collector.of(
 			IntSummaryStatistics::new,

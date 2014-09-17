@@ -201,7 +201,7 @@ public final class LongSummary implements Serializable {
 	 * [code]
 	 * final Stream&lt;SomeObject&gt; stream = ...
 	 * final LongSummary summary = stream
-	 *     .collect(LongSummary.collector(v -&gt; v.longValue()));
+	 *     .collect(toLongSummary(v -&gt; v.longValue()));
 	 * [/code]
 	 *
 	 * @param mapper a mapping function to apply to each element
@@ -211,7 +211,7 @@ public final class LongSummary implements Serializable {
 	 *         {@code null}
 	 */
 	public static <T> Collector<T, ?, LongSummary>
-	collector(final ToLongFunction<? super T> mapper) {
+	toLongSummary(final ToLongFunction<? super T> mapper) {
 		requireNonNull(mapper);
 		return Collector.of(
 			LongSummaryStatistics::new,
