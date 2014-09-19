@@ -34,7 +34,7 @@ import org.jenetics.Gene;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-final class TerminatingEvolutionSpliterator<
+final class EvolutionSpliterator<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
 	>
@@ -47,7 +47,7 @@ final class TerminatingEvolutionSpliterator<
 
 	private EvolutionStart<G, C> _start;
 
-	TerminatingEvolutionSpliterator(
+	EvolutionSpliterator(
 		final Function<EvolutionStart<G, C>, EvolutionResult<G, C>> evolution,
 		final Supplier<EvolutionStart<G, C>> initial,
 		final Predicate<EvolutionResult<G, C>> proceed
