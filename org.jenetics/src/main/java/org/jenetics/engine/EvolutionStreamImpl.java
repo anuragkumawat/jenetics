@@ -63,9 +63,10 @@ final class EvolutionStreamImpl<
 			evolution,
 			initial,
 			StreamSupport.stream(
-				new UnlimitedEvolutionSpliterator<>(
+				new TerminatingEvolutionSpliterator<>(
 					evolution,
-					initial
+					initial,
+					a -> true
 				),
 				false
 			)
