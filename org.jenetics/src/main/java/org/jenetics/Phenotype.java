@@ -69,11 +69,8 @@ public final class Phenotype<
 
 	private final Genotype<G> _genotype;
 
-	private transient final
-	Function<? super Genotype<G>, ? extends C> _fitnessFunction;
-
-	private transient final
-	Function<? super C, ? extends C> _fitnessScaler;
+	private final Function<? super Genotype<G>, ? extends C> _fitnessFunction;
+	private final Function<? super C, ? extends C> _fitnessScaler;
 
 	private final int _generation;
 
