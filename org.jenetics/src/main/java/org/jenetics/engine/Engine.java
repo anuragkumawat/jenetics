@@ -510,6 +510,8 @@ public final class Engine<
 	 * @param <G> the gene type
 	 * @param <C> the fitness function result type
 	 * @return a new engine builder
+	 * @throws java.lang.NullPointerException if one of the arguments is
+	 *         {@code null}.
 	 */
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
 	Builder<G, C> newBuilder(
@@ -529,6 +531,8 @@ public final class Engine<
 	 * @param <G> the gene type
 	 * @param <C> the fitness function result type
 	 * @return a new engine builder
+	 * @throws java.lang.NullPointerException if one of the arguments is
+	 *         {@code null}.
 	 */
 	@SafeVarargs
 	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
