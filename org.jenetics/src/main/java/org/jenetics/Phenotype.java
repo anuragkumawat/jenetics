@@ -65,7 +65,7 @@ public final class Phenotype<
 		Serializable,
 		Runnable
 {
-	private static final long serialVersionUID = 2L;
+	private static final long serialVersionUID = 3L;
 
 	private final Genotype<G> _genotype;
 
@@ -313,7 +313,13 @@ public final class Phenotype<
 		final Function<? super Genotype<G>, C> fitnessFunction,
 		final int generation
 	) {
-		return of(genotype, fitnessFunction, a -> a, generation);
+		return of(
+			genotype,
+			fitnessFunction,
+			fitnessFunction instanceof Serializable ?
+				(Function<? super C, ? extends C> & Serializable)a -> a :
+				a -> a,
+			generation);
 	}
 
 	/**

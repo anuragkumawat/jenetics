@@ -35,7 +35,11 @@ import org.jenetics.internal.util.Hash;
  * @since 3.0
  * @version 3.0 &mdash; <em>$Date$</em>
  */
-public final class EvolutionDurations implements Serializable {
+public final class EvolutionDurations
+	implements
+		Comparable<EvolutionDurations>,
+		Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	private final Duration _offspringSelectionDuration;
@@ -133,6 +137,21 @@ public final class EvolutionDurations implements Serializable {
 		return _evolveDuration;
 	}
 
+	/**
+	 * Compares two durations objects. Only the {@link #getEvolveDuration()}
+	 * property is taken into account for the comparison.
+	 *
+	 * @param other the other durations object this object is compared with
+	 * @return a integer smaller/equal/greater than 0 if the
+	 *         {@link #getEvolveDuration()} property of {@code this} object is
+	 *         smaller/equal/greater than the corresponding property of the
+	 *         {@code other} project.
+	 */
+	@Override
+	public int compareTo(final EvolutionDurations other) {
+		return _evolveDuration.compareTo(other._evolveDuration);
+	}
+
 	@Override
 	public int hashCode() {
 		return Hash.of(getClass())
@@ -178,7 +197,7 @@ public final class EvolutionDurations implements Serializable {
 	 * @throws NullPointerException if one of the arguments is
 	 *         {@code null}
 	 */
-	static EvolutionDurations of(
+	public static EvolutionDurations of(
 		final Duration offspringSelectionDuration,
 		final Duration survivorsSelectionDuration,
 		final Duration offspringAlterDuration,
