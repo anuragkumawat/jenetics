@@ -22,6 +22,7 @@ package org.jenetics;
 import static java.lang.Math.sin;
 import static java.lang.Math.toRadians;
 
+import java.io.Serializable;
 import java.util.function.Function;
 
 import org.jenetics.util.Factory;
@@ -34,9 +35,8 @@ import org.jenetics.util.ObjectTester;
 public class PhenotypeTest extends ObjectTester<Phenotype<DoubleGene, Double>> {
 
 	private final Function<Genotype<DoubleGene>, Double> _ff =
-		gt -> sin(toRadians(gt.getGene().getAllele()));
-
-	private final Function<Double, Double> _scaler = a -> a;
+		(Function<Genotype<DoubleGene>, Double>  & Serializable)
+			gt -> sin(toRadians(gt.getGene().getAllele()));
 
 	private final Factory<Genotype<DoubleGene>> _genotype = Genotype.of(
 		DoubleChromosome.of(0, 1, 50),
@@ -45,10 +45,9 @@ public class PhenotypeTest extends ObjectTester<Phenotype<DoubleGene, Double>> {
 		DoubleChromosome.of(0, 1, 50)
 	);
 
-
 	@Override
 	protected Factory<Phenotype<DoubleGene, Double>> factory() {
-		return () -> Phenotype.of(_genotype.newInstance(), _ff, _scaler, 0).evaluate();
+		return () -> Phenotype.of(_genotype.newInstance(), _ff, 0).evaluate();
 	}
 
 }
