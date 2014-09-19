@@ -24,7 +24,6 @@ import static org.jenetics.util.ISeq.toISeq;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.List;
 

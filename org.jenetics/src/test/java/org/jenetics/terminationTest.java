@@ -19,14 +19,6 @@
  */
 package org.jenetics;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.function.Function;
-import java.util.function.Predicate;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @version <em>$Date$</em>
