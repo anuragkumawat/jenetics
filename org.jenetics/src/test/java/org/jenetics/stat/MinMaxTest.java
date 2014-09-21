@@ -135,4 +135,30 @@ public class MinMaxTest {
 		Assert.assertEquals(minMax.getMax(), StatUtils.min(numbers));
 	}
 
+	@Test
+	public void toMinMaxNormal() {
+		final Random random = RandomRegistry.getRandom();
+		final double[] numbers = random.doubles().limit(1000).toArray();
+
+		final MinMax<Double> minMax = Arrays.stream(numbers)
+			.mapToObj(Double::new)
+			.collect(MinMax.toMinMax());
+
+		Assert.assertEquals(minMax.getMin(), StatUtils.min(numbers));
+		Assert.assertEquals(minMax.getMax(), StatUtils.max(numbers));
+	}
+
+	@Test
+	public void toMinMaxReverse() {
+		final Random random = RandomRegistry.getRandom();
+		final double[] numbers = random.doubles().limit(1000).toArray();
+
+		final MinMax<Double> minMax = Arrays.stream(numbers)
+			.mapToObj(Double::new)
+			.collect(MinMax.toMinMax((a, b) -> b.compareTo(a)));
+
+		Assert.assertEquals(minMax.getMin(), StatUtils.max(numbers));
+		Assert.assertEquals(minMax.getMax(), StatUtils.min(numbers));
+	}
+
 }
