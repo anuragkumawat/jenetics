@@ -42,6 +42,19 @@ public final class EvolutionDurations
 {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Constant for zero evolution durations.
+	 */
+	public static final EvolutionDurations ZERO = EvolutionDurations.of(
+		Duration.ZERO,
+		Duration.ZERO,
+		Duration.ZERO,
+		Duration.ZERO,
+		Duration.ZERO,
+		Duration.ZERO,
+		Duration.ZERO
+	);
+
 	private final Duration _offspringSelectionDuration;
 	private final Duration _survivorsSelectionDuration;
 	private final Duration _offspringAlterDuration;

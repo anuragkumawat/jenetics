@@ -94,7 +94,7 @@ public final class EvolutionResult<
 	}
 
 	private Phenotype<G, C> worst() {
-		return _population.stream().max(_optimize.descending()).orElse(null);
+		return _population.stream().min(_optimize.ascending()).orElse(null);
 	}
 
 	/**
