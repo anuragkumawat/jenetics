@@ -26,7 +26,6 @@ import static org.jenetics.Population.toPopulation;
 import static org.jenetics.internal.util.require.probability;
 
 import java.time.Clock;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -36,7 +35,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
-import java.util.stream.Stream.Builder;
 
 import org.jenetics.internal.util.Concurrency;
 import org.jenetics.internal.util.NanoClock;
@@ -95,25 +93,6 @@ public final class Engine<
 	C extends Comparable<? super C>
 >
 {
-
-	/**
-	 * Collects the best evolution result of an evolution stream.
-	 */
-	public final Collector<EvolutionResult<G, C>, ?, EvolutionResult<G, C>>
-		BestEvolutionResult;
-
-	/**
-	 * Collects the best phenotype of an evolution stream.
-	 */
-	public final Collector<EvolutionResult<G, C>, ?, Phenotype<G, C>>
-		BestPhenotype;
-
-	/**
-	 * Collects the best genotype of an evolution stream.
-	 */
-	public final Collector<EvolutionResult<G, C>, ?, Genotype<G>>
-		BestGenotype;
-
 
 	// Needed context for population evolving.
 	private final Function<? super Genotype<G>, ? extends C> _fitnessFunction;
@@ -179,10 +158,6 @@ public final class Engine<
 
 		_executor = new TimedExecutor(requireNonNull(executor));
 		_clock = requireNonNull(clock);
-
-		BestEvolutionResult = EvolutionResult.<G, C>best(_optimize);
-		BestPhenotype = EvolutionResult.<G, C>bestPhenotype(_optimize);
-		BestGenotype = EvolutionResult.<G, C>bestGenotype(_optimize);
 	}
 
 	/**

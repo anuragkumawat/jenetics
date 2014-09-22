@@ -19,6 +19,8 @@
  */
 package org.jenetics.example;
 
+import static org.jenetics.engine.EvolutionResult.toBestPhenotype;
+
 import org.jenetics.CharacterChromosome;
 import org.jenetics.CharacterGene;
 import org.jenetics.Genotype;
@@ -63,7 +65,7 @@ public class StringGenerator {
 			.build();
 
 		final Phenotype<CharacterGene, Integer> result = engine.stream().limit(100)
-			.collect(engine.BestPhenotype);
+			.collect(toBestPhenotype());
 
 		System.out.println(result);
 	}

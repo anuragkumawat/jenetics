@@ -22,6 +22,7 @@ package org.jenetics.example;
 import static java.lang.Math.PI;
 import static java.lang.Math.abs;
 import static java.lang.Math.sin;
+import static org.jenetics.engine.EvolutionResult.toBestPhenotype;
 
 import org.jenetics.Chromosome;
 import org.jenetics.EnumGene;
@@ -87,7 +88,7 @@ public class TravelingSalesman {
 
 		final Phenotype<EnumGene<Integer>, Double> result = engine.stream()
 			.limit(100)
-			.collect(engine.BestPhenotype);
+			.collect(toBestPhenotype());
 
 		System.out.println(result);
 	}
