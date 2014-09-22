@@ -57,7 +57,7 @@ public class EngineBuilderTest {
 		final int phenotypeAge = 340;
 
 		final Engine<DoubleGene, Double> engine = Engine
-			.newBuilder(fitnessFunction, genotypeFactory)
+			.builder(fitnessFunction, genotypeFactory)
 			.fitnessScaler(fitnessScaler)
 			.offspringSelector(offspringSelector)
 			.survivorsSelector(survivorsSelector)
