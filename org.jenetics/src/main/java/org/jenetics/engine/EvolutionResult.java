@@ -23,7 +23,6 @@ import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.Equality.eq;
 
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
