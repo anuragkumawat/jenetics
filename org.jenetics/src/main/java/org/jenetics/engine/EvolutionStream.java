@@ -52,6 +52,6 @@ public interface EvolutionStream<
 	 *         {@code null}.
 	 */
 	public Stream<EvolutionResult<G, C>>
-	limit(final Predicate<EvolutionResult<G, C>> proceed);
+	limit(final Predicate<? super EvolutionResult<G, C>> proceed);
 
 }

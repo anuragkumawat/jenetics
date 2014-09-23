@@ -43,14 +43,14 @@ final class EvolutionSpliterator<
 
 	private final Function<EvolutionStart<G, C>, EvolutionResult<G, C>> _evolution;
 	private final Supplier<EvolutionStart<G, C>> _initial;
-	private final Predicate<EvolutionResult<G, C>> _proceed;
+	private final Predicate<? super EvolutionResult<G, C>> _proceed;
 
 	private EvolutionStart<G, C> _start;
 
 	EvolutionSpliterator(
 		final Function<EvolutionStart<G, C>, EvolutionResult<G, C>> evolution,
 		final Supplier<EvolutionStart<G, C>> initial,
-		final Predicate<EvolutionResult<G, C>> proceed
+		final Predicate<? super EvolutionResult<G, C>> proceed
 	) {
 		_evolution = requireNonNull(evolution);
 		_initial = requireNonNull(initial);

@@ -75,7 +75,7 @@ final class EvolutionStreamImpl<
 
 	@Override
 	public Stream<EvolutionResult<G, C>>
-	limit(final Predicate<EvolutionResult<G, C>> terminate) {
+	limit(final Predicate<? super EvolutionResult<G, C>> terminate) {
 		return new EvolutionStreamImpl<G, C>(
 			_evolution,
 			_initial,
