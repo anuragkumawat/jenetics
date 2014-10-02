@@ -199,7 +199,7 @@ public final class DoubleMoments implements Serializable {
 	@Override
 	public String toString() {
 		return String.format(
-			"IntMoments[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s, s2=%s, S=%s, K=%s]",
+			"IntMoments[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s, s²=%s, S=%s, K=%s]",
 			getCount(), getMin(), getMax(), getSum(),
 			getMean(), getVariance(), getSkewness(), getKurtosis()
 		);

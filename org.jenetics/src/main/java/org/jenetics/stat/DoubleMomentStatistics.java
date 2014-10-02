@@ -150,7 +150,7 @@ public class DoubleMomentStatistics
 	@Override
 	public String toString() {
 		return String.format(
-			"Summary[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s, s2=%s, S=%s, K=%s]",
+			"Summary[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s, s²=%s, S=%s, K=%s]",
 			getCount(), _min, _max, _sum.doubleValue(),
 			getMean(), getVariance(), getSkewness(), getKurtosis()
 		);

@@ -154,6 +154,14 @@ public class LongMomentStatistics
 		return _sum;
 	}
 
+	@Override
+	public String toString() {
+		return String.format(
+			"LongMomentStatistics[N=%d, ∧=%s, ∨=%s, Σ=%s, μ=%s, s²=%s, S=%s, K=%s]",
+			getCount(), getMin(), getMax(), getSum(),
+			getMean(), getVariance(), getSkewness(), getKurtosis()
+		);
+	}
 
 	/**
 	 * Return a {@code Collector} which applies an long-producing mapping
