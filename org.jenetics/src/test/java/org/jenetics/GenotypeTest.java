@@ -95,10 +95,10 @@ public class GenotypeTest extends ObjectTester<Genotype<DoubleGene>> {
     @Test
     public void numberOfGenes() {
 		final Genotype<DoubleGene> genotype = Genotype.of(
-			new DoubleChromosome(0.0, 1.0, 8),
-			new DoubleChromosome(1.0, 2.0, 10),
-			new DoubleChromosome(0.0, 10.0, 9),
-			new DoubleChromosome(0.1, 0.9, 5)
+			DoubleChromosome.of(0.0, 1.0, 8),
+			DoubleChromosome.of(1.0, 2.0, 10),
+			DoubleChromosome.of(0.0, 10.0, 9),
+			DoubleChromosome.of(0.1, 0.9, 5)
 		);
 		Assert.assertEquals(genotype.getNumberOfGenes(), 32);
     }
