@@ -30,8 +30,6 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
-import java.util.stream.Stream;
-import java.util.stream.Stream.Builder;
 
 import org.jenetics.internal.collection.ArrayProxyMSeq;
 import org.jenetics.internal.collection.ObjectArrayProxy;
@@ -298,9 +296,12 @@ public interface MSeq<T> extends Seq<T>, Copyable<MSeq<T>> {
 			final Collection<T> collection = (Collection<T>)values;
 			mseq = MSeq.<T>ofLength(collection.size()).setAll(values);
 		} else {
-			final Builder<T> builder = Stream.builder();
-			values.forEach(builder::accept);
-			mseq = builder.build().collect(toMSeq());
+			int length = 0;
+			for (final T value : values) ++length;
+
+			mseq = MSeq.ofLength(length);
+			int index = 0;
+			for (final T value : values) mseq.set(index++, value);
 		}
 
 		return mseq;
