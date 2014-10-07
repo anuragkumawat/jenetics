@@ -82,7 +82,7 @@ public final class ObjectArrayProxy<T>
 	@Override
 	public Stream<T> parallelStream() {
 		return StreamSupport.stream(
-			Spliterators.spliterator(array, start, end, ORDERED | IMMUTABLE),
+			Spliterators.spliterator(array, start, end, ORDERED|IMMUTABLE),
 			true
 		);
 	}
