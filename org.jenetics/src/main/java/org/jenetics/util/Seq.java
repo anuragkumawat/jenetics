@@ -698,7 +698,7 @@ public interface Seq<T> extends Iterable<T> {
 	 */
 	public static <T> Collector<T, ?, Seq<T>> toSeq() {
 		return Collector.of(
-			(Supplier<List<T>>) ArrayList::new,
+			(Supplier<List<T>>)ArrayList::new,
 			List::add,
 			(left, right) -> { left.addAll(right); return left; },
 			Seq::of
