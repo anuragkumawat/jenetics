@@ -105,7 +105,7 @@ public interface ISeq<T>
 		return MSeq.of(values).toISeq();
 	}
 
-	public static <T> ISeq<T> of(final int length, Supplier<? extends T> supplier) {
+	public static <T> ISeq<T> of(Supplier<? extends T> supplier, final int length) {
 		return MSeq.<T>ofLength(length).fill(supplier).toISeq();
 	}
 
