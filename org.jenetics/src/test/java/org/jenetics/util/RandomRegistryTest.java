@@ -19,12 +19,19 @@
  */
 package org.jenetics.util;
 
+import static java.util.stream.Collectors.toList;
+
+import java.util.List;
 import java.util.Random;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import org.jenetics.internal.util.Concurrency;
+
+import org.jenetics.DoubleChromosome;
+import org.jenetics.DoubleGene;
+import org.jenetics.Genotype;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -131,6 +138,24 @@ public class RandomRegistryTest {
 				Assert.assertSame(c.get(), RandomRegistry.getRandom());
 			}
 		}
+	}
+
+	@Test
+	public void withScope() {
+		final List<Genotype<DoubleGene>> genotypes1 =
+			RandomRegistry.with(new LCG64ShiftRandom(123), random ->
+				Genotype.of(DoubleChromosome.of(0, 10)).instances()
+					.limit(100)
+					.collect(toList())
+			);
+		final List<Genotype<DoubleGene>> genotypes2 =
+			RandomRegistry.with(new LCG64ShiftRandom(123), random ->
+				Genotype.of(DoubleChromosome.of(0, 10)).instances()
+					.limit(100)
+					.collect(toList())
+			);
+
+		Assert.assertEquals(genotypes1, genotypes2);
 	}
 
 }
