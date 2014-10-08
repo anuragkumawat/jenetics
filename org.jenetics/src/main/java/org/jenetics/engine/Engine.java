@@ -64,6 +64,7 @@ import org.jenetics.util.Factory;
  *    }
  *
  *    public static void main(String[] args) {
+ *        // Create the engine via its builder.
  *        final Engine&lt;DoubleGene, Double&gt; engine = Engine
  *            .builder(
  *                RealFunction::evaluate,
@@ -75,12 +76,21 @@ import org.jenetics.util.Factory;
  *                new MeanAlterer&lt;&gt;(0.6))
  *            .build();
  *
+ *        // Execute the GA (engine).
  *        final Phenotype&lt;DoubleGene, Double&gt; result = engine.stream()
  *            .limit(100)
  *            .collect(toBestPhenotype());
  *     }
  * }
  * [/code]
+ *
+ * This architecture allows to decouple the configuration of the engine from the
+ * execution.
+ *
+ * @see Engine.Builder
+ * @see EvolutionResult
+ * @see EvolutionStream
+ * @see EvolutionStatistics
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
  * @since 3.0
@@ -576,6 +586,8 @@ public final class Engine<
 
 	/**
 	 * Builder class for building GA {@code Engine} instances.
+	 *
+	 * @see Engine
 	 *
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
 	 * @since 3.0
