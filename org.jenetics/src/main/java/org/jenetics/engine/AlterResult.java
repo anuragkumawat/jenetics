@@ -21,8 +21,6 @@ package org.jenetics.engine;
 
 import static java.util.Objects.requireNonNull;
 
-import java.io.Serializable;
-
 import org.jenetics.Gene;
 import org.jenetics.Population;
 
@@ -39,35 +37,17 @@ import org.jenetics.Population;
 final class AlterResult<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
->
-	implements Serializable
-{
-	private static final long serialVersionUID = 1L;
+> {
 
-	private final Population<G, C> _population;
-	private final int _alterCount;
+	final Population<G, C> population;
+	final int alterCount;
 
-	private AlterResult(
+	AlterResult(
 		final Population<G, C> population,
 		final int alterCount
 	) {
-		_population = requireNonNull(population);
-		_alterCount = alterCount;
+		this.population = requireNonNull(population);
+		this.alterCount = alterCount;
 	}
 
-	public Population<G, C> getPopulation() {
-		return _population;
-	}
-
-	public int getAlterCount() {
-		return _alterCount;
-	}
-
-	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-	AlterResult<G, C> of(
-		final Population<G, C> population,
-		final int alterCount
-	) {
-		return new AlterResult<>(population, alterCount);
-	}
 }

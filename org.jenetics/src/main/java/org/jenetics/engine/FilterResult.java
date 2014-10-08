@@ -21,8 +21,6 @@ package org.jenetics.engine;
 
 import static java.util.Objects.requireNonNull;
 
-import java.io.Serializable;
-
 import org.jenetics.Gene;
 import org.jenetics.Population;
 
@@ -39,44 +37,20 @@ import org.jenetics.Population;
 final class FilterResult<
 	G extends Gene<?, G>,
 	C extends Comparable<? super C>
->
-	implements Serializable
-{
-	private static final long serialVersionUID = 1L;
+> {
 
-	private final Population<G, C> _population;
-	private final int _killCount;
-	private final int _invalidCount;
+	final Population<G, C> population;
+	final int killCount;
+	final int invalidCount;
 
-	private FilterResult(
+	FilterResult(
 		final Population<G, C> population,
 		final int killCount,
 		final int invalidCount
 	) {
-		_population = requireNonNull(population);
-		_killCount = killCount;
-		_invalidCount = invalidCount;
-	}
-
-	public Population<G, C> getPopulation() {
-		return _population;
-	}
-
-	public int getKillCount() {
-		return _killCount;
-	}
-
-	public int getInvalidCount() {
-		return _invalidCount;
-	}
-
-	public static <G extends Gene<?, G>, C extends Comparable<? super C>>
-	FilterResult<G, C> of(
-		final Population<G, C> population,
-		final int killCount,
-		final int invalidCount
-	) {
-		return new FilterResult<>(population, killCount, invalidCount);
+		this.population = requireNonNull(population);
+		this.killCount = killCount;
+		this.invalidCount = invalidCount;
 	}
 
 }
