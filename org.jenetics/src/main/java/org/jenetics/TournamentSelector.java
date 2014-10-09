@@ -99,11 +99,7 @@ public class TournamentSelector<
 		);
 	}
 
-	private static <
-		G extends Gene<?, G>,
-		C extends Comparable<? super C>
-	>
-	Phenotype<G, C> select(
+	private Phenotype<G, C> select(
 		final Population<G, C> population,
 		final Optimize opt,
 		final int sampleSize,
