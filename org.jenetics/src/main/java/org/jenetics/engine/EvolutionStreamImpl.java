@@ -75,7 +75,7 @@ final class EvolutionStreamImpl<
 
 	@Override
 	public Stream<EvolutionResult<G, C>>
-	limit(final Predicate<? super EvolutionResult<G, C>> terminate) {
+	limit(final Predicate<? super EvolutionResult<G, C>> proceed) {
 		return new EvolutionStreamImpl<G, C>(
 			_evolution,
 			_initial,
@@ -83,7 +83,7 @@ final class EvolutionStreamImpl<
 				new EvolutionSpliterator<>(
 					_evolution,
 					_initial,
-					terminate
+					proceed
 				),
 				false
 			)
