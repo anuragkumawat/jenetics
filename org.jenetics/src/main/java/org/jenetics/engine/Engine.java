@@ -185,7 +185,7 @@ public final class Engine<
 		final Population<G, C> population,
 		final int generation
 	) {
-		return evolve(EvolutionStart.of(population, generation));
+		return evolve(new EvolutionStart<>(population, generation));
 	}
 
 	/**
@@ -200,35 +200,35 @@ public final class Engine<
 		// Select the offspring population.
 		final CompletableFuture<TimedResult<Population<G, C>>> offspring =
 			_executor.async(() ->
-				selectOffspring(start.getPopulation()),
+				selectOffspring(start.population),
 				_clock
 			);
 
 		// Select the survivor population.
 		final CompletableFuture<TimedResult<Population<G, C>>> survivors =
 			_executor.async(() ->
-				selectSurvivors(start.getPopulation()),
+				selectSurvivors(start.population),
 				_clock
 			);
 
 		// Altering the offspring population.
 		final CompletableFuture<TimedResult<AlterResult<G, C>>> alteredOffspring =
 			_executor.thenApply(offspring, p ->
-				alter(p.result, start.getGeneration()),
+				alter(p.result, start.generation),
 				_clock
 			);
 
 		// Filter and replace invalid and to old survivor individuals.
 		final CompletableFuture<TimedResult<FilterResult<G, C>>> filteredSurvivors =
 			_executor.thenApply(survivors, pop ->
-				filter(pop.result, start.getGeneration()),
+				filter(pop.result, start.generation),
 				_clock
 			);
 
 		// Filter and replace invalid and to old offspring individuals.
 		final CompletableFuture<TimedResult<FilterResult<G, C>>> filteredOffspring =
 			_executor.thenApply(alteredOffspring, pop ->
-				filter(pop.result.population, start.getGeneration()),
+				filter(pop.result.population, start.generation),
 				_clock
 			);
 
@@ -263,12 +263,12 @@ public final class Engine<
 
 		final int invalidCount =
 			filteredOffspring.join().result.invalidCount +
-			filteredOffspring.join().result.invalidCount;
+			filteredSurvivors.join().result.invalidCount;
 
 		return EvolutionResult.of(
 			_optimize,
 			result.result,
-			start.getGeneration(),
+			start.generation,
 			durations,
 			killCount,
 			invalidCount,
@@ -372,7 +372,7 @@ public final class Engine<
 		final Population<G, C> population = new Population<G, C>(size)
 			.fill(() -> newPhenotype(generation), size);
 
-		return EvolutionStart.of(population, generation);
+		return new EvolutionStart<>(population, generation);
 	}
 
 	/**
@@ -415,7 +415,7 @@ public final class Engine<
 				gt, _fitnessFunction, _fitnessScaler, generation))
 			.collect(toPopulation());
 
-		return EvolutionStart.of(pop, generation);
+		return new EvolutionStart<>(pop, generation);
 	}
 
 	/* *************************************************************************

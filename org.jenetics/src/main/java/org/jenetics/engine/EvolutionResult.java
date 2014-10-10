@@ -202,7 +202,7 @@ public final class EvolutionResult<
 	 * @return the next evolution start object
 	 */
 	EvolutionStart<G, C> next() {
-		return EvolutionStart.of(_population, _generation + 1);
+		return new EvolutionStart<>(_population, _generation + 1);
 	}
 
 	/**
