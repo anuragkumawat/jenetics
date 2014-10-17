@@ -56,8 +56,11 @@ final class RunnablesAction extends RecursiveAction {
 	public RunnablesAction(final List<? extends Runnable> runnables) {
 		this(
 			runnables instanceof RandomAccess ?
-				runnables : new ArrayList<>(runnables),
-			0, runnables.size(), null
+				runnables :
+				new ArrayList<>(runnables),
+			0,
+			runnables.size(),
+			null
 		);
 	}
 
