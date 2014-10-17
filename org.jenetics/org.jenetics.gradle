@@ -59,6 +59,7 @@ javadoc {
 
 jar.manifest.instruction('Export-Package',
 	'org.jenetics',
+	'org.jenetics.engine',
 	'org.jenetics.util',
 	'org.jenetics.stat'
 )
