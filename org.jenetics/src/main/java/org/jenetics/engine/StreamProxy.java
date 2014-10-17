@@ -49,7 +49,7 @@ import java.util.stream.Stream;
  */
 abstract class StreamProxy<T> implements Stream<T> {
 
-	final Stream<T> _self;
+	private final Stream<T> _self;
 
 	StreamProxy(final Stream<T> self) {
 		_self = requireNonNull(self);
