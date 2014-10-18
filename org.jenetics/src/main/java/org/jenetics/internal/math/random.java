@@ -393,12 +393,14 @@ public final class random {
 		final double p
 	) {
 		probability(p);
+		final int P = probability.toInt(p);
+
 		return equals(p, 0, 1E-20) ?
 			IntStream.empty() :
 			equals(p, 1, 1E-20) ?
 				IntStream.range(start, end) :
 				IntStream.range(start, end)
-					.filter(i -> random.nextInt() < probability.toInt(p));
+					.filter(i -> random.nextInt() < P);
 	}
 
 	private static
