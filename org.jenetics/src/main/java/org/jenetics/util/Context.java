@@ -17,9 +17,10 @@
  * Author:
  *    Franz Wilhelmstötter (franz.wilhelmstoetter@gmx.at)
  */
-package org.jenetics.internal.util;
+package org.jenetics.util;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 import org.jenetics.util.Scoped;
@@ -29,7 +30,7 @@ import org.jenetics.util.Scoped;
  * @version 2.0 &mdash; <em>$Date$</em>
  * @since 2.0
  */
-public final class Context<T> {
+final class Context<T> {
 
 	private final T _default;
 	private final AtomicReference<Entry<T>> _entry;
@@ -54,7 +55,7 @@ public final class Context<T> {
 		set(_default);
 	}
 
-	public <S extends T> Scoped<S> scope(final S value) {
+	public <S extends T, R> R with(final S value, final Function<S, R> f) {
 		final Entry<T> e = _threadLocalEntry.get();
 		if (e != null) {
 			_threadLocalEntry.set(e.inner(value));
@@ -62,23 +63,38 @@ public final class Context<T> {
 			_threadLocalEntry.set(new Entry<T>(value, Thread.currentThread()));
 		}
 
-		return new Scope<S, T>(value, _threadLocalEntry);
+		try {
+			return f.apply(value);
+		} finally {
+			_threadLocalEntry.set(_threadLocalEntry.get().parent);
+		}
 	}
 
-	public <S> Scoped<S> scope(final T value, final Supplier<? extends S> supplier) {
-		final Scoped<T> scoped = scope(value);
-		return new Scoped<S>() {
-			@Override
-			public S get() {
-				return supplier.get();
-			}
+//	public <S extends T> Scoped<S> scope(final S value) {
+//		final Entry<T> e = _threadLocalEntry.get();
+//		if (e != null) {
+//			_threadLocalEntry.set(e.inner(value));
+//		} else {
+//			_threadLocalEntry.set(new Entry<T>(value, Thread.currentThread()));
+//		}
+//
+//		return new Scope<S, T>(value, _threadLocalEntry);
+//	}
 
-			@Override
-			public void close() {
-				scoped.close();
-			}
-		};
-	}
+//	public <S> Scoped<S> scope(final T value, final Supplier<? extends S> supplier) {
+//		final Scoped<T> scoped = scope(value);
+//		return new Scoped<S>() {
+//			@Override
+//			public S get() {
+//				return supplier.get();
+//			}
+//
+//			@Override
+//			public void close() {
+//				scoped.close();
+//			}
+//		};
+//	}
 
 	/**
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
