@@ -147,20 +147,6 @@ public class Mutator<
 	 * Template method which gives an (re)implementation of the mutation class
 	 * the possibility to perform its own mutation operation, based on a
 	 * writable gene array and the gene mutation probability <i>p</i>.
-	 * </p>
-	 * This implementation, for example, does it in this way:
-	 * [code]
-	 * protected int mutate(final MSeq&lt;G&gt; genes, final double p) {
-	 *     final IndexStream stream = IndexStream.Random(genes.length(), p);
-	 *
-	 *     int alterations = 0;
-	 *     for (int i = stream.next(); i != -1; i = stream.next()) {
-	 *         genes.set(i, genes.get(i).newInstance());
-	 *         ++alterations;
-	 *     }
-	 *     return alterations;
-	 * }
-	 * [/code]
 	 *
 	 * @param genes the genes to mutate.
 	 * @param p the gene mutation probability.
