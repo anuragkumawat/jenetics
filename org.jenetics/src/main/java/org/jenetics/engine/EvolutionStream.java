@@ -54,4 +54,10 @@ public interface EvolutionStream<
 	public Stream<EvolutionResult<G, C>>
 	limit(final Predicate<? super EvolutionResult<G, C>> proceed);
 
+
+	public static <C extends Comparable<? super C>>
+	Predicate<EvolutionResult<?, C>> bySteadyState(final int generations) {
+		return new SteadyState<>(generations);
+	}
+
 }
