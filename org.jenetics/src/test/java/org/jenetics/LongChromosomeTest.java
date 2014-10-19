@@ -20,6 +20,7 @@
 package org.jenetics;
 
 import static org.jenetics.stat.StatisticsAssert.assertUniformDistribution;
+import static org.jenetics.util.RandomRegistry.using;
 
 import java.util.Random;
 
@@ -28,8 +29,6 @@ import org.testng.annotations.Test;
 
 import org.jenetics.stat.Histogram;
 import org.jenetics.stat.MinMax;
-import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.Scoped;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -50,8 +49,7 @@ public class LongChromosomeTest
 
 	@Test(invocationCount = 20, successPercentage = 95)
 	public void newInstanceDistribution() {
-		try (Scoped<?> s = RandomRegistry.scope(new Random(12345))) {
-
+		using(new Random(12345), r -> {
 			final long min = 0;
 			final long max = 10000000;
 
@@ -69,7 +67,7 @@ public class LongChromosomeTest
 			Assert.assertTrue(mm.getMin().compareTo(0L) >= 0);
 			Assert.assertTrue(mm.getMax().compareTo(100L) <= 100);
 			assertUniformDistribution(histogram);
-		}
+		});
 	}
 
 }

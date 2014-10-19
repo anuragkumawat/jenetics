@@ -20,6 +20,7 @@
 package org.jenetics;
 
 import static org.jenetics.stat.StatisticsAssert.assertUniformDistribution;
+import static org.jenetics.util.RandomRegistry.using;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -32,8 +33,6 @@ import org.testng.annotations.Test;
 
 import org.jenetics.stat.Histogram;
 import org.jenetics.util.Factory;
-import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.Scoped;
 
 /**
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
@@ -52,11 +51,11 @@ public class DoubleGeneTest extends NumericGeneTester<Double, DoubleGene> {
 		final double max = 100;
 		final Histogram<Double> histogram = Histogram.of(min, max, 10);
 
-		try (Scoped<?> s = RandomRegistry.scope(new Random(12345))) {
+		using(new Random(12345), r -> {
 			IntStream.range(0, 200_000)
 				.mapToObj(i -> DoubleGene.of(min, max).getAllele())
 				.forEach(histogram::accept);
-		}
+		});
 
 		assertUniformDistribution(histogram);
 	}

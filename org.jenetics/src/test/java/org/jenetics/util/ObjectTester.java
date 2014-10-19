@@ -19,9 +19,13 @@
  */
 package org.jenetics.util;
 
+import static org.jenetics.util.MSeq.toMSeq;
+import static org.jenetics.util.RandomRegistry.with;
+
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Random;
+import java.util.stream.Stream;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -35,15 +39,10 @@ public abstract class ObjectTester<T> {
 	protected abstract Factory<T> factory();
 
 	protected MSeq<T> newSameObjects(final int length) {
-		final MSeq<T> objects = MSeq.ofLength(length);
-
-		for (int i = 0; i < length; ++i) {
-			try (Scoped<Random> s = RandomRegistry.scope(new Random(23487589))) {
-				objects.set(i, factory().newInstance());
-			}
-		}
-
-		return objects;
+		return Stream
+			.generate(() -> with(new Random(589), r -> factory().newInstance()))
+			.limit(length)
+			.collect(toMSeq());
 	}
 
 	@Test
