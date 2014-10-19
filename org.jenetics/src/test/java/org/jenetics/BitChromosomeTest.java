@@ -133,6 +133,24 @@ public class BitChromosomeTest extends ChromosomeTester<BitGene> {
 		}
 	}
 
+	@Test
+	public void ones() {
+		final BitChromosome c = BitChromosome.of(1000, 0.5);
+
+		final int ones = (int)c.ones().count();
+		assertEquals(ones, c.bitCount());
+		assertTrue(c.ones().allMatch(c::get));
+	}
+
+	@Test
+	public void zeros() {
+		final BitChromosome c = BitChromosome.of(1000, 0.5);
+
+		final int zeros = (int)c.zeros().count();
+		assertEquals(zeros, c.length() - c.bitCount());
+		assertTrue(c.zeros().allMatch(i -> !c.get(i)));
+	}
+
 	@Test(invocationCount = 5)
 	public void toBigInteger() {
 		final LCG64ShiftRandom random = new LCG64ShiftRandom();
