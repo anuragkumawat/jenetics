@@ -162,9 +162,10 @@ public interface MSeq<T> extends Seq<T>, Copyable<MSeq<T>> {
 	}
 
 	/**
-	 * Randomize the {@code array} using the given {@link Random} object. The used
-	 * shuffling algorithm is from D. Knuth TAOCP, Seminumerical Algorithms,
-	 * Third edition, page 142, Algorithm S (Selection sampling technique).
+	 * Randomize the {@code array} using the {@link Random} object currently
+	 * registered in the {@link RandomRegistry} class. The used shuffling
+	 * algorithm is from D. Knuth TAOCP, Seminumerical Algorithms, Third edition,
+	 * page 142, Algorithm S (Selection sampling technique).
 	 *
 	 * @return this shuffled sequence
 	 * @throws NullPointerException if the give array is {@code null}.
