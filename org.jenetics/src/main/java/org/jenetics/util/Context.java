@@ -75,7 +75,6 @@ final class Context<T> {
 	private static final class Entry<T> {
 		final Thread thread;
 		final Entry<T> parent;
-
 		T value;
 
 		Entry(final T value, final Entry<T> parent, final Thread thread) {
