@@ -245,6 +245,7 @@ public class EvolutionStatistics<
 		out.append("+---------------------------------------------------------------------------+\n");
 		out.append("|  Evolution statistics                                                     |\n");
 		out.append("+---------------------------------------------------------------------------+\n");
+		out.append(format(pattern, "Generations", i(_altered.getCount())));
 		out.append(format(pattern, "Altered", i(_altered)));
 		out.append(format(pattern, "Killed", i(_killed)));
 		out.append(format(pattern, "Invalids", i(_invalids)));
@@ -271,6 +272,11 @@ public class EvolutionStatistics<
 			"Σ=%s, μ=%6.9f",
 			nf.format(statistics.getSum()), statistics.getMean()
 		);
+	}
+
+	private static String i(final long value) {
+		final NumberFormat nf = NumberFormat.getIntegerInstance();
+		return nf.format(value);
 	}
 
 	private static String p(final IntMomentStatistics statistics) {
