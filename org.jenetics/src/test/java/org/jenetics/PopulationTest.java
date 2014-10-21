@@ -29,7 +29,6 @@ import org.testng.annotations.Test;
 import org.jenetics.util.Factory;
 import org.jenetics.util.ObjectTester;
 import org.jenetics.util.RandomRegistry;
-import org.jenetics.util.Serialize;
 import org.jenetics.util.lists;
 
 /**
