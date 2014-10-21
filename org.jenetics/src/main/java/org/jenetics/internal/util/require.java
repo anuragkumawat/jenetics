@@ -21,6 +21,8 @@ package org.jenetics.internal.util;
 
 import static java.lang.String.format;
 
+import java.util.function.Supplier;
+
 /**
  * Some helper methods for creating hash codes and comparing values.
  *
@@ -126,6 +128,14 @@ public final class require {
 			));
 		}
 		return p;
+	}
+
+	public static <T> T safe(final Supplier<T> access) {
+		try {
+			return access.get();
+		} catch (NullPointerException ignore) {
+			return null;
+		}
 	}
 
 }
