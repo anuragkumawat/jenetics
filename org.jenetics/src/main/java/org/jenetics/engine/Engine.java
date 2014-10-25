@@ -280,6 +280,7 @@ public final class Engine<
 			_optimize,
 			result.result,
 			start.generation,
+			start.generation,
 			durations,
 			killCount,
 			invalidCount,
@@ -300,7 +301,7 @@ public final class Engine<
 	// Filters out invalid and to old individuals. Filtering is done in place.
 	private FilterResult<G, C> filter(
 		final Population<G, C> population,
-		final int generation
+		final long generation
 	) {
 		int killCount = 0;
 		int invalidCount = 0;
@@ -321,7 +322,7 @@ public final class Engine<
 	}
 
 	// Create a new phenotype
-	private Phenotype<G, C> newPhenotype(final int generation) {
+	private Phenotype<G, C> newPhenotype(final long generation) {
 		return Phenotype.of(
 			_genotypeFactory.newInstance(),
 			_fitnessFunction,
@@ -333,7 +334,7 @@ public final class Engine<
 	// Alters the given population. The altering is done in place.
 	private AlterResult<G, C> alter(
 		final Population<G,C> population,
-		final int generation
+		final long generation
 	) {
 		return new AlterResult<>(
 			population,

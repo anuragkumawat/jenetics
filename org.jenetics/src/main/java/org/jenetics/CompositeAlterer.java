@@ -72,7 +72,7 @@ final class CompositeAlterer<
 	}
 
 	@Override
-	public int alter(final Population<G, C> population, final int generation) {
+	public int alter(final Population<G, C> population, final long generation) {
 		return _alterers.stream()
 			.mapToInt(a -> a.alter(population, generation))
 			.sum();

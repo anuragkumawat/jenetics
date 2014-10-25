@@ -61,7 +61,7 @@ public abstract class Crossover<
 	protected final int recombine(
 		final Population<G, C> population,
 		final int[] individuals,
-		final int generation
+		final long generation
 	) {
 		final Random random = RandomRegistry.getRandom();
 

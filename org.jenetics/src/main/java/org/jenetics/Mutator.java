@@ -101,7 +101,7 @@ public class Mutator<
 	@Override
 	public int alter(
 		final Population<G, C> population,
-		final int generation
+		final long generation
 	) {
 		assert(population != null) : "Not null is guaranteed from base class.";
 

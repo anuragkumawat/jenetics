@@ -40,11 +40,11 @@ final class EvolutionStart<
 > {
 
 	final Population<G, C> population;
-	final int generation;
+	final long generation;
 
 	EvolutionStart(
 		final Population<G, C> population,
-		final int generation
+		final long generation
 	) {
 		this.population = requireNonNull(population);
 		this.generation = generation;

@@ -65,7 +65,7 @@ public interface Alterer<
 	 * @throws NullPointerException if the given {@code population} is
 	 *        {@code null}.
 	 */
-	public int alter(final Population<G, C> population, final int generation);
+	public int alter(final Population<G, C> population, final long generation);
 
 	/**
 	 * Returns a composed alterer that first applies the {@code before} alterer
