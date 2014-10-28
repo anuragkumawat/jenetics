@@ -26,7 +26,6 @@ import java.util.Random;
 
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
-import org.jenetics.internal.util.IntRef;
 
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
@@ -74,18 +73,11 @@ public class SwapMutator<
 	 */
 	@Override
 	protected int mutate(final MSeq<G> genes, final double p) {
-		final IntRef alterations = new IntRef(0);
-
-		if (genes.length() > 1) {
-			final Random random = RandomRegistry.getRandom();
-
-			indexes(random, genes.length(), p).forEach(i -> {
-				genes.swap(i, random.nextInt(genes.length()));
-				++alterations.value;
-			});
-		}
-
-		return alterations.value;
+		final Random random = RandomRegistry.getRandom();
+		return genes.length() > 1 ?
+			(int)indexes(random, genes.length(), p)
+			.peek(i -> genes.swap(i, random.nextInt(genes.length())))
+			.count() : 0;
 	}
 
 	@Override

@@ -300,12 +300,6 @@ public class Population<G extends Gene<?, G>, C extends Comparable<? super C>>
 		return _population.toArray(a);
 	}
 
-	public List<Genotype<G>> getGenotypes() {
-		return _population.stream()
-			.map(pt -> pt.getGenotype())
-			.collect(toList());
-	}
-
 	@Override
 	public Population<G, C> copy() {
 		return new Population<>(new ArrayList<>(_population), true);

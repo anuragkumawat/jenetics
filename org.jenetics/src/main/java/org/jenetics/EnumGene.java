@@ -203,7 +203,7 @@ public final class EnumGene<A>
 
 	static <T> Supplier<EnumGene<T>> Gene(final ISeq<? extends T> validAlleles) {
 		final IntRef index = new IntRef();
-		return () -> new EnumGene<T>(index.value++, validAlleles);
+		return () -> new EnumGene<>(index.value++, validAlleles);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public final class EnumGene<A>
 		final int alleleIndex,
 		final A... validAlleles
 	) {
-		return new EnumGene<A>(alleleIndex, ISeq.of(validAlleles));
+		return new EnumGene<>(alleleIndex, ISeq.of(validAlleles));
 	}
 
 	/**

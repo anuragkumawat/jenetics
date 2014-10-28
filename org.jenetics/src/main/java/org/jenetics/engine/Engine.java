@@ -416,7 +416,7 @@ public final class Engine<
 		final Stream<Genotype<G>> stream = Stream.concat(
 			genotypes.stream(),
 			genotypes.stream().findFirst()
-				.map(gt -> gt.instances())
+				.map(Factory::instances)
 				.orElse(_genotypeFactory.instances())
 		);
 
@@ -617,7 +617,7 @@ public final class Engine<
 		private Selector<G, C> _offspringSelector = new TournamentSelector<>(3);
 		private Alterer<G, C> _alterer = Alterer.of(
 			new SinglePointCrossover<G, C>(0.2),
-			new Mutator<G, C>(0.15)
+			new Mutator<>(0.15)
 		);
 		private Optimize _optimize = Optimize.MAXIMUM;
 		private double _offspringFraction = 0.6;

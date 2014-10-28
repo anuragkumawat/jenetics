@@ -209,7 +209,7 @@ public final class Genotype<G extends Gene<?, G>>
 	@Override
 	public boolean isValid() {
 		if (_valid == null) {
-			_valid = _chromosomes.forAll(Chromosome::isValid);
+			_valid = _chromosomes.forAll(Verifiable::isValid);
 		}
 		return _valid;
 	}
@@ -221,7 +221,7 @@ public final class Genotype<G extends Gene<?, G>>
 	 */
 	@Override
 	public Genotype<G> newInstance() {
-		return new Genotype<>(_chromosomes.map(c -> c.newInstance()), _ngenes);
+		return new Genotype<>(_chromosomes.map(Factory::newInstance), _ngenes);
 	}
 
 	Genotype<G> newInstance(final ISeq<Chromosome<G>> chromosomes) {
