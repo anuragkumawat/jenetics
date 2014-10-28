@@ -20,10 +20,10 @@
 package org.jenetics;
 
 import static org.jenetics.internal.util.Equality.eq;
-import static org.jenetics.internal.util.require.probability;
 
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
+import org.jenetics.internal.util.require;
 
 /**
  * Abstract implementation of the alterer interface.
@@ -51,8 +51,9 @@ public abstract class AbstractAlterer<
 	 * @throws IllegalArgumentException if the {@code probability} is not in the
 	 *         valid range of {@code [0, 1]}.
 	 */
+	// Primary constructor
 	protected AbstractAlterer(final double probability) {
-		_probability = probability(probability);
+		_probability = require.probability(probability);
 	}
 
 	/**
