@@ -46,8 +46,8 @@ import org.jenetics.util.MSeq;
  * Numeric chromosome implementation which holds 64 bit integer numbers.
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 1.6 &mdash; <em>$Date$</em>
  * @since 1.6
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 @XmlJavaTypeAdapter(LongChromosome.Model.Adapter.class)
 public class LongChromosome
