@@ -88,6 +88,43 @@ public class LongChromosome
 	}
 
 	/**
+	 * Returns an long array containing all of the elements in this chromosome
+	 * in proper sequence.  If the chromosome fits in the specified array, it is
+	 * returned therein. Otherwise, a new array is allocated with the length of
+	 * this chromosome.
+	 *
+	 * @since 3.0
+	 *
+	 * @param array the array into which the elements of this chromosomes are to
+	 *        be stored, if it is big enough; otherwise, a new array is
+	 *        allocated for this purpose.
+	 * @return an array containing the elements of this chromosome
+	 * @throws NullPointerException if the given {@code array} is {@code null}
+	 */
+	public long[] toArray(final long[] array) {
+		final long[] a = array.length >= length() ?
+			array : new long[length()];
+
+		for (int i = length(); --i >= 0;) {
+			a[i] = longValue(i);
+		}
+
+		return a;
+	}
+
+	/**
+	 * Returns an long array containing all of the elements in this chromosome
+	 * in proper sequence.
+	 *
+	 * @since 3.0
+	 *
+	 * @return an array containing the elements of this chromosome
+	 */
+	public long[] toArray() {
+		return toArray(new long[length()]);
+	}
+
+	/**
 	 * Create a new {@code LongChromosome} with the given genes.
 	 *
 	 * @param genes the genes of the chromosome.

@@ -88,6 +88,43 @@ public class DoubleChromosome
 	}
 
 	/**
+	 * Returns an double array containing all of the elements in this chromosome
+	 * in proper sequence.  If the chromosome fits in the specified array, it is
+	 * returned therein. Otherwise, a new array is allocated with the length of
+	 * this chromosome.
+	 *
+	 * @since 3.0
+	 *
+	 * @param array the array into which the elements of this chromosomes are to
+	 *        be stored, if it is big enough; otherwise, a new array is
+	 *        allocated for this purpose.
+	 * @return an array containing the elements of this chromosome
+	 * @throws NullPointerException if the given {@code array} is {@code null}
+	 */
+	public double[] toArray(final double[] array) {
+		final double[] a = array.length >= length() ?
+			array : new double[length()];
+
+		for (int i = length(); --i >= 0;) {
+			a[i] = doubleValue(i);
+		}
+
+		return a;
+	}
+
+	/**
+	 * Returns an double array containing all of the elements in this chromosome
+	 * in proper sequence.
+	 *
+	 * @since 3.0
+	 *
+	 * @return an array containing the elements of this chromosome
+	 */
+	public double[] toArray() {
+		return toArray(new double[length()]);
+	}
+
+	/**
 	 * Create a new {@code DoubleChromosome} with the given genes.
 	 *
 	 * @param genes the genes of the chromosome.

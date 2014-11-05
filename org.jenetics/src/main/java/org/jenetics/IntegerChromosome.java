@@ -86,6 +86,43 @@ public class IntegerChromosome
 	}
 
 	/**
+	 * Returns an int array containing all of the elements in this chromosome
+	 * in proper sequence.  If the chromosome fits in the specified array, it is
+	 * returned therein. Otherwise, a new array is allocated with the length of
+	 * this chromosome.
+	 *
+	 * @since 3.0
+	 *
+	 * @param array the array into which the elements of this chromosomes are to
+	 *        be stored, if it is big enough; otherwise, a new array is
+	 *        allocated for this purpose.
+	 * @return an array containing the elements of this chromosome
+	 * @throws NullPointerException if the given {@code array} is {@code null}
+	 */
+	public int[] toArray(final int[] array) {
+		final int[] a = array.length >= length() ?
+			array : new int[length()];
+
+		for (int i = length(); --i >= 0;) {
+			a[i] = intValue(i);
+		}
+
+		return a;
+	}
+
+	/**
+	 * Returns an int array containing all of the elements in this chromosome
+	 * in proper sequence.
+	 *
+	 * @since 3.0
+	 *
+	 * @return an array containing the elements of this chromosome
+	 */
+	public int[] toArray() {
+		return toArray(new int[length()]);
+	}
+
+	/**
 	 * Create a new {@code IntegerChromosome} with the given genes.
 	 *
 	 * @param genes the genes of the chromosome.
