@@ -216,6 +216,11 @@ class ProjectAdapter implements Project {
 	}
 
 	@Override
+	public ExecResult exec(Action action) {
+		return project.exec(action)
+	}
+
+	@Override
 	public File file(final Object path, final PathValidation validator)
 		throws InvalidUserDataException
 	{
@@ -450,6 +455,11 @@ class ProjectAdapter implements Project {
 	@Override
 	public ExecResult javaexec(final Closure exec) {
 		return project.javaexec(exec)
+	}
+
+	@Override
+	public ExecResult javaexec(Action action) {
+		return project.javaexec(action)
 	}
 
 	@Override
