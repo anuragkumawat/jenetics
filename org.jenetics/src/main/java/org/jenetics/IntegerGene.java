@@ -65,7 +65,7 @@ public final class IntegerGene
 	 * @param max the maximal valid value of this gene (inclusively).
 	 * @throws NullPointerException if one of the arguments is {@code null}.
 	 */
-	public IntegerGene(final Integer value, final Integer min, final Integer max) {
+	IntegerGene(final Integer value, final Integer min, final Integer max) {
 		super(value, min, max);
 	}
 

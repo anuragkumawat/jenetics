@@ -65,7 +65,7 @@ public final class DoubleGene
 	 * @param max the maximal valid value of this gene (exclusively).
 	 * @throws NullPointerException if one of the arguments is {@code null}.
 	 */
-	public DoubleGene(final Double value, final Double min, final Double max) {
+	DoubleGene(final Double value, final Double min, final Double max) {
 		super(value, min, max);
 	}
 

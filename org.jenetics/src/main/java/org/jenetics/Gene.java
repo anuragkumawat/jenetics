@@ -26,7 +26,13 @@ import org.jenetics.util.Verifiable;
 
 /**
  * Genes are the atoms of the <em>Jenetics</em> library. They contain the actual
- * information (alleles) of the encoded solution.
+ * information (alleles) of the encoded solution. All implementations of the
+ * this interface are final, immutable and can ne only created via static
+ * factory methods which have the name {@code of}. When extending the library
+ * with own {@code Gene} implementations, it is recommended to also implement it
+ * as <a href="https://en.wikipedia.org/wiki/Value_object">value objects</a>.
+ *
+ * @see <a href="https://en.wikipedia.org/wiki/Value_object">Value object</a>
  *
  * @param <A> the <a href="http://en.wikipedia.org/wiki/Allele">Allele</a> type
  *         of this gene.

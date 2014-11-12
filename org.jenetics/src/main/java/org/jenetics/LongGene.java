@@ -65,7 +65,7 @@ public final class LongGene
 	 * @param max the maximal valid value of this gene (inclusively).
 	 * @throws NullPointerException if one of the arguments is {@code null}.
 	 */
-	public LongGene(final Long value, final Long min, final Long max) {
+	LongGene(final Long value, final Long min, final Long max) {
 		super(value, min, max);
 	}
 

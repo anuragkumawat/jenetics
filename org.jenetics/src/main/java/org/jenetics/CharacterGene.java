@@ -84,7 +84,7 @@ public final class CharacterGene
 	 * @param validChars the set of valid characters.
 	 * @throws NullPointerException if one of the arguments is {@code null}.
 	 */
-	public CharacterGene(final Character character, final CharSeq validChars) {
+	CharacterGene(final Character character, final CharSeq validChars) {
 		_character = requireNonNull(character);
 		_validCharacters = requireNonNull(validChars);
 		_valid = _validCharacters.contains(_character);

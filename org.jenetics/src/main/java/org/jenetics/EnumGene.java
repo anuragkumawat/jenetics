@@ -98,7 +98,7 @@ public final class EnumGene<A>
 	 *         sequence is empty
 	 * @throws NullPointerException if the valid alleles seq is {@code null}.
 	 */
-	public EnumGene(final int alleleIndex, final ISeq<? extends A> validAlleles) {
+	EnumGene(final int alleleIndex, final ISeq<? extends A> validAlleles) {
 		if (validAlleles.length() == 0) {
 			throw new IllegalArgumentException(
 				"Array of valid alleles must be greater than zero."
