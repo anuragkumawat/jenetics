@@ -143,7 +143,7 @@ class SetupPlugin extends JeneticsPlugin {
 				charSet = 'UTF-8'
 				linkSource = true
 				links = [
-					'http://docs.oracle.com/javase/8/docs/api/'
+					'https://docs.oracle.com/javase/8/docs/api'
 				]
 				windowTitle = "Jenetics ${project.version}"
 				docTitle = "<h1>Jenetics ${project.version}</h1>"
@@ -156,7 +156,7 @@ class SetupPlugin extends JeneticsPlugin {
                 //options.addStringOption('excludedocfilessubdir', 'org/jenetics/internal')
 				options.addStringOption('noqualifier', 'org.jenetics.internal.collection')
 
-				group('Core API', ['org.jenetics']).
+				group('Core API', ['org.jenetics', 'org.jenetics.engine'])
 				group('Utilities', ['org.jenetics.util', 'org.jenetics.stat'])
 			}
 
