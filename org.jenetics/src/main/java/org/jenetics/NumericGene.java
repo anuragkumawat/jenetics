@@ -30,7 +30,9 @@ public interface NumericGene<
 	N extends Number & Comparable<? super N>,
 	G extends NumericGene<N, G>
 >
-	extends BoundedGene<N, G>
+	extends
+		BoundedGene<N, G>,
+		Comparable<G>
 {
 
 	/**
