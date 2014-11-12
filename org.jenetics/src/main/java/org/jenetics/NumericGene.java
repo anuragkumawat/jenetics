@@ -23,8 +23,8 @@ package org.jenetics;
  * Base interface for numeric genes.
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
- * @version 1.6 &mdash; <em>$Date$</em>
  * @since 1.6
+ * @version 3.0 &mdash; <em>$Date$</em>
  */
 public interface NumericGene<
 	N extends Number & Comparable<? super N>,
