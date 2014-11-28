@@ -111,7 +111,7 @@ public final class Genotype<G extends Gene<?, G>>
 	 *         element.
 	 * @throws IllegalArgumentException if {@code chromosome.length == 0}.
 	 */
-	public Genotype(final ISeq<? extends Chromosome<G>> chromosomes) {
+	Genotype(final ISeq<? extends Chromosome<G>> chromosomes) {
 		this(chromosomes, ngenes(chromosomes));
 	}
 

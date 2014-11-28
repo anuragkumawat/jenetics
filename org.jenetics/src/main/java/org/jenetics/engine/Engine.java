@@ -81,7 +81,7 @@ import org.jenetics.util.Factory;
  *        final Phenotype&lt;DoubleGene, Double&gt; result = engine.stream()
  *             // Truncate the evolution stream if no better individual could
  *             // be found after 5 consecutive generations.
- *            .limit(bySteadyFitness(5)
+ *            .limit(bySteadyFitness(5))
  *             // Terminate the evolution after maximal 100 generations.
  *            .limit(100)
  *            .collect(toBestPhenotype());
@@ -324,9 +324,8 @@ public final class Engine<
 	private Phenotype<G, C> newPhenotype(final long generation) {
 		return Phenotype.of(
 			_genotypeFactory.newInstance(),
-			_fitnessFunction,
-			_fitnessScaler,
-			generation
+			generation, _fitnessFunction,
+			_fitnessScaler
 		);
 	}
 
@@ -423,7 +422,7 @@ public final class Engine<
 		final int size = _offspringCount + _survivorsCount;
 		final Population<G, C> pop = stream.limit(size)
 			.map(gt -> Phenotype.of(
-				gt, _fitnessFunction, _fitnessScaler, generation))
+				gt, generation, _fitnessFunction, _fitnessScaler))
 			.collect(toPopulation());
 
 		return new EvolutionStart<>(pop, generation);

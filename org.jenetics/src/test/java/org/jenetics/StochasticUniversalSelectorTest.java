@@ -65,7 +65,7 @@ public class StochasticUniversalSelectorTest
 			Genotype.of(IntegerChromosome.of(0, 100, 10));
 
 		final Population<IntegerGene, Integer> population = IntStream.range(0, 50)
-			.mapToObj(i -> Phenotype.of(gtf.newInstance(), ff, 50))
+			.mapToObj(i -> Phenotype.of(gtf.newInstance(), 50, ff))
 			.collect(Population.toPopulation());
 
 		final StochasticUniversalSelector<IntegerGene, Integer> selector =
