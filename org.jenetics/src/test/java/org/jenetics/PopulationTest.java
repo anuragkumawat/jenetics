@@ -47,7 +47,7 @@ public class PopulationTest
 		(Function<Double, Double> & Serializable)d -> d;
 
 	private static Phenotype<DoubleGene, Double> pt(double value) {
-		return Phenotype.of(Genotype.of(DoubleChromosome.of(DoubleGene.of(value, 0, 10))), FF, FS, 0);
+		return Phenotype.of(Genotype.of(DoubleChromosome.of(DoubleGene.of(value, 0, 10))), 0, FF, FS);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class PopulationTest
 			final Genotype<DoubleGene> gt = Genotype.of(DoubleChromosome.of(0, 1));
 
 			return new Population<DoubleGene, Double>(100)
-				.fill(() -> Phenotype.of(gt.newInstance(), FF, FS, 1), 100);
+				.fill(() -> Phenotype.of(gt.newInstance(), 1, FF, FS), 100);
 		};
 	}
 
