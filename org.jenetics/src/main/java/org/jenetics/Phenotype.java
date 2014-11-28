@@ -270,7 +270,7 @@ public final class Phenotype<
 	public Phenotype<G, C> newInstance(
 		final Function<? super Genotype<G>, ? extends C> function,
 		final Function<? super C, ? extends C> scaler,
-		final int generation
+		final long generation
 	) {
 		return of(_genotype, function, scaler, generation);
 	}
@@ -288,7 +288,7 @@ public final class Phenotype<
 	 */
 	public Phenotype<G, C> newInstance(
 		final Function<? super Genotype<G>, ? extends C> function,
-		final int generation
+		final long generation
 	) {
 		return of(_genotype, function, a -> a, generation);
 	}
@@ -311,7 +311,7 @@ public final class Phenotype<
 	Phenotype<G, C> of(
 		final Genotype<G> genotype,
 		final Function<? super Genotype<G>, C> fitnessFunction,
-		final int generation
+		final long generation
 	) {
 		return of(
 			genotype,
