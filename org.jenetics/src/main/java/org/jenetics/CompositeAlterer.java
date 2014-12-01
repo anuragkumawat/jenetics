@@ -64,7 +64,8 @@ final class CompositeAlterer<
 	ISeq<Alterer<G, C>> normalize(final Seq<Alterer<G, C>> alterers) {
 		final Function<Alterer<G, C>, Stream<Alterer<G, C>>> mapper =
 			a -> a instanceof CompositeAlterer<?, ?> ?
-				((CompositeAlterer<G, C>)a).getAlterers().stream() : Stream.of(a);
+				((CompositeAlterer<G, C>)a).getAlterers().stream() :
+				Stream.of(a);
 
 		return alterers.stream()
 			.flatMap(mapper)

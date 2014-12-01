@@ -66,18 +66,19 @@ final class EvolutionStreamImpl<
 			evolution,
 			initial,
 			StreamSupport.stream(
-				new EvolutionSpliterator<>(evolution, initial, r -> true),
+				new EvolutionSpliterator<>(evolution, initial, True()),
 				false
 			),
-			r -> true
+			True()
 		);
 	}
 
 	@Override
 	public EvolutionStream<G, C>
 	limit(final Predicate<? super EvolutionResult<G, C>> proceed) {
-		final Predicate<? super EvolutionResult<G, C>> prcd = r ->
-			proceed.test(r) & _proceed.test(r);
+		final Predicate<? super EvolutionResult<G, C>> prcd =
+			_proceed == TRUE ? proceed :
+				r -> proceed.test(r) & _proceed.test(r);
 
 		return new EvolutionStreamImpl<G, C>(
 			_evolution,
@@ -88,6 +89,13 @@ final class EvolutionStreamImpl<
 			),
 			prcd
 		);
+	}
+
+	private static final Predicate<?> TRUE = a -> true;
+
+	@SuppressWarnings("unchecked")
+	private static <T> Predicate<T> True() {
+		return (Predicate<T>)TRUE;
 	}
 
 }
