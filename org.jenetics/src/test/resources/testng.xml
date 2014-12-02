@@ -207,6 +207,11 @@
 			<class name="org.jenetics.engine.EngineBuilderTest" />
 		</classes>
 	</test>
+	<test name="org.jenetics.engine.Engine">
+		<classes>
+			<class name="org.jenetics.engine.EngineTest" />
+		</classes>
+	</test>
     <test name="org.jenetics.engine.EvolutionDurations">
         <classes>
             <class name="org.jenetics.engine.EvolutionDurationsTest" />
