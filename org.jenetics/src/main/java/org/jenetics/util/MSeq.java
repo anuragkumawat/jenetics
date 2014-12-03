@@ -290,10 +290,14 @@ public interface MSeq<T> extends Seq<T>, Copyable<MSeq<T>> {
 	 * @return a new {@code MSeq} with the given values.
 	 * @throws NullPointerException if the {@code values} array is {@code null}.
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> MSeq<T> of(final Iterable<? extends T> values) {
 		MSeq<T> mseq = null;
-		if (values instanceof Collection<?>) {
-			@SuppressWarnings("unchecked")
+		if (values instanceof ISeq<?>) {
+			mseq = ((ISeq<T>)values).copy();
+		} else if (values instanceof MSeq<?>) {
+			mseq = (MSeq<T>)values;
+		} else if (values instanceof Collection<?>) {
 			final Collection<T> collection = (Collection<T>)values;
 			mseq = MSeq.<T>ofLength(collection.size()).setAll(values);
 		} else {
