@@ -51,6 +51,8 @@ public interface Chromosome<G extends Gene<?, G>>
 	 *         not copied.
 	 * @return A new {@link Chromosome} of the same type with the given genes.
 	 * @throws NullPointerException if the given {@code gene}s are {@code null}.
+	 * @throws IllegalArgumentException if the length of the given gene sequence
+	 *        is smaller than one.
 	 */
 	public Chromosome<G> newInstance(final ISeq<G> genes);
 

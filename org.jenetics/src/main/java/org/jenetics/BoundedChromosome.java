@@ -32,6 +32,7 @@ public interface BoundedChromosome<
 >
 	extends Chromosome<G>
 {
+
 	/**
 	 * Return the minimum value of this {@code BoundedChromosome}.
 	 *

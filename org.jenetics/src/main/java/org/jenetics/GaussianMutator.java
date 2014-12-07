@@ -74,9 +74,8 @@ public final class GaussianMutator<
 	}
 
 	G mutate(final G gene, final Random random) {
-		final double std = (
-			gene.getMax().doubleValue() - gene.getMin().doubleValue()
-		)*0.25;
+		final double std =
+			(gene.getMax().doubleValue() - gene.getMin().doubleValue())*0.25;
 
 		return gene.newInstance(base.clamp(
 			random.nextGaussian()*std + gene.doubleValue(),

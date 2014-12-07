@@ -109,8 +109,8 @@ public final class BoltzmannSelector<
 		}
 
 		normalize(probabilities);
-
 		assert (sum2one(probabilities)) : "Probabilities doesn't sum to one.";
+
 		return probabilities;
 	}
 

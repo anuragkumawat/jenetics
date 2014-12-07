@@ -78,10 +78,10 @@ public abstract class AbstractChromosome<G extends Gene<?, G>>
 		requireNonNull(genes, "Gene array");
 		assert (genes.forAll(Objects::nonNull)) : "Found at least on null gene.";
 
-		if (genes.length() < 1) {
-			throw new IllegalArgumentException(format(
-				"Chromosome length < 1: %d", genes.length()
-			));
+		if (genes.length() == 0) {
+			throw new IllegalArgumentException(
+				"The genes sequence must contain at least one gene."
+			);
 		}
 
 		_genes = reflect.cast(genes);

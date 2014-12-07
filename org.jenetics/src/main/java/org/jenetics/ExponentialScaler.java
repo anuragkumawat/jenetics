@@ -93,7 +93,10 @@ public final class ExponentialScaler
 
 	@Override
 	public int hashCode() {
-		return Hash.of(getClass()).and(_a).and(_b).and(_c).value();
+		return Hash.of(getClass())
+			.and(_a)
+			.and(_b)
+			.and(_c).value();
 	}
 
 	@Override

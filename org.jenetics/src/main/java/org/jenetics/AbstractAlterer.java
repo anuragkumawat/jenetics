@@ -51,7 +51,6 @@ public abstract class AbstractAlterer<
 	 * @throws IllegalArgumentException if the {@code probability} is not in the
 	 *         valid range of {@code [0, 1]}.
 	 */
-	// Primary constructor
 	protected AbstractAlterer(final double probability) {
 		_probability = require.probability(probability);
 	}

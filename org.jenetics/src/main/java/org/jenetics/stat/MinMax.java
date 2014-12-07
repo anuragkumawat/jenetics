@@ -25,8 +25,6 @@ import java.util.Comparator;
 import java.util.function.Consumer;
 import java.util.stream.Collector;
 
-import org.jenetics.internal.util.PrimaryConstructor;
-
 /**
  * This <i>consumer</i> class is used for calculating the min and max value
  * according to the given {@code Comparator}.
@@ -43,7 +41,6 @@ public final class MinMax<C> implements Consumer<C> {
 	private C _max;
 	private long _count = 0L;
 
-	@PrimaryConstructor
 	private MinMax(final Comparator<? super C> comparator) {
 		_comparator = requireNonNull(comparator);
 	}

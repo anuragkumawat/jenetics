@@ -30,7 +30,6 @@ import java.util.stream.Collector;
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 import org.jenetics.internal.util.Lazy;
-import org.jenetics.internal.util.PrimaryConstructor;
 
 import org.jenetics.Gene;
 import org.jenetics.Genotype;
@@ -70,7 +69,6 @@ public final class EvolutionResult<
 	private final Lazy<Phenotype<G, C>> _best;
 	private final Lazy<Phenotype<G, C>> _worst;
 
-	@PrimaryConstructor
 	private EvolutionResult(
 		final Optimize optimize,
 		final Population<G, C> population,

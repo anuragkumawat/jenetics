@@ -364,6 +364,11 @@ public class BitChromosome extends Number
 	@Override
 	public BitChromosome newInstance(final ISeq<BitGene> genes) {
 		requireNonNull(genes, "Genes");
+		if (genes.length() == 0) {
+			throw new IllegalArgumentException(
+				"The genes sequence must contain at least one gene."
+			);
+		}
 
 		final BitChromosome chromosome = new BitChromosome(
 			bit.newArray(genes.length()), genes.length()

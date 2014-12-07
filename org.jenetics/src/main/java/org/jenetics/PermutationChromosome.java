@@ -21,6 +21,7 @@ package org.jenetics;
 
 import static java.lang.String.format;
 import static org.jenetics.internal.util.bit.getAndSet;
+import static org.jenetics.util.MSeq.toMSeq;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -29,6 +30,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -50,8 +52,8 @@ import org.jenetics.internal.util.reflect;
 
 import org.jenetics.util.ISeq;
 import org.jenetics.util.MSeq;
+import org.jenetics.util.RandomRegistry;
 import org.jenetics.util.Seq;
-
 
 /**
  * The mutable methods of the {@link AbstractChromosome} has been overridden so
@@ -132,12 +134,14 @@ public final class PermutationChromosome<T>
 	 * @return a new chromosome with the given alleles
 	 */
 	public static <T> PermutationChromosome<T> of(final ISeq<? extends T> alleles) {
-		final PermutationChromosome<T> chromosome = new PermutationChromosome<>(
-			MSeq.<EnumGene<T>>ofLength(alleles.length())
-					.fill(EnumGene.Gene(alleles))
-					.shuffle()
-					.toISeq()
-		);
+		final ISeq<EnumGene<T>> genes = IntStream.range(0, alleles.length())
+			.mapToObj(index -> new EnumGene<>(index, alleles))
+			.collect(toMSeq())
+			.shuffle(RandomRegistry.getRandom())
+			.toISeq();
+
+		final PermutationChromosome<T> chromosome =
+			new PermutationChromosome<>(genes);
 		chromosome._validAlleles = reflect.cast(alleles);
 		chromosome._valid = true;
 

@@ -37,7 +37,9 @@ abstract class AbstractBoundedChromosome<
 	A extends Comparable<? super A>,
 	G extends AbstractBoundedGene<A, G>
 >
-	extends AbstractChromosome<G> implements BoundedChromosome<A, G> {
+	extends AbstractChromosome<G>
+	implements BoundedChromosome<A, G>
+{
 
 	private static final long serialVersionUID = 1L;
 
