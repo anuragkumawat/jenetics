@@ -51,7 +51,7 @@ import org.jenetics.util.MSeq;
  */
 @XmlJavaTypeAdapter(LongChromosome.Model.Adapter.class)
 public class LongChromosome
-	extends AbstractNumericChromosome<Long, LongGene>
+	extends AbstractBoundedChromosome<Long, LongGene>
 	implements
 		NumericChromosome<Long, LongGene>,
 		Serializable

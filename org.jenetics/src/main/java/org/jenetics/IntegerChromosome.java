@@ -49,7 +49,7 @@ import org.jenetics.util.MSeq;
  */
 @XmlJavaTypeAdapter(IntegerChromosome.Model.Adapter.class)
 public class IntegerChromosome
-	extends AbstractNumericChromosome<Integer, IntegerGene>
+	extends AbstractBoundedChromosome<Integer, IntegerGene>
 	implements
 			NumericChromosome<Integer, IntegerGene>,
 			Serializable

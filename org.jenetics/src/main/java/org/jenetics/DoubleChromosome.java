@@ -51,7 +51,7 @@ import org.jenetics.util.MSeq;
  */
 @XmlJavaTypeAdapter(DoubleChromosome.Model.Adapter.class)
 public class DoubleChromosome
-	extends AbstractNumericChromosome<Double, DoubleGene>
+	extends AbstractBoundedChromosome<Double, DoubleGene>
 	implements
 		NumericChromosome<Double, DoubleGene>,
 		Serializable
