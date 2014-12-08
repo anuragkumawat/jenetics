@@ -29,7 +29,6 @@ import org.jenetics.internal.util.Hash;
 import org.jenetics.util.MSeq;
 import org.jenetics.util.RandomRegistry;
 
-
 /**
  * <strong>Single point crossover</strong>
  *

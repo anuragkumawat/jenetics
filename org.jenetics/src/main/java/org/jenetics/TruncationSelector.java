@@ -32,7 +32,7 @@ import org.jenetics.internal.util.Hash;
  * in large populations, but is not very often used in practice.
  *
  * @see <a href="http://en.wikipedia.org/wiki/Truncation_selection">
- * 			Wikipedia: Truncation selection
+ *          Wikipedia: Truncation selection
  *      </a>
  *
  * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>

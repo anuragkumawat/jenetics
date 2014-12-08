@@ -30,7 +30,6 @@ import org.jenetics.internal.math.DoubleAdder;
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
-
 /**
  * The roulette-wheel selector is also known as fitness proportional selector,
  * but in the <em>Jenetics</em> library it is implemented as probability selector.

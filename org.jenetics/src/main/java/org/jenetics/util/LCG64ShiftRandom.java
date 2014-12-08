@@ -30,7 +30,6 @@ import org.jenetics.internal.math.random;
 import org.jenetics.internal.util.Equality;
 import org.jenetics.internal.util.Hash;
 
-
 /**
  * This class implements a linear congruential PRNG with additional bit-shift
  * transition. The base recursion
