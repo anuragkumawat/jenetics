@@ -20,6 +20,7 @@
 package org.jenetics;
 
 import java.io.Serializable;
+import java.util.stream.Collector;
 
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
@@ -29,6 +30,10 @@ import org.jenetics.util.Verifiable;
  * A chromosome consists of one or more genes. It also provides a factory
  * method for creating new, random chromosome instances of the same type and the
  * same constraint.
+ * <p>
+ * <span class="simpleTagLabel">API Note: </span>
+ * Implementations of the {@code Chromosome} interface must be <em>immutable</em>
+ * and guarantee an efficient random access ({@code O(1)}) to the genes.
  *
  * @see <a href="http://en.wikipedia.org/wiki/Chromosome">Wikipdida: Chromosome</a>
  *

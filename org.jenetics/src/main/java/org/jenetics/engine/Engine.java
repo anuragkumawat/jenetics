@@ -198,7 +198,7 @@ public final class Engine<
 	 */
 	public EvolutionResult<G, C> evolve(
 		final Population<G, C> population,
-		final int generation
+		final long generation
 	) {
 		return evolve(new EvolutionStart<>(population, generation));
 	}
