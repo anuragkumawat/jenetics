@@ -123,7 +123,7 @@ public class LCG64ShiftRandom extends Random64 {
 
 		/**
 		 * Create a new <i>thread local</i> instance of the
-		 * {@code LCG64ShiftRandom} PRGN with the {@code DEFAULT} parameters.
+		 * {@code LCG64ShiftRandom} PRNG with the {@code DEFAULT} parameters.
 		 */
 		public ThreadLocal() {
 			this(Param.DEFAULT);
@@ -131,7 +131,7 @@ public class LCG64ShiftRandom extends Random64 {
 
 		/**
 		 * Create a new <i>thread local</i> instance of the
-		 * {@code LCG64ShiftRandom} PRGN with the given parameters.
+		 * {@code LCG64ShiftRandom} PRNG with the given parameters.
 		 *
 		 * @param param the LC parameters.
 		 * @throws NullPointerException if the given parameters are null.
@@ -193,7 +193,7 @@ public class LCG64ShiftRandom extends Random64 {
 	}
 
 	/**
-	 * This is a <i>thread safe</i> variation of the this PRGN&mdash;by
+	 * This is a <i>thread safe</i> variation of the this PRNG&mdash;by
 	 * synchronizing the random number generation.
 	 *
 	 * @author <a href="mailto:franz.wilhelmstoetter@gmx.at">Franz Wilhelmstötter</a>
