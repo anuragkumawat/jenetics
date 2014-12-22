@@ -19,7 +19,6 @@
  */
 package org.jenetics;
 
-import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 import static org.jenetics.internal.util.Equality.eq;
 

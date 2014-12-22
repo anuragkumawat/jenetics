@@ -20,7 +20,6 @@
 package org.jenetics;
 
 import java.io.Serializable;
-import java.util.stream.Collector;
 
 import org.jenetics.util.Factory;
 import org.jenetics.util.ISeq;
