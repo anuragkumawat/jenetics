@@ -122,8 +122,8 @@ public final class DieHarder {
 		final Process dieharder = builder.start();
 
 		final Randomizer randomizer = new Randomizer(
-				random,
-				dieharder.getOutputStream()
+			random,
+			dieharder.getOutputStream()
 		);
 		final Thread randomizerThread = new Thread(randomizer);
 		randomizerThread.start();
@@ -150,9 +150,9 @@ public final class DieHarder {
 		final Map<Assessment, Long> grouped = results.stream()
 			.collect(groupingBy(r -> r.assessment, counting()));
 
-		final long passed = grouped.get(Assessment.PASSED);
-		final long weak = grouped.get(Assessment.WEAK);
-		final long failed = grouped.get(Assessment.FAILED);
+		final long passed = grouped.getOrDefault(Assessment.PASSED, 0L);
+		final long weak = grouped.getOrDefault(Assessment.WEAK, 0L);
+		final long failed = grouped.getOrDefault(Assessment.FAILED, 0L);
 
 		final NumberFormat formatter = NumberFormat.getIntegerInstance();
 		formatter.setMinimumFractionDigits(3);
