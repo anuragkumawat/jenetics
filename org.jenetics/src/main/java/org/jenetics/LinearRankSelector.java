@@ -50,7 +50,7 @@ import org.jenetics.internal.util.Hash;
  * <i>
  * T. Blickle, L. Thiele, A comparison of selection schemes used
  * in evolutionary algorithms, Technical Report, ETH Zurich, 1997, page 37.
- * <a href="http://citeseer.ist.psu.edu/blickle97comparison.html">
+ * <a href="http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.15.9584&rank=1">
  *	http://citeseer.ist.psu.edu/blickle97comparison.html
  * </a>
  * </i>

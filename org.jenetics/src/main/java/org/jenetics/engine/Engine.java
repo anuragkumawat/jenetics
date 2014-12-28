@@ -96,6 +96,7 @@ import org.jenetics.util.Factory;
  * {@code Engine}.
  * <p>
  * <em>
+ *     <b>This class is thread safe:</b>
  *     No mutable state is maintained by the engine. Therefore it is save to
  *     create multiple evolution streams with one engine, which may be actually
  *     used in different threads.

@@ -478,8 +478,7 @@ public class BitChromosome extends Number
 	/**
 	 * Constructing a new BitChromosome from a given BitSet.
 	 * The BitSet is copied while construction. The length of the constructed
-	 * BitChromosome will be {@code bitSet.length()}
-	 * (@see BitSet#length).
+	 * BitChromosome will be {@code bitSet.length()} ({@link BitSet#length}).
 	 *
 	 * @param bits the bit-set which initializes the chromosome
 	 * @return a new {@code BitChromosome} with the given parameter
