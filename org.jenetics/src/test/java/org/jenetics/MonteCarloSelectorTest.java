@@ -19,10 +19,6 @@
  */
 package org.jenetics;
 
-import org.testng.annotations.Test;
-
-import org.jenetics.stat.Distribution;
-import org.jenetics.stat.UniformDistribution;
 import org.jenetics.util.Factory;
 
 /**
@@ -33,33 +29,9 @@ public class MonteCarloSelectorTest
 	extends SelectorTester<MonteCarloSelector<DoubleGene, Double>>
 {
 
-	final Factory<MonteCarloSelector<DoubleGene, Double>>
-	_factory = new Factory<MonteCarloSelector<DoubleGene,Double>>()
-	{
-		@Override
-		public MonteCarloSelector<DoubleGene, Double> newInstance() {
-			return new MonteCarloSelector<>();
-		}
-	};
-
 	@Override
-	protected Factory<MonteCarloSelector<DoubleGene, Double>> getFactory() {
-		return _factory;
-	}
-
-	@Override
-	protected boolean isCheckEnabled() {
-		return true;
-	}
-
-	@Override
-	protected Distribution<Double> getDistribution() {
-		return new UniformDistribution<>(getDomain());
-	}
-
-	@Test
-	public void foo() {
-
+	protected Factory<MonteCarloSelector<DoubleGene, Double>> factory() {
+		return MonteCarloSelector::new;
 	}
 
 }

@@ -32,7 +32,7 @@ import org.jenetics.util.Factory;
  */
 public class BitGeneTest extends GeneTester<BitGene> {
 
-	@Override protected Factory<BitGene> getFactory() {
+	@Override protected Factory<BitGene> factory() {
 		return BitGene.FALSE;
 	}
 

@@ -49,36 +49,6 @@ abstract class AbstractNumericGene<
 	}
 
 	@Override
-	public byte byteValue() {
-		return _value.byteValue();
-	}
-
-	@Override
-	public short shortValue() {
-		return _value.shortValue();
-	}
-
-	@Override
-	public int intValue() {
-		return _value.intValue();
-	}
-
-	@Override
-	public long longValue() {
-		return _value.longValue();
-	}
-
-	@Override
-	public float floatValue() {
-		return _value.floatValue();
-	}
-
-	@Override
-	public double doubleValue() {
-		return _value.doubleValue();
-	}
-
-	@Override
 	public abstract G newInstance(final Number number);
 
 }
